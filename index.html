@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healing Guru - Your Path to Wellness</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>🧘‍♀️ Healing Guru</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h2>Welcome to Your Journey of Healing</h2>
+                <p>Discover holistic wellness practices tailored to your needs</p>
+                <button class="cta-button" onclick="scrollToSection('services')">Explore Services</button>
+            </div>
+        </section>
+
+        <section id="services" class="services">
+            <h2>Our Services</h2>
+            <div class="service-grid">
+                <div class="service-card">
+                    <div class="service-icon">🧘</div>
+                    <h3>Meditation</h3>
+                    <p>Guided meditation sessions to calm your mind and reduce stress</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💆</div>
+                    <h3>Healing Therapy</h3>
+                    <p>Personalized healing therapies for physical and emotional wellness</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🌿</div>
+                    <h3>Herbal Remedies</h3>
+                    <p>Natural herbal solutions for holistic health</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🧠</div>
+                    <h3>Mindfulness</h3>
+                    <p>Techniques to improve awareness and live in the present</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <h2>About Healing Guru</h2>
+            <div class="about-content">
+                <p>
+                    Healing Guru is your trusted companion on the journey to holistic wellness.
+                    We combine ancient healing wisdom with modern understanding to help you
+                    achieve balance in mind, body, and spirit.
+                </p>
+                <p>
+                    Our experienced practitioners are dedicated to guiding you through
+                    personalized healing experiences that address your unique needs.
+                </p>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <h2>Get in Touch</h2>
+            <form id="contactForm" class="contact-form">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="email" id="email" placeholder="Your Email" required>
+                <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit" class="submit-button">Send Message</button>
+            </form>
+            <div id="formMessage" class="form-message"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Healing Guru. All rights reserved.</p>
+        <p>Your path to wellness begins here.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
