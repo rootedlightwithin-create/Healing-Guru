@@ -249,7 +249,7 @@ class HealingGuruAI:
             'work': {
                 'keywords': ['work', 'job', 'office', 'colleagues', 'colleague', 'meeting', 'boss', 'career', 'workplace', 'coworker', 'manager', 'project', 'deadline'],
                 'celebration_keywords': ['got praised', 'promotion', 'raise', 'accomplished', 'finished project', 'good feedback', 'recognition'],
-                'stress_keywords': ['overwhelmed', 'overwhelming', 'stressed', 'stressful', 'annoyed', 'frustrated', 'anxious about', 'worried about', 'too much', 'too many', 'was mean', 'being mean', 'rude', 'difficult', 'hard day', 'bad day', 'exhausted', 'exhausting', 'tired', 'draining', 'awful', 'horrible', 'terrible', 'unbearable', 'don\\'t want to go', 'dread', 'hate going', 'can\\'t face'],
+                'stress_keywords': ['overwhelmed', 'overwhelming', 'stressed', 'stressful', 'annoyed', 'frustrated', 'anxious about', 'worried about', 'too much', 'too many', 'was mean', 'being mean', 'rude', 'difficult', 'hard day', 'bad day', 'exhausted', 'exhausting', 'tired', 'draining', 'awful', 'horrible', 'terrible', 'unbearable', "don't want to go", 'dread', 'hate going', "can't face"],
                 'stressed_responses': [
                     "Work can pull so much from your energy. What part of today felt the heaviest?",
                     "Let's slow this down together—what's underneath the overwhelm?",
@@ -293,7 +293,7 @@ class HealingGuruAI:
             'pets': {
                 'keywords': ['dog', 'cat', 'pet', 'puppy', 'kitten', 'animal', 'vet', 'fur baby'],
                 'celebration_keywords': ['cute', 'adorable', 'sweet', 'funny', 'made me smile', 'made me laugh'],
-                'stress_keywords': ['unwell', 'sick', 'scared', 'worried', 'vet', 'ill', 'not eating', 'injured', 'hurt', 'pain', 'limping', 'vomiting', 'won\'t eat', 'emergency', 'hospital', 'surgery'],
+                'stress_keywords': ['unwell', 'sick', 'scared', 'worried', 'vet', 'ill', 'not eating', 'injured', 'hurt', 'pain', 'limping', 'vomiting', "won't eat", 'emergency', 'hospital', 'surgery'],
                 'stressed_responses': [
                     "It makes sense to feel scared when a pet isn't well. You care deeply.",
                     "What symptoms are you noticing? I'm here with you as you navigate this.",
