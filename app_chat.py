@@ -563,7 +563,26 @@ class HealingGuruAI:
         return None
     
     def detect_positive_state(self, message_lower):
-        """Detect if user is expressing positive emotional state"""
+        """Detect if user is expressing genuine positive emotions (not just conversational agreements)"""
+        
+        # Exclude short agreement responses that contain positive words but aren't emotional states
+        # These are conversational fillers, not emotional expressions
+        agreement_phrases = [
+            'yeah', 'yh', 'yep', 'yes', 'ok', 'okay', 'sure', 'sounds good',
+            'that works', 'makes sense', 'i understand', 'got it', 'alright'
+        ]
+        
+        # If message is very short (under 8 words) AND contains agreement words, it's likely not a positive state
+        word_count = len(message_lower.split())
+        has_agreement = any(phrase in message_lower for phrase in agreement_phrases)
+        
+        # Short agreements with positive words are NOT positive states
+        # e.g., "yh, great" or "yes, good idea" or "ok, sounds good"
+        if word_count <= 8 and has_agreement:
+            # Unless they explicitly say they FEEL good/great
+            if not any(phrase in message_lower for phrase in ['feel good', 'feel great', 'feeling good', 'feeling great', 'i feel']):
+                return None
+        
         # Core positive keywords from requirements
         positive_keywords = [
             'good', 'great', 'calm', 'peaceful', 'happy', 'light', 
