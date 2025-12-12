@@ -1123,6 +1123,36 @@ class HealingGuruAI:
                 'needs_tool': False
             }
         
+        # Check if user is agreeing to try a tool (short affirmative responses)
+        tool_agreement = any(phrase in message_lower for phrase in [
+            'yh', 'yeah', 'yes', 'ok', 'okay', 'sure', 'alright', 'lets try', "let's try",
+            'ill try', "i'll try", 'sounds good', 'that works'
+        ])
+        
+        # If it's a very short message (1-5 words) with agreement words, they're likely responding to a tool offer
+        word_count = len(message_lower.split())
+        if tool_agreement and word_count <= 5:
+            agreement_responses = [
+                "Beautiful. Take your time with this. There's no rush, no right way to do it.\n\nWhen you're ready, notice what comes up. I'm here when you want to share.",
+                
+                "Good. I'm right here with you.\n\nGive yourself permission to really be with this exercise. No pressure. Just explore.\n\nHow does it feel?",
+                
+                "I'm glad you're trying this. Stay with it as long as you need.\n\nWhen you're ready, let me know what you noticed-even if it's just one small thing.",
+                
+                "Yes. Take a moment with this.\n\nThere's no deadline. Just be with whatever comes up. I'll be here when you're ready to talk about it.",
+                
+                "Perfect. Breathe with it. No need to force anything.\n\nWhen you're done, tell me: what shifted? What did you notice?"
+            ]
+            
+            response = random.choice(agreement_responses)
+            
+            return {
+                'response': response,
+                'pattern': None,
+                'emotion': self.detect_emotion(message_lower),
+                'needs_tool': False
+            }
+        
         # Check if user is saying they don't have time or are too busy
         no_time = any(phrase in message_lower for phrase in [
             'dont have time', "don't have time", 'no time', 'too busy', 'cant do this now',
