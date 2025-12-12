@@ -1348,9 +1348,9 @@ class HealingGuruAI:
             }
         
         # Check if user is stating what they need (peace, calm, clarity, etc.)
-        # This is an opportunity to offer immediate tools
+        # This is an opportunity to offer immediate tools - BUT ask permission first
         needs_peace = any(word in message_lower for word in ['peace', 'peaceful', 'calm', 'quiet'])
-        needs_grounding = any(word in message_lower for word in ['grounding', 'ground', 'present', 'here'])
+        needs_grounding = any(phrase in message_lower for phrase in ['need grounding', 'want grounding', 'ground me', 'help me ground', 'grounding exercise'])
         needs_clarity = any(word in message_lower for word in ['clarity', 'clear', 'think straight', 'clear head'])
         needs_rest = any(word in message_lower for word in ['rest', 'sleep', 'relax', 'unwind'])
         needs_relief = any(word in message_lower for word in ['relief', 'break', 'escape', 'pause'])
@@ -1359,58 +1359,35 @@ class HealingGuruAI:
         word_count = len(message_lower.split())
         is_short_need_statement = word_count <= 5
         
-        if is_short_need_statement and (needs_peace or needs_grounding or needs_clarity or needs_rest or needs_relief):
+        # Exception: "I'm here" is just affirming presence, not requesting grounding
+        is_affirming_presence = message_lower.strip() in ["i'm here", "im here", "here", "i am here"]
+        
+        if is_short_need_statement and (needs_peace or needs_grounding or needs_clarity or needs_rest or needs_relief) and not is_affirming_presence:
+            # Ask permission before offering the tool
             if needs_peace or needs_rest:
-                tool_response = (
-                    "Let me help you find some peace right now.\n\n"
-                    "**4-7-8 Breathing** (proven for calm and sleep):\n\n"
-                    "1️⃣ Breathe in through your nose for 4 counts\n"
-                    "2️⃣ Hold for 7 counts\n"
-                    "3️⃣ Exhale through your mouth for 8 counts\n\n"
-                    "Do this 4 times. The long exhale signals your nervous system to relax.\n\n"
-                    "Try it right now. I'll wait.\n\n"
-                    "...\n\n"
-                    "How does that feel?"
+                tool_offer = (
+                    "I can guide you through a **4-7-8 Breathing exercise** right now - it's proven for calm and takes about 90 seconds.\n\n"
+                    "Would you like to try it?"
                 )
             elif needs_grounding:
-                tool_response = (
-                    "Let's ground you right now.\n\n"
-                    "**5-4-3-2-1 Grounding:**\n\n"
-                    "Look around and name:\n"
-                    "👁️ **5 things you can SEE**\n"
-                    "✋ **4 things you can TOUCH**\n"
-                    "👂 **3 things you can HEAR**\n"
-                    "👃 **2 things you can SMELL**\n"
-                    "👅 **1 thing you can TASTE**\n\n"
-                    "Take your time. This brings you back to the present moment.\n\n"
-                    "What did you notice?"
+                tool_offer = (
+                    "I can guide you through a **5-4-3-2-1 Grounding exercise** - it brings you back to the present moment in about 2 minutes.\n\n"
+                    "Would you like to try it?"
                 )
             elif needs_clarity:
-                tool_response = (
-                    "Let me help you find some clarity.\n\n"
-                    "**Box Breathing** (clears mental fog):\n\n"
-                    "1️⃣ Breathe IN for 4\n"
-                    "2️⃣ HOLD for 4\n"
-                    "3️⃣ Breathe OUT for 4\n"
-                    "4️⃣ HOLD empty for 4\n\n"
-                    "Repeat 4 times. This resets your nervous system and helps you think clearer.\n\n"
-                    "Try it now. How do you feel after?"
+                tool_offer = (
+                    "I can guide you through **Box Breathing** - it clears mental fog and takes about 90 seconds.\n\n"
+                    "Would you like to try it?"
                 )
             else:  # needs_relief
-                tool_response = (
-                    "Let me give you a quick reset.\n\n"
-                    "**Physiological Sigh** (instant relief):\n\n"
-                    "1️⃣ Two quick inhales through your nose (in-in)\n"
-                    "2️⃣ One long exhale through your mouth (ahhhh)\n\n"
-                    "Repeat 3 times. This releases tension fast.\n\n"
-                    "Do it right now with me.\n\n"
-                    "...\n\n"
-                    "Better?"
+                tool_offer = (
+                    "I can guide you through a **Physiological Sigh** - it releases tension in about 30 seconds.\n\n"
+                    "Would you like to try it?"
                 )
             
             return {
-                'response': tool_response,
-                'pattern': 'tool_offered',
+                'response': tool_offer,
+                'pattern': 'tool_offer_consent',
                 'emotion': self.detect_emotion(message_lower),
                 'needs_tool': False
             }
@@ -1562,10 +1539,97 @@ class HealingGuruAI:
         
         # Check if user wants to be guided through something
         wants_guidance = any(phrase in message_lower for phrase in [
-            'guide me', 'walk me through', 'show me how', 'help me do', 'yes', 'okay', 'ready',
-            'ill try', "i'll try", 'lets do it', "let's do"
+            'guide me', 'walk me through', 'show me how', 'help me do', 'yes', 'yeah', 'yh', 'okay', 'ok', 'sure', 'ready',
+            'ill try', "i'll try", 'lets do it', "let's do", 'would like to', 'want to try'
         ])
         
+        # Check if user agreed to a specific tool offer by looking at recent messages
+        if wants_guidance and recent_ai_messages:
+            last_ai_message = recent_ai_messages[0] if recent_ai_messages else ""
+            
+            # Check which tool was offered
+            if '4-7-8 Breathing' in last_ai_message or 'calm and sleep' in last_ai_message:
+                guided_breath_478 = (
+                    "Perfect. Let's do this together right now.\n\n"
+                    "**4-7-8 Breathing - Follow Along:**\n\n"
+                    "1️⃣ Breathe IN through your nose: 1...2...3...4\n"
+                    "2️⃣ HOLD: 1...2...3...4...5...6...7\n"
+                    "3️⃣ Breathe OUT through your mouth: 1...2...3...4...5...6...7...8\n\n"
+                    "Now repeat that 3 more times on your own. I'll wait.\n\n"
+                    "...\n\n"
+                    "How does that feel?"
+                )
+                return {
+                    'response': guided_breath_478,
+                    'pattern': 'guided_exercise',
+                    'emotion': None,
+                    'needs_tool': False
+                }
+            
+            elif '5-4-3-2-1' in last_ai_message or 'Grounding' in last_ai_message:
+                guided_grounding = (
+                    "Great. We're going to ground you right now.\n\n"
+                    "**5-4-3-2-1 Grounding - Do This With Me:**\n\n"
+                    "First, take a deep breath.\n\n"
+                    "Now:\n"
+                    "👁️ Name **5 things you can SEE** around you\n"
+                    "(Look around slowly... a wall, a light, your phone, maybe a plant, the floor...)\n\n"
+                    "✋ Name **4 things you can TOUCH**\n"
+                    "(Your chair, your clothes, the ground, your hair...)\n\n"
+                    "👂 Name **3 things you can HEAR**\n"
+                    "(Traffic? Breathing? A hum? Silence?)\n\n"
+                    "👃 Name **2 things you can SMELL**\n"
+                    "(Air? Fabric? Soap? Just notice...)\n\n"
+                    "👅 Name **1 thing you can TASTE**\n"
+                    "(Your mouth, your last drink, toothpaste...)\n\n"
+                    "Take a breath. You're here. You're present. What did you notice?"
+                )
+                return {
+                    'response': guided_grounding,
+                    'pattern': 'guided_exercise',
+                    'emotion': None,
+                    'needs_tool': False
+                }
+            
+            elif 'Box Breathing' in last_ai_message or 'clears mental fog' in last_ai_message:
+                guided_box = (
+                    "Perfect. Let's do this together right now.\n\n"
+                    "**Box Breathing - Follow Along:**\n\n"
+                    "1️⃣ Breathe IN slowly through your nose: 1...2...3...4\n"
+                    "2️⃣ HOLD your breath: 1...2...3...4\n"
+                    "3️⃣ Breathe OUT slowly through your mouth: 1...2...3...4\n"
+                    "4️⃣ HOLD empty: 1...2...3...4\n\n"
+                    "Now repeat that 3 more times on your own. I'll wait.\n\n"
+                    "...\n\n"
+                    "How do you feel now?"
+                )
+                return {
+                    'response': guided_box,
+                    'pattern': 'guided_exercise',
+                    'emotion': None,
+                    'needs_tool': False
+                }
+            
+            elif 'Physiological Sigh' in last_ai_message or 'releases tension' in last_ai_message:
+                guided_sigh = (
+                    "Perfect. Let's do this right now.\n\n"
+                    "**Physiological Sigh - Do With Me:**\n\n"
+                    "1️⃣ Two quick inhales through your nose: IN-IN\n"
+                    "2️⃣ One long exhale through your mouth: AHHHHHH\n\n"
+                    "Again:\n"
+                    "IN-IN... AHHHHHH\n\n"
+                    "One more:\n"
+                    "IN-IN... AHHHHHH\n\n"
+                    "How does that feel?"
+                )
+                return {
+                    'response': guided_sigh,
+                    'pattern': 'guided_exercise',
+                    'emotion': None,
+                    'needs_tool': False
+                }
+        
+        # Legacy breath detection for backward compatibility
         if wants_guidance and any('breath' in msg for msg in recent_ai_messages[:2]):
             # User agreed to breathing exercise - guide them through it
             guided_breath = (
