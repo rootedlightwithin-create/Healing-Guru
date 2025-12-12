@@ -244,6 +244,120 @@ class HealingGuruAI:
             }
         }
         
+        # Everyday life topic patterns - for sharing life, not just pain
+        self.life_topics = {
+            'work': {
+                'keywords': ['work', 'job', 'office', 'colleagues', 'colleague', 'meeting', 'boss', 'career', 'workplace', 'coworker', 'manager', 'project', 'deadline'],
+                'celebration_keywords': ['got praised', 'promotion', 'raise', 'accomplished', 'finished project', 'good feedback', 'recognition'],
+                'stress_keywords': ['overwhelming', 'stressed', 'annoyed', 'frustrated', 'anxious about', 'worried about'],
+                'stressed_responses': [
+                    "Work can pull so much from your energy. What part of today felt the heaviest?",
+                    "Let's slow this down together—what's underneath the overwhelm?",
+                    "What do you need most right now: clarity, grounding, or a moment to breathe?",
+                    "Being in that environment sounds draining. Where do you feel it most in your body?"
+                ],
+                'celebration_responses': [
+                    "That's beautiful! Let yourself enjoy this moment—it matters.",
+                    "I'm proud of you. What part of this win feels most meaningful to you?",
+                    "Celebrate this. You worked for it. How does it feel to be recognized?",
+                    "That's wonderful. Let yourself really feel this accomplishment."
+                ],
+                'neutral_responses': [
+                    "Tell me about work. What's happening there for you?",
+                    "I'm listening. What's the situation at work?",
+                    "Work is a big part of life. What's going on?"
+                ]
+            },
+            'relationships': {
+                'keywords': ['friend', 'friends', 'friendship', 'partner', 'boyfriend', 'girlfriend', 'mum', 'mom', 'dad', 'father', 'mother', 'sister', 'brother', 'family', 'relationship', 'relative'],
+                'celebration_keywords': ['lovely day', 'lovely time', 'good conversation', 'connected', 'special moment', 'quality time'],
+                'stress_keywords': ['upset me', 'hurt me', 'conflict', 'argument', 'fight', 'misunderstood', 'don\\'t feel understood', 'tension'],
+                'stressed_responses': [
+                    "It sounds like your heart was tender in that moment. What felt most painful for you?",
+                    "Being misunderstood is such a lonely feeling. Where did you feel it in your body?",
+                    "Let's explore what you needed that you didn't receive.",
+                    "That relational pain runs deep. What part of this is sitting with you most?"
+                ],
+                'celebration_responses': [
+                    "I'm glad you had a nourishing moment. What made it feel good?",
+                    "Cherish this connection—it's a reminder of what supports your spirit.",
+                    "That sounds really special. What did you appreciate most about that time together?",
+                    "Connection like that is precious. Let yourself savor it."
+                ],
+                'neutral_responses': [
+                    "Tell me about this relationship. What's happening?",
+                    "I'm here. What's going on with them?",
+                    "Relationships can be complex. What's on your mind?"
+                ]
+            },
+            'pets': {
+                'keywords': ['dog', 'cat', 'pet', 'puppy', 'kitten', 'animal', 'vet', 'fur baby'],
+                'celebration_keywords': ['cute', 'adorable', 'sweet', 'funny', 'made me smile', 'made me laugh'],
+                'stress_keywords': ['unwell', 'sick', 'scared', 'worried', 'vet', 'ill', 'not eating', 'injured'],
+                'stressed_responses': [
+                    "It makes sense to feel scared when a pet isn't well. You care deeply.",
+                    "What symptoms are you noticing? I'm here with you as you navigate this.",
+                    "The worry for them is real. Have you been able to speak with a vet?",
+                    "Your bond with them is precious. This concern shows how much you love them."
+                ],
+                'celebration_responses': [
+                    "That sounds adorable. These little moments soften the heart—thank you for sharing it.",
+                    "Your bond with them is special. What did it bring up for you?",
+                    "I love that you noticed that sweet moment. Pets bring such light.",
+                    "That's lovely. Those small joys matter so much."
+                ],
+                'neutral_responses': [
+                    "Tell me about your pet. What's happening?",
+                    "I'm listening. What's going on with them?",
+                    "Pets are family. What's on your heart?"
+                ]
+            },
+            'home': {
+                'keywords': ['home', 'house', 'flat', 'apartment', 'room', 'space', 'living space', 'bedroom', 'kitchen'],
+                'celebration_keywords': ['tidied', 'cleaned', 'organized', 'peaceful', 'calm space', 'cozy', 'comfortable'],
+                'stress_keywords': ['chaotic', 'messy', 'overwhelming', 'uncomfortable', 'don\\'t feel comfortable', 'cluttered', 'stressful'],
+                'stressed_responses': [
+                    "A chaotic space can unsettle your whole system. What part feels most overwhelming?",
+                    "Let's take this gently—one corner, one breath at a time.",
+                    "Not feeling comfortable at home is really hard. What's making it feel unsafe or uncomfortable?",
+                    "Your environment affects everything. What would help you feel more settled there?"
+                ],
+                'celebration_responses': [
+                    "That's a lovely accomplishment. How does your body feel in the calmer space?",
+                    "Creating peace in your space creates peace in your mind. Well done.",
+                    "That's beautiful. What shifted for you when you created that order?",
+                    "Your space matters. I'm glad you're feeling more at ease there."
+                ],
+                'neutral_responses': [
+                    "Tell me about your home situation. What's happening?",
+                    "I'm listening. What's going on at home?",
+                    "Your living space is important. What's on your mind?"
+                ]
+            },
+            'money': {
+                'keywords': ['money', 'bills', 'bill', 'paid', 'debt', 'finance', 'financial', 'rent', 'mortgage', 'savings', 'salary', 'income', 'afford', 'expensive'],
+                'celebration_keywords': ['paid off', 'paid it off', 'cleared', 'saved', 'bonus', 'raise', 'got paid'],
+                'stress_keywords': ['tight', 'anxious about', 'worried about', 'can\\'t afford', 'struggling', 'stress', 'stressful'],
+                'stressed_responses': [
+                    "Financial strain touches deeply on safety. Your worry makes sense.",
+                    "Let's explore what's causing the biggest pressure right now.",
+                    "Money stress affects everything. What's the most immediate concern?",
+                    "That financial weight is real. What would help you feel more stable?"
+                ],
+                'celebration_responses': [
+                    "That's a big step—well done. How does this shift your sense of stability?",
+                    "Celebrate this! Financial wins matter. What does this free up for you?",
+                    "I'm proud of you for working toward this. How does it feel?",
+                    "That's excellent. Let yourself feel the relief of that."
+                ],
+                'neutral_responses': [
+                    "Tell me about the financial situation. What's happening?",
+                    "I'm listening. What's going on with money?",
+                    "Money concerns are valid. What's on your mind?"
+                ]
+            }
+        }
+        
         self.affirmations = {
             'anxiety': [
                 "I am safe in this moment.",
@@ -522,6 +636,41 @@ class HealingGuruAI:
                             'emotion': self.detect_emotion(message_lower),
                             'needs_tool': False
                         }
+        
+        # Check for everyday life topics (work, relationships, pets, home, money)
+        # This runs BEFORE emotional states so we can respond to life sharing, not just pain
+        for topic_name, topic_data in self.life_topics.items():
+            # Check if topic keywords are present
+            if any(keyword in message_lower for keyword in topic_data['keywords']):
+                # Determine if it's celebratory, stressful, or neutral
+                is_celebration = any(keyword in message_lower for keyword in topic_data['celebration_keywords'])
+                is_stressed = any(keyword in message_lower for keyword in topic_data['stress_keywords'])
+                
+                # Select appropriate response type
+                if is_celebration:
+                    available_responses = [r for r in topic_data['celebration_responses'] if r not in str(recent_ai_messages)]
+                    if not available_responses:
+                        available_responses = topic_data['celebration_responses']
+                elif is_stressed:
+                    available_responses = [r for r in topic_data['stressed_responses'] if r not in str(recent_ai_messages)]
+                    if not available_responses:
+                        available_responses = topic_data['stressed_responses']
+                else:
+                    available_responses = [r for r in topic_data['neutral_responses'] if r not in str(recent_ai_messages)]
+                    if not available_responses:
+                        available_responses = topic_data['neutral_responses']
+                
+                response = random.choice(available_responses)
+                
+                # Only offer tools if it's a stressed situation
+                needs_tool = is_stressed and intensity_score >= 4
+                
+                return {
+                    'response': response,
+                    'pattern': f'life_topic_{topic_name}',
+                    'emotion': self.detect_emotion(message_lower),
+                    'needs_tool': needs_tool
+                }
         
         # First check for specific emotional states (new system)
         for state_name, state_data in self.emotional_states.items():
