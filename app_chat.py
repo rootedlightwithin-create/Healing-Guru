@@ -213,33 +213,33 @@ class HealingGuruAI:
                 ]
             },
             'being_bullied': {
-                'keywords': ['bullying me', 'bullied', 'horrible to me', 'picked on', 'picking on me', 'nasty things', 'feel targeted', 'made me feel small', 'scared of how they treat', 'mistreated', 'won\'t leave me alone', 'keep saying mean', 'someone was mean'],
+                'keywords': ['bullying me', 'bullied', 'horrible to me', 'picked on', 'picking on me', 'nasty things', 'feel targeted', 'made me feel small', 'scared of how they treat', 'mistreated', 'won\'t leave me alone', 'keep saying mean', 'someone was mean', 'they said something cruel', 'won\'t stop messaging'],
                 'response_intro': "I'm really sorry you were treated that way. No one deserves to feel unsafe or belittled. ",
-                'insight': "That must have been painful. Your feelings make sense. You don't have to hold this alone-I'm right here with you.",
+                'insight': "That must have been painful. Your feelings make complete sense. What you feel is completely valid. You don't have to hold this alone-I'm right here with you.",
                 'questions': [
                     "What part of this is sitting heaviest on your heart?",
                     "Where did you feel it most-in your body, or in your mind?",
-                    "If this is ongoing or you feel threatened, it might help to reach out to someone you trust or a professional who can support you."
+                    "If this situation feels threatening or ongoing, reaching out to someone you trust or a professional can offer the support you deserve. Your safety matters."
                 ]
             },
             'causing_harm': {
-                'keywords': ['i hurt someone', 'i was mean', 'said something awful', 'feel guilty for how i acted', 'shouldn\'t have spoken', 'i lost control', 'i regret what i did', 'feel awful for how i acted', 'i hurt them', 'i was horrible'],
-                'response_intro': "Thank you for being honest. It takes courage to look at our own behaviour. ",
-                'insight': "Guilt often signals that your heart cares deeply. This doesn't define you-it simply shows where you need gentleness and awareness.",
+                'keywords': ['i hurt someone', 'i was mean', 'said something awful', 'feel guilty for how i acted', 'shouldn\'t have spoken', 'i lost control', 'i regret what i did', 'feel awful for how i acted', 'i hurt them', 'i was horrible', 'said something i shouldn\'t'],
+                'response_intro': "Thank you for trusting me with this. Looking honestly at our actions is a strong, courageous step. ",
+                'insight': "It sounds like you were dysregulated in that moment, and everything became too much. That doesn't make you a bad person-it shows you were in pain. Guilt often signals that your heart cares deeply.",
                 'questions': [
                     "What happened in that moment?",
-                    "What was going on inside you before you reacted?",
-                    "Can you notice what part of you felt unheard or overwhelmed?"
+                    "What was going on inside you before you reacted? What part of you felt unheard or overwhelmed?",
+                    "If you imagine the moment again, what would a calmer version of you do differently? You always get to choose differently going forward."
                 ]
             },
             'emotional_dysregulation': {
-                'keywords': ['i exploded', 'i snapped', 'i lost it', 'out of control', 'couldn\'t stop myself', 'reacted badly', 'didn\'t feel heard', 'i was overwhelmed', 'lost my temper', 'couldn\'t regulate'],
+                'keywords': ['i exploded', 'i snapped', 'i lost it', 'out of control', 'couldn\'t stop myself', 'reacted badly', 'didn\'t feel heard', 'i was overwhelmed', 'lost my temper', 'couldn\'t regulate', 'wasn\'t thinking clearly'],
                 'response_intro': "That sounds overwhelming. Moments like that often come from deep stress or feeling unheard. ",
-                'insight': "You're not alone-many people react this way when their system is overloaded. It sounds like you were dysregulated, and everything felt too much at once.",
+                'insight': "You're not alone-many people react this way when their system is overloaded. Feeling unheard can bring up strong reactions. It makes sense that everything felt intense.",
                 'questions': [
                     "What do you think your body was trying to communicate in that moment?",
                     "Was there a boundary, fear, or need underneath the reaction?",
-                    "If you imagine the moment again, what would a calmer version of you do differently?"
+                    "You're allowed to grow from this-awareness is the beginning of change. What was your heart needing in that moment?"
                 ]
             }
         }
@@ -774,7 +774,10 @@ class HealingGuruAI:
             'cant cope', "can't cope", 'falling apart', 'unraveling', 
             'cant go on', "can't go on", 'no way out', 'dont see the point',
             "don't see the point", 'completely hopeless', 'breaking down',
-            'cant take it', "can't take it", 'too much pain'
+            'cant take it', "can't take it", 'too much pain', 'hate myself',
+            'im worthless', "i'm worthless", 'im stupid', "i'm stupid",
+            'everything is my fault', 'no one cares about me', 'im the problem',
+            "i'm the problem", 'im a bad person', "i'm a bad person"
         ]
         if any(phrase in message_lower for phrase in severe_phrases):
             score = max(score, 8)
@@ -792,7 +795,9 @@ class HealingGuruAI:
         moderate_high = [
             'overwhelmed', 'too much', 'cant think', 'exhausted',
             'dont know what to do', 'feel lost', 'stuck', 'trapped',
-            'panic', 'terrified', 'desperate'
+            'panic', 'terrified', 'desperate', 'dont feel anything',
+            "don't feel anything", 'im empty', "i'm empty", 'feel numb',
+            'disconnected from myself', 'feel nothing', 'emotionally numb'
         ]
         if any(phrase in message_lower for phrase in moderate_high):
             score = max(score, 6)
@@ -837,23 +842,27 @@ class HealingGuruAI:
         if intensity_level >= 9:
             return (
                 "I'm hearing a lot of pain in your words… and I need you to know: you don't have to carry this alone.\n\n"
-                "What you're feeling right now is so heavy, and there are people trained to help carry this weight with you. "
-                "Please reach out to someone who can give you the deeper support you deserve:\n\n"
+                "Reaching out for support is a sign of strength — it shows you're ready for change. "
+                "Feeling scared, confused, or overwhelmed is part of moving through difficult things. "
+                "There are people trained to help carry this weight with you.\n\n"
                 "🆘 **Crisis Support (24/7)**:\n"
-                "• **988 Suicide & Crisis Lifeline**: Call or text 988 (US)\n"
-                "• **Crisis Text Line**: Text HOME to 741741\n"
-                "• **International**: findahelpline.com\n\n"
-                "Your life has value. This pain is real, but it can change. Please let someone help you through this moment."
+                "🇺🇸 **US** - Crisis Text Line: Text HOME to 741741 | Call: 988\n"
+                "🇬🇧 **UK** - Samaritans: 116 123 | Text: 85258\n"
+                "🇦🇺 **Australia** - Lifeline: 13 11 14\n"
+                "🇨🇦 **Canada** - Crisis Services: 1-833-456-4566\n"
+                "🌍 **Worldwide** - findahelpline.com\n\n"
+                "Your life has value. This pain is real, but it can change. You deserve care and support. Please let someone help you through this moment."
             )
         elif intensity_level >= 7:
             return (
                 "I can feel how much you're struggling right now. This level of pain… it's a signal that you need more support than what I can offer here.\n\n"
-                "There's no shame in reaching out for help. In fact, it's one of the bravest things you can do. "
+                "Asking for help doesn't mean you're failing. It means you're brave enough to care for yourself. "
+                "You're not meant to carry this alone — reaching out is a powerful act of strength.\n\n"
                 "Please consider talking to:\n\n"
-                "• A doctor or therapist who can provide ongoing care\n"
-                "• A crisis counselor (call 988 or text HOME to 741741)\n"
-                "• A trusted friend or family member\n\n"
-                "You deserve care that can hold this with you. What would feel most accessible right now?"
+                "• A mental health professional or doctor who can provide ongoing care\n"
+                "• A crisis counselor (24/7 support available)\n"
+                "• A trusted friend, family member, or spiritual advisor\n\n"
+                "You deserve care that can hold this with you. You're worthy of support. What would feel most accessible right now?"
             )
         return None
     
@@ -1173,6 +1182,36 @@ class HealingGuruAI:
                 'emotion': self.detect_emotion(message_lower),
                 'needs_tool': False
             }
+        
+        # Check for reassurance loops (repeated distress signals)
+        reassurance_phrases = [
+            'dont know what to do', "don't know what to do", 'i cant cope', "i can't cope",
+            'im scared', "i'm scared", 'dont know how', "don't know how", 'feel so lost'
+        ]
+        
+        if any(phrase in message_lower for phrase in reassurance_phrases) and history:
+            # Check how many times they've said similar things
+            recent_user_msgs = [msg[1].lower() for msg in history[:6] if msg[0] == 'user']
+            reassurance_count = sum(1 for msg in recent_user_msgs 
+                                   if any(p in msg for p in reassurance_phrases))
+            
+            if reassurance_count >= 2:
+                # Gentle escalation to professional support
+                loop_response = (
+                    "I'm right here with you. Let's take this one breath at a time.\n\n"
+                    "I notice you're feeling really stuck and scared. That makes so much sense given what you're experiencing. "
+                    "Sometimes when we keep circling back to the same feeling, it's our heart telling us we need more support than one person can give.\n\n"
+                    "Would it feel okay to talk to someone who can offer deeper, ongoing care? A therapist or counselor who can walk alongside you through this? "
+                    "Reaching out for that kind of support is a powerful act of strength-it shows you're ready for change.\n\n"
+                    "I'll stay with you here. What feels most accessible to you right now?"
+                )
+                
+                return {
+                    'response': loop_response,
+                    'pattern': 'reassurance_loop',
+                    'emotion': self.detect_emotion(message_lower),
+                    'needs_tool': False
+                }
         
         # Check if user is agreeing to try a tool (short affirmative responses)
         tool_agreement = any(phrase in message_lower for phrase in [
