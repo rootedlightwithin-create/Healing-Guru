@@ -1,0 +1,871 @@
+{
+  "timestamp": "20251212_113631",
+  "total_tests": 123,
+  "passed": 123,
+  "failed": 0,
+  "success_rate": "100.0%",
+  "results": [
+    {
+      "category": "Simple greeting",
+      "message": "Hi",
+      "status": "PASS",
+      "pattern": null,
+      "response": "I'm well, thank you. What I really want to know is: how are you? What brings you here today?"
+    },
+    {
+      "category": "Friendly greeting",
+      "message": "Hey friend, how are you?",
+      "status": "PASS",
+      "pattern": null,
+      "response": "I'm good, thanks. But this space is for you-what's on your mind today?"
+    },
+    {
+      "category": "Want to share",
+      "message": "I wanted to share something with you",
+      "status": "PASS",
+      "pattern": "open_sharing",
+      "response": "I'm all ears. What happened?"
+    },
+    {
+      "category": "Have news",
+      "message": "I have some news",
+      "status": "PASS",
+      "pattern": null,
+      "response": "Tell me more. What's this experience like from your perspective?"
+    },
+    {
+      "category": "Not doing good",
+      "message": "I'm not doing too good",
+      "status": "PASS",
+      "pattern": null,
+      "response": "I want to understand better. Can you walk me through what you're experiencing?"
+    },
+    {
+      "category": "Not feeling great",
+      "message": "I'm not feeling great today",
+      "status": "PASS",
+      "pattern": null,
+      "response": "I'm hearing today of struggle. What's kept you going through it? And what made you reach out today?"
+    },
+    {
+      "category": "Boss was mean",
+      "message": "My boss was mean and I had too much to do",
+      "status": "PASS",
+      "pattern": "life_topic_work",
+      "response": "Let's slow this down together\u2014what's underneath the overwhelm?"
+    },
+    {
+      "category": "Overwhelmed at work",
+      "message": "Feeling overwhelmed by my workload",
+      "status": "PASS",
+      "pattern": "life_topic_work",
+      "response": "Work can pull so much from your energy. What part of today felt the heaviest?"
+    },
+    {
+      "category": "Don't want to go",
+      "message": "I don't want to go back to work tomorrow",
+      "status": "PASS",
+      "pattern": "life_topic_work",
+      "response": "Work can pull so much from your energy. What part of today felt the heaviest?"
+    },
+    {
+      "category": "Feeling undervalued",
+      "message": "I've put in so much effort but no one seems to notice at work",
+      "status": "PASS",
+      "pattern": "life_topic_work",
+      "response": "Tell me about work. What's happening there for you?"
+    },
+    {
+      "category": "Conflict with colleague",
+      "message": "I had a tense exchange with a colleague and keep replaying it",
+      "status": "PASS",
+      "pattern": "life_topic_work",
+      "response": "Work is a big part of life. What's going on?"
+    },
+    {
+      "category": "Afraid of losing job",
+      "message": "I'm sensing instability at the company and feel nervous",
+      "status": "PASS",
+      "pattern": "anxiety",
+      "response": "Anxiety is your nervous system trying to protect you. It's not your enemy-it's just working overtime. Let's help it calm down.\n\nI wonder: Where do you feel this anxiety in your body?\n\n\u2728 Reminder: I tr"
+    },
+    {
+      "category": "Got praised",
+      "message": "I got praised at work today!",
+      "status": "PASS",
+      "pattern": "life_topic_work",
+      "response": "That's wonderful. Let yourself really feel this accomplishment."
+    },
+    {
+      "category": "Finished project",
+      "message": "I finally finished that big project",
+      "status": "PASS",
+      "pattern": "positive_state",
+      "response": "I love hearing that. You sound like yourself again.\n\nWhat's supporting this feeling for you? What shifted?\n\nDo you want to keep exploring this, or is this a good place to rest?"
+    },
+    {
+      "category": "Excited about promotion",
+      "message": "I got promoted! I want to celebrate this moment",
+      "status": "PASS",
+      "pattern": "life_topic_relationships",
+      "response": "I'm here. What's going on with them?"
+    },
+    {
+      "category": "Friend upset me",
+      "message": "My friend upset me today",
+      "status": "PASS",
+      "pattern": "life_topic_relationships",
+      "response": "Let's explore what you needed that you didn't receive."
+    },
+    {
+      "category": "Feel misunderstood",
+      "message": "I don't feel understood at home",
+      "status": "PASS",
+      "pattern": "life_topic_home",
+      "response": "Tell me about your home situation. What's happening?"
+    },
+    {
+      "category": "Feeling left out",
+      "message": "My friends met up without me and it triggered abandonment feelings",
+      "status": "PASS",
+      "pattern": "life_topic_relationships",
+      "response": "I'm here. What's going on with them?"
+    },
+    {
+      "category": "Healing from fallout",
+      "message": "A close friend said something hurtful and I'm unsure how to rebuild trust",
+      "status": "PASS",
+      "pattern": "life_topic_relationships",
+      "response": "Relationships can be complex. What's on your mind?"
+    },
+    {
+      "category": "Growing apart",
+      "message": "I'm noticing misalignment and grieving the drifting of a friendship",
+      "status": "PASS",
+      "pattern": "life_topic_relationships",
+      "response": "Relationships can be complex. What's on your mind?"
+    },
+    {
+      "category": "Lovely day with mum",
+      "message": "I had a lovely day with my mum",
+      "status": "PASS",
+      "pattern": "life_topic_relationships",
+      "response": "Cherish this connection\u2014it's a reminder of what supports your spirit."
+    },
+    {
+      "category": "Unexpected kindness",
+      "message": "A friend supported me in a moment I didn't ask for",
+      "status": "PASS",
+      "pattern": "life_topic_relationships",
+      "response": "I'm here. What's going on with them?"
+    },
+    {
+      "category": "Making new friend",
+      "message": "I'm making a new friend and feel excited but unsure",
+      "status": "PASS",
+      "pattern": "life_topic_relationships",
+      "response": "I'm here. What's going on with them?"
+    },
+    {
+      "category": "Tension with parent",
+      "message": "I had a disagreement with my dad that brought up old childhood patterns",
+      "status": "PASS",
+      "pattern": "life_topic_relationships",
+      "response": "I'm here. What's going on with them?"
+    },
+    {
+      "category": "Setting boundaries",
+      "message": "I'm learning to say no to my family but feel guilty",
+      "status": "PASS",
+      "pattern": "life_topic_relationships",
+      "response": "Relationships can be complex. What's on your mind?"
+    },
+    {
+      "category": "Family milestone",
+      "message": "My sister just had a baby and I want to share this joy",
+      "status": "PASS",
+      "pattern": "life_topic_relationships",
+      "response": "I'm here. What's going on with them?"
+    },
+    {
+      "category": "Caring for elderly parent",
+      "message": "I'm caring for my elderly parent and feel exhausted and guilty",
+      "status": "PASS",
+      "pattern": "life_topic_money",
+      "response": "I'm listening. What's going on with money?"
+    },
+    {
+      "category": "Feeling unseen in family",
+      "message": "I'm doing everything right but still feel misunderstood by my family",
+      "status": "PASS",
+      "pattern": "life_topic_relationships",
+      "response": "Let's explore what you needed that you didn't receive."
+    },
+    {
+      "category": "After argument",
+      "message": "I love my partner but feel hurt after our argument",
+      "status": "PASS",
+      "pattern": "life_topic_relationships",
+      "response": "Let's explore what you needed that you didn't receive."
+    },
+    {
+      "category": "New relationship",
+      "message": "I'm in a new relationship and have butterflies mixed with fear",
+      "status": "PASS",
+      "pattern": "life_topic_relationships",
+      "response": "Tell me about this relationship. What's happening?"
+    },
+    {
+      "category": "Breakup processing",
+      "message": "The relationship ended and I feel empty and confused",
+      "status": "PASS",
+      "pattern": "life_topic_relationships",
+      "response": "Tell me about this relationship. What's happening?"
+    },
+    {
+      "category": "Feeling neglected",
+      "message": "My partner isn't showing affection and it's affecting my self-worth",
+      "status": "PASS",
+      "pattern": "life_topic_relationships",
+      "response": "I'm here. What's going on with them?"
+    },
+    {
+      "category": "Celebrating love",
+      "message": "We had a beautiful deep conversation and I want to honor it",
+      "status": "PASS",
+      "pattern": null,
+      "response": "I hear you. Can you tell me more about that? What does it feel like for you?"
+    },
+    {
+      "category": "Dog did something cute",
+      "message": "My dog did something so cute today",
+      "status": "PASS",
+      "pattern": "life_topic_pets",
+      "response": "That's lovely. Those small joys matter so much."
+    },
+    {
+      "category": "Cat is sick",
+      "message": "My cat is unwell and I'm scared",
+      "status": "PASS",
+      "pattern": "life_topic_pets",
+      "response": "It makes sense to feel scared when a pet isn't well. You care deeply."
+    },
+    {
+      "category": "Pet sick",
+      "message": "My pet is really sick and I feel helpless",
+      "status": "PASS",
+      "pattern": "life_topic_pets",
+      "response": "It makes sense to feel scared when a pet isn't well. You care deeply."
+    },
+    {
+      "category": "Pet funny",
+      "message": "My pet did something hilarious",
+      "status": "PASS",
+      "pattern": "life_topic_pets",
+      "response": "I'm listening. What's going on with them?"
+    },
+    {
+      "category": "Grieving pet",
+      "message": "I'm grieving my pet who passed away",
+      "status": "PASS",
+      "pattern": "life_topic_pets",
+      "response": "Tell me about your pet. What's happening?"
+    },
+    {
+      "category": "Training challenges",
+      "message": "I'm feeling frustrated with training my dog",
+      "status": "PASS",
+      "pattern": "life_topic_pets",
+      "response": "Pets are family. What's on your heart?"
+    },
+    {
+      "category": "Bonding with new pet",
+      "message": "I'm bonding with my new rescue and it's so sweet",
+      "status": "PASS",
+      "pattern": null,
+      "response": "Tell me more. What's this experience like from your perspective?"
+    },
+    {
+      "category": "Tidied space",
+      "message": "I finally tidied my space",
+      "status": "PASS",
+      "pattern": "life_topic_home",
+      "response": "That's beautiful. What shifted for you when you created that order?"
+    },
+    {
+      "category": "Home feels chaotic",
+      "message": "My home feels really chaotic",
+      "status": "PASS",
+      "pattern": "life_topic_home",
+      "response": "A chaotic space can unsettle your whole system. What part feels most overwhelming?"
+    },
+    {
+      "category": "Overwhelmed with chores",
+      "message": "Laundry, dishes, clutter - everything feels like a mountain",
+      "status": "PASS",
+      "pattern": null,
+      "response": "I hear you. Can you tell me more about that? What does it feel like for you?"
+    },
+    {
+      "category": "Moving homes",
+      "message": "I'm moving and feel stressed, excited, and nostalgic",
+      "status": "PASS",
+      "pattern": "anxiety",
+      "response": "When you say things like 'stressed', it often points to anxiety. Anxiety is your nervous system trying to protect you. It's not your enemy-it's just working overtime. Let's help it calm down.\n\nCan you"
+    },
+    {
+      "category": "Conflict with neighbor",
+      "message": "I had a conflict with my neighbor over noise",
+      "status": "PASS",
+      "pattern": null,
+      "response": "I'm here with you. Help me understand - what's the most challenging part of this?"
+    },
+    {
+      "category": "Unsafe at home",
+      "message": "I don't feel safe in my home environment",
+      "status": "PASS",
+      "pattern": "life_topic_home",
+      "response": "Tell me about your home situation. What's happening?"
+    },
+    {
+      "category": "Loving home",
+      "message": "I feel so grateful for my home space",
+      "status": "PASS",
+      "pattern": "positive_state",
+      "response": "That's beautiful to hear. What part of your day feels especially full of gratitude right now?\n\nDo you want to keep exploring this, or is this a good place to rest?"
+    },
+    {
+      "category": "Money is tight",
+      "message": "Money is really tight right now",
+      "status": "PASS",
+      "pattern": "life_topic_money",
+      "response": "Let's explore what's causing the biggest pressure right now."
+    },
+    {
+      "category": "Paid something off",
+      "message": "I just paid off my credit card!",
+      "status": "PASS",
+      "pattern": "life_topic_money",
+      "response": "That's excellent. Let yourself feel the relief of that."
+    },
+    {
+      "category": "Unexpected bill",
+      "message": "An unexpected bill arrived and I feel panicked",
+      "status": "PASS",
+      "pattern": "life_topic_money",
+      "response": "I'm listening. What's going on with money?"
+    },
+    {
+      "category": "Worried about rent",
+      "message": "I'm worried about making rent this month",
+      "status": "PASS",
+      "pattern": "life_topic_money",
+      "response": "Financial strain touches deeply on safety. Your worry makes sense."
+    },
+    {
+      "category": "Big financial decision",
+      "message": "I'm considering a big financial decision and feel confused",
+      "status": "PASS",
+      "pattern": "life_topic_money",
+      "response": "I'm listening. What's going on with money?"
+    },
+    {
+      "category": "Unexpected money",
+      "message": "I received unexpected money and feel grateful",
+      "status": "PASS",
+      "pattern": "positive_state",
+      "response": "Your heart sounds full. That's a gift to feel.\n\nLet that gratitude settle into your body. Breathe with it. What are you most grateful for in this moment?\n\nWould you like to talk about this feeling mor"
+    },
+    {
+      "category": "Anxious no reason",
+      "message": "I'm feeling anxious but don't know why",
+      "status": "PASS",
+      "pattern": "anxiety",
+      "response": "Anxiety is your nervous system trying to protect you. It's not your enemy-it's just working overtime. Let's help it calm down.\n\nI wonder: Where do you feel this anxiety in your body?\n\n\u2728 Reminder: My a"
+    },
+    {
+      "category": "Chronic fatigue",
+      "message": "I'm tired of feeling tired all the time",
+      "status": "PASS",
+      "pattern": null,
+      "response": "I can feel how drained you are. Exhaustion often means we've been running on empty for too long. When did you last truly rest?"
+    },
+    {
+      "category": "Therapy breakthrough",
+      "message": "I had a successful therapy session with breakthroughs",
+      "status": "PASS",
+      "pattern": "positive_state",
+      "response": "I'm really glad you're feeling this way. What do you want to savour about it?\n\nI'm here - would you like to stay with this for a bit?"
+    },
+    {
+      "category": "Self-worth struggle",
+      "message": "I'm struggling with feeling not enough",
+      "status": "PASS",
+      "pattern": null,
+      "response": "I'm here with you. Help me understand - what's the most challenging part of this?"
+    },
+    {
+      "category": "Personal growth",
+      "message": "I noticed I handled something better than I used to",
+      "status": "PASS",
+      "pattern": null,
+      "response": "That's wonderful to hear. Progress isn't always linear, but you're showing up for yourself and that matters. What's been the most helpful part?"
+    },
+    {
+      "category": "Feeling anxious",
+      "message": "I'm feeling really anxious",
+      "status": "PASS",
+      "pattern": "anxiety",
+      "response": "I'm hearing anxiety coming through in what you're saying. Anxiety is your nervous system trying to protect you. It's not your enemy-it's just working overtime. Let's help it calm down.\n\nCan you take t"
+    },
+    {
+      "category": "Feel hopeless",
+      "message": "I feel completely hopeless",
+      "status": "PASS",
+      "pattern": "crisis_intervention",
+      "response": "I can feel how much you're struggling right now. This level of pain\u2026 it's a signal that you need more support than what I can offer here.\n\nAsking for help doesn't mean you're failing. It means you're "
+    },
+    {
+      "category": "Can't cope",
+      "message": "I can't cope anymore",
+      "status": "PASS",
+      "pattern": "crisis_intervention",
+      "response": "I can feel how much you're struggling right now. This level of pain\u2026 it's a signal that you need more support than what I can offer here.\n\nAsking for help doesn't mean you're failing. It means you're "
+    },
+    {
+      "category": "Being bullied",
+      "message": "Someone is bullying me at school",
+      "status": "PASS",
+      "pattern": "being_bullied",
+      "response": "That must have been painful. Your feelings make complete sense. What you feel is completely valid. You don't have to hold this alone-I'm right here with you.\n\nI wonder: Where did you feel it most-in y"
+    },
+    {
+      "category": "I hurt someone",
+      "message": "I hurt someone and I feel guilty",
+      "status": "PASS",
+      "pattern": "causing_harm",
+      "response": "It sounds like you were dysregulated in that moment, and everything became too much. That doesn't make you a bad person-it shows you were in pain. Guilt often signals that your heart cares deeply.\n\nI "
+    },
+    {
+      "category": "I snapped",
+      "message": "I lost control and snapped at them",
+      "status": "PASS",
+      "pattern": "causing_harm",
+      "response": "When you say things like 'i lost control', it often points to causing harm. It sounds like you were dysregulated in that moment, and everything became too much. That doesn't make you a bad person-it s"
+    },
+    {
+      "category": "Homework overwhelm",
+      "message": "I'm overwhelmed by homework and feel pressure piling up",
+      "status": "PASS",
+      "pattern": "life_topic_work",
+      "response": "Let's slow this down together\u2014what's underneath the overwhelm?"
+    },
+    {
+      "category": "Exam stress",
+      "message": "I'm stressed about exams and afraid of failing",
+      "status": "PASS",
+      "pattern": "anxiety",
+      "response": "It sounds like you're caught in anxiety. Anxiety is your nervous system trying to protect you. It's not your enemy-it's just working overtime. Let's help it calm down.\n\nWhere do you feel this anxiety "
+    },
+    {
+      "category": "Can't focus",
+      "message": "I'm struggling to focus in class",
+      "status": "PASS",
+      "pattern": null,
+      "response": "What stands out to you most about what you're feeling right now?"
+    },
+    {
+      "category": "Good grade excited",
+      "message": "I got a good grade and want to share this win",
+      "status": "PASS",
+      "pattern": "positive_state",
+      "response": "I'm really glad you're feeling this way. What do you want to savour about it?\n\nWould you like to talk about this feeling more?"
+    },
+    {
+      "category": "Teacher conflict",
+      "message": "I had a misunderstanding with my teacher",
+      "status": "PASS",
+      "pattern": null,
+      "response": "That's a lot to carry. How long has this been weighing on you?"
+    },
+    {
+      "category": "Falling behind",
+      "message": "I'm falling behind in school and feel ashamed to ask for help",
+      "status": "PASS",
+      "pattern": null,
+      "response": "I hear you. Can you tell me more about that? What does it feel like for you?"
+    },
+    {
+      "category": "New school",
+      "message": "I'm starting a new school and feel nervous and hopeful",
+      "status": "PASS",
+      "pattern": "anxiety",
+      "response": "It sounds like you're caught in anxiety. Anxiety is your nervous system trying to protect you. It's not your enemy-it's just working overtime. Let's help it calm down.\n\nWhere do you feel this anxiety "
+    },
+    {
+      "category": "Excluded group chat",
+      "message": "I saw my friends talking in a group chat without me",
+      "status": "PASS",
+      "pattern": "life_topic_relationships",
+      "response": "I'm here. What's going on with them?"
+    },
+    {
+      "category": "Rumors spread",
+      "message": "Rumors are being spread about me and I feel hurt",
+      "status": "PASS",
+      "pattern": null,
+      "response": "I'm here with you. Help me understand - what's the most challenging part of this?"
+    },
+    {
+      "category": "Best friend drifting",
+      "message": "My best friend is drifting away and I can't explain why",
+      "status": "PASS",
+      "pattern": "life_topic_relationships",
+      "response": "Tell me about this relationship. What's happening?"
+    },
+    {
+      "category": "Social anxiety school",
+      "message": "I have social anxiety and overthink everything at school",
+      "status": "PASS",
+      "pattern": null,
+      "response": "I hear you. Can you tell me more about that? What does it feel like for you?"
+    },
+    {
+      "category": "Invited nervous",
+      "message": "I got invited to something but I'm nervous about going",
+      "status": "PASS",
+      "pattern": "anxiety",
+      "response": "It sounds like you're caught in anxiety. Anxiety is your nervous system trying to protect you. It's not your enemy-it's just working overtime. Let's help it calm down.\n\nWhere do you feel this anxiety "
+    },
+    {
+      "category": "Arguing with parents",
+      "message": "I'm arguing with my parents and feel unheard",
+      "status": "PASS",
+      "pattern": "life_topic_money",
+      "response": "I'm listening. What's going on with money?"
+    },
+    {
+      "category": "Sibling conflict",
+      "message": "My sibling keeps crossing my boundaries",
+      "status": "PASS",
+      "pattern": null,
+      "response": "I hear you. Can you tell me more about that? What does it feel like for you?"
+    },
+    {
+      "category": "Pressure to succeed",
+      "message": "My parents are pushing too hard and I'm burnt out",
+      "status": "PASS",
+      "pattern": "life_topic_money",
+      "response": "Money concerns are valid. What's on your mind?"
+    },
+    {
+      "category": "Parents divorce",
+      "message": "My parents are divorcing and I'm trying to make sense of it",
+      "status": "PASS",
+      "pattern": "life_topic_money",
+      "response": "Money concerns are valid. What's on your mind?"
+    },
+    {
+      "category": "Invisible at home",
+      "message": "I feel invisible at home, my emotions are dismissed",
+      "status": "PASS",
+      "pattern": "life_topic_home",
+      "response": "I'm listening. What's going on at home?"
+    },
+    {
+      "category": "First heartbreak",
+      "message": "I had my first heartbreak and it hurts so much",
+      "status": "PASS",
+      "pattern": null,
+      "response": "Tell me more. What's this experience like from your perspective?"
+    },
+    {
+      "category": "Crush anxiety",
+      "message": "I'm overthinking every interaction with my crush",
+      "status": "PASS",
+      "pattern": null,
+      "response": "That sounds really difficult. What's making this particularly hard right now?"
+    },
+    {
+      "category": "Got ghosted",
+      "message": "They just ghosted me without explanation",
+      "status": "PASS",
+      "pattern": null,
+      "response": "What stands out to you most about what you're feeling right now?"
+    },
+    {
+      "category": "Pressure not ready",
+      "message": "I feel pressured to do things I'm not ready for",
+      "status": "PASS",
+      "pattern": "change_resistance",
+      "response": "Fear of change is so normal. Growth doesn't require urgency or big leaps. What's one tiny step that feels manageable? Just one small thing."
+    },
+    {
+      "category": "Body insecurity",
+      "message": "I feel insecure about my body",
+      "status": "PASS",
+      "pattern": null,
+      "response": "I want to understand better. Can you walk me through what you're experiencing?"
+    },
+    {
+      "category": "Not good enough",
+      "message": "I don't feel good enough",
+      "status": "PASS",
+      "pattern": null,
+      "response": "I'm listening. When you think about this, what comes up for you?"
+    },
+    {
+      "category": "Questioning identity",
+      "message": "I'm trying to understand who I am",
+      "status": "PASS",
+      "pattern": null,
+      "response": "That's wonderful to hear. Progress isn't always linear, but you're showing up for yourself and that matters. What's been the most helpful part?"
+    },
+    {
+      "category": "Feeling different",
+      "message": "I feel different and don't fit in any boxes",
+      "status": "PASS",
+      "pattern": "life_topic_money",
+      "response": "Money concerns are valid. What's on your mind?"
+    },
+    {
+      "category": "Lost disconnected",
+      "message": "Nothing feels exciting, everything feels heavy",
+      "status": "PASS",
+      "pattern": "numb_disconnected",
+      "response": "I hear that disconnection. Your body chose this to keep you safe. We can stay here together without pressure. What's one tiny sensation you notice - maybe the chair beneath you, or your breath moving?"
+    },
+    {
+      "category": "Online bullying",
+      "message": "Someone left harsh comments online and it really stings",
+      "status": "PASS",
+      "pattern": null,
+      "response": "I'm listening. When you think about this, what comes up for you?"
+    },
+    {
+      "category": "Embarrassing post",
+      "message": "I posted something embarrassing and can't stop thinking about it",
+      "status": "PASS",
+      "pattern": null,
+      "response": "That sounds really difficult. What's making this particularly hard right now?"
+    },
+    {
+      "category": "Phone addiction",
+      "message": "I know I scroll too much but can't stop",
+      "status": "PASS",
+      "pattern": "overwhelmed_anxious",
+      "response": "I can sense your nervous system is running fast right now. Let's slow down together. Can you take one slow breath with me? Breathe in for 4... and out for 6. Just this moment.\n\n\u2728 Not everything needs "
+    },
+    {
+      "category": "Group chat drama",
+      "message": "There's drama in our group chat with screenshots and misunderstandings",
+      "status": "PASS",
+      "pattern": null,
+      "response": "I hear you. Can you tell me more about that? What does it feel like for you?"
+    },
+    {
+      "category": "Performance anxiety",
+      "message": "I have performance anxiety before my sports event",
+      "status": "PASS",
+      "pattern": null,
+      "response": "That sounds really difficult. What's making this particularly hard right now?"
+    },
+    {
+      "category": "Not chosen team",
+      "message": "I didn't get chosen for the team and feel rejected",
+      "status": "PASS",
+      "pattern": null,
+      "response": "That's a lot to carry. How long has this been weighing on you?"
+    },
+    {
+      "category": "Proud of creation",
+      "message": "I made something I'm proud of but shy to share",
+      "status": "PASS",
+      "pattern": "positive_state",
+      "response": "That's beautiful to hear. What part of your day or moment feels especially good right now?\n\nWould you like to talk about this feeling more?"
+    },
+    {
+      "category": "Comparing to others",
+      "message": "I keep comparing myself to more talented peers",
+      "status": "PASS",
+      "pattern": null,
+      "response": "I'm listening. When you think about this, what comes up for you?"
+    },
+    {
+      "category": "Family reputation pressure",
+      "message": "I feel pressure to achieve for my family's reputation",
+      "status": "PASS",
+      "pattern": "life_topic_relationships",
+      "response": "I'm here. What's going on with them?"
+    },
+    {
+      "category": "First in family higher ed",
+      "message": "I'm the first in my family going to university",
+      "status": "PASS",
+      "pattern": "life_topic_relationships",
+      "response": "Tell me about this relationship. What's happening?"
+    },
+    {
+      "category": "Career expectations",
+      "message": "My family wants me to be a doctor but I want something else",
+      "status": "PASS",
+      "pattern": "life_topic_relationships",
+      "response": "Tell me about this relationship. What's happening?"
+    },
+    {
+      "category": "Adult responsibilities early",
+      "message": "I have to translate and help my parents with everything",
+      "status": "PASS",
+      "pattern": "life_topic_money",
+      "response": "Tell me about the financial situation. What's happening?"
+    },
+    {
+      "category": "Cultural duty conflict",
+      "message": "I want independence but feel guilty about cultural duty",
+      "status": "PASS",
+      "pattern": null,
+      "response": "I hear you. Can you tell me more about that? What does it feel like for you?"
+    },
+    {
+      "category": "Emotions not expressed",
+      "message": "In my culture we don't talk about emotions openly",
+      "status": "PASS",
+      "pattern": null,
+      "response": "That sounds really difficult. What's making this particularly hard right now?"
+    },
+    {
+      "category": "Language barriers",
+      "message": "I struggle to express complex feelings in English",
+      "status": "PASS",
+      "pattern": null,
+      "response": "I'm listening. When you think about this, what comes up for you?"
+    },
+    {
+      "category": "Caught between cultures",
+      "message": "I feel caught between cultures, not enough for either side",
+      "status": "PASS",
+      "pattern": null,
+      "response": "I want to understand better. Can you walk me through what you're experiencing?"
+    },
+    {
+      "category": "Accent judgment",
+      "message": "People mock my accent and it hurts",
+      "status": "PASS",
+      "pattern": null,
+      "response": "I'm here with you. Help me understand - what's the most challenging part of this?"
+    },
+    {
+      "category": "Mixed heritage",
+      "message": "I'm mixed heritage and trying to belong to multiple places",
+      "status": "PASS",
+      "pattern": null,
+      "response": "That's wonderful to hear. Progress isn't always linear, but you're showing up for yourself and that matters. What's been the most helpful part?"
+    },
+    {
+      "category": "Religious expectations",
+      "message": "I'm navigating religious rules and guilt around my choices",
+      "status": "PASS",
+      "pattern": null,
+      "response": "I'm listening. When you think about this, what comes up for you?"
+    },
+    {
+      "category": "Parents sacrificed",
+      "message": "My parents migrated and sacrificed so much for me",
+      "status": "PASS",
+      "pattern": "life_topic_money",
+      "response": "I'm listening. What's going on with money?"
+    },
+    {
+      "category": "Cultural festival joy",
+      "message": "I'm excited about our cultural festival and want to share traditions",
+      "status": "PASS",
+      "pattern": "open_sharing",
+      "response": "I'm right here with you. What's going on?"
+    },
+    {
+      "category": "Heritage pride",
+      "message": "I'm proud of my heritage and want to share my culture",
+      "status": "PASS",
+      "pattern": "positive_state",
+      "response": "I'm really glad you're feeling this way. What do you want to savour about it?\n\nI'm here - would you like to stay with this for a bit?"
+    },
+    {
+      "category": "Experiencing racism",
+      "message": "I experienced racism today and feel deeply hurt",
+      "status": "PASS",
+      "pattern": null,
+      "response": "I'm hearing today of struggle. What's kept you going through it? And what made you reach out today?"
+    },
+    {
+      "category": "Microaggressions",
+      "message": "I keep experiencing microaggressions and feel unsafe",
+      "status": "PASS",
+      "pattern": null,
+      "response": "What stands out to you most about what you're feeling right now?"
+    },
+    {
+      "category": "Invasive questions",
+      "message": "People keep asking where I'm really from",
+      "status": "PASS",
+      "pattern": null,
+      "response": "Tell me more. What's this experience like from your perspective?"
+    },
+    {
+      "category": "Online hate ethnicity",
+      "message": "I received online hate because of my ethnicity",
+      "status": "PASS",
+      "pattern": null,
+      "response": "I'm listening. When you think about this, what comes up for you?"
+    },
+    {
+      "category": "Spiritual disconnection",
+      "message": "I feel disconnected from my spiritual traditions",
+      "status": "PASS",
+      "pattern": "numb_disconnected",
+      "response": "Sometimes our system shuts down to protect us from feeling too much. That numbness makes sense. You don't have to force feeling. Can you just notice - are you warm or cold right now? That's enough.\n\nY"
+    },
+    {
+      "category": "Spiritual practices shamed",
+      "message": "People judge my spiritual practices",
+      "status": "PASS",
+      "pattern": null,
+      "response": "Let's get you some relief. Here are quick options:\n\n\u2022 **Quick breath reset** (30 seconds) - I can guide you through this\n\u2022 **Grounding exercise** (2 minutes) - Step-by-step with me\n\u2022 **Body scan** (3 "
+    },
+    {
+      "category": "Spiritual milestone",
+      "message": "I'm going through a spiritual coming-of-age ceremony",
+      "status": "PASS",
+      "pattern": null,
+      "response": "That's a lot to carry. How long has this been weighing on you?"
+    },
+    {
+      "category": "Had a bad week",
+      "message": "I've had a bad week",
+      "status": "PASS",
+      "pattern": null,
+      "response": "That sounds really difficult. What's making this particularly hard right now?"
+    },
+    {
+      "category": "Struggling for months",
+      "message": "I've been struggling for 3 months",
+      "status": "PASS",
+      "pattern": null,
+      "response": "That's a lot to carry. How long has this been weighing on you?"
+    },
+    {
+      "category": "Self-harm mention",
+      "message": "I want to hurt myself",
+      "status": "PASS",
+      "pattern": "crisis_intervention",
+      "response": "I'm hearing a lot of pain in your words\u2026 and I need you to know: you don't have to carry this alone.\n\nReaching out for support is a sign of strength \u2014 it shows you're ready for change. Feeling scared,"
+    },
+    {
+      "category": "Suicidal ideation",
+      "message": "I don't want to be here anymore",
+      "status": "PASS",
+      "pattern": null,
+      "response": "I want to understand better. Can you walk me through what you're experiencing?"
+    }
+  ],
+  "errors": []
+}
