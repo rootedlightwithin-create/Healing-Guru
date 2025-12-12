@@ -1012,23 +1012,29 @@ class HealingGuruAI:
         
         # Repetitive hopeless phrases in history
         if conversation_history:
-            recent_user_msgs = [msg[1].lower() for msg in conversation_history[:5] if msg[0] == 'user']
-            hopeless_count = sum(1 for msg in recent_user_msgs if any(
-                word in msg for word in ['hopeless', 'pointless', 'give up', 'cant', "can't", 'no point']
-            ))
-            if hopeless_count >= 2:
-                score += 2
+            try:
+                recent_user_msgs = [msg[1].lower() for msg in conversation_history[:5] if len(msg) >= 2 and msg[0] == 'user']
+                hopeless_count = sum(1 for msg in recent_user_msgs if any(
+                    word in msg for word in ['hopeless', 'pointless', 'give up', 'cant', "can't", 'no point']
+                ))
+                if hopeless_count >= 2:
+                    score += 2
+            except (IndexError, TypeError, AttributeError):
+                pass
         
         # Escalating pattern (messages getting darker)
         if conversation_history and len(conversation_history) >= 4:
-            recent_msgs = [msg[1].lower() for msg in conversation_history[:4] if msg[0] == 'user']
-            if len(recent_msgs) >= 2:
-                # Check if negative words increasing
-                neg_words = ['worse', 'cant', "can't", 'hopeless', 'stuck', 'nothing', 'never']
-                recent_neg = sum(1 for msg in recent_msgs[:2] for word in neg_words if word in msg)
-                older_neg = sum(1 for msg in recent_msgs[2:] for word in neg_words if word in msg)
-                if recent_neg > older_neg:
-                    score += 1
+            try:
+                recent_msgs = [msg[1].lower() for msg in conversation_history[:4] if len(msg) >= 2 and msg[0] == 'user']
+                if len(recent_msgs) >= 2:
+                    # Check if negative words increasing
+                    neg_words = ['worse', 'cant', "can't", 'hopeless', 'stuck', 'nothing', 'never']
+                    recent_neg = sum(1 for msg in recent_msgs[:2] for word in neg_words if word in msg)
+                    older_neg = sum(1 for msg in recent_msgs[2:] for word in neg_words if word in msg)
+                    if recent_neg > older_neg:
+                        score += 1
+            except (IndexError, TypeError, AttributeError):
+                pass
         
         return min(score, 10)  # Cap at 10
     
