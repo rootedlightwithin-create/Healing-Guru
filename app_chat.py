@@ -112,7 +112,7 @@ class HealingGuruAI:
                 ]
             },
             'people_pleasing_overgiving': {
-                'keywords': ['dont want to upset', 'everyone else', 'their needs', 'cant say no', 'disappointing', 'letting them down', 'always helping', 'exhausted from'],
+                'keywords': ['dont want to upset', 'everyone else', 'their needs', 'cant say no', 'disappointing', 'letting them down', 'always helping', 'exhausted from', "don't get anything back", 'nothing back', 'one-sided', 'all the effort', 'trying to be nice', 'tired of trying', 'tired of being nice', 'always giving', 'never appreciated', 'taken for granted', 'unappreciated'],
                 'responses': [
                     "I'm noticing a pattern of putting everyone else first. What about YOUR needs? What about what YOU want? When was the last time you honored what you needed?",
                     "That exhaustion makes sense - you're pouring from an empty cup. People-pleasing is a survival pattern, not a character flaw. But you deserve to be on your own list of people who matter.",
@@ -271,7 +271,7 @@ class HealingGuruAI:
             'relationships': {
                 'keywords': ['friend', 'friends', 'friendship', 'partner', 'boyfriend', 'girlfriend', 'parent', 'parents', 'mum', 'mom', 'dad', 'father', 'mother', 'sister', 'brother', 'family', 'relationship', 'relative'],
                 'celebration_keywords': ['lovely day', 'lovely time', 'good conversation', 'connected', 'special moment', 'quality time'],
-                'stress_keywords': ['upset me', 'hurt me', 'conflict', 'argument', 'fight', 'misunderstood', "don't feel understood", "don't listen", "won't listen", "doesn't listen", 'not listening', 'ignoring', 'tension', 'was mean', 'being mean', 'rude', 'ignored', 'dismissed', 'angry at', 'mad at', 'frustrating', 'difficult', 'falling out', 'issue with'],
+                'stress_keywords': ['upset me', 'hurt me', 'conflict', 'argument', 'fight', 'misunderstood', "don't feel understood", "don't listen", "won't listen", "doesn't listen", 'not listening', 'ignoring', 'tension', 'was mean', 'being mean', 'rude', 'ignored', 'dismissed', 'angry at', 'mad at', 'frustrating', 'difficult', 'falling out', 'issue with', "don't get anything back", "nothing back", "not reciprocated", 'one-sided', 'all the effort', 'trying to be nice', 'tired of trying', 'tired of being', 'exhausted from trying', 'always giving', 'never receive', 'unappreciated', 'taken for granted', 'no effort back'],
                 'stressed_responses': [
                     "It sounds like your heart was tender in that moment. What felt most painful for you?",
                     "Being misunderstood is such a lonely feeling. Where did you feel it in your body?",
