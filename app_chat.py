@@ -249,7 +249,7 @@ class HealingGuruAI:
             'work': {
                 'keywords': ['work', 'job', 'office', 'colleagues', 'colleague', 'meeting', 'boss', 'career', 'workplace', 'coworker', 'manager', 'project', 'deadline'],
                 'celebration_keywords': ['got praised', 'promotion', 'raise', 'accomplished', 'finished project', 'good feedback', 'recognition'],
-                'stress_keywords': ['overwhelming', 'stressed', 'annoyed', 'frustrated', 'anxious about', 'worried about', 'too much', 'too many', 'was mean', 'being mean', 'rude', 'difficult', 'hard day', 'bad day', 'exhausted', 'exhausting', 'tired', 'draining', 'awful', 'horrible', 'terrible', 'unbearable'],
+                'stress_keywords': ['overwhelmed', 'overwhelming', 'stressed', 'stressful', 'annoyed', 'frustrated', 'anxious about', 'worried about', 'too much', 'too many', 'was mean', 'being mean', 'rude', 'difficult', 'hard day', 'bad day', 'exhausted', 'exhausting', 'tired', 'draining', 'awful', 'horrible', 'terrible', 'unbearable', 'don\\'t want to go', 'dread', 'hate going', 'can\\'t face'],
                 'stressed_responses': [
                     "Work can pull so much from your energy. What part of today felt the heaviest?",
                     "Let's slow this down together—what's underneath the overwhelm?",
