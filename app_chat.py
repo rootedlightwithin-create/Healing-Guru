@@ -427,7 +427,7 @@ class HealingGuruAI:
             },
             {
                 'name': 'Safety Validation & Support Check',
-                'description': 'For when you\'re being mistreated or feel unsafe.\n\n**Remember:**\n• What happened to you was not okay\n• Your feelings make complete sense\n• You deserve to feel safe and respected\n• This is not your fault\n\n**Reflection:**\nIs this situation ongoing? Do you have someone you trust who can support you?\n\nIf you ever feel at risk, reaching out to a counselor, trusted adult, or support service is really important.\n\n**Crisis Text Line:** Text HOME to 741741\n**National Helpline:** 1-800-273-8255',
+                'description': 'For when you\'re being mistreated or feel unsafe.\n\n**Remember:**\n• What happened to you was not okay\n• Your feelings make complete sense\n• You deserve to feel safe and respected\n• This is not your fault\n\n**Reflection:**\nIs this situation ongoing? Do you have someone you trust who can support you?\n\nIf you ever feel at risk, reaching out to a counselor, trusted adult, or support service is really important.\n\n**Crisis Support:**\n🇺🇸 **US** - Crisis Text Line: Text HOME to 741741 | Call: 988\n🇬🇧 **UK** - Samaritans: 116 123 | Text: 85258\n🇦🇺 **Australia** - Lifeline: 13 11 14\n🇨🇦 **Canada** - Crisis Services: 1-833-456-4566\n🇮🇪 **Ireland** - Samaritans: 116 123\n🌍 **Worldwide** - findahelpline.com for your country',
                 'when': 'bullying, mistreatment, feeling unsafe',
                 'intensity_range': [5, 10],
                 'states': ['being_bullied', 'overwhelmed_anxious', 'self_blame_shame']
