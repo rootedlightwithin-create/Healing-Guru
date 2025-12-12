@@ -201,6 +201,16 @@ class HealingGuruAI:
                     "What do you need to feel safe right now?",
                     "Can you take three slow breaths with me before we continue?"
                 ]
+            },
+            'sleep_difficulty': {
+                'keywords': ['cant sleep', "can't sleep", 'insomnia', 'staying awake', 'trouble sleeping', 'hard to sleep', 'sleep problems', 'cant fall asleep', 'wide awake', 'racing mind at night', 'tossing and turning'],
+                'response_intro': "Sleep struggles are so hard. When your mind won't quiet, it's exhausting. ",
+                'insight': "Sleep difficulties are often your nervous system stuck in 'on' mode. Your body needs safety signals to let go into rest.",
+                'questions': [
+                    "What's your mind doing when you're trying to sleep? Racing? Worrying? Replaying things?",
+                    "What does your body feel like? Restless? Tense? Wired?",
+                    "What time are you usually trying to sleep, and how long have you been struggling with this?"
+                ]
             }
         }
         
@@ -356,6 +366,20 @@ class HealingGuruAI:
                 'when': 'high distress, needing additional support',
                 'intensity_range': [7, 9],
                 'states': ['high_functioning_distress', 'numb_disconnected']
+            },
+            {
+                'name': 'Sleep Preparation (Nervous System Reset)',
+                'description': 'When your mind won\'t quiet for sleep.\n\n**30 minutes before bed:**\n1. **Body temperature drop** - Warm shower/bath, then cool room (65-68°F)\n2. **4-7-8 Breathing** - In for 4, hold for 7, out for 8 (repeat 4 times)\n3. **Progressive muscle relaxation** - Tense each muscle group for 5 seconds, then release\n\n**In bed:**\n• Keep eyes open in the dark (reverse psychology)\n• If awake after 20 min, leave room until drowsy\n• No clock watching\n\nYour body knows how to sleep. You\'re just helping it remember safety.',
+                'when': 'sleep difficulty, racing mind, insomnia',
+                'intensity_range': [3, 8],
+                'states': ['overthinking', 'overwhelmed_anxious', 'high_functioning_distress']
+            },
+            {
+                'name': 'Worry Time Container (For Sleep)',
+                'description': 'Stop middle-of-the-night worry spirals.\n\n**Setup:**\nBefore bed, write down your worries. All of them. Then say: "I\'ll think about this tomorrow at [specific time]."\n\n**If worries come at night:**\n"Not now. Tomorrow at [time]." Redirect to breath.\n\nYour brain needs permission to let go. This gives it a plan.',
+                'when': 'bedtime anxiety, racing thoughts at night',
+                'intensity_range': [4, 7],
+                'states': ['overthinking', 'overwhelmed_anxious', 'high_functioning_distress']
             }
         ]
     
