@@ -183,7 +183,7 @@ class HealingGuruAI:
                 ]
             },
             'avoidance': {
-                'keywords': ['ignore', 'later', 'cant face', 'escape', 'distract', 'running from', 'put off', 'hide'],
+                'keywords': ['ignoring it', 'putting it off', 'deal with it later', 'cant face', 'escape', 'distract myself', 'running from', 'avoiding', 'put off', 'hide from', 'procrastinating', 'dodging'],
                 'response_intro': "It seems like you're trying to avoid something difficult. ",
                 'insight': "Avoidance gives temporary relief but usually makes things harder in the long run. What we resist, persists.",
                 'questions': [
