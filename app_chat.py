@@ -1886,18 +1886,6 @@ class HealingGuruAI:
             if not available_responses:
                 available_responses = time_aware_responses
         else:
-            # User already mentioned duration - acknowledge it and ask deeper questions
-            time_aware_responses = [
-                f"I hear you. You mentioned this has been happening for {time_period}. Has it been going on longer than that, or did something specific trigger it {time_period} ago?",
-                f"That's a lot to carry for {time_period}. What's been making this period particularly difficult?",
-                f"You said {time_period} - that's significant. What's changed or gotten harder during this time?",
-                f"I'm hearing {time_period} of struggle. What's kept you going through it? And what made you reach out today?"
-            ]
-            
-            available_responses = [r for r in time_aware_responses if r not in str(recent_ai_messages)]
-            if not available_responses:
-                available_responses = time_aware_responses
-        else:
             # No time period mentioned - can ask about duration
             exploration_responses = [
                 f"I hear you. Can you tell me more about that? What does it feel like for you?",
