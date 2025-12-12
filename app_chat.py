@@ -211,6 +211,36 @@ class HealingGuruAI:
                     "What does your body feel like? Restless? Tense? Wired?",
                     "What time are you usually trying to sleep, and how long have you been struggling with this?"
                 ]
+            },
+            'being_bullied': {
+                'keywords': ['bullying me', 'bullied', 'horrible to me', 'picked on', 'picking on me', 'nasty things', 'feel targeted', 'made me feel small', 'scared of how they treat', 'mistreated', 'won\'t leave me alone', 'keep saying mean', 'someone was mean'],
+                'response_intro': "I'm really sorry you were treated that way. No one deserves to feel unsafe or belittled. ",
+                'insight': "That must have been painful. Your feelings make sense. You don't have to hold this alone-I'm right here with you.",
+                'questions': [
+                    "What part of this is sitting heaviest on your heart?",
+                    "Where did you feel it most-in your body, or in your mind?",
+                    "If this is ongoing or you feel threatened, it might help to reach out to someone you trust or a professional who can support you."
+                ]
+            },
+            'causing_harm': {
+                'keywords': ['i hurt someone', 'i was mean', 'said something awful', 'feel guilty for how i acted', 'shouldn\'t have spoken', 'i lost control', 'i regret what i did', 'feel awful for how i acted', 'i hurt them', 'i was horrible'],
+                'response_intro': "Thank you for being honest. It takes courage to look at our own behaviour. ",
+                'insight': "Guilt often signals that your heart cares deeply. This doesn't define you-it simply shows where you need gentleness and awareness.",
+                'questions': [
+                    "What happened in that moment?",
+                    "What was going on inside you before you reacted?",
+                    "Can you notice what part of you felt unheard or overwhelmed?"
+                ]
+            },
+            'emotional_dysregulation': {
+                'keywords': ['i exploded', 'i snapped', 'i lost it', 'out of control', 'couldn\'t stop myself', 'reacted badly', 'didn\'t feel heard', 'i was overwhelmed', 'lost my temper', 'couldn\'t regulate'],
+                'response_intro': "That sounds overwhelming. Moments like that often come from deep stress or feeling unheard. ",
+                'insight': "You're not alone-many people react this way when their system is overloaded. It sounds like you were dysregulated, and everything felt too much at once.",
+                'questions': [
+                    "What do you think your body was trying to communicate in that moment?",
+                    "Was there a boundary, fear, or need underneath the reaction?",
+                    "If you imagine the moment again, what would a calmer version of you do differently?"
+                ]
             }
         }
         
@@ -380,6 +410,27 @@ class HealingGuruAI:
                 'when': 'bedtime anxiety, racing thoughts at night',
                 'intensity_range': [4, 7],
                 'states': ['overthinking', 'overwhelmed_anxious', 'high_functioning_distress']
+            },
+            {
+                'name': 'Repair Exercise (Choosing Differently)',
+                'description': 'For when you\'re carrying guilt about how you acted.\n\n**Close your eyes and reimagine:**\n1. Picture the moment again\n2. See yourself responding with steadiness and care\n3. Notice how it feels to choose differently\n\n**Then ask yourself:**\nWhat would you say now if you could? What needs healing?\n\nYou always get to choose differently going forward.',
+                'when': 'guilt, regret, shame about behavior',
+                'intensity_range': [4, 8],
+                'states': ['self_blame_shame', 'causing_harm', 'emotional_dysregulation']
+            },
+            {
+                'name': 'Self-Forgiveness Prompt',
+                'description': 'A gentle path toward releasing shame.\n\n**Say to yourself (out loud if you can):**\n"I was dysregulated. I was overwhelmed. I didn\'t have the tools in that moment that I have now.\n\nI forgive myself for not knowing what I hadn\'t yet learned.\n\nI choose to do better going forward."\n\n**Then place a hand on your chest and breathe.**',
+                'when': 'shame, regret, self-criticism',
+                'intensity_range': [5, 9],
+                'states': ['self_blame_shame', 'causing_harm']
+            },
+            {
+                'name': 'Safety Validation & Support Check',
+                'description': 'For when you\'re being mistreated or feel unsafe.\n\n**Remember:**\n• What happened to you was not okay\n• Your feelings make complete sense\n• You deserve to feel safe and respected\n• This is not your fault\n\n**Reflection:**\nIs this situation ongoing? Do you have someone you trust who can support you?\n\nIf you ever feel at risk, reaching out to a counselor, trusted adult, or support service is really important.\n\n**Crisis Text Line:** Text HOME to 741741\n**National Helpline:** 1-800-273-8255',
+                'when': 'bullying, mistreatment, feeling unsafe',
+                'intensity_range': [5, 10],
+                'states': ['being_bullied', 'overwhelmed_anxious', 'self_blame_shame']
             }
         ]
     
