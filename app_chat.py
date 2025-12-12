@@ -1862,10 +1862,30 @@ class HealingGuruAI:
             }
         
         # General empathetic responses for exploration - make them more varied
-        # Check if user already mentioned a time period
+        # Check if user already mentioned a time period in THIS message OR recent conversation
         time_period = self.extract_time_period(message_lower)
         
+        # Also check recent user messages for time periods (last 3 messages)
+        if not time_period and conversation_history:
+            recent_user_messages = [msg[1].lower() for msg in conversation_history if msg[0] == 'user'][:3]
+            for prev_msg in recent_user_messages:
+                time_period = self.extract_time_period(prev_msg)
+                if time_period:
+                    break  # Found a time period in recent history
+        
         if time_period:
+            # User already mentioned duration - DON'T ask "how long", ask deeper questions
+            time_aware_responses = [
+                f"I hear you. What's been making this particularly difficult?",
+                f"That sounds really painful. What part of this weighs on you most?",
+                f"I'm listening. What would help you feel more supported through this?",
+                f"That's a lot to carry. What keeps you going despite this challenge?"
+            ]
+            
+            available_responses = [r for r in time_aware_responses if r not in str(recent_ai_messages)]
+            if not available_responses:
+                available_responses = time_aware_responses
+        else:
             # User already mentioned duration - acknowledge it and ask deeper questions
             time_aware_responses = [
                 f"I hear you. You mentioned this has been happening for {time_period}. Has it been going on longer than that, or did something specific trigger it {time_period} ago?",
