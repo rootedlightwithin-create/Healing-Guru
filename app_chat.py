@@ -563,7 +563,10 @@ class HealingGuruAI:
         intensity_score = self.assess_emotional_intensity(message, conversation_history)
         
         # Get recent AI responses to avoid repetition
-        recent_ai_messages = [msg[1] for msg in conversation_history if msg[0] == 'assistant'][:3]
+        try:
+            recent_ai_messages = [msg[1] for msg in conversation_history if len(msg) >= 2 and msg[0] == 'assistant'][:3]
+        except (IndexError, TypeError, AttributeError):
+            recent_ai_messages = []
         
         # CRITICAL: If intensity is 7+, prioritize crisis support
         if intensity_score >= 7:
@@ -1134,7 +1137,10 @@ class HealingGuruAI:
         message_lower = message.lower()
         
         # Get recent AI responses to avoid repetition
-        recent_ai_messages = [msg[1] for msg in history if msg[0] == 'assistant'][:3]
+        try:
+            recent_ai_messages = [msg[1] for msg in history if len(msg) >= 2 and msg[0] == 'assistant'][:3]
+        except (IndexError, TypeError, AttributeError):
+            recent_ai_messages = []
         
         # FIRST: Check for positive emotional states
         positive_state = self.detect_positive_state(message_lower)
