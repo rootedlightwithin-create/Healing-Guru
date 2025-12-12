@@ -12,22 +12,25 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Function to scroll to a section
-function scrollToSection(sectionId) {
-    const section = document.getElementById(sectionId);
-    if (section) {
-        section.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-        });
-    }
+// Add event listener for Explore Services button
+const exploreServicesBtn = document.getElementById('exploreServicesBtn');
+if (exploreServicesBtn) {
+    exploreServicesBtn.addEventListener('click', function() {
+        const servicesSection = document.getElementById('services');
+        if (servicesSection) {
+            servicesSection.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
 }
 
 // Contact form handling
 const contactForm = document.getElementById('contactForm');
 const formMessage = document.getElementById('formMessage');
 
-if (contactForm) {
+if (contactForm && formMessage) {
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
         
@@ -55,13 +58,15 @@ if (contactForm) {
 }
 
 function showMessage(text, type) {
-    formMessage.textContent = text;
-    formMessage.className = 'form-message ' + type;
-    
-    // Hide message after 5 seconds
-    setTimeout(() => {
-        formMessage.className = 'form-message';
-    }, 5000);
+    if (formMessage) {
+        formMessage.textContent = text;
+        formMessage.className = 'form-message ' + type;
+        
+        // Hide message after 5 seconds
+        setTimeout(() => {
+            formMessage.className = 'form-message';
+        }, 5000);
+    }
 }
 
 // Add scroll effect to header
