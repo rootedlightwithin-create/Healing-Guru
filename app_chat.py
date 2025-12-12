@@ -249,7 +249,7 @@ class HealingGuruAI:
             'work': {
                 'keywords': ['work', 'job', 'office', 'colleagues', 'colleague', 'meeting', 'boss', 'career', 'workplace', 'coworker', 'manager', 'project', 'deadline'],
                 'celebration_keywords': ['got praised', 'promotion', 'raise', 'accomplished', 'finished project', 'good feedback', 'recognition'],
-                'stress_keywords': ['overwhelming', 'stressed', 'annoyed', 'frustrated', 'anxious about', 'worried about'],
+                'stress_keywords': ['overwhelming', 'stressed', 'annoyed', 'frustrated', 'anxious about', 'worried about', 'too much', 'too many', 'was mean', 'being mean', 'rude', 'difficult', 'hard day', 'bad day', 'exhausted', 'exhausting', 'tired', 'draining', 'awful', 'horrible', 'terrible', 'unbearable'],
                 'stressed_responses': [
                     "Work can pull so much from your energy. What part of today felt the heaviest?",
                     "Let's slow this down together—what's underneath the overwhelm?",
@@ -271,7 +271,7 @@ class HealingGuruAI:
             'relationships': {
                 'keywords': ['friend', 'friends', 'friendship', 'partner', 'boyfriend', 'girlfriend', 'mum', 'mom', 'dad', 'father', 'mother', 'sister', 'brother', 'family', 'relationship', 'relative'],
                 'celebration_keywords': ['lovely day', 'lovely time', 'good conversation', 'connected', 'special moment', 'quality time'],
-                'stress_keywords': ['upset me', 'hurt me', 'conflict', 'argument', 'fight', 'misunderstood', "don't feel understood", 'tension'],
+                'stress_keywords': ['upset me', 'hurt me', 'conflict', 'argument', 'fight', 'misunderstood', "don't feel understood", 'tension', 'was mean', 'being mean', 'rude', 'ignored', 'dismissed', 'angry at', 'mad at', 'frustrating', 'difficult', 'falling out', 'issue with'],
                 'stressed_responses': [
                     "It sounds like your heart was tender in that moment. What felt most painful for you?",
                     "Being misunderstood is such a lonely feeling. Where did you feel it in your body?",
@@ -293,7 +293,7 @@ class HealingGuruAI:
             'pets': {
                 'keywords': ['dog', 'cat', 'pet', 'puppy', 'kitten', 'animal', 'vet', 'fur baby'],
                 'celebration_keywords': ['cute', 'adorable', 'sweet', 'funny', 'made me smile', 'made me laugh'],
-                'stress_keywords': ['unwell', 'sick', 'scared', 'worried', 'vet', 'ill', 'not eating', 'injured'],
+                'stress_keywords': ['unwell', 'sick', 'scared', 'worried', 'vet', 'ill', 'not eating', 'injured', 'hurt', 'pain', 'limping', 'vomiting', 'won\'t eat', 'emergency', 'hospital', 'surgery'],
                 'stressed_responses': [
                     "It makes sense to feel scared when a pet isn't well. You care deeply.",
                     "What symptoms are you noticing? I'm here with you as you navigate this.",
@@ -315,7 +315,7 @@ class HealingGuruAI:
             'home': {
                 'keywords': ['home', 'house', 'flat', 'apartment', 'room', 'space', 'living space', 'bedroom', 'kitchen'],
                 'celebration_keywords': ['tidied', 'cleaned', 'organized', 'peaceful', 'calm space', 'cozy', 'comfortable'],
-                'stress_keywords': ['chaotic', 'messy', 'overwhelming', 'uncomfortable', "don't feel comfortable", 'cluttered', 'stressful'],
+                'stress_keywords': ['chaotic', 'messy', 'overwhelming', 'uncomfortable', "don't feel comfortable", 'cluttered', 'stressful', 'too much', 'falling apart', 'broken', 'issues with', 'problems with', 'noise', 'noisy', 'dirty', 'unsafe'],
                 'stressed_responses': [
                     "A chaotic space can unsettle your whole system. What part feels most overwhelming?",
                     "Let's take this gently—one corner, one breath at a time.",
@@ -337,7 +337,7 @@ class HealingGuruAI:
             'money': {
                 'keywords': ['money', 'bills', 'bill', 'paid', 'debt', 'finance', 'financial', 'rent', 'mortgage', 'savings', 'salary', 'income', 'afford', 'expensive'],
                 'celebration_keywords': ['paid off', 'paid it off', 'cleared', 'saved', 'bonus', 'raise', 'got paid'],
-                'stress_keywords': ['tight', 'anxious about', 'worried about', "can't afford", 'struggling', 'stress', 'stressful'],
+                'stress_keywords': ['tight', 'anxious about', 'worried about', "can't afford", 'struggling', 'stress', 'stressful', 'broke', 'running out', 'overdue', 'behind on', 'owe', 'debt', 'expensive', 'too expensive', 'too much'],
                 'stressed_responses': [
                     "Financial strain touches deeply on safety. Your worry makes sense.",
                     "Let's explore what's causing the biggest pressure right now.",
