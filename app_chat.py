@@ -1867,11 +1867,15 @@ class HealingGuruAI:
         
         # Also check recent user messages for time periods (last 3 messages)
         if not time_period and conversation_history:
-            recent_user_messages = [msg[1].lower() for msg in conversation_history if msg[0] == 'user'][:3]
-            for prev_msg in recent_user_messages:
-                time_period = self.extract_time_period(prev_msg)
-                if time_period:
-                    break  # Found a time period in recent history
+            try:
+                recent_user_messages = [msg[1].lower() for msg in conversation_history if len(msg) >= 2 and msg[0] == 'user'][:3]
+                for prev_msg in recent_user_messages:
+                    time_period = self.extract_time_period(prev_msg)
+                    if time_period:
+                        break  # Found a time period in recent history
+            except (IndexError, TypeError, AttributeError):
+                # If conversation_history format is unexpected, just skip this check
+                pass
         
         if time_period:
             # User already mentioned duration - DON'T ask "how long", ask deeper questions
