@@ -1743,8 +1743,32 @@ class HealingGuruAI:
                 'needs_tool': False
             }
         
-        # Check if expressing gratitude or positive sharing
-        if any(word in message_lower for word in ['thank', 'grateful', 'appreciate', 'helped']):
+        # Check if expressing gratitude or reporting that a tool helped
+        tool_worked = any(phrase in message_lower for phrase in [
+            'that helped', 'it helped', 'helped', 'that worked', 'it worked', 'worked',
+            'feel better', 'feeling better', 'feels better', 'bit better', 'little better',
+            'breathing helped', 'grounding helped', 'exercise helped', 'tool helped',
+            'did the breathing', 'tried the breathing', 'tried breathing', 'did breathing',
+            'took your advice', 'followed your', 'did what you', 'tried what you'
+        ])
+        
+        if tool_worked:
+            tool_success_responses = [
+                "That's wonderful - you showed up for yourself and it made a difference. That takes courage.\n\nDo you want to keep building on this feeling, or is this a good place to rest for now?",
+                "I'm so proud of you for trying that. Notice how you just shifted your own state - that's your power, not mine.\n\nHow do you want to continue from here? Keep exploring, or take this win and rest?",
+                "Beautiful. You just proved to yourself that you have the tools to shift how you feel. That's huge.\n\nWhat do you need now? More support, or space to sit with this relief?",
+                "That's really good to hear. You did that - you chose to try something and it helped. That matters.\n\nShall we continue, or is this a good stopping point for today?"
+            ]
+            response = random.choice([r for r in tool_success_responses if r not in str(recent_ai_messages)])
+            return {
+                'response': response,
+                'pattern': 'tool_success',
+                'emotion': 'relief',
+                'needs_tool': False
+            }
+        
+        # Check if expressing general gratitude
+        if any(word in message_lower for word in ['thank', 'grateful', 'appreciate']):
             gratitude_responses = [
                 "I'm so glad this is helpful. You're doing important work by showing up for yourself. How are you feeling right now?",
                 "Your willingness to engage with this process is beautiful. That takes real courage. What's shifted for you?",
