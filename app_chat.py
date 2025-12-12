@@ -1347,6 +1347,74 @@ class HealingGuruAI:
                 'needs_tool': False
             }
         
+        # Check if user is stating what they need (peace, calm, clarity, etc.)
+        # This is an opportunity to offer immediate tools
+        needs_peace = any(word in message_lower for word in ['peace', 'peaceful', 'calm', 'quiet'])
+        needs_grounding = any(word in message_lower for word in ['grounding', 'ground', 'present', 'here'])
+        needs_clarity = any(word in message_lower for word in ['clarity', 'clear', 'think straight', 'clear head'])
+        needs_rest = any(word in message_lower for word in ['rest', 'sleep', 'relax', 'unwind'])
+        needs_relief = any(word in message_lower for word in ['relief', 'break', 'escape', 'pause'])
+        
+        # Check if it's a short response (likely answering "what do you need?")
+        word_count = len(message_lower.split())
+        is_short_need_statement = word_count <= 5
+        
+        if is_short_need_statement and (needs_peace or needs_grounding or needs_clarity or needs_rest or needs_relief):
+            if needs_peace or needs_rest:
+                tool_response = (
+                    "Let me help you find some peace right now.\n\n"
+                    "**4-7-8 Breathing** (proven for calm and sleep):\n\n"
+                    "1️⃣ Breathe in through your nose for 4 counts\n"
+                    "2️⃣ Hold for 7 counts\n"
+                    "3️⃣ Exhale through your mouth for 8 counts\n\n"
+                    "Do this 4 times. The long exhale signals your nervous system to relax.\n\n"
+                    "Try it right now. I'll wait.\n\n"
+                    "...\n\n"
+                    "How does that feel?"
+                )
+            elif needs_grounding:
+                tool_response = (
+                    "Let's ground you right now.\n\n"
+                    "**5-4-3-2-1 Grounding:**\n\n"
+                    "Look around and name:\n"
+                    "👁️ **5 things you can SEE**\n"
+                    "✋ **4 things you can TOUCH**\n"
+                    "👂 **3 things you can HEAR**\n"
+                    "👃 **2 things you can SMELL**\n"
+                    "👅 **1 thing you can TASTE**\n\n"
+                    "Take your time. This brings you back to the present moment.\n\n"
+                    "What did you notice?"
+                )
+            elif needs_clarity:
+                tool_response = (
+                    "Let me help you find some clarity.\n\n"
+                    "**Box Breathing** (clears mental fog):\n\n"
+                    "1️⃣ Breathe IN for 4\n"
+                    "2️⃣ HOLD for 4\n"
+                    "3️⃣ Breathe OUT for 4\n"
+                    "4️⃣ HOLD empty for 4\n\n"
+                    "Repeat 4 times. This resets your nervous system and helps you think clearer.\n\n"
+                    "Try it now. How do you feel after?"
+                )
+            else:  # needs_relief
+                tool_response = (
+                    "Let me give you a quick reset.\n\n"
+                    "**Physiological Sigh** (instant relief):\n\n"
+                    "1️⃣ Two quick inhales through your nose (in-in)\n"
+                    "2️⃣ One long exhale through your mouth (ahhhh)\n\n"
+                    "Repeat 3 times. This releases tension fast.\n\n"
+                    "Do it right now with me.\n\n"
+                    "...\n\n"
+                    "Better?"
+                )
+            
+            return {
+                'response': tool_response,
+                'pattern': 'tool_offered',
+                'emotion': self.detect_emotion(message_lower),
+                'needs_tool': False
+            }
+        
         # Check for open-ended sharing statements (neutral - could be good or bad news)
         neutral_sharing = any(phrase in message_lower for phrase in [
             'wanted to share', 'want to share', 'need to share', 'have to share',
