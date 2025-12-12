@@ -1,0 +1,6 @@
+venv/
+__pycache__/
+*.pyc
+.env
+.DS_Store
+healing_guru_chat.db

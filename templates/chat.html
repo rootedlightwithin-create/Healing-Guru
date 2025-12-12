@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healing Guru AI - Your Compassionate Guide</title>
+    
+    <!-- PWA Meta Tags -->
+    <meta name="description" content="Compassionate AI support for emotional wellness, crisis intervention, and therapeutic tools">
+    <meta name="theme-color" content="#7c3aed">
+    <link rel="manifest" href="/static/manifest.json">
+    
+    <!-- iOS PWA Support -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Healing Guru">
+    <link rel="apple-touch-icon" href="/static/icon-192.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/static/icon-192.png">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            width: 100%;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            height: 85vh;
+            max-height: 800px;
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            text-align: center;
+            border-radius: 20px 20px 0 0;
+        }
+        
+        .header h1 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        .chat-container {
+            flex: 1;
+            overflow-y: auto;
+            padding: 30px;
+            background: #f7f7f7;
+        }
+        
+        .message {
+            display: flex;
+            margin-bottom: 20px;
+            animation: fadeIn 0.3s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .message.user {
+            justify-content: flex-end;
+        }
+        
+        .message-content {
+            max-width: 70%;
+            padding: 15px 20px;
+            border-radius: 18px;
+            line-height: 1.6;
+            word-wrap: break-word;
+        }
+        
+        .message.user .message-content {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-bottom-right-radius: 4px;
+        }
+        
+        .message.assistant .message-content {
+            background: white;
+            color: #333;
+            border-bottom-left-radius: 4px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .pattern-badge {
+            display: inline-block;
+            background: #fff3cd;
+            color: #856404;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            margin-top: 10px;
+            font-weight: 500;
+        }
+        
+        .affirmation-box {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 12px;
+            margin-top: 15px;
+            font-style: italic;
+            box-shadow: 0 4px 15px rgba(240, 147, 251, 0.4);
+        }
+        
+        .tools-box {
+            background: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+        
+        .tools-box h4 {
+            color: #2e7d32;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        
+        .tool-item {
+            background: white;
+            padding: 10px;
+            border-radius: 6px;
+            margin-bottom: 8px;
+            font-size: 13px;
+        }
+        
+        .tool-item strong {
+            color: #2e7d32;
+        }
+        
+        .input-container {
+            padding: 20px 25px;
+            background: white;
+            border-top: 1px solid #e0e0e0;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        
+        #messageInput {
+            flex: 1;
+            padding: 15px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 25px;
+            font-size: 15px;
+            outline: none;
+            transition: border-color 0.3s;
+            resize: none;
+            font-family: inherit;
+            min-height: 50px;
+            max-height: 120px;
+        }
+        
+        #messageInput:focus {
+            border-color: #667eea;
+        }
+        
+        #sendBtn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            min-width: 100px;
+        }
+        
+        #sendBtn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        #sendBtn:active {
+            transform: translateY(0);
+        }
+        
+        #sendBtn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .typing-indicator {
+            display: none;
+            padding: 15px 20px;
+            background: white;
+            border-radius: 18px;
+            border-bottom-left-radius: 4px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            max-width: 70px;
+        }
+        
+        .typing-indicator.active {
+            display: block;
+        }
+        
+        .typing-indicator span {
+            height: 10px;
+            width: 10px;
+            background: #667eea;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 5px;
+            animation: bounce 1.4s infinite ease-in-out both;
+        }
+        
+        .typing-indicator span:nth-child(1) {
+            animation-delay: -0.32s;
+        }
+        
+        .typing-indicator span:nth-child(2) {
+            animation-delay: -0.16s;
+        }
+        
+        @keyframes bounce {
+            0%, 80%, 100% {
+                transform: scale(0);
+            }
+            40% {
+                transform: scale(1);
+            }
+        }
+        
+        .quick-actions {
+            display: flex;
+            gap: 10px;
+            padding: 0 25px 15px 25px;
+            flex-wrap: wrap;
+        }
+        
+        .quick-btn {
+            background: white;
+            border: 2px solid #667eea;
+            color: #667eea;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .quick-btn:hover {
+            background: #667eea;
+            color: white;
+        }
+        
+        .sidebar-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            color: #667eea;
+            z-index: 1000;
+        }
+        
+        .insights-panel {
+            position: fixed;
+            right: -350px;
+            top: 0;
+            width: 350px;
+            height: 100vh;
+            background: white;
+            box-shadow: -5px 0 25px rgba(0, 0, 0, 0.2);
+            padding: 80px 25px 25px 25px;
+            transition: right 0.3s ease;
+            overflow-y: auto;
+            z-index: 999;
+        }
+        
+        .insights-panel.open {
+            right: 0;
+        }
+        
+        .insights-panel h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 22px;
+        }
+        
+        .insight-item {
+            background: #f7f7f7;
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .insight-item h3 {
+            color: #667eea;
+            font-size: 16px;
+            margin-bottom: 8px;
+            text-transform: capitalize;
+        }
+        
+        .insight-count {
+            font-size: 13px;
+            color: #666;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                height: 100vh;
+                max-height: 100vh;
+                border-radius: 0;
+            }
+            
+            .header {
+                border-radius: 0;
+            }
+            
+            .message-content {
+                max-width: 85%;
+            }
+            
+            .insights-panel {
+                width: 100%;
+                right: -100%;
+            }
+            
+            .sidebar-toggle {
+                top: 10px;
+                right: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="sidebar-toggle" onclick="toggleInsights()">📊 Insights</button>
+    
+    <div class="container">
+        <div class="header">
+            <h1>🌸 Healing Guru AI</h1>
+            <p>Your compassionate guide to emotional wellbeing and self-discovery</p>
+        </div>
+        
+        <div class="chat-container" id="chatContainer">
+            <div class="message assistant">
+                <div class="message-content">
+                    <p>Hello, I'm here to support you. 💜</p>
+                    <p style="margin-top: 10px;">Think of me as a safe space where you can explore your thoughts and feelings without judgment. I'm here to help you understand patterns, work through difficult emotions, and discover your inner strength.</p>
+                    <p style="margin-top: 10px;">What's on your mind today?</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="quick-actions">
+            <button class="quick-btn" onclick="quickMessage('I\'m feeling anxious')">😰 Feeling Anxious</button>
+            <button class="quick-btn" onclick="quickMessage('I\'m overwhelmed')">😓 Overwhelmed</button>
+            <button class="quick-btn" onclick="quickMessage('I need a coping tool')">🛠️ Need Tool</button>
+            <button class="quick-btn" onclick="quickMessage('Show me an affirmation')">✨ Affirmation</button>
+        </div>
+        
+        <div class="input-container">
+            <textarea 
+                id="messageInput" 
+                placeholder="Share what you're feeling or thinking..." 
+                rows="1"
+                onkeypress="handleKeyPress(event)"
+            ></textarea>
+            <button id="sendBtn" onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+    
+    <div class="insights-panel" id="insightsPanel">
+        <h2>Your Patterns</h2>
+        <div id="insightsList">
+            <p style="color: #999; font-style: italic;">Start chatting to see patterns emerge...</p>
+        </div>
+    </div>
+    
+    <script>
+        const chatContainer = document.getElementById('chatContainer');
+        const messageInput = document.getElementById('messageInput');
+        const sendBtn = document.getElementById('sendBtn');
+        
+        function addMessage(content, role, pattern = null, emotion = null, tools = null) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${role}`;
+            
+            let messageHTML = `<div class="message-content">${content}`;
+            
+            if (pattern) {
+                messageHTML += `<div class="pattern-badge">Pattern detected: ${pattern.replace('_', ' ')}</div>`;
+            }
+            
+            if (tools && tools.length > 0) {
+                messageHTML += '<div class="tools-box"><h4>🛠️ Try these tools right now:</h4>';
+                tools.forEach(tool => {
+                    messageHTML += `<div class="tool-item"><strong>${tool.name}:</strong> ${tool.description}</div>`;
+                });
+                messageHTML += '</div>';
+            }
+            
+            messageHTML += '</div>';
+            messageDiv.innerHTML = messageHTML;
+            
+            // Remove typing indicator if exists
+            const typingIndicator = document.querySelector('.typing-indicator');
+            if (typingIndicator) {
+                typingIndicator.remove();
+            }
+            
+            chatContainer.appendChild(messageDiv);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+        
+        function showTyping() {
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'message assistant';
+            typingDiv.innerHTML = '<div class="typing-indicator active"><span></span><span></span><span></span></div>';
+            chatContainer.appendChild(typingDiv);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+        
+        async function sendMessage() {
+            const message = messageInput.value.trim();
+            if (!message) return;
+            
+            // Add user message
+            addMessage(message, 'user');
+            messageInput.value = '';
+            messageInput.style.height = 'auto';
+            
+            // Disable input
+            sendBtn.disabled = true;
+            messageInput.disabled = true;
+            
+            // Show typing indicator
+            showTyping();
+            
+            try {
+                const response = await fetch('/api/chat', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ message })
+                });
+                
+                const data = await response.json();
+                
+                // Add AI response
+                addMessage(
+                    data.message,
+                    'assistant',
+                    data.pattern,
+                    data.emotion,
+                    data.urgent_tools
+                );
+                
+                // Update insights
+                loadInsights();
+                
+            } catch (error) {
+                addMessage('I apologize, I\'m having trouble responding right now. Please try again.', 'assistant');
+            }
+            
+            // Re-enable input
+            sendBtn.disabled = false;
+            messageInput.disabled = false;
+            messageInput.focus();
+        }
+        
+        function quickMessage(text) {
+            messageInput.value = text;
+            sendMessage();
+        }
+        
+        function handleKeyPress(event) {
+            if (event.key === 'Enter' && !event.shiftKey) {
+                event.preventDefault();
+                sendMessage();
+            }
+        }
+        
+        // Auto-resize textarea
+        messageInput.addEventListener('input', function() {
+            this.style.height = 'auto';
+            this.style.height = Math.min(this.scrollHeight, 120) + 'px';
+        });
+        
+        function toggleInsights() {
+            const panel = document.getElementById('insightsPanel');
+            panel.classList.toggle('open');
+            if (panel.classList.contains('open')) {
+                loadInsights();
+            }
+        }
+        
+        async function loadInsights() {
+            try {
+                const response = await fetch('/api/insights');
+                const data = await response.json();
+                
+                const insightsList = document.getElementById('insightsList');
+                
+                if (data.insights.length === 0) {
+                    insightsList.innerHTML = '<p style="color: #999; font-style: italic;">Start chatting to see patterns emerge...</p>';
+                    return;
+                }
+                
+                insightsList.innerHTML = '';
+                data.insights.forEach(insight => {
+                    const insightDiv = document.createElement('div');
+                    insightDiv.className = 'insight-item';
+                    insightDiv.innerHTML = `
+                        <h3>${insight.pattern.replace('_', ' ')}</h3>
+                        <p class="insight-count">Detected ${insight.count} time${insight.count > 1 ? 's' : ''}</p>
+                        <p class="insight-count" style="margin-top: 5px; font-size: 11px;">Last seen: ${new Date(insight.last_seen).toLocaleDateString()}</p>
+                    `;
+                    insightsList.appendChild(insightDiv);
+                });
+            } catch (error) {
+                console.error('Error loading insights:', error);
+            }
+        }
+        
+        // Load insights on page load
+        window.addEventListener('load', () => {
+            messageInput.focus();
+        });
+    </script>
+    
+    <!-- PWA Installation Script -->
+    <script src="/static/pwa-install.js"></script>
+</body>
+</html>
