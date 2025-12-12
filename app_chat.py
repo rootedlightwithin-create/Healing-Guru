@@ -642,6 +642,17 @@ class HealingGuruAI:
         for topic_name, topic_data in self.life_topics.items():
             # Check if topic keywords are present
             if any(keyword in message_lower for keyword in topic_data['keywords']):
+                
+                # EXCEPTION: If it's relationships and "friend" is used as a greeting, skip it
+                if topic_name == 'relationships':
+                    # Check if "friend" appears only in greeting context (start of message)
+                    greeting_with_friend = any(phrase in message_lower for phrase in [
+                        'hey friend', 'hi friend', 'hello friend', 'hey, friend', 'hi, friend'
+                    ])
+                    # If it's just a greeting with friend and they're not talking ABOUT a friend, skip
+                    if greeting_with_friend and not any(word in message_lower for word in ['my friend', 'a friend', 'with friend', 'about friend', 'friend and', 'friend said', 'friend told', 'friend upset']):
+                        continue  # Skip relationship detection for greetings
+                
                 # Determine if it's celebratory, stressful, or neutral
                 is_celebration = any(keyword in message_lower for keyword in topic_data['celebration_keywords'])
                 is_stressed = any(keyword in message_lower for keyword in topic_data['stress_keywords'])
