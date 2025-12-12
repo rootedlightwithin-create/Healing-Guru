@@ -1336,6 +1336,35 @@ class HealingGuruAI:
                 'needs_tool': False
             }
         
+        # Check for open-ended sharing statements (neutral - could be good or bad news)
+        neutral_sharing = any(phrase in message_lower for phrase in [
+            'wanted to share', 'want to share', 'need to share', 'have to share',
+            'wanted to tell you', 'want to tell you', 'need to tell you',
+            'something to share', 'something happened', 'something i want to',
+            'i have news', 'got news'
+        ])
+        
+        if neutral_sharing:
+            sharing_responses = [
+                "I'm listening. What would you like to share?",
+                "I'm here. What's on your mind?",
+                "I'm all ears. What happened?",
+                "Tell me. What would you like to share?",
+                "I'm right here with you. What's going on?",
+                "Please, share. I'm listening."
+            ]
+            
+            response = random.choice([r for r in sharing_responses if r not in str(recent_ai_messages)])
+            if not response:
+                response = random.choice(sharing_responses)
+            
+            return {
+                'response': response,
+                'pattern': 'open_sharing',
+                'emotion': None,
+                'needs_tool': False
+            }
+        
         # PRIORITY: Immediate support detection - comes first
         immediate_support = any(phrase in message_lower for phrase in [
             'need support', 'need help now', 'need help right now', 'need someone', 
