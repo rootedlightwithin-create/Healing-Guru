@@ -640,6 +640,18 @@ class HealingGuruAI:
     def detect_positive_state(self, message_lower):
         """Detect if user is expressing genuine positive emotions (not just conversational agreements)"""
         
+        # FIRST: Check for negations that invalidate positive words
+        # e.g., "I'm not doing too good", "not feeling great", "don't feel good"
+        negation_patterns = [
+            'not doing', 'not feeling', 'not too', 'not very', 'not really',
+            "don't feel", "dont feel", "doesn't feel", "doesnt feel",
+            'not good', 'not great', 'not well', 'not okay', 'not ok',
+            'hardly', 'barely', 'far from'
+        ]
+        
+        if any(neg in message_lower for neg in negation_patterns):
+            return None  # Negated positive words = not a positive state
+        
         # Exclude short agreement responses that contain positive words but aren't emotional states
         # These are conversational fillers, not emotional expressions
         agreement_phrases = [
@@ -736,6 +748,26 @@ class HealingGuruAI:
         ]
         
         return any(phrase in message_lower for phrase in farewell_phrases)
+    
+    def extract_time_period(self, message_lower):
+        """Extract time period if user mentions how long something has been happening"""
+        import re
+        
+        # Time period patterns
+        time_patterns = [
+            r'(for |past |last |about )?(a |the )?(few )?(\\d+|a|an|couple|several) ?(day|days|week|weeks|month|months|year|years)',
+            r'(today|tonight|this morning|this afternoon|this evening)',
+            r'(all day|all week|all month|all year)',
+            r'(since )(yesterday|last week|last month|monday|tuesday|wednesday|thursday|friday|saturday|sunday)',
+            r'(lately|recently|for a while|for ages|forever)',
+        ]
+        
+        for pattern in time_patterns:
+            match = re.search(pattern, message_lower)
+            if match:
+                return match.group(0).strip()
+        
+        return None
     
     def detect_dysregulation_in_positivity(self, message):
         """Check if positive state shows signs of dysregulation"""
@@ -1485,21 +1517,38 @@ class HealingGuruAI:
             }
         
         # General empathetic responses for exploration - make them more varied
-        exploration_responses = [
-            f"I hear you. Can you tell me more about that? What does it feel like for you?",
-            f"That sounds really difficult. What's making this particularly hard right now?",
-            f"I'm here with you. Help me understand - what's the most challenging part of this?",
-            f"I'm listening. When you think about this, what comes up for you?",
-            f"Tell me more. What's this experience like from your perspective?",
-            f"I want to understand better. Can you walk me through what you're experiencing?",
-            f"What stands out to you most about what you're feeling right now?",
-            f"That's a lot to carry. How long has this been weighing on you?"
-        ]
+        # Check if user already mentioned a time period
+        time_period = self.extract_time_period(message_lower)
         
-        # Filter out responses that were recently used
-        available_responses = [r for r in exploration_responses if r not in str(recent_ai_messages)]
-        if not available_responses:
-            available_responses = exploration_responses  # Use all if all were recent
+        if time_period:
+            # User already mentioned duration - acknowledge it and ask deeper questions
+            time_aware_responses = [
+                f"I hear you. You mentioned this has been happening for {time_period}. Has it been going on longer than that, or did something specific trigger it {time_period} ago?",
+                f"That's a lot to carry for {time_period}. What's been making this period particularly difficult?",
+                f"You said {time_period} - that's significant. What's changed or gotten harder during this time?",
+                f"I'm hearing {time_period} of struggle. What's kept you going through it? And what made you reach out today?"
+            ]
+            
+            available_responses = [r for r in time_aware_responses if r not in str(recent_ai_messages)]
+            if not available_responses:
+                available_responses = time_aware_responses
+        else:
+            # No time period mentioned - can ask about duration
+            exploration_responses = [
+                f"I hear you. Can you tell me more about that? What does it feel like for you?",
+                f"That sounds really difficult. What's making this particularly hard right now?",
+                f"I'm here with you. Help me understand - what's the most challenging part of this?",
+                f"I'm listening. When you think about this, what comes up for you?",
+                f"Tell me more. What's this experience like from your perspective?",
+                f"I want to understand better. Can you walk me through what you're experiencing?",
+                f"What stands out to you most about what you're feeling right now?",
+                f"That's a lot to carry. How long has this been weighing on you?"
+            ]
+            
+            # Filter out responses that were recently used
+            available_responses = [r for r in exploration_responses if r not in str(recent_ai_messages)]
+            if not available_responses:
+                available_responses = exploration_responses  # Use all if all were recent
         
         return {
             'response': random.choice(available_responses),
