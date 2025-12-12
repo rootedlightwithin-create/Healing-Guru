@@ -269,9 +269,9 @@ class HealingGuruAI:
                 ]
             },
             'relationships': {
-                'keywords': ['friend', 'friends', 'friendship', 'partner', 'boyfriend', 'girlfriend', 'mum', 'mom', 'dad', 'father', 'mother', 'sister', 'brother', 'family', 'relationship', 'relative'],
+                'keywords': ['friend', 'friends', 'friendship', 'partner', 'boyfriend', 'girlfriend', 'parent', 'parents', 'mum', 'mom', 'dad', 'father', 'mother', 'sister', 'brother', 'family', 'relationship', 'relative'],
                 'celebration_keywords': ['lovely day', 'lovely time', 'good conversation', 'connected', 'special moment', 'quality time'],
-                'stress_keywords': ['upset me', 'hurt me', 'conflict', 'argument', 'fight', 'misunderstood', "don't feel understood", 'tension', 'was mean', 'being mean', 'rude', 'ignored', 'dismissed', 'angry at', 'mad at', 'frustrating', 'difficult', 'falling out', 'issue with'],
+                'stress_keywords': ['upset me', 'hurt me', 'conflict', 'argument', 'fight', 'misunderstood', "don't feel understood", "don't listen", "won't listen", "doesn't listen", 'not listening', 'ignoring', 'tension', 'was mean', 'being mean', 'rude', 'ignored', 'dismissed', 'angry at', 'mad at', 'frustrating', 'difficult', 'falling out', 'issue with'],
                 'stressed_responses': [
                     "It sounds like your heart was tender in that moment. What felt most painful for you?",
                     "Being misunderstood is such a lonely feeling. Where did you feel it in your body?",
