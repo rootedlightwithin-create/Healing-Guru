@@ -2284,6 +2284,24 @@ def verify_license():
     
     return jsonify({'success': True})
 
+@app.route('/activate-premium-test')
+def activate_premium_test():
+    """TEST ONLY: Activate premium for current user"""
+    user_id = session.get('user_id')
+    if not user_id:
+        session['user_id'] = secrets.token_hex(8)
+        user_id = session['user_id']
+    
+    conn = sqlite3.connect('healing_guru_chat.db')
+    c = conn.cursor()
+    c.execute("""INSERT OR REPLACE INTO subscriptions 
+                 (user_id, gumroad_license_key, subscription_status, started_at)
+                 VALUES (?, 'TEST_KEY', 'active', CURRENT_TIMESTAMP)""", (user_id,))
+    conn.commit()
+    conn.close()
+    
+    return redirect('/')
+
 @app.route('/googleccc479b763b17be8.html')
 def google_verification():
     """Serve Google site verification file"""
