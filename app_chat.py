@@ -101,14 +101,15 @@ def seed_freeze_path():
         return  # Already seeded
     
     # Insert path
-    c.execute("""INSERT INTO paths (title, slug, description, summary, icon, duration)
-                 VALUES (?, ?, ?, ?, ?, ?)""",
+    c.execute("""INSERT INTO paths (title, slug, description, summary, icon, duration, is_active)
+                 VALUES (?, ?, ?, ?, ?, ?, ?)""",
               ('From Freeze to Gentle Action',
                'freeze-to-action',
                "There's nothing wrong with you. Freeze is a wise response when things once felt too much. This gentle 7-step journey helps you befriend your nervous system and rediscover the possibility of movement - without urgency, without pressure.",
                'Move from shutdown and paralysis to gentle, grounded action',
                '🌊',
-               '7 days'))
+               '7 days',
+               1))
     
     path_id = c.lastrowid
     
