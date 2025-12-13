@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step {{ module[1] }}: {{ module[2] }} - Healing Guru</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #2d3748;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            margin-bottom: 30px;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+        
+        .back-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .module-container {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .module-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        
+        .step-number {
+            font-size: 1rem;
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .module-title {
+            font-size: 2.5rem;
+            color: #2d3748;
+            margin-bottom: 15px;
+        }
+        
+        .module-purpose {
+            font-size: 1.2rem;
+            color: #718096;
+            font-style: italic;
+        }
+        
+        .module-section {
+            margin: 40px 0;
+        }
+        
+        .section-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #667eea;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .guru-message {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #2d3748;
+            background: #f7fafc;
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
+            white-space: pre-line;
+        }
+        
+        .tools-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 15px;
+        }
+        
+        .tool-tag {
+            background: #edf2f7;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-size: 1rem;
+            color: #4a5568;
+        }
+        
+        .reflection-area {
+            margin-top: 20px;
+        }
+        
+        .reflection-prompt {
+            font-size: 1.1rem;
+            color: #2d3748;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        
+        .reflection-input {
+            width: 100%;
+            min-height: 150px;
+            padding: 20px;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: inherit;
+            resize: vertical;
+            transition: border-color 0.3s ease;
+        }
+        
+        .reflection-input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .action-box {
+            background: #fef3c7;
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 4px solid #f59e0b;
+        }
+        
+        .action-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #92400e;
+            margin-bottom: 10px;
+        }
+        
+        .action-text {
+            font-size: 1.1rem;
+            color: #78350f;
+            line-height: 1.6;
+        }
+        
+        .complete-button {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 40px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .complete-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        .complete-button:disabled {
+            background: #cbd5e0;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .completion-message {
+            text-align: center;
+            padding: 30px;
+            background: #d1fae5;
+            border-radius: 12px;
+            margin-top: 30px;
+            display: none;
+        }
+        
+        .completion-message.show {
+            display: block;
+        }
+        
+        .completion-message h3 {
+            font-size: 1.5rem;
+            color: #065f46;
+            margin-bottom: 15px;
+        }
+        
+        .next-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 30px;
+            background: #10b981;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+        
+        .next-button:hover {
+            background: #059669;
+        }
+        
+        /* Floating Chat Button */
+        .chat-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            text-decoration: none;
+            z-index: 1000;
+        }
+        
+        .chat-button:hover {
+            transform: scale(1.1);
+        }
+        
+        @media (max-width: 768px) {
+            .module-container {
+                padding: 30px 20px;
+            }
+            
+            .module-title {
+                font-size: 2rem;
+            }
+            
+            .guru-message {
+                padding: 20px;
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/path/{{ slug }}" class="back-button">← Back to Path</a>
+        
+        <div class="module-container">
+            <div class="module-header">
+                <div class="step-number">Step {{ module[1] }}</div>
+                <h1 class="module-title">{{ module[2] }}</h1>
+                <p class="module-purpose">{{ module[3] }}</p>
+            </div>
+            
+            <div class="module-section">
+                <div class="section-label">Guidance from Healing Guru</div>
+                <div class="guru-message">{{ module[4] }}</div>
+            </div>
+            
+            <div class="module-section">
+                <div class="section-label">Tools for this step</div>
+                <div class="tools-list">
+                    {% for tool in module[5].split(',') %}
+                    <span class="tool-tag">{{ tool.strip() }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+            
+            <div class="module-section">
+                <div class="section-label">Reflection</div>
+                <div class="reflection-area">
+                    <p class="reflection-prompt">{{ module[6] }}</p>
+                    <textarea 
+                        id="reflectionInput" 
+                        class="reflection-input" 
+                        placeholder="Take your time... there's no rush, no right answer."
+                        {% if progress and progress[0] %}disabled{% endif %}
+                    >{% if progress and progress[0] %}{{ progress[0] }}{% endif %}</textarea>
+                </div>
+            </div>
+            
+            <div class="module-section">
+                <div class="action-box">
+                    <div class="action-title">Today's Invitation</div>
+                    <div class="action-text">{{ module[7] }}</div>
+                </div>
+            </div>
+            
+            {% if not progress or not progress[1] %}
+            <button class="complete-button" onclick="completeModule()">
+                Mark as Complete
+            </button>
+            {% else %}
+            <div class="completion-message show">
+                <h3>✓ You completed this step</h3>
+                <p style="color: #065f46; font-size: 1.1rem;">Beautiful work. Take your time before moving to the next one.</p>
+                <a href="/path/{{ slug }}" class="next-button">Back to Path</a>
+            </div>
+            {% endif %}
+            
+            <div id="completionMessage" class="completion-message">
+                <h3>✓ Step Complete</h3>
+                <p style="color: #065f46; font-size: 1.1rem;">Beautiful. You showed up for yourself today.</p>
+                <a href="/path/{{ slug }}" class="next-button">Continue to Next Step →</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Floating Chat Button -->
+    <a href="/chat" class="chat-button" title="Chat with Healing Guru">
+        💬
+    </a>
+    
+    <script>
+        async function completeModule() {
+            const reflection = document.getElementById('reflectionInput').value;
+            const button = document.querySelector('.complete-button');
+            
+            button.disabled = true;
+            button.textContent = 'Saving...';
+            
+            try {
+                const response = await fetch('/path/{{ slug }}/module/{{ module[1] }}/complete', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ reflection })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    document.getElementById('completionMessage').classList.add('show');
+                    button.style.display = 'none';
+                    document.getElementById('reflectionInput').disabled = true;
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                button.disabled = false;
+                button.textContent = 'Mark as Complete';
+                alert('Something went wrong. Please try again.');
+            }
+        }
+    </script>
+</body>
+</html>

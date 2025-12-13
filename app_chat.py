@@ -37,8 +37,176 @@ def init_db():
                   content TEXT,
                   timestamp DATETIME DEFAULT CURRENT_TIMESTAMP)''')
     
+    # Healing paths table
+    c.execute('''CREATE TABLE IF NOT EXISTS paths
+                 (id INTEGER PRIMARY KEY AUTOINCREMENT,
+                  title TEXT NOT NULL,
+                  slug TEXT UNIQUE NOT NULL,
+                  description TEXT,
+                  summary TEXT,
+                  icon TEXT,
+                  duration TEXT,
+                  is_active BOOLEAN DEFAULT 1,
+                  created_at DATETIME DEFAULT CURRENT_TIMESTAMP)''')
+    
+    # Path modules table
+    c.execute('''CREATE TABLE IF NOT EXISTS modules
+                 (id INTEGER PRIMARY KEY AUTOINCREMENT,
+                  path_id INTEGER,
+                  step_number INTEGER,
+                  title TEXT NOT NULL,
+                  purpose TEXT,
+                  guru_message TEXT,
+                  tools TEXT,
+                  reflection_prompt TEXT,
+                  action_invitation TEXT,
+                  is_free BOOLEAN DEFAULT 0,
+                  estimated_minutes INTEGER,
+                  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+                  FOREIGN KEY (path_id) REFERENCES paths(id))''')
+    
+    # User path progress table
+    c.execute('''CREATE TABLE IF NOT EXISTS user_progress
+                 (id INTEGER PRIMARY KEY AUTOINCREMENT,
+                  user_id TEXT,
+                  path_id INTEGER,
+                  module_id INTEGER,
+                  started_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+                  completed_at DATETIME,
+                  reflection_response TEXT,
+                  FOREIGN KEY (path_id) REFERENCES paths(id),
+                  FOREIGN KEY (module_id) REFERENCES modules(id))''')
+    
+    # User subscriptions table (Gumroad integration)
+    c.execute('''CREATE TABLE IF NOT EXISTS subscriptions
+                 (id INTEGER PRIMARY KEY AUTOINCREMENT,
+                  user_id TEXT UNIQUE,
+                  gumroad_license_key TEXT,
+                  subscription_status TEXT,
+                  started_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+                  expires_at DATETIME)''')
+    
     conn.commit()
     conn.close()
+
+def seed_freeze_path():
+    """Seed the 'From Freeze to Gentle Action' healing path"""
+    conn = sqlite3.connect('healing_guru_chat.db')
+    c = conn.cursor()
+    
+    # Check if path already exists
+    c.execute("SELECT id FROM paths WHERE slug = 'freeze-to-action'")
+    if c.fetchone():
+        conn.close()
+        return  # Already seeded
+    
+    # Insert path
+    c.execute("""INSERT INTO paths (title, slug, description, summary, icon, duration)
+                 VALUES (?, ?, ?, ?, ?, ?)""",
+              ('From Freeze to Gentle Action',
+               'freeze-to-action',
+               "There's nothing wrong with you. Freeze is a wise response when things once felt too much. This gentle 7-step journey helps you befriend your nervous system and rediscover the possibility of movement - without urgency, without pressure.",
+               'Move from shutdown and paralysis to gentle, grounded action',
+               '🌊',
+               '7 days'))
+    
+    path_id = c.lastrowid
+    
+    # Insert modules
+    modules = [
+        {
+            'step': 1,
+            'title': 'Naming the Freeze',
+            'purpose': 'Safety and recognition',
+            'guru_message': "There's nothing wrong with you. Freeze is a wise response when things once felt too much. Your body learned this to keep you safe.\n\nToday, we're not trying to fix anything. We're just going to notice.",
+            'tools': 'Body Scan,Gentle Grounding (feet, breath, weight)',
+            'reflection': 'When I freeze, I notice it shows up as...',
+            'action': 'Just notice freeze today. No fixing. No pressure. Just awareness.',
+            'is_free': True,
+            'minutes': 10
+        },
+        {
+            'step': 2,
+            'title': 'Befriending the Nervous System',
+            'purpose': 'Reduce shame, build trust',
+            'guru_message': "Your body learned this to protect you. Freeze isn't failure - it's your nervous system doing what it thought it needed to do.\n\nToday, we practice gratitude for the part of you that kept you safe, even if it doesn't serve you the same way now.",
+            'tools': 'Butterfly Hug,Box Breathing',
+            'reflection': 'What does my body need when it shuts down?',
+            'action': 'One small act of care today: warm drink, lying down for 5 minutes, stepping outside, or wrapping yourself in a blanket.',
+            'is_free': True,
+            'minutes': 12
+        },
+        {
+            'step': 3,
+            'title': 'Safety Before Action',
+            'purpose': 'Rewire urgency',
+            'guru_message': "Action only works when safety comes first. When your nervous system doesn't feel safe, pushing forward creates more freeze.\n\nLet's find what signals safety to your body.",
+            'tools': 'Orienting Exercise (naming safe objects),Grounding',
+            'reflection': 'What helps me feel even 5% safer right now?',
+            'action': 'Choose one micro-safety anchor for today: a cozy corner, a specific song, a grounding object you can touch.',
+            'is_free': False,
+            'minutes': 15
+        },
+        {
+            'step': 4,
+            'title': 'Tiny Movement',
+            'purpose': 'Restore agency',
+            'guru_message': "We don't leap out of freeze. We thaw, slowly.\n\nToday is about the smallest possible movement - not because you should, but because you can.",
+            'tools': '30-second movement (stretch, shake, sway),Breath',
+            'reflection': "What felt possible today that didn't yesterday?",
+            'action': 'One gentle, non-urgent task: send one text, wash one dish, step outside for 60 seconds.',
+            'is_free': False,
+            'minutes': 12
+        },
+        {
+            'step': 5,
+            'title': 'Working with Resistance',
+            'purpose': 'Compassionate accountability',
+            'guru_message': "Resistance isn't failure - it's information.\n\nWhen you notice yourself pulling back or shutting down, pause. Ask: \"What does this part of me need right now?\"",
+            'tools': 'Inner Dialogue,Grounding before reflection',
+            'reflection': 'What felt hard today, and why might that make sense?',
+            'action': "Rewrite one harsh inner message with kindness. Example: \"I'm so lazy\" becomes \"I'm protecting myself from something that feels overwhelming.\"",
+            'is_free': False,
+            'minutes': 15
+        },
+        {
+            'step': 6,
+            'title': 'Reclaiming Choice',
+            'purpose': 'Empowerment',
+            'guru_message': "You get to choose differently, even in small ways.\n\nFreeze often comes from feeling like there's no choice. Today, we practice noticing where choice still lives.",
+            'tools': 'Visualization (responding differently next time),Grounding',
+            'reflection': "What choice feels aligned right now - even if it's tiny?",
+            'action': 'One conscious yes or no today. Say yes to something nourishing. Say no to something draining.',
+            'is_free': False,
+            'minutes': 14
+        },
+        {
+            'step': 7,
+            'title': 'Integration & Reflection',
+            'purpose': 'Meaning-making',
+            'guru_message': "You've walked through this with such care. Notice what's changed - even subtly.\n\nFreeze may still show up sometimes. But now you have a way to work with it.",
+            'tools': 'Gentle Review,Reflection',
+            'reflection': 'What feels more available in me now? What do I want to remember?',
+            'action': 'Write a note to your future self for the next time freeze shows up. What would you want to hear?',
+            'is_free': False,
+            'minutes': 18
+        }
+    ]
+    
+    for module in modules:
+        c.execute("""INSERT INTO modules 
+                     (path_id, step_number, title, purpose, guru_message, tools, 
+                      reflection_prompt, action_invitation, is_free, estimated_minutes)
+                     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+                  (path_id, module['step'], module['title'], module['purpose'],
+                   module['guru_message'], module['tools'], module['reflection'],
+                   module['action'], module['is_free'], module['minutes']))
+    
+    conn.commit()
+    conn.close()
+
+init_db()
+seed_freeze_path()  # Seed the path on startup
 
 init_db()
 
@@ -1929,11 +2097,192 @@ class HealingGuruAI:
 # Initialize AI
 ai = HealingGuruAI()
 
+# Helper function to check subscription status
+def has_premium_access(user_id):
+    """Check if user has active premium subscription"""
+    conn = sqlite3.connect('healing_guru_chat.db')
+    c = conn.cursor()
+    c.execute("""SELECT subscription_status FROM subscriptions 
+                 WHERE user_id = ? AND subscription_status = 'active'""", (user_id,))
+    result = c.fetchone()
+    conn.close()
+    return result is not None
+
 @app.route('/')
 def index():
     if 'user_id' not in session:
         session['user_id'] = secrets.token_hex(8)
+    
+    # Get all active paths
+    conn = sqlite3.connect('healing_guru_chat.db')
+    c = conn.cursor()
+    c.execute("SELECT id, title, slug, summary, icon, duration FROM paths WHERE is_active = 1")
+    paths = c.fetchall()
+    conn.close()
+    
+    return render_template('home.html', paths=paths)
+
+@app.route('/chat')
+def chat_page():
+    """Direct chat interface"""
+    if 'user_id' not in session:
+        session['user_id'] = secrets.token_hex(8)
     return render_template('chat.html')
+
+@app.route('/path/<slug>')
+def path_detail(slug):
+    """Show path overview and modules"""
+    user_id = session.get('user_id')
+    if not user_id:
+        session['user_id'] = secrets.token_hex(8)
+        user_id = session['user_id']
+    
+    conn = sqlite3.connect('healing_guru_chat.db')
+    c = conn.cursor()
+    
+    # Get path info
+    c.execute("SELECT id, title, description, icon, duration FROM paths WHERE slug = ?", (slug,))
+    path = c.fetchone()
+    
+    if not path:
+        conn.close()
+        return "Path not found", 404
+    
+    path_id = path[0]
+    
+    # Get modules
+    c.execute("""SELECT id, step_number, title, purpose, is_free, estimated_minutes 
+                 FROM modules WHERE path_id = ? ORDER BY step_number""", (path_id,))
+    modules = c.fetchall()
+    
+    # Get user progress
+    c.execute("""SELECT module_id, completed_at FROM user_progress 
+                 WHERE user_id = ? AND path_id = ?""", (user_id, path_id))
+    progress = {row[0]: row[1] for row in c.fetchall()}
+    
+    conn.close()
+    
+    has_premium = has_premium_access(user_id)
+    
+    return render_template('path_detail.html', 
+                          path=path, 
+                          modules=modules, 
+                          progress=progress,
+                          has_premium=has_premium)
+
+@app.route('/path/<slug>/module/<int:step>')
+def module_view(slug, step):
+    """View a specific module"""
+    user_id = session.get('user_id')
+    if not user_id:
+        session['user_id'] = secrets.token_hex(8)
+        user_id = session['user_id']
+    
+    conn = sqlite3.connect('healing_guru_chat.db')
+    c = conn.cursor()
+    
+    # Get path and module
+    c.execute("SELECT id FROM paths WHERE slug = ?", (slug,))
+    path_result = c.fetchone()
+    
+    if not path_result:
+        conn.close()
+        return "Path not found", 404
+    
+    path_id = path_result[0]
+    
+    c.execute("""SELECT id, step_number, title, purpose, guru_message, tools, 
+                        reflection_prompt, action_invitation, is_free, estimated_minutes
+                 FROM modules WHERE path_id = ? AND step_number = ?""", (path_id, step))
+    module = c.fetchone()
+    
+    if not module:
+        conn.close()
+        return "Module not found", 404
+    
+    module_id = module[0]
+    is_free = module[8]
+    
+    # Check access
+    has_premium = has_premium_access(user_id)
+    if not is_free and not has_premium:
+        conn.close()
+        return render_template('paywall.html', slug=slug, step=step)
+    
+    # Check if already completed
+    c.execute("""SELECT reflection_response, completed_at FROM user_progress 
+                 WHERE user_id = ? AND module_id = ?""", (user_id, module_id))
+    progress = c.fetchone()
+    
+    # Mark as started if not already
+    if not progress:
+        c.execute("""INSERT INTO user_progress (user_id, path_id, module_id)
+                     VALUES (?, ?, ?)""", (user_id, path_id, module_id))
+        conn.commit()
+    
+    conn.close()
+    
+    return render_template('module.html', 
+                          slug=slug, 
+                          module=module, 
+                          progress=progress,
+                          path_id=path_id)
+
+@app.route('/path/<slug>/module/<int:step>/complete', methods=['POST'])
+def complete_module(slug, step):
+    """Mark module as complete with reflection"""
+    user_id = session.get('user_id')
+    data = request.json
+    reflection = data.get('reflection', '')
+    
+    conn = sqlite3.connect('healing_guru_chat.db')
+    c = conn.cursor()
+    
+    # Get module
+    c.execute("""SELECT m.id FROM modules m
+                 JOIN paths p ON m.path_id = p.id
+                 WHERE p.slug = ? AND m.step_number = ?""", (slug, step))
+    module = c.fetchone()
+    
+    if module:
+        module_id = module[0]
+        c.execute("""UPDATE user_progress 
+                     SET completed_at = CURRENT_TIMESTAMP, reflection_response = ?
+                     WHERE user_id = ? AND module_id = ?""",
+                  (reflection, user_id, module_id))
+        conn.commit()
+    
+    conn.close()
+    
+    return jsonify({'success': True, 'next_step': step + 1})
+
+@app.route('/verify-license', methods=['POST'])
+def verify_license():
+    """Verify Gumroad license key and activate subscription"""
+    data = request.json
+    license_key = data.get('license_key')
+    user_id = session.get('user_id')
+    
+    if not user_id or not license_key:
+        return jsonify({'success': False, 'error': 'Missing information'})
+    
+    # TODO: Add actual Gumroad API verification here
+    # For now, we'll accept any license key (temporary for testing)
+    # In production, call: https://api.gumroad.com/v2/licenses/verify
+    
+    conn = sqlite3.connect('healing_guru_chat.db')
+    c = conn.cursor()
+    
+    # Save or update subscription
+    c.execute("""INSERT OR REPLACE INTO subscriptions 
+                 (user_id, gumroad_license_key, subscription_status, started_at)
+                 VALUES (?, ?, 'active', CURRENT_TIMESTAMP)""",
+              (user_id, license_key))
+    
+    conn.commit()
+    conn.close()
+    
+    return jsonify({'success': True})
 
 @app.route('/googleccc479b763b17be8.html')
 def google_verification():

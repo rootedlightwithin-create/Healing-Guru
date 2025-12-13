@@ -1,0 +1,872 @@
+{
+  "timestamp": "20251212_112408",
+  "total_tests": 123,
+  "passed": 0,
+  "failed": 123,
+  "success_rate": "0.0%",
+  "results": [
+    {
+      "category": "Simple greeting",
+      "message": "Hi",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"ENpSouLQTgSdp2fpN8N_Fg\"}"
+    },
+    {
+      "category": "Friendly greeting",
+      "message": "Hey friend, how are you?",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"5hQu35KLQOW_VWRkN8N_Fg\"}"
+    },
+    {
+      "category": "Want to share",
+      "message": "I wanted to share something with you",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"DlO5CzG0QUKs4hcpN8N_Fg\"}"
+    },
+    {
+      "category": "Have news",
+      "message": "I have some news",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"nR4QkOY0SbOfOFciN8N_Fg\"}"
+    },
+    {
+      "category": "Not doing good",
+      "message": "I'm not doing too good",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"StLR_ENBTLK5UMTaN8N_Fg\"}"
+    },
+    {
+      "category": "Not feeling great",
+      "message": "I'm not feeling great today",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"OAVgiA0IRhWQIGPMN8N_Fg\"}"
+    },
+    {
+      "category": "Boss was mean",
+      "message": "My boss was mean and I had too much to do",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"b_qXj0jGQrGnByZzN8N_Fg\"}"
+    },
+    {
+      "category": "Overwhelmed at work",
+      "message": "Feeling overwhelmed by my workload",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"OHpTJxOtQeeZTUJAN8N_Fg\"}"
+    },
+    {
+      "category": "Don't want to go",
+      "message": "I don't want to go back to work tomorrow",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"thMOGv7NTluf0Rf2N8N_Fg\"}"
+    },
+    {
+      "category": "Feeling undervalued",
+      "message": "I've put in so much effort but no one seems to notice at work",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"Ay8AXcfvTRq_gL4TN8N_Fg\"}"
+    },
+    {
+      "category": "Conflict with colleague",
+      "message": "I had a tense exchange with a colleague and keep replaying it",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"9UlMlqBsSp-VuZr8N8N_Fg\"}"
+    },
+    {
+      "category": "Afraid of losing job",
+      "message": "I'm sensing instability at the company and feel nervous",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"IXqk3biqQfeuo71VN8N_Fg\"}"
+    },
+    {
+      "category": "Got praised",
+      "message": "I got praised at work today!",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"CBPxn7L9TJ2193oJN8N_Fg\"}"
+    },
+    {
+      "category": "Finished project",
+      "message": "I finally finished that big project",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"FRFA1x39QeG2a3Y6N8N_Fg\"}"
+    },
+    {
+      "category": "Excited about promotion",
+      "message": "I got promoted! I want to celebrate this moment",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"dJNTwU5bQOuQvY9iN8N_Fg\"}"
+    },
+    {
+      "category": "Friend upset me",
+      "message": "My friend upset me today",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"hujOgRujQG-CZNzBN8N_Fg\"}"
+    },
+    {
+      "category": "Feel misunderstood",
+      "message": "I don't feel understood at home",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"H9-YLChfTla8c5kxN8N_Fg\"}"
+    },
+    {
+      "category": "Feeling left out",
+      "message": "My friends met up without me and it triggered abandonment feelings",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"b81eqDYgTBaX8ELvN8N_Fg\"}"
+    },
+    {
+      "category": "Healing from fallout",
+      "message": "A close friend said something hurtful and I'm unsure how to rebuild trust",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"f0oOOwMRSbyDRNvPN8N_Fg\"}"
+    },
+    {
+      "category": "Growing apart",
+      "message": "I'm noticing misalignment and grieving the drifting of a friendship",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"WYqX4Y9SR-eOhBpgN8N_Fg\"}"
+    },
+    {
+      "category": "Lovely day with mum",
+      "message": "I had a lovely day with my mum",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"O2H1TwrtTSWENouyN8N_Fg\"}"
+    },
+    {
+      "category": "Unexpected kindness",
+      "message": "A friend supported me in a moment I didn't ask for",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"3WJx1n8MRJenfeh6N8N_Fg\"}"
+    },
+    {
+      "category": "Making new friend",
+      "message": "I'm making a new friend and feel excited but unsure",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"95t2sQywR2O2DFBrN8N_Fg\"}"
+    },
+    {
+      "category": "Tension with parent",
+      "message": "I had a disagreement with my dad that brought up old childhood patterns",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"jKkGX8HMTJurvXj4N8N_Fg\"}"
+    },
+    {
+      "category": "Setting boundaries",
+      "message": "I'm learning to say no to my family but feel guilty",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"yiwMbRKOQ1e9N6ulN8N_Fg\"}"
+    },
+    {
+      "category": "Family milestone",
+      "message": "My sister just had a baby and I want to share this joy",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"zf6tAGc2R1iTf2T2N8N_Fg\"}"
+    },
+    {
+      "category": "Caring for elderly parent",
+      "message": "I'm caring for my elderly parent and feel exhausted and guilty",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"AC4LoSKNT4Cojw9pN8N_Fg\"}"
+    },
+    {
+      "category": "Feeling unseen in family",
+      "message": "I'm doing everything right but still feel misunderstood by my family",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"nCA-_4Y6Ste0BSusN8N_Fg\"}"
+    },
+    {
+      "category": "After argument",
+      "message": "I love my partner but feel hurt after our argument",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"cyqxiWTvSNeR6pwJN8N_Fg\"}"
+    },
+    {
+      "category": "New relationship",
+      "message": "I'm in a new relationship and have butterflies mixed with fear",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"9rFU_x1RQsWEGVKPN8N_Fg\"}"
+    },
+    {
+      "category": "Breakup processing",
+      "message": "The relationship ended and I feel empty and confused",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"SJdSCnRYT9yL70pKN8N_Fg\"}"
+    },
+    {
+      "category": "Feeling neglected",
+      "message": "My partner isn't showing affection and it's affecting my self-worth",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"UlGP7d8kTj69T45_N8N_Fg\"}"
+    },
+    {
+      "category": "Celebrating love",
+      "message": "We had a beautiful deep conversation and I want to honor it",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"47nvcj2fRNOBEGSFN8N_Fg\"}"
+    },
+    {
+      "category": "Dog did something cute",
+      "message": "My dog did something so cute today",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"61uyOrs0SqCgvyFKN8N_Fg\"}"
+    },
+    {
+      "category": "Cat is sick",
+      "message": "My cat is unwell and I'm scared",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"idTxiumOQjGAY07JN8N_Fg\"}"
+    },
+    {
+      "category": "Pet sick",
+      "message": "My pet is really sick and I feel helpless",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"XcMfM1uPQnaC2FZON8N_Fg\"}"
+    },
+    {
+      "category": "Pet funny",
+      "message": "My pet did something hilarious",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"SBMPSr-HSd-PPo_BN8N_Fg\"}"
+    },
+    {
+      "category": "Grieving pet",
+      "message": "I'm grieving my pet who passed away",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"OU5LaFlpTK-RWHAEN8N_Fg\"}"
+    },
+    {
+      "category": "Training challenges",
+      "message": "I'm feeling frustrated with training my dog",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"_tZe-xWcTIiGbzzQN8N_Fg\"}"
+    },
+    {
+      "category": "Bonding with new pet",
+      "message": "I'm bonding with my new rescue and it's so sweet",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"-7rVmxsHSxC9hEduN8N_Fg\"}"
+    },
+    {
+      "category": "Tidied space",
+      "message": "I finally tidied my space",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"Z1DcPYICScuaoYTdN8N_Fg\"}"
+    },
+    {
+      "category": "Home feels chaotic",
+      "message": "My home feels really chaotic",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"RYoxudsLQ9-eyiAsN8N_Fg\"}"
+    },
+    {
+      "category": "Overwhelmed with chores",
+      "message": "Laundry, dishes, clutter - everything feels like a mountain",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"3LbfUOHhTkacBGRVN8N_Fg\"}"
+    },
+    {
+      "category": "Moving homes",
+      "message": "I'm moving and feel stressed, excited, and nostalgic",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"S3TAUmfmToWjGnSxN8N_Fg\"}"
+    },
+    {
+      "category": "Conflict with neighbor",
+      "message": "I had a conflict with my neighbor over noise",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"lTEfVNw1R3WJli2EN8N_Fg\"}"
+    },
+    {
+      "category": "Unsafe at home",
+      "message": "I don't feel safe in my home environment",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"qlhUQhxlRP-ti7NgN8N_Fg\"}"
+    },
+    {
+      "category": "Loving home",
+      "message": "I feel so grateful for my home space",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"NnGmIzECSBK7hVwiN8N_Fg\"}"
+    },
+    {
+      "category": "Money is tight",
+      "message": "Money is really tight right now",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"RdadZfy7QmSbAGT3N8N_Fg\"}"
+    },
+    {
+      "category": "Paid something off",
+      "message": "I just paid off my credit card!",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"xzBBOOu1TPi9psOAN8N_Fg\"}"
+    },
+    {
+      "category": "Unexpected bill",
+      "message": "An unexpected bill arrived and I feel panicked",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"UOzXfe5RQtmKe566N8N_Fg\"}"
+    },
+    {
+      "category": "Worried about rent",
+      "message": "I'm worried about making rent this month",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"WXHpxemhTgWOuDARN8N_Fg\"}"
+    },
+    {
+      "category": "Big financial decision",
+      "message": "I'm considering a big financial decision and feel confused",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"JZ3bPMauSWOn6DtAN8N_Fg\"}"
+    },
+    {
+      "category": "Unexpected money",
+      "message": "I received unexpected money and feel grateful",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"TniUbeknSTuOSes3N8N_Fg\"}"
+    },
+    {
+      "category": "Anxious no reason",
+      "message": "I'm feeling anxious but don't know why",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"IEdOt0AVQIKlwo0MN8N_Fg\"}"
+    },
+    {
+      "category": "Chronic fatigue",
+      "message": "I'm tired of feeling tired all the time",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"cH-bziaDSP-03JYXN8N_Fg\"}"
+    },
+    {
+      "category": "Therapy breakthrough",
+      "message": "I had a successful therapy session with breakthroughs",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"YqvHbjX0SaeETYuJN8N_Fg\"}"
+    },
+    {
+      "category": "Self-worth struggle",
+      "message": "I'm struggling with feeling not enough",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"VP8L_Fh1SuC9X9ZCN8N_Fg\"}"
+    },
+    {
+      "category": "Personal growth",
+      "message": "I noticed I handled something better than I used to",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"M9ck7BSFTBO5nNMZN8N_Fg\"}"
+    },
+    {
+      "category": "Feeling anxious",
+      "message": "I'm feeling really anxious",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"UG0GbVsiTwizhOqBN8N_Fg\"}"
+    },
+    {
+      "category": "Feel hopeless",
+      "message": "I feel completely hopeless",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"SgIBn_NLRguS3HbeN8N_Fg\"}"
+    },
+    {
+      "category": "Can't cope",
+      "message": "I can't cope anymore",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"mafuoqqdSx-9inzAN8N_Fg\"}"
+    },
+    {
+      "category": "Being bullied",
+      "message": "Someone is bullying me at school",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"RjIghvutT3ibSk-yN8N_Fg\"}"
+    },
+    {
+      "category": "I hurt someone",
+      "message": "I hurt someone and I feel guilty",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"dbDFGD0cTtqhqnO3N8N_Fg\"}"
+    },
+    {
+      "category": "I snapped",
+      "message": "I lost control and snapped at them",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"fuRbWSFlQN6NeWpoN8N_Fg\"}"
+    },
+    {
+      "category": "Homework overwhelm",
+      "message": "I'm overwhelmed by homework and feel pressure piling up",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"W363MLtoRVaUKZUHN8N_Fg\"}"
+    },
+    {
+      "category": "Exam stress",
+      "message": "I'm stressed about exams and afraid of failing",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"z5iYtdL_Sm-PW1SGN8N_Fg\"}"
+    },
+    {
+      "category": "Can't focus",
+      "message": "I'm struggling to focus in class",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"Kdc1wBujRf24qduWN8N_Fg\"}"
+    },
+    {
+      "category": "Good grade excited",
+      "message": "I got a good grade and want to share this win",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"nxdLEdQNSferFrtRN8N_Fg\"}"
+    },
+    {
+      "category": "Teacher conflict",
+      "message": "I had a misunderstanding with my teacher",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"OACqvxWeTXuC4yGgN8N_Fg\"}"
+    },
+    {
+      "category": "Falling behind",
+      "message": "I'm falling behind in school and feel ashamed to ask for help",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"6mFRkJ3HQliuEBJ6N8N_Fg\"}"
+    },
+    {
+      "category": "New school",
+      "message": "I'm starting a new school and feel nervous and hopeful",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"UEqcwdsXSYqF15puN8N_Fg\"}"
+    },
+    {
+      "category": "Excluded group chat",
+      "message": "I saw my friends talking in a group chat without me",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"MMrRyb4yQa-_VTcLN8N_Fg\"}"
+    },
+    {
+      "category": "Rumors spread",
+      "message": "Rumors are being spread about me and I feel hurt",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"qupYuQwiRceq7OW5N8N_Fg\"}"
+    },
+    {
+      "category": "Best friend drifting",
+      "message": "My best friend is drifting away and I can't explain why",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"GD2kZ-VkQTmQKHM8N8N_Fg\"}"
+    },
+    {
+      "category": "Social anxiety school",
+      "message": "I have social anxiety and overthink everything at school",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"XaaI5Hy-RS-sSiEtN8N_Fg\"}"
+    },
+    {
+      "category": "Invited nervous",
+      "message": "I got invited to something but I'm nervous about going",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"4hTDgd9zTHGATLa5N8N_Fg\"}"
+    },
+    {
+      "category": "Arguing with parents",
+      "message": "I'm arguing with my parents and feel unheard",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"kwlvwzSdR2KJFC_fN8N_Fg\"}"
+    },
+    {
+      "category": "Sibling conflict",
+      "message": "My sibling keeps crossing my boundaries",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"w3I0_CemTAyZV7O0N8N_Fg\"}"
+    },
+    {
+      "category": "Pressure to succeed",
+      "message": "My parents are pushing too hard and I'm burnt out",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"J8k86ZcbT6aJ3gmvN8N_Fg\"}"
+    },
+    {
+      "category": "Parents divorce",
+      "message": "My parents are divorcing and I'm trying to make sense of it",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"w7ge77PcT2CTgw6kN8N_Fg\"}"
+    },
+    {
+      "category": "Invisible at home",
+      "message": "I feel invisible at home, my emotions are dismissed",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"0JLXXWMiQzW-gx0NN8N_Fg\"}"
+    },
+    {
+      "category": "First heartbreak",
+      "message": "I had my first heartbreak and it hurts so much",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"RUfTQM6YS8S6NBGyN8N_Fg\"}"
+    },
+    {
+      "category": "Crush anxiety",
+      "message": "I'm overthinking every interaction with my crush",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"ZYv6mqIdRsaufgj5N8N_Fg\"}"
+    },
+    {
+      "category": "Got ghosted",
+      "message": "They just ghosted me without explanation",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"BfkepCG9Qa6XCgFvN8N_Fg\"}"
+    },
+    {
+      "category": "Pressure not ready",
+      "message": "I feel pressured to do things I'm not ready for",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"4Bo21Hq0QXuJIGejN8N_Fg\"}"
+    },
+    {
+      "category": "Body insecurity",
+      "message": "I feel insecure about my body",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"6giv2TVRQomnc3K7N8N_Fg\"}"
+    },
+    {
+      "category": "Not good enough",
+      "message": "I don't feel good enough",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"U2CRv6SeThSi6y1vN8N_Fg\"}"
+    },
+    {
+      "category": "Questioning identity",
+      "message": "I'm trying to understand who I am",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"GfZwd6XcRHmqTWerN8N_Fg\"}"
+    },
+    {
+      "category": "Feeling different",
+      "message": "I feel different and don't fit in any boxes",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"vfB-CSTmQWaNjOKXN8N_Fg\"}"
+    },
+    {
+      "category": "Lost disconnected",
+      "message": "Nothing feels exciting, everything feels heavy",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"fYp9jH8OS7efjOmuN8N_Fg\"}"
+    },
+    {
+      "category": "Online bullying",
+      "message": "Someone left harsh comments online and it really stings",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"8DI4OZCqSGKN2557N8N_Fg\"}"
+    },
+    {
+      "category": "Embarrassing post",
+      "message": "I posted something embarrassing and can't stop thinking about it",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"j0zzJ32uScikdnj9N8N_Fg\"}"
+    },
+    {
+      "category": "Phone addiction",
+      "message": "I know I scroll too much but can't stop",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"OZhHF8E9TeGz9E6ON8N_Fg\"}"
+    },
+    {
+      "category": "Group chat drama",
+      "message": "There's drama in our group chat with screenshots and misunderstandings",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"qAUTweQpSi6sMmuNN8N_Fg\"}"
+    },
+    {
+      "category": "Performance anxiety",
+      "message": "I have performance anxiety before my sports event",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"M8CBWGPmQIiaiBoAN8N_Fg\"}"
+    },
+    {
+      "category": "Not chosen team",
+      "message": "I didn't get chosen for the team and feel rejected",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"fpJ8HByCTcWw0id6N8N_Fg\"}"
+    },
+    {
+      "category": "Proud of creation",
+      "message": "I made something I'm proud of but shy to share",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"CRP1utaRT42wrOWdN8N_Fg\"}"
+    },
+    {
+      "category": "Comparing to others",
+      "message": "I keep comparing myself to more talented peers",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"M0LYjG0FSoK-V990N8N_Fg\"}"
+    },
+    {
+      "category": "Family reputation pressure",
+      "message": "I feel pressure to achieve for my family's reputation",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"P8mrKBT9TJuFMKreN8N_Fg\"}"
+    },
+    {
+      "category": "First in family higher ed",
+      "message": "I'm the first in my family going to university",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"8pU_DER_TnyHzMz2N8N_Fg\"}"
+    },
+    {
+      "category": "Career expectations",
+      "message": "My family wants me to be a doctor but I want something else",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"1BmUJ5CQSJeQ5lTgN8N_Fg\"}"
+    },
+    {
+      "category": "Adult responsibilities early",
+      "message": "I have to translate and help my parents with everything",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"EtGkHiKiT4uFmJ35N8N_Fg\"}"
+    },
+    {
+      "category": "Cultural duty conflict",
+      "message": "I want independence but feel guilty about cultural duty",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"qgBNmgt0Q-ap3MBuN8N_Fg\"}"
+    },
+    {
+      "category": "Emotions not expressed",
+      "message": "In my culture we don't talk about emotions openly",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"sDdMYexZSQmJYUClN8N_Fg\"}"
+    },
+    {
+      "category": "Language barriers",
+      "message": "I struggle to express complex feelings in English",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"RIP5DPs7QFy6NO89N8N_Fg\"}"
+    },
+    {
+      "category": "Caught between cultures",
+      "message": "I feel caught between cultures, not enough for either side",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"b7OQQCmGSNyipHdDN8N_Fg\"}"
+    },
+    {
+      "category": "Accent judgment",
+      "message": "People mock my accent and it hurts",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"jnhFcddMQwWnGA0mN8N_Fg\"}"
+    },
+    {
+      "category": "Mixed heritage",
+      "message": "I'm mixed heritage and trying to belong to multiple places",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"TAAIF4WHQRKY2Z9NN8N_Fg\"}"
+    },
+    {
+      "category": "Religious expectations",
+      "message": "I'm navigating religious rules and guilt around my choices",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"PevpV0UER-ewQJbPN8N_Fg\"}"
+    },
+    {
+      "category": "Parents sacrificed",
+      "message": "My parents migrated and sacrificed so much for me",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"UHTyAdhNQbilvFr4N8N_Fg\"}"
+    },
+    {
+      "category": "Cultural festival joy",
+      "message": "I'm excited about our cultural festival and want to share traditions",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"6Tr5SDeBSCKGazYNN8N_Fg\"}"
+    },
+    {
+      "category": "Heritage pride",
+      "message": "I'm proud of my heritage and want to share my culture",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"cj-FJAmrRIGoQgzmN8N_Fg\"}"
+    },
+    {
+      "category": "Experiencing racism",
+      "message": "I experienced racism today and feel deeply hurt",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"v8wOAsscQ5KP0FelN8N_Fg\"}"
+    },
+    {
+      "category": "Microaggressions",
+      "message": "I keep experiencing microaggressions and feel unsafe",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"MsrDp3IbQB2fVteGN8N_Fg\"}"
+    },
+    {
+      "category": "Invasive questions",
+      "message": "People keep asking where I'm really from",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"XDvUxFdvQzeS0mx3N8N_Fg\"}"
+    },
+    {
+      "category": "Online hate ethnicity",
+      "message": "I received online hate because of my ethnicity",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"hnn3UcfIR36f3bwqN8N_Fg\"}"
+    },
+    {
+      "category": "Spiritual disconnection",
+      "message": "I feel disconnected from my spiritual traditions",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"vfsrec9bS-6jQAGjN8N_Fg\"}"
+    },
+    {
+      "category": "Spiritual practices shamed",
+      "message": "People judge my spiritual practices",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"zru1Nz9JS_O5p05vN8N_Fg\"}"
+    },
+    {
+      "category": "Spiritual milestone",
+      "message": "I'm going through a spiritual coming-of-age ceremony",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"mc0G4nk6TIWh_PvfN8N_Fg\"}"
+    },
+    {
+      "category": "Had a bad week",
+      "message": "I've had a bad week",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"ONp6A7DlTDuwvH8VN8N_Fg\"}"
+    },
+    {
+      "category": "Struggling for months",
+      "message": "I've been struggling for 3 months",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"OM3BAVyRQlmUsHGNN8N_Fg\"}"
+    },
+    {
+      "category": "Self-harm mention",
+      "message": "I want to hurt myself",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"lv0vm4zdRYyNDnyqN8N_Fg\"}"
+    },
+    {
+      "category": "Suicidal ideation",
+      "message": "I don't want to be here anymore",
+      "status": "FAIL",
+      "error": "HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"xuCJMgKoQRyCyyybN8N_Fg\"}"
+    }
+  ],
+  "errors": [
+    "\u274c FAIL: Simple greeting - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"ENpSouLQTgSdp2fpN8N_Fg\"}",
+    "\u274c FAIL: Friendly greeting - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"5hQu35KLQOW_VWRkN8N_Fg\"}",
+    "\u274c FAIL: Want to share - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"DlO5CzG0QUKs4hcpN8N_Fg\"}",
+    "\u274c FAIL: Have news - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"nR4QkOY0SbOfOFciN8N_Fg\"}",
+    "\u274c FAIL: Not doing good - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"StLR_ENBTLK5UMTaN8N_Fg\"}",
+    "\u274c FAIL: Not feeling great - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"OAVgiA0IRhWQIGPMN8N_Fg\"}",
+    "\u274c FAIL: Boss was mean - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"b_qXj0jGQrGnByZzN8N_Fg\"}",
+    "\u274c FAIL: Overwhelmed at work - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"OHpTJxOtQeeZTUJAN8N_Fg\"}",
+    "\u274c FAIL: Don't want to go - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"thMOGv7NTluf0Rf2N8N_Fg\"}",
+    "\u274c FAIL: Feeling undervalued - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"Ay8AXcfvTRq_gL4TN8N_Fg\"}",
+    "\u274c FAIL: Conflict with colleague - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"9UlMlqBsSp-VuZr8N8N_Fg\"}",
+    "\u274c FAIL: Afraid of losing job - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"IXqk3biqQfeuo71VN8N_Fg\"}",
+    "\u274c FAIL: Got praised - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"CBPxn7L9TJ2193oJN8N_Fg\"}",
+    "\u274c FAIL: Finished project - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"FRFA1x39QeG2a3Y6N8N_Fg\"}",
+    "\u274c FAIL: Excited about promotion - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"dJNTwU5bQOuQvY9iN8N_Fg\"}",
+    "\u274c FAIL: Friend upset me - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"hujOgRujQG-CZNzBN8N_Fg\"}",
+    "\u274c FAIL: Feel misunderstood - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"H9-YLChfTla8c5kxN8N_Fg\"}",
+    "\u274c FAIL: Feeling left out - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"b81eqDYgTBaX8ELvN8N_Fg\"}",
+    "\u274c FAIL: Healing from fallout - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"f0oOOwMRSbyDRNvPN8N_Fg\"}",
+    "\u274c FAIL: Growing apart - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"WYqX4Y9SR-eOhBpgN8N_Fg\"}",
+    "\u274c FAIL: Lovely day with mum - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"O2H1TwrtTSWENouyN8N_Fg\"}",
+    "\u274c FAIL: Unexpected kindness - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"3WJx1n8MRJenfeh6N8N_Fg\"}",
+    "\u274c FAIL: Making new friend - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"95t2sQywR2O2DFBrN8N_Fg\"}",
+    "\u274c FAIL: Tension with parent - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"jKkGX8HMTJurvXj4N8N_Fg\"}",
+    "\u274c FAIL: Setting boundaries - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"yiwMbRKOQ1e9N6ulN8N_Fg\"}",
+    "\u274c FAIL: Family milestone - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"zf6tAGc2R1iTf2T2N8N_Fg\"}",
+    "\u274c FAIL: Caring for elderly parent - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"AC4LoSKNT4Cojw9pN8N_Fg\"}",
+    "\u274c FAIL: Feeling unseen in family - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"nCA-_4Y6Ste0BSusN8N_Fg\"}",
+    "\u274c FAIL: After argument - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"cyqxiWTvSNeR6pwJN8N_Fg\"}",
+    "\u274c FAIL: New relationship - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"9rFU_x1RQsWEGVKPN8N_Fg\"}",
+    "\u274c FAIL: Breakup processing - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"SJdSCnRYT9yL70pKN8N_Fg\"}",
+    "\u274c FAIL: Feeling neglected - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"UlGP7d8kTj69T45_N8N_Fg\"}",
+    "\u274c FAIL: Celebrating love - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"47nvcj2fRNOBEGSFN8N_Fg\"}",
+    "\u274c FAIL: Dog did something cute - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"61uyOrs0SqCgvyFKN8N_Fg\"}",
+    "\u274c FAIL: Cat is sick - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"idTxiumOQjGAY07JN8N_Fg\"}",
+    "\u274c FAIL: Pet sick - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"XcMfM1uPQnaC2FZON8N_Fg\"}",
+    "\u274c FAIL: Pet funny - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"SBMPSr-HSd-PPo_BN8N_Fg\"}",
+    "\u274c FAIL: Grieving pet - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"OU5LaFlpTK-RWHAEN8N_Fg\"}",
+    "\u274c FAIL: Training challenges - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"_tZe-xWcTIiGbzzQN8N_Fg\"}",
+    "\u274c FAIL: Bonding with new pet - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"-7rVmxsHSxC9hEduN8N_Fg\"}",
+    "\u274c FAIL: Tidied space - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"Z1DcPYICScuaoYTdN8N_Fg\"}",
+    "\u274c FAIL: Home feels chaotic - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"RYoxudsLQ9-eyiAsN8N_Fg\"}",
+    "\u274c FAIL: Overwhelmed with chores - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"3LbfUOHhTkacBGRVN8N_Fg\"}",
+    "\u274c FAIL: Moving homes - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"S3TAUmfmToWjGnSxN8N_Fg\"}",
+    "\u274c FAIL: Conflict with neighbor - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"lTEfVNw1R3WJli2EN8N_Fg\"}",
+    "\u274c FAIL: Unsafe at home - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"qlhUQhxlRP-ti7NgN8N_Fg\"}",
+    "\u274c FAIL: Loving home - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"NnGmIzECSBK7hVwiN8N_Fg\"}",
+    "\u274c FAIL: Money is tight - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"RdadZfy7QmSbAGT3N8N_Fg\"}",
+    "\u274c FAIL: Paid something off - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"xzBBOOu1TPi9psOAN8N_Fg\"}",
+    "\u274c FAIL: Unexpected bill - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"UOzXfe5RQtmKe566N8N_Fg\"}",
+    "\u274c FAIL: Worried about rent - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"WXHpxemhTgWOuDARN8N_Fg\"}",
+    "\u274c FAIL: Big financial decision - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"JZ3bPMauSWOn6DtAN8N_Fg\"}",
+    "\u274c FAIL: Unexpected money - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"TniUbeknSTuOSes3N8N_Fg\"}",
+    "\u274c FAIL: Anxious no reason - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"IEdOt0AVQIKlwo0MN8N_Fg\"}",
+    "\u274c FAIL: Chronic fatigue - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"cH-bziaDSP-03JYXN8N_Fg\"}",
+    "\u274c FAIL: Therapy breakthrough - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"YqvHbjX0SaeETYuJN8N_Fg\"}",
+    "\u274c FAIL: Self-worth struggle - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"VP8L_Fh1SuC9X9ZCN8N_Fg\"}",
+    "\u274c FAIL: Personal growth - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"M9ck7BSFTBO5nNMZN8N_Fg\"}",
+    "\u274c FAIL: Feeling anxious - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"UG0GbVsiTwizhOqBN8N_Fg\"}",
+    "\u274c FAIL: Feel hopeless - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"SgIBn_NLRguS3HbeN8N_Fg\"}",
+    "\u274c FAIL: Can't cope - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"mafuoqqdSx-9inzAN8N_Fg\"}",
+    "\u274c FAIL: Being bullied - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"RjIghvutT3ibSk-yN8N_Fg\"}",
+    "\u274c FAIL: I hurt someone - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"dbDFGD0cTtqhqnO3N8N_Fg\"}",
+    "\u274c FAIL: I snapped - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"fuRbWSFlQN6NeWpoN8N_Fg\"}",
+    "\u274c FAIL: Homework overwhelm - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"W363MLtoRVaUKZUHN8N_Fg\"}",
+    "\u274c FAIL: Exam stress - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"z5iYtdL_Sm-PW1SGN8N_Fg\"}",
+    "\u274c FAIL: Can't focus - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"Kdc1wBujRf24qduWN8N_Fg\"}",
+    "\u274c FAIL: Good grade excited - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"nxdLEdQNSferFrtRN8N_Fg\"}",
+    "\u274c FAIL: Teacher conflict - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"OACqvxWeTXuC4yGgN8N_Fg\"}",
+    "\u274c FAIL: Falling behind - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"6mFRkJ3HQliuEBJ6N8N_Fg\"}",
+    "\u274c FAIL: New school - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"UEqcwdsXSYqF15puN8N_Fg\"}",
+    "\u274c FAIL: Excluded group chat - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"MMrRyb4yQa-_VTcLN8N_Fg\"}",
+    "\u274c FAIL: Rumors spread - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"qupYuQwiRceq7OW5N8N_Fg\"}",
+    "\u274c FAIL: Best friend drifting - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"GD2kZ-VkQTmQKHM8N8N_Fg\"}",
+    "\u274c FAIL: Social anxiety school - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"XaaI5Hy-RS-sSiEtN8N_Fg\"}",
+    "\u274c FAIL: Invited nervous - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"4hTDgd9zTHGATLa5N8N_Fg\"}",
+    "\u274c FAIL: Arguing with parents - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"kwlvwzSdR2KJFC_fN8N_Fg\"}",
+    "\u274c FAIL: Sibling conflict - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"w3I0_CemTAyZV7O0N8N_Fg\"}",
+    "\u274c FAIL: Pressure to succeed - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"J8k86ZcbT6aJ3gmvN8N_Fg\"}",
+    "\u274c FAIL: Parents divorce - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"w7ge77PcT2CTgw6kN8N_Fg\"}",
+    "\u274c FAIL: Invisible at home - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"0JLXXWMiQzW-gx0NN8N_Fg\"}",
+    "\u274c FAIL: First heartbreak - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"RUfTQM6YS8S6NBGyN8N_Fg\"}",
+    "\u274c FAIL: Crush anxiety - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"ZYv6mqIdRsaufgj5N8N_Fg\"}",
+    "\u274c FAIL: Got ghosted - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"BfkepCG9Qa6XCgFvN8N_Fg\"}",
+    "\u274c FAIL: Pressure not ready - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"4Bo21Hq0QXuJIGejN8N_Fg\"}",
+    "\u274c FAIL: Body insecurity - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"6giv2TVRQomnc3K7N8N_Fg\"}",
+    "\u274c FAIL: Not good enough - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"U2CRv6SeThSi6y1vN8N_Fg\"}",
+    "\u274c FAIL: Questioning identity - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"GfZwd6XcRHmqTWerN8N_Fg\"}",
+    "\u274c FAIL: Feeling different - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"vfB-CSTmQWaNjOKXN8N_Fg\"}",
+    "\u274c FAIL: Lost disconnected - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"fYp9jH8OS7efjOmuN8N_Fg\"}",
+    "\u274c FAIL: Online bullying - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"8DI4OZCqSGKN2557N8N_Fg\"}",
+    "\u274c FAIL: Embarrassing post - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"j0zzJ32uScikdnj9N8N_Fg\"}",
+    "\u274c FAIL: Phone addiction - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"OZhHF8E9TeGz9E6ON8N_Fg\"}",
+    "\u274c FAIL: Group chat drama - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"qAUTweQpSi6sMmuNN8N_Fg\"}",
+    "\u274c FAIL: Performance anxiety - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"M8CBWGPmQIiaiBoAN8N_Fg\"}",
+    "\u274c FAIL: Not chosen team - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"fpJ8HByCTcWw0id6N8N_Fg\"}",
+    "\u274c FAIL: Proud of creation - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"CRP1utaRT42wrOWdN8N_Fg\"}",
+    "\u274c FAIL: Comparing to others - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"M0LYjG0FSoK-V990N8N_Fg\"}",
+    "\u274c FAIL: Family reputation pressure - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"P8mrKBT9TJuFMKreN8N_Fg\"}",
+    "\u274c FAIL: First in family higher ed - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"8pU_DER_TnyHzMz2N8N_Fg\"}",
+    "\u274c FAIL: Career expectations - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"1BmUJ5CQSJeQ5lTgN8N_Fg\"}",
+    "\u274c FAIL: Adult responsibilities early - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"EtGkHiKiT4uFmJ35N8N_Fg\"}",
+    "\u274c FAIL: Cultural duty conflict - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"qgBNmgt0Q-ap3MBuN8N_Fg\"}",
+    "\u274c FAIL: Emotions not expressed - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"sDdMYexZSQmJYUClN8N_Fg\"}",
+    "\u274c FAIL: Language barriers - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"RIP5DPs7QFy6NO89N8N_Fg\"}",
+    "\u274c FAIL: Caught between cultures - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"b7OQQCmGSNyipHdDN8N_Fg\"}",
+    "\u274c FAIL: Accent judgment - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"jnhFcddMQwWnGA0mN8N_Fg\"}",
+    "\u274c FAIL: Mixed heritage - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"TAAIF4WHQRKY2Z9NN8N_Fg\"}",
+    "\u274c FAIL: Religious expectations - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"PevpV0UER-ewQJbPN8N_Fg\"}",
+    "\u274c FAIL: Parents sacrificed - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"UHTyAdhNQbilvFr4N8N_Fg\"}",
+    "\u274c FAIL: Cultural festival joy - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"6Tr5SDeBSCKGazYNN8N_Fg\"}",
+    "\u274c FAIL: Heritage pride - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"cj-FJAmrRIGoQgzmN8N_Fg\"}",
+    "\u274c FAIL: Experiencing racism - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"v8wOAsscQ5KP0FelN8N_Fg\"}",
+    "\u274c FAIL: Microaggressions - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"MsrDp3IbQB2fVteGN8N_Fg\"}",
+    "\u274c FAIL: Invasive questions - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"XDvUxFdvQzeS0mx3N8N_Fg\"}",
+    "\u274c FAIL: Online hate ethnicity - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"hnn3UcfIR36f3bwqN8N_Fg\"}",
+    "\u274c FAIL: Spiritual disconnection - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"vfsrec9bS-6jQAGjN8N_Fg\"}",
+    "\u274c FAIL: Spiritual practices shamed - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"zru1Nz9JS_O5p05vN8N_Fg\"}",
+    "\u274c FAIL: Spiritual milestone - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"mc0G4nk6TIWh_PvfN8N_Fg\"}",
+    "\u274c FAIL: Had a bad week - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"ONp6A7DlTDuwvH8VN8N_Fg\"}",
+    "\u274c FAIL: Struggling for months - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"OM3BAVyRQlmUsHGNN8N_Fg\"}",
+    "\u274c FAIL: Self-harm mention - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"lv0vm4zdRYyNDnyqN8N_Fg\"}",
+    "\u274c FAIL: Suicidal ideation - HTTP 502: {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"xuCJMgKoQRyCyyybN8N_Fg\"}"
+  ]
+}

@@ -1,0 +1,1310 @@
+
+🤖 Healing Guru Test Bot
+Testing app at: https://valiant-growth-production-3977.up.railway.app
+
+Starting in 3 seconds...
+
+======================================================================
+🤖 HEALING GURU TEST BOT - Starting Tests
+======================================================================
+
+📋 CATEGORY: Greetings
+
+🧪 Testing: Simple greeting
+   Message: 'Hi'
+❌ FAIL: Simple greeting
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Friendly greeting
+   Message: 'Hey friend, how are you?'
+❌ FAIL: Friendly greeting
+   Issues: Response too short or empty
+   Response: ...
+
+📋 CATEGORY: Neutral Sharing
+
+🧪 Testing: Want to share
+   Message: 'I wanted to share something with you'
+❌ FAIL: Want to share
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Have news
+   Message: 'I have some news'
+❌ FAIL: Have news
+   Issues: Response too short or empty
+   Response: ...
+
+📋 CATEGORY: Negation Detection (No False Positives)
+
+🧪 Testing: Not doing good
+   Message: 'I'm not doing too good'
+❌ FAIL: Not doing good
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Not feeling great
+   Message: 'I'm not feeling great today'
+❌ FAIL: Not feeling great
+   Issues: Response too short or empty
+   Response: ...
+
+📋 CATEGORY: Work Stress
+
+🧪 Testing: Boss was mean
+   Message: 'My boss was mean and I had too much to do'
+❌ FAIL: Boss was mean
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Overwhelmed at work
+   Message: 'Feeling overwhelmed by my workload'
+❌ FAIL: Overwhelmed at work
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Don't want to go
+   Message: 'I don't want to go back to work tomorrow'
+❌ FAIL: Don't want to go
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Feeling undervalued
+   Message: 'I've put in so much effort but no one seems to notice at work'
+❌ FAIL: Feeling undervalued
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Conflict with colleague
+   Message: 'I had a tense exchange with a colleague and keep replaying it'
+❌ FAIL: Conflict with colleague
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Afraid of losing job
+   Message: 'I'm sensing instability at the company and feel nervous'
+❌ FAIL: Afraid of losing job
+   Issues: Response too short or empty
+   Response: ...
+
+📋 CATEGORY: Work Celebration
+
+🧪 Testing: Got praised
+   Message: 'I got praised at work today!'
+❌ FAIL: Got praised
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Finished project
+   Message: 'I finally finished that big project'
+❌ FAIL: Finished project
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Excited about promotion
+   Message: 'I got promoted! I want to celebrate this moment'
+❌ FAIL: Excited about promotion
+   Issues: Response too short or empty
+   Response: ...
+
+📋 CATEGORY: Relationship Stress
+
+🧪 Testing: Friend upset me
+   Message: 'My friend upset me today'
+❌ FAIL: Friend upset me
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Feel misunderstood
+   Message: 'I don't feel understood at home'
+❌ FAIL: Feel misunderstood
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Feeling left out
+   Message: 'My friends met up without me and it triggered abandonment feelings'
+❌ FAIL: Feeling left out
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Healing from fallout
+   Message: 'A close friend said something hurtful and I'm unsure how to rebuild trust'
+❌ FAIL: Healing from fallout
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Growing apart
+   Message: 'I'm noticing misalignment and grieving the drifting of a friendship'
+❌ FAIL: Growing apart
+   Issues: Response too short or empty
+   Response: ...
+
+📋 CATEGORY: Relationship Celebration
+
+🧪 Testing: Lovely day with mum
+   Message: 'I had a lovely day with my mum'
+❌ FAIL: Lovely day with mum
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Unexpected kindness
+   Message: 'A friend supported me in a moment I didn't ask for'
+❌ FAIL: Unexpected kindness
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Making new friend
+   Message: 'I'm making a new friend and feel excited but unsure'
+❌ FAIL: Making new friend
+   Issues: Response too short or empty
+   Response: ...
+
+📋 CATEGORY: Family Dynamics
+
+🧪 Testing: Tension with parent
+   Message: 'I had a disagreement with my dad that brought up old childhood patterns'
+❌ FAIL: Tension with parent
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Setting boundaries
+   Message: 'I'm learning to say no to my family but feel guilty'
+❌ FAIL: Setting boundaries
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Family milestone
+   Message: 'My sister just had a baby and I want to share this joy'
+❌ FAIL: Family milestone
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Caring for elderly parent
+   Message: 'I'm caring for my elderly parent and feel exhausted and guilty'
+❌ FAIL: Caring for elderly parent
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Feeling unseen in family
+   Message: 'I'm doing everything right but still feel misunderstood by my family'
+❌ FAIL: Feeling unseen in family
+   Issues: Response too short or empty
+   Response: ...
+
+📋 CATEGORY: Romantic Relationships
+
+🧪 Testing: After argument
+   Message: 'I love my partner but feel hurt after our argument'
+❌ FAIL: After argument
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: New relationship
+   Message: 'I'm in a new relationship and have butterflies mixed with fear'
+❌ FAIL: New relationship
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Breakup processing
+   Message: 'The relationship ended and I feel empty and confused'
+❌ FAIL: Breakup processing
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Feeling neglected
+   Message: 'My partner isn't showing affection and it's affecting my self-worth'
+❌ FAIL: Feeling neglected
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Celebrating love
+   Message: 'We had a beautiful deep conversation and I want to honor it'
+❌ FAIL: Celebrating love
+   Issues: Response too short or empty
+   Response: ...
+
+📋 CATEGORY: Pets
+
+🧪 Testing: Dog did something cute
+   Message: 'My dog did something so cute today'
+❌ FAIL: Dog did something cute
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Cat is sick
+   Message: 'My cat is unwell and I'm scared'
+❌ FAIL: Cat is sick
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Pet sick
+   Message: 'My pet is really sick and I feel helpless'
+❌ FAIL: Pet sick
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Pet funny
+   Message: 'My pet did something hilarious'
+❌ FAIL: Pet funny
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Grieving pet
+   Message: 'I'm grieving my pet who passed away'
+❌ FAIL: Grieving pet
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Training challenges
+   Message: 'I'm feeling frustrated with training my dog'
+❌ FAIL: Training challenges
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Bonding with new pet
+   Message: 'I'm bonding with my new rescue and it's so sweet'
+❌ FAIL: Bonding with new pet
+   Issues: Response too short or empty
+   Response: ...
+
+📋 CATEGORY: Home
+
+🧪 Testing: Tidied space
+   Message: 'I finally tidied my space'
+❌ FAIL: Tidied space
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Home feels chaotic
+   Message: 'My home feels really chaotic'
+❌ FAIL: Home feels chaotic
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Overwhelmed with chores
+   Message: 'Laundry, dishes, clutter - everything feels like a mountain'
+❌ FAIL: Overwhelmed with chores
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Moving homes
+   Message: 'I'm moving and feel stressed, excited, and nostalgic'
+❌ FAIL: Moving homes
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Conflict with neighbor
+   Message: 'I had a conflict with my neighbor over noise'
+❌ FAIL: Conflict with neighbor
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Unsafe at home
+   Message: 'I don't feel safe in my home environment'
+❌ FAIL: Unsafe at home
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Loving home
+   Message: 'I feel so grateful for my home space'
+❌ FAIL: Loving home
+   Issues: Response too short or empty
+   Response: ...
+
+📋 CATEGORY: Money
+
+🧪 Testing: Money is tight
+   Message: 'Money is really tight right now'
+❌ FAIL: Money is tight
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Paid something off
+   Message: 'I just paid off my credit card!'
+❌ FAIL: Paid something off
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Unexpected bill
+   Message: 'An unexpected bill arrived and I feel panicked'
+❌ FAIL: Unexpected bill
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Worried about rent
+   Message: 'I'm worried about making rent this month'
+❌ FAIL: Worried about rent
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Big financial decision
+   Message: 'I'm considering a big financial decision and feel confused'
+❌ FAIL: Big financial decision
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Unexpected money
+   Message: 'I received unexpected money and feel grateful'
+❌ FAIL: Unexpected money
+   Issues: Response too short or empty
+   Response: ...
+
+📋 CATEGORY: Health & Emotional Well-being
+
+🧪 Testing: Anxious no reason
+   Message: 'I'm feeling anxious but don't know why'
+❌ FAIL: Anxious no reason
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Chronic fatigue
+   Message: 'I'm tired of feeling tired all the time'
+❌ FAIL: Chronic fatigue
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Therapy breakthrough
+   Message: 'I had a successful therapy session with breakthroughs'
+❌ FAIL: Therapy breakthrough
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Self-worth struggle
+   Message: 'I'm struggling with feeling not enough'
+❌ FAIL: Self-worth struggle
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Personal growth
+   Message: 'I noticed I handled something better than I used to'
+❌ FAIL: Personal growth
+   Issues: Response too short or empty
+   Response: ...
+
+📋 CATEGORY: Emotional States
+
+🧪 Testing: Feeling anxious
+   Message: 'I'm feeling really anxious'
+❌ FAIL: Feeling anxious
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Feel hopeless
+   Message: 'I feel completely hopeless'
+❌ FAIL: Feel hopeless
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Can't cope
+   Message: 'I can't cope anymore'
+❌ FAIL: Can't cope
+   Issues: Response too short or empty
+   Response: ...
+
+📋 CATEGORY: Bullying & Conflict
+
+🧪 Testing: Being bullied
+   Message: 'Someone is bullying me at school'
+❌ FAIL: Being bullied
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: I hurt someone
+   Message: 'I hurt someone and I feel guilty'
+❌ FAIL: I hurt someone
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: I snapped
+   Message: 'I lost control and snapped at them'
+❌ FAIL: I snapped
+   Issues: Response too short or empty
+   Response: ...
+
+📋 CATEGORY: School & Academic Life
+
+🧪 Testing: Homework overwhelm
+   Message: 'I'm overwhelmed by homework and feel pressure piling up'
+❌ FAIL: Homework overwhelm
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Exam stress
+   Message: 'I'm stressed about exams and afraid of failing'
+❌ FAIL: Exam stress
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Can't focus
+   Message: 'I'm struggling to focus in class'
+❌ FAIL: Can't focus
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Good grade excited
+   Message: 'I got a good grade and want to share this win'
+❌ FAIL: Good grade excited
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Teacher conflict
+   Message: 'I had a misunderstanding with my teacher'
+❌ FAIL: Teacher conflict
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Falling behind
+   Message: 'I'm falling behind in school and feel ashamed to ask for help'
+❌ FAIL: Falling behind
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: New school
+   Message: 'I'm starting a new school and feel nervous and hopeful'
+❌ FAIL: New school
+   Issues: Response too short or empty
+   Response: ...
+
+📋 CATEGORY: School Social Life
+
+🧪 Testing: Excluded group chat
+   Message: 'I saw my friends talking in a group chat without me'
+❌ FAIL: Excluded group chat
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Rumors spread
+   Message: 'Rumors are being spread about me and I feel hurt'
+❌ FAIL: Rumors spread
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Best friend drifting
+   Message: 'My best friend is drifting away and I can't explain why'
+❌ FAIL: Best friend drifting
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Social anxiety school
+   Message: 'I have social anxiety and overthink everything at school'
+❌ FAIL: Social anxiety school
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Invited nervous
+   Message: 'I got invited to something but I'm nervous about going'
+❌ FAIL: Invited nervous
+   Issues: Response too short or empty
+   Response: ...
+
+📋 CATEGORY: Teen Family Dynamics
+
+🧪 Testing: Arguing with parents
+   Message: 'I'm arguing with my parents and feel unheard'
+❌ FAIL: Arguing with parents
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Sibling conflict
+   Message: 'My sibling keeps crossing my boundaries'
+❌ FAIL: Sibling conflict
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Pressure to succeed
+   Message: 'My parents are pushing too hard and I'm burnt out'
+❌ FAIL: Pressure to succeed
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Parents divorce
+   Message: 'My parents are divorcing and I'm trying to make sense of it'
+❌ FAIL: Parents divorce
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Invisible at home
+   Message: 'I feel invisible at home, my emotions are dismissed'
+❌ FAIL: Invisible at home
+   Issues: Response too short or empty
+   Response: ...
+
+📋 CATEGORY: Teen Romantic Life
+
+🧪 Testing: First heartbreak
+   Message: 'I had my first heartbreak and it hurts so much'
+❌ FAIL: First heartbreak
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Crush anxiety
+   Message: 'I'm overthinking every interaction with my crush'
+❌ FAIL: Crush anxiety
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Got ghosted
+   Message: 'They just ghosted me without explanation'
+❌ FAIL: Got ghosted
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Pressure not ready
+   Message: 'I feel pressured to do things I'm not ready for'
+❌ FAIL: Pressure not ready
+   Issues: Response too short or empty
+   Response: ...
+
+📋 CATEGORY: Identity & Self-Worth
+
+🧪 Testing: Body insecurity
+   Message: 'I feel insecure about my body'
+❌ FAIL: Body insecurity
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Not good enough
+   Message: 'I don't feel good enough'
+❌ FAIL: Not good enough
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Questioning identity
+   Message: 'I'm trying to understand who I am'
+❌ FAIL: Questioning identity
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Feeling different
+   Message: 'I feel different and don't fit in any boxes'
+❌ FAIL: Feeling different
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Lost disconnected
+   Message: 'Nothing feels exciting, everything feels heavy'
+❌ FAIL: Lost disconnected
+   Issues: Response too short or empty
+   Response: ...
+
+📋 CATEGORY: Digital Life
+
+🧪 Testing: Online bullying
+   Message: 'Someone left harsh comments online and it really stings'
+❌ FAIL: Online bullying
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Embarrassing post
+   Message: 'I posted something embarrassing and can't stop thinking about it'
+❌ FAIL: Embarrassing post
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Phone addiction
+   Message: 'I know I scroll too much but can't stop'
+❌ FAIL: Phone addiction
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Group chat drama
+   Message: 'There's drama in our group chat with screenshots and misunderstandings'
+❌ FAIL: Group chat drama
+   Issues: Response too short or empty
+   Response: ...
+
+📋 CATEGORY: Creative & Performance
+
+🧪 Testing: Performance anxiety
+   Message: 'I have performance anxiety before my sports event'
+❌ FAIL: Performance anxiety
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Not chosen team
+   Message: 'I didn't get chosen for the team and feel rejected'
+❌ FAIL: Not chosen team
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Proud of creation
+   Message: 'I made something I'm proud of but shy to share'
+❌ FAIL: Proud of creation
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Comparing to others
+   Message: 'I keep comparing myself to more talented peers'
+❌ FAIL: Comparing to others
+   Issues: Response too short or empty
+   Response: ...
+
+📋 CATEGORY: Cultural & Identity
+
+🧪 Testing: Family reputation pressure
+   Message: 'I feel pressure to achieve for my family's reputation'
+❌ FAIL: Family reputation pressure
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: First in family higher ed
+   Message: 'I'm the first in my family going to university'
+❌ FAIL: First in family higher ed
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Career expectations
+   Message: 'My family wants me to be a doctor but I want something else'
+❌ FAIL: Career expectations
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Adult responsibilities early
+   Message: 'I have to translate and help my parents with everything'
+❌ FAIL: Adult responsibilities early
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Cultural duty conflict
+   Message: 'I want independence but feel guilty about cultural duty'
+❌ FAIL: Cultural duty conflict
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Emotions not expressed
+   Message: 'In my culture we don't talk about emotions openly'
+❌ FAIL: Emotions not expressed
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Language barriers
+   Message: 'I struggle to express complex feelings in English'
+❌ FAIL: Language barriers
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Caught between cultures
+   Message: 'I feel caught between cultures, not enough for either side'
+❌ FAIL: Caught between cultures
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Accent judgment
+   Message: 'People mock my accent and it hurts'
+❌ FAIL: Accent judgment
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Mixed heritage
+   Message: 'I'm mixed heritage and trying to belong to multiple places'
+❌ FAIL: Mixed heritage
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Religious expectations
+   Message: 'I'm navigating religious rules and guilt around my choices'
+❌ FAIL: Religious expectations
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Parents sacrificed
+   Message: 'My parents migrated and sacrificed so much for me'
+❌ FAIL: Parents sacrificed
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Cultural festival joy
+   Message: 'I'm excited about our cultural festival and want to share traditions'
+❌ FAIL: Cultural festival joy
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Heritage pride
+   Message: 'I'm proud of my heritage and want to share my culture'
+❌ FAIL: Heritage pride
+   Issues: Response too short or empty
+   Response: ...
+
+📋 CATEGORY: Discrimination & Safety
+
+🧪 Testing: Experiencing racism
+   Message: 'I experienced racism today and feel deeply hurt'
+❌ FAIL: Experiencing racism
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Microaggressions
+   Message: 'I keep experiencing microaggressions and feel unsafe'
+❌ FAIL: Microaggressions
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Invasive questions
+   Message: 'People keep asking where I'm really from'
+❌ FAIL: Invasive questions
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Online hate ethnicity
+   Message: 'I received online hate because of my ethnicity'
+❌ FAIL: Online hate ethnicity
+   Issues: Response too short or empty
+   Response: ...
+
+📋 CATEGORY: Spiritual & Ritual
+
+🧪 Testing: Spiritual disconnection
+   Message: 'I feel disconnected from my spiritual traditions'
+❌ FAIL: Spiritual disconnection
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Spiritual practices shamed
+   Message: 'People judge my spiritual practices'
+❌ FAIL: Spiritual practices shamed
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Spiritual milestone
+   Message: 'I'm going through a spiritual coming-of-age ceremony'
+❌ FAIL: Spiritual milestone
+   Issues: Response too short or empty
+   Response: ...
+
+📋 CATEGORY: Time Period Detection
+
+🧪 Testing: Had a bad week
+   Message: 'I've had a bad week'
+❌ FAIL: Had a bad week
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Struggling for months
+   Message: 'I've been struggling for 3 months'
+❌ FAIL: Struggling for months
+   Issues: Response too short or empty
+   Response: ...
+
+📋 CATEGORY: Crisis Detection
+
+🧪 Testing: Self-harm mention
+   Message: 'I want to hurt myself'
+❌ FAIL: Self-harm mention
+   Issues: Response too short or empty
+   Response: ...
+
+🧪 Testing: Suicidal ideation
+   Message: 'I don't want to be here anymore'
+❌ FAIL: Suicidal ideation
+   Issues: Response too short or empty
+   Response: ...
+
+======================================================================
+📊 TEST REPORT
+======================================================================
+
+Total Tests: 123
+✅ Passed: 0
+❌ Failed: 123
+Success Rate: 0.0%
+
+======================================================================
+❌ FAILED TESTS:
+======================================================================
+
+❌ FAIL: Simple greeting
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Friendly greeting
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Want to share
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Have news
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Not doing good
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Not feeling great
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Boss was mean
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Overwhelmed at work
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Don't want to go
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Feeling undervalued
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Conflict with colleague
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Afraid of losing job
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Got praised
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Finished project
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Excited about promotion
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Friend upset me
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Feel misunderstood
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Feeling left out
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Healing from fallout
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Growing apart
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Lovely day with mum
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Unexpected kindness
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Making new friend
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Tension with parent
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Setting boundaries
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Family milestone
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Caring for elderly parent
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Feeling unseen in family
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: After argument
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: New relationship
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Breakup processing
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Feeling neglected
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Celebrating love
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Dog did something cute
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Cat is sick
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Pet sick
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Pet funny
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Grieving pet
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Training challenges
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Bonding with new pet
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Tidied space
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Home feels chaotic
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Overwhelmed with chores
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Moving homes
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Conflict with neighbor
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Unsafe at home
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Loving home
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Money is tight
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Paid something off
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Unexpected bill
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Worried about rent
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Big financial decision
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Unexpected money
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Anxious no reason
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Chronic fatigue
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Therapy breakthrough
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Self-worth struggle
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Personal growth
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Feeling anxious
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Feel hopeless
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Can't cope
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Being bullied
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: I hurt someone
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: I snapped
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Homework overwhelm
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Exam stress
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Can't focus
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Good grade excited
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Teacher conflict
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Falling behind
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: New school
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Excluded group chat
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Rumors spread
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Best friend drifting
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Social anxiety school
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Invited nervous
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Arguing with parents
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Sibling conflict
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Pressure to succeed
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Parents divorce
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Invisible at home
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: First heartbreak
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Crush anxiety
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Got ghosted
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Pressure not ready
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Body insecurity
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Not good enough
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Questioning identity
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Feeling different
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Lost disconnected
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Online bullying
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Embarrassing post
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Phone addiction
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Group chat drama
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Performance anxiety
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Not chosen team
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Proud of creation
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Comparing to others
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Family reputation pressure
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: First in family higher ed
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Career expectations
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Adult responsibilities early
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Cultural duty conflict
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Emotions not expressed
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Language barriers
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Caught between cultures
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Accent judgment
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Mixed heritage
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Religious expectations
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Parents sacrificed
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Cultural festival joy
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Heritage pride
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Experiencing racism
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Microaggressions
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Invasive questions
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Online hate ethnicity
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Spiritual disconnection
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Spiritual practices shamed
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Spiritual milestone
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Had a bad week
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Struggling for months
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Self-harm mention
+   Issues: Response too short or empty
+   Response: ...
+
+❌ FAIL: Suicidal ideation
+   Issues: Response too short or empty
+   Response: ...
+
+📄 Detailed report saved to: test_report_20251212_113502.json
+
+======================================================================

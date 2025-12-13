@@ -1,0 +1,1364 @@
+{
+  "timestamp": "20251212_113502",
+  "total_tests": 123,
+  "passed": 0,
+  "failed": 123,
+  "success_rate": "0.0%",
+  "results": [
+    {
+      "category": "Simple greeting",
+      "message": "Hi",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": null,
+      "response": ""
+    },
+    {
+      "category": "Friendly greeting",
+      "message": "Hey friend, how are you?",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": null,
+      "response": ""
+    },
+    {
+      "category": "Want to share",
+      "message": "I wanted to share something with you",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "open_sharing",
+      "response": ""
+    },
+    {
+      "category": "Have news",
+      "message": "I have some news",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": null,
+      "response": ""
+    },
+    {
+      "category": "Not doing good",
+      "message": "I'm not doing too good",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": null,
+      "response": ""
+    },
+    {
+      "category": "Not feeling great",
+      "message": "I'm not feeling great today",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": null,
+      "response": ""
+    },
+    {
+      "category": "Boss was mean",
+      "message": "My boss was mean and I had too much to do",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "life_topic_work",
+      "response": ""
+    },
+    {
+      "category": "Overwhelmed at work",
+      "message": "Feeling overwhelmed by my workload",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "life_topic_work",
+      "response": ""
+    },
+    {
+      "category": "Don't want to go",
+      "message": "I don't want to go back to work tomorrow",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "life_topic_work",
+      "response": ""
+    },
+    {
+      "category": "Feeling undervalued",
+      "message": "I've put in so much effort but no one seems to notice at work",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "life_topic_work",
+      "response": ""
+    },
+    {
+      "category": "Conflict with colleague",
+      "message": "I had a tense exchange with a colleague and keep replaying it",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "life_topic_work",
+      "response": ""
+    },
+    {
+      "category": "Afraid of losing job",
+      "message": "I'm sensing instability at the company and feel nervous",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "anxiety",
+      "response": ""
+    },
+    {
+      "category": "Got praised",
+      "message": "I got praised at work today!",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "life_topic_work",
+      "response": ""
+    },
+    {
+      "category": "Finished project",
+      "message": "I finally finished that big project",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "positive_state",
+      "response": ""
+    },
+    {
+      "category": "Excited about promotion",
+      "message": "I got promoted! I want to celebrate this moment",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "life_topic_relationships",
+      "response": ""
+    },
+    {
+      "category": "Friend upset me",
+      "message": "My friend upset me today",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "life_topic_relationships",
+      "response": ""
+    },
+    {
+      "category": "Feel misunderstood",
+      "message": "I don't feel understood at home",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "life_topic_home",
+      "response": ""
+    },
+    {
+      "category": "Feeling left out",
+      "message": "My friends met up without me and it triggered abandonment feelings",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "life_topic_relationships",
+      "response": ""
+    },
+    {
+      "category": "Healing from fallout",
+      "message": "A close friend said something hurtful and I'm unsure how to rebuild trust",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "life_topic_relationships",
+      "response": ""
+    },
+    {
+      "category": "Growing apart",
+      "message": "I'm noticing misalignment and grieving the drifting of a friendship",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "life_topic_relationships",
+      "response": ""
+    },
+    {
+      "category": "Lovely day with mum",
+      "message": "I had a lovely day with my mum",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "life_topic_relationships",
+      "response": ""
+    },
+    {
+      "category": "Unexpected kindness",
+      "message": "A friend supported me in a moment I didn't ask for",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "life_topic_relationships",
+      "response": ""
+    },
+    {
+      "category": "Making new friend",
+      "message": "I'm making a new friend and feel excited but unsure",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "life_topic_relationships",
+      "response": ""
+    },
+    {
+      "category": "Tension with parent",
+      "message": "I had a disagreement with my dad that brought up old childhood patterns",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "life_topic_relationships",
+      "response": ""
+    },
+    {
+      "category": "Setting boundaries",
+      "message": "I'm learning to say no to my family but feel guilty",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "life_topic_relationships",
+      "response": ""
+    },
+    {
+      "category": "Family milestone",
+      "message": "My sister just had a baby and I want to share this joy",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "life_topic_relationships",
+      "response": ""
+    },
+    {
+      "category": "Caring for elderly parent",
+      "message": "I'm caring for my elderly parent and feel exhausted and guilty",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "life_topic_money",
+      "response": ""
+    },
+    {
+      "category": "Feeling unseen in family",
+      "message": "I'm doing everything right but still feel misunderstood by my family",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "life_topic_relationships",
+      "response": ""
+    },
+    {
+      "category": "After argument",
+      "message": "I love my partner but feel hurt after our argument",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "life_topic_relationships",
+      "response": ""
+    },
+    {
+      "category": "New relationship",
+      "message": "I'm in a new relationship and have butterflies mixed with fear",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "life_topic_relationships",
+      "response": ""
+    },
+    {
+      "category": "Breakup processing",
+      "message": "The relationship ended and I feel empty and confused",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "life_topic_relationships",
+      "response": ""
+    },
+    {
+      "category": "Feeling neglected",
+      "message": "My partner isn't showing affection and it's affecting my self-worth",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "life_topic_relationships",
+      "response": ""
+    },
+    {
+      "category": "Celebrating love",
+      "message": "We had a beautiful deep conversation and I want to honor it",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": null,
+      "response": ""
+    },
+    {
+      "category": "Dog did something cute",
+      "message": "My dog did something so cute today",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "life_topic_pets",
+      "response": ""
+    },
+    {
+      "category": "Cat is sick",
+      "message": "My cat is unwell and I'm scared",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "life_topic_pets",
+      "response": ""
+    },
+    {
+      "category": "Pet sick",
+      "message": "My pet is really sick and I feel helpless",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "life_topic_pets",
+      "response": ""
+    },
+    {
+      "category": "Pet funny",
+      "message": "My pet did something hilarious",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "life_topic_pets",
+      "response": ""
+    },
+    {
+      "category": "Grieving pet",
+      "message": "I'm grieving my pet who passed away",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "life_topic_pets",
+      "response": ""
+    },
+    {
+      "category": "Training challenges",
+      "message": "I'm feeling frustrated with training my dog",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "life_topic_pets",
+      "response": ""
+    },
+    {
+      "category": "Bonding with new pet",
+      "message": "I'm bonding with my new rescue and it's so sweet",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": null,
+      "response": ""
+    },
+    {
+      "category": "Tidied space",
+      "message": "I finally tidied my space",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "life_topic_home",
+      "response": ""
+    },
+    {
+      "category": "Home feels chaotic",
+      "message": "My home feels really chaotic",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "life_topic_home",
+      "response": ""
+    },
+    {
+      "category": "Overwhelmed with chores",
+      "message": "Laundry, dishes, clutter - everything feels like a mountain",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": null,
+      "response": ""
+    },
+    {
+      "category": "Moving homes",
+      "message": "I'm moving and feel stressed, excited, and nostalgic",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "anxiety",
+      "response": ""
+    },
+    {
+      "category": "Conflict with neighbor",
+      "message": "I had a conflict with my neighbor over noise",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": null,
+      "response": ""
+    },
+    {
+      "category": "Unsafe at home",
+      "message": "I don't feel safe in my home environment",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "life_topic_home",
+      "response": ""
+    },
+    {
+      "category": "Loving home",
+      "message": "I feel so grateful for my home space",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "positive_state",
+      "response": ""
+    },
+    {
+      "category": "Money is tight",
+      "message": "Money is really tight right now",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "life_topic_money",
+      "response": ""
+    },
+    {
+      "category": "Paid something off",
+      "message": "I just paid off my credit card!",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "life_topic_money",
+      "response": ""
+    },
+    {
+      "category": "Unexpected bill",
+      "message": "An unexpected bill arrived and I feel panicked",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "life_topic_money",
+      "response": ""
+    },
+    {
+      "category": "Worried about rent",
+      "message": "I'm worried about making rent this month",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "life_topic_money",
+      "response": ""
+    },
+    {
+      "category": "Big financial decision",
+      "message": "I'm considering a big financial decision and feel confused",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "life_topic_money",
+      "response": ""
+    },
+    {
+      "category": "Unexpected money",
+      "message": "I received unexpected money and feel grateful",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "positive_state",
+      "response": ""
+    },
+    {
+      "category": "Anxious no reason",
+      "message": "I'm feeling anxious but don't know why",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "anxiety",
+      "response": ""
+    },
+    {
+      "category": "Chronic fatigue",
+      "message": "I'm tired of feeling tired all the time",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": null,
+      "response": ""
+    },
+    {
+      "category": "Therapy breakthrough",
+      "message": "I had a successful therapy session with breakthroughs",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "positive_state",
+      "response": ""
+    },
+    {
+      "category": "Self-worth struggle",
+      "message": "I'm struggling with feeling not enough",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": null,
+      "response": ""
+    },
+    {
+      "category": "Personal growth",
+      "message": "I noticed I handled something better than I used to",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": null,
+      "response": ""
+    },
+    {
+      "category": "Feeling anxious",
+      "message": "I'm feeling really anxious",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "anxiety",
+      "response": ""
+    },
+    {
+      "category": "Feel hopeless",
+      "message": "I feel completely hopeless",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "crisis_intervention",
+      "response": ""
+    },
+    {
+      "category": "Can't cope",
+      "message": "I can't cope anymore",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "crisis_intervention",
+      "response": ""
+    },
+    {
+      "category": "Being bullied",
+      "message": "Someone is bullying me at school",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "being_bullied",
+      "response": ""
+    },
+    {
+      "category": "I hurt someone",
+      "message": "I hurt someone and I feel guilty",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "causing_harm",
+      "response": ""
+    },
+    {
+      "category": "I snapped",
+      "message": "I lost control and snapped at them",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "causing_harm",
+      "response": ""
+    },
+    {
+      "category": "Homework overwhelm",
+      "message": "I'm overwhelmed by homework and feel pressure piling up",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "life_topic_work",
+      "response": ""
+    },
+    {
+      "category": "Exam stress",
+      "message": "I'm stressed about exams and afraid of failing",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "anxiety",
+      "response": ""
+    },
+    {
+      "category": "Can't focus",
+      "message": "I'm struggling to focus in class",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": null,
+      "response": ""
+    },
+    {
+      "category": "Good grade excited",
+      "message": "I got a good grade and want to share this win",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "positive_state",
+      "response": ""
+    },
+    {
+      "category": "Teacher conflict",
+      "message": "I had a misunderstanding with my teacher",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": null,
+      "response": ""
+    },
+    {
+      "category": "Falling behind",
+      "message": "I'm falling behind in school and feel ashamed to ask for help",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": null,
+      "response": ""
+    },
+    {
+      "category": "New school",
+      "message": "I'm starting a new school and feel nervous and hopeful",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "anxiety",
+      "response": ""
+    },
+    {
+      "category": "Excluded group chat",
+      "message": "I saw my friends talking in a group chat without me",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "life_topic_relationships",
+      "response": ""
+    },
+    {
+      "category": "Rumors spread",
+      "message": "Rumors are being spread about me and I feel hurt",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": null,
+      "response": ""
+    },
+    {
+      "category": "Best friend drifting",
+      "message": "My best friend is drifting away and I can't explain why",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "life_topic_relationships",
+      "response": ""
+    },
+    {
+      "category": "Social anxiety school",
+      "message": "I have social anxiety and overthink everything at school",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": null,
+      "response": ""
+    },
+    {
+      "category": "Invited nervous",
+      "message": "I got invited to something but I'm nervous about going",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "anxiety",
+      "response": ""
+    },
+    {
+      "category": "Arguing with parents",
+      "message": "I'm arguing with my parents and feel unheard",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "life_topic_money",
+      "response": ""
+    },
+    {
+      "category": "Sibling conflict",
+      "message": "My sibling keeps crossing my boundaries",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": null,
+      "response": ""
+    },
+    {
+      "category": "Pressure to succeed",
+      "message": "My parents are pushing too hard and I'm burnt out",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "life_topic_money",
+      "response": ""
+    },
+    {
+      "category": "Parents divorce",
+      "message": "My parents are divorcing and I'm trying to make sense of it",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "life_topic_money",
+      "response": ""
+    },
+    {
+      "category": "Invisible at home",
+      "message": "I feel invisible at home, my emotions are dismissed",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "life_topic_home",
+      "response": ""
+    },
+    {
+      "category": "First heartbreak",
+      "message": "I had my first heartbreak and it hurts so much",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": null,
+      "response": ""
+    },
+    {
+      "category": "Crush anxiety",
+      "message": "I'm overthinking every interaction with my crush",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": null,
+      "response": ""
+    },
+    {
+      "category": "Got ghosted",
+      "message": "They just ghosted me without explanation",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": null,
+      "response": ""
+    },
+    {
+      "category": "Pressure not ready",
+      "message": "I feel pressured to do things I'm not ready for",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "change_resistance",
+      "response": ""
+    },
+    {
+      "category": "Body insecurity",
+      "message": "I feel insecure about my body",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": null,
+      "response": ""
+    },
+    {
+      "category": "Not good enough",
+      "message": "I don't feel good enough",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": null,
+      "response": ""
+    },
+    {
+      "category": "Questioning identity",
+      "message": "I'm trying to understand who I am",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": null,
+      "response": ""
+    },
+    {
+      "category": "Feeling different",
+      "message": "I feel different and don't fit in any boxes",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "life_topic_money",
+      "response": ""
+    },
+    {
+      "category": "Lost disconnected",
+      "message": "Nothing feels exciting, everything feels heavy",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "numb_disconnected",
+      "response": ""
+    },
+    {
+      "category": "Online bullying",
+      "message": "Someone left harsh comments online and it really stings",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": null,
+      "response": ""
+    },
+    {
+      "category": "Embarrassing post",
+      "message": "I posted something embarrassing and can't stop thinking about it",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": null,
+      "response": ""
+    },
+    {
+      "category": "Phone addiction",
+      "message": "I know I scroll too much but can't stop",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "overwhelmed_anxious",
+      "response": ""
+    },
+    {
+      "category": "Group chat drama",
+      "message": "There's drama in our group chat with screenshots and misunderstandings",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": null,
+      "response": ""
+    },
+    {
+      "category": "Performance anxiety",
+      "message": "I have performance anxiety before my sports event",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": null,
+      "response": ""
+    },
+    {
+      "category": "Not chosen team",
+      "message": "I didn't get chosen for the team and feel rejected",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": null,
+      "response": ""
+    },
+    {
+      "category": "Proud of creation",
+      "message": "I made something I'm proud of but shy to share",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "positive_state",
+      "response": ""
+    },
+    {
+      "category": "Comparing to others",
+      "message": "I keep comparing myself to more talented peers",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": null,
+      "response": ""
+    },
+    {
+      "category": "Family reputation pressure",
+      "message": "I feel pressure to achieve for my family's reputation",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "life_topic_relationships",
+      "response": ""
+    },
+    {
+      "category": "First in family higher ed",
+      "message": "I'm the first in my family going to university",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "life_topic_relationships",
+      "response": ""
+    },
+    {
+      "category": "Career expectations",
+      "message": "My family wants me to be a doctor but I want something else",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "life_topic_relationships",
+      "response": ""
+    },
+    {
+      "category": "Adult responsibilities early",
+      "message": "I have to translate and help my parents with everything",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "life_topic_money",
+      "response": ""
+    },
+    {
+      "category": "Cultural duty conflict",
+      "message": "I want independence but feel guilty about cultural duty",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": null,
+      "response": ""
+    },
+    {
+      "category": "Emotions not expressed",
+      "message": "In my culture we don't talk about emotions openly",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": null,
+      "response": ""
+    },
+    {
+      "category": "Language barriers",
+      "message": "I struggle to express complex feelings in English",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": null,
+      "response": ""
+    },
+    {
+      "category": "Caught between cultures",
+      "message": "I feel caught between cultures, not enough for either side",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": null,
+      "response": ""
+    },
+    {
+      "category": "Accent judgment",
+      "message": "People mock my accent and it hurts",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": null,
+      "response": ""
+    },
+    {
+      "category": "Mixed heritage",
+      "message": "I'm mixed heritage and trying to belong to multiple places",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": null,
+      "response": ""
+    },
+    {
+      "category": "Religious expectations",
+      "message": "I'm navigating religious rules and guilt around my choices",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": null,
+      "response": ""
+    },
+    {
+      "category": "Parents sacrificed",
+      "message": "My parents migrated and sacrificed so much for me",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "life_topic_money",
+      "response": ""
+    },
+    {
+      "category": "Cultural festival joy",
+      "message": "I'm excited about our cultural festival and want to share traditions",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "open_sharing",
+      "response": ""
+    },
+    {
+      "category": "Heritage pride",
+      "message": "I'm proud of my heritage and want to share my culture",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "positive_state",
+      "response": ""
+    },
+    {
+      "category": "Experiencing racism",
+      "message": "I experienced racism today and feel deeply hurt",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": null,
+      "response": ""
+    },
+    {
+      "category": "Microaggressions",
+      "message": "I keep experiencing microaggressions and feel unsafe",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": null,
+      "response": ""
+    },
+    {
+      "category": "Invasive questions",
+      "message": "People keep asking where I'm really from",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": null,
+      "response": ""
+    },
+    {
+      "category": "Online hate ethnicity",
+      "message": "I received online hate because of my ethnicity",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": null,
+      "response": ""
+    },
+    {
+      "category": "Spiritual disconnection",
+      "message": "I feel disconnected from my spiritual traditions",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "numb_disconnected",
+      "response": ""
+    },
+    {
+      "category": "Spiritual practices shamed",
+      "message": "People judge my spiritual practices",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": null,
+      "response": ""
+    },
+    {
+      "category": "Spiritual milestone",
+      "message": "I'm going through a spiritual coming-of-age ceremony",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": null,
+      "response": ""
+    },
+    {
+      "category": "Had a bad week",
+      "message": "I've had a bad week",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": null,
+      "response": ""
+    },
+    {
+      "category": "Struggling for months",
+      "message": "I've been struggling for 3 months",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": null,
+      "response": ""
+    },
+    {
+      "category": "Self-harm mention",
+      "message": "I want to hurt myself",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": "crisis_intervention",
+      "response": ""
+    },
+    {
+      "category": "Suicidal ideation",
+      "message": "I don't want to be here anymore",
+      "status": "FAIL",
+      "issues": [
+        "Response too short or empty"
+      ],
+      "pattern": null,
+      "response": ""
+    }
+  ],
+  "errors": [
+    "\u274c FAIL: Simple greeting\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Friendly greeting\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Want to share\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Have news\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Not doing good\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Not feeling great\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Boss was mean\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Overwhelmed at work\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Don't want to go\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Feeling undervalued\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Conflict with colleague\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Afraid of losing job\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Got praised\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Finished project\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Excited about promotion\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Friend upset me\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Feel misunderstood\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Feeling left out\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Healing from fallout\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Growing apart\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Lovely day with mum\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Unexpected kindness\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Making new friend\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Tension with parent\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Setting boundaries\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Family milestone\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Caring for elderly parent\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Feeling unseen in family\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: After argument\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: New relationship\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Breakup processing\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Feeling neglected\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Celebrating love\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Dog did something cute\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Cat is sick\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Pet sick\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Pet funny\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Grieving pet\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Training challenges\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Bonding with new pet\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Tidied space\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Home feels chaotic\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Overwhelmed with chores\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Moving homes\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Conflict with neighbor\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Unsafe at home\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Loving home\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Money is tight\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Paid something off\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Unexpected bill\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Worried about rent\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Big financial decision\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Unexpected money\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Anxious no reason\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Chronic fatigue\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Therapy breakthrough\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Self-worth struggle\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Personal growth\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Feeling anxious\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Feel hopeless\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Can't cope\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Being bullied\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: I hurt someone\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: I snapped\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Homework overwhelm\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Exam stress\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Can't focus\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Good grade excited\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Teacher conflict\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Falling behind\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: New school\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Excluded group chat\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Rumors spread\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Best friend drifting\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Social anxiety school\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Invited nervous\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Arguing with parents\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Sibling conflict\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Pressure to succeed\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Parents divorce\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Invisible at home\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: First heartbreak\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Crush anxiety\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Got ghosted\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Pressure not ready\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Body insecurity\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Not good enough\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Questioning identity\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Feeling different\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Lost disconnected\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Online bullying\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Embarrassing post\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Phone addiction\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Group chat drama\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Performance anxiety\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Not chosen team\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Proud of creation\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Comparing to others\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Family reputation pressure\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: First in family higher ed\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Career expectations\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Adult responsibilities early\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Cultural duty conflict\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Emotions not expressed\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Language barriers\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Caught between cultures\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Accent judgment\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Mixed heritage\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Religious expectations\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Parents sacrificed\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Cultural festival joy\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Heritage pride\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Experiencing racism\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Microaggressions\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Invasive questions\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Online hate ethnicity\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Spiritual disconnection\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Spiritual practices shamed\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Spiritual milestone\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Had a bad week\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Struggling for months\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Self-harm mention\n   Issues: Response too short or empty\n   Response: ...",
+    "\u274c FAIL: Suicidal ideation\n   Issues: Response too short or empty\n   Response: ..."
+  ]
+}
