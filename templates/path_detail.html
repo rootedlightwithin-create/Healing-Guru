@@ -277,7 +277,7 @@
                 {% set is_completed = module_id in progress and progress[module_id] %}
                 {% set is_locked = not is_free and not has_premium %}
                 
-                <a href="{% if is_locked %}/path/{{ path[2] }}/module/{{ step }}{% else %}/path/{{ path[2] }}/module/{{ step }}{% endif %}" 
+                <a href="{% if is_locked %}/path/{{ slug }}/module/{{ step }}{% else %}/path/{{ slug }}/module/{{ step }}{% endif %}" 
                    class="module-card {% if is_locked %}locked{% endif %} {% if is_completed %}completed{% endif %}">
                     
                     {% if is_locked %}

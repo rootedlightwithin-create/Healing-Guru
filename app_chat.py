@@ -2133,6 +2133,7 @@ def chat_page():
 @app.route('/path/<slug>')
 def path_detail(slug):
     """Show path overview and modules"""
+    print(f"DEBUG: Accessing path with slug: {slug}")  # Debug line
     user_id = session.get('user_id')
     if not user_id:
         session['user_id'] = secrets.token_hex(8)
@@ -2145,8 +2146,11 @@ def path_detail(slug):
     c.execute("SELECT id, title, description, icon, duration FROM paths WHERE slug = ?", (slug,))
     path = c.fetchone()
     
+    print(f"DEBUG: Path found: {path}")  # Debug line
+    
     if not path:
         conn.close()
+        print(f"DEBUG: No path found for slug: {slug}")  # Debug line
         return "Path not found", 404
     
     path_id = path[0]
@@ -2166,6 +2170,7 @@ def path_detail(slug):
     has_premium = has_premium_access(user_id)
     
     return render_template('path_detail.html', 
+                          slug=slug,
                           path=path, 
                           modules=modules, 
                           progress=progress,
