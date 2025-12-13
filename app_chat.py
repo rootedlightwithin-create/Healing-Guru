@@ -2274,8 +2274,10 @@ def verify_license():
     conn = sqlite3.connect('healing_guru_chat.db')
     c = conn.cursor()
     
-    # Save or update subscription
-    c.execute("""INSERT OR REPLACE INTO subscriptions 
+    # Delete existing subscription if any
+    c.execute("DELETE FROM subscriptions WHERE user_id = ?", (user_id,))
+    # Save new subscription
+    c.execute("""INSERT INTO subscriptions 
                  (user_id, gumroad_license_key, subscription_status, started_at)
                  VALUES (?, ?, 'active', CURRENT_TIMESTAMP)""",
               (user_id, license_key))
@@ -2295,7 +2297,10 @@ def activate_premium_test():
     
     conn = sqlite3.connect('healing_guru_chat.db')
     c = conn.cursor()
-    c.execute("""INSERT OR REPLACE INTO subscriptions 
+    # Delete existing subscription if any
+    c.execute("DELETE FROM subscriptions WHERE user_id = ?", (user_id,))
+    # Insert new subscription
+    c.execute("""INSERT INTO subscriptions 
                  (user_id, gumroad_license_key, subscription_status, started_at)
                  VALUES (?, 'TEST_KEY', 'active', CURRENT_TIMESTAMP)""", (user_id,))
     conn.commit()
