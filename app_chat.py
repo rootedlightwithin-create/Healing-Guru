@@ -2308,6 +2308,26 @@ def activate_premium_test():
     
     return redirect('/')
 
+@app.route('/debug-db')
+def debug_db():
+    """Debug route to check database contents"""
+    conn = sqlite3.connect('healing_guru_chat.db')
+    c = conn.cursor()
+    
+    c.execute("SELECT * FROM paths")
+    paths = c.fetchall()
+    
+    c.execute("SELECT COUNT(*) FROM modules")
+    module_count = c.fetchone()[0]
+    
+    conn.close()
+    
+    return jsonify({
+        'paths': paths,
+        'module_count': module_count,
+        'message': f'Found {len(paths)} paths and {module_count} modules'
+    })
+
 @app.route('/googleccc479b763b17be8.html')
 def google_verification():
     """Serve Google site verification file"""
