@@ -1935,6 +1935,12 @@ def index():
         session['user_id'] = secrets.token_hex(8)
     return render_template('chat.html')
 
+@app.route('/googleccc479b763b17be8.html')
+def google_verification():
+    """Serve Google site verification file"""
+    from flask import Response
+    return Response('google-site-verification: googleccc479b763b17be8.html', mimetype='text/plain')
+
 @app.route('/api/chat', methods=['POST'])
 def chat():
     data = request.json
