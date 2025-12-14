@@ -330,7 +330,7 @@
                 <div class="section-label">Tools for this step</div>
                 <div class="tools-list">
                     {% for tool in module[5].split(',') %}
-                    <div class="tool-tag" onclick="this.classList.toggle('active')">
+                    <div class="tool-tag">
                         <div class="tool-name">{{ tool.strip() }}</div>
                         <div class="tool-instructions">
                             {% set tool_name = tool.strip() %}
@@ -407,6 +407,16 @@
     </a>
     
     <script>
+        // Toggle tool expansion
+        document.addEventListener('DOMContentLoaded', function() {
+            const toolTags = document.querySelectorAll('.tool-tag');
+            toolTags.forEach(tool => {
+                tool.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                });
+            });
+        });
+        
         async function completeModule() {
             const reflection = document.getElementById('reflectionInput').value;
             const button = document.querySelector('.complete-button');
