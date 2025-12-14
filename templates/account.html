@@ -398,13 +398,25 @@
                     <li>Chat messages and AI conversations</li>
                     <li>Journal entries and reflections</li>
                     <li>Community posts and comments</li>
-                    <li>Module progress and insights</li>
+                    <li><strong>All module progress and completed sessions</strong></li>
                     <li>Subscription information</li>
                 </ul>
-                <p style="margin-top: 15px; color: #4a5568;"><strong>Note:</strong> You should cancel your Gumroad subscription separately to stop billing.</p>
                 
-                <button onclick="confirmDelete()" class="btn btn-danger" style="margin-top: 15px;">
-                    🗑️ Delete My Account
+                <div style="background: #fef5e7; border: 2px solid #f39c12; padding: 15px; border-radius: 8px; margin-top: 20px;">
+                    <p style="color: #e67e22; font-weight: bold; margin-bottom: 10px;">⚠️ IMPORTANT: This does NOT cancel your subscription!</p>
+                    <p style="margin-bottom: 15px; color: #4a5568;">Deleting your account only removes your data. You will continue to be charged <strong>$14.99/month</strong> unless you cancel your subscription separately.</p>
+                    <p style="margin-bottom: 10px; color: #4a5568;"><strong>To cancel billing, you must:</strong></p>
+                    <ol style="margin-left: 20px; margin-bottom: 15px; color: #4a5568;">
+                        <li>Go to Gumroad and cancel your subscription</li>
+                        <li>Then return here to delete your account data if desired</li>
+                    </ol>
+                    <a href="https://app.gumroad.com/subscriptions" target="_blank" style="display: inline-block; background: #f39c12; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: bold; margin-top: 5px;">
+                        → Cancel Subscription on Gumroad
+                    </a>
+                </div>
+                
+                <button onclick="confirmDelete()" class="btn btn-danger" style="margin-top: 20px;">
+                    🗑️ I Understand - Delete My Account & Data
                 </button>
             </div>
         </div>
@@ -420,14 +432,14 @@
     <div id="deleteConfirm">
         <div class="modal">
             <h3>⚠️ Are You Absolutely Sure?</h3>
-            <p>This will <strong>permanently delete</strong>:</p>
+            <p><strong>Your healing journey will be permanently erased:</strong></p>
             <ul style="margin: 15px 0 15px 20px;">
                 <li>{{ stats.messages }} chat messages</li>
                 <li>{{ stats.journal_entries }} journal entries</li>
                 <li>{{ stats.community_posts }} community posts</li>
-                <li>All your module progress</li>
+                <li><strong>{{ stats.modules_completed }} completed modules - all progress lost</strong></li>
             </ul>
-            <p style="margin-bottom: 20px;"><strong>This cannot be undone.</strong></p>
+            <p style="margin-bottom: 20px; color: #e53e3e;"><strong>This cannot be undone. You'll start from zero if you return.</strong></p>
             
             <form method="POST" action="/account/delete">
                 <label style="display: block; margin-bottom: 15px;">
