@@ -227,6 +227,30 @@
             Cancel anytime. No questions asked. Your healing is worth the investment.
         </p>
         
+        <!-- License Key Entry for Existing Customers -->
+        <div class="license-section" style="margin-top: 40px; padding-top: 40px; border-top: 2px solid #e2e8f0;">
+            <h3 style="font-size: 1.5rem; margin-bottom: 15px; color: #2d3748;">Already Purchased?</h3>
+            <p style="color: #718096; margin-bottom: 20px;">
+                Enter your Gumroad license key to activate premium access:
+            </p>
+            <form id="licenseForm" style="display: flex; gap: 10px; margin-bottom: 15px;">
+                <input 
+                    type="text" 
+                    id="licenseKey" 
+                    placeholder="gum_xxxxxxxxxxxxx"
+                    style="flex: 1; padding: 15px; border: 2px solid #cbd5e0; border-radius: 10px; font-size: 1rem;"
+                    required
+                />
+                <button 
+                    type="submit"
+                    style="padding: 15px 30px; background: #805ad5; color: white; border: none; border-radius: 10px; font-weight: 600; cursor: pointer; white-space: nowrap;"
+                >
+                    Verify License
+                </button>
+            </form>
+            <div id="licenseMessage" style="padding: 10px; border-radius: 8px; display: none;"></div>
+        </div>
+        
         <a href="/path/{{ slug }}" class="back-link">← Back to Path Overview</a>
     </div>
     
@@ -251,9 +275,77 @@
             .then(data => {
                 if (data.success) {
                     window.location.href = '/path/{{ slug }}/module/{{ step }}';
+                } else {
+                    showLicenseMessage(data.message || 'License verification failed', 'error');
                 }
             })
-            .catch(error => console.error('License verification error:', error));
+            .catch(error => {
+                console.error('License verification error:', error);
+                showLicenseMessage('Connection error. Please try again.', 'error');
+            });
+        }
+        
+        // Manual license entry form handler
+        document.getElementById('licenseForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const licenseInput = document.getElementById('licenseKey');
+            const submitButton = e.target.querySelector('button[type="submit"]');
+            const originalButtonText = submitButton.textContent;
+            
+            // Show loading state
+            submitButton.textContent = 'Verifying...';
+            submitButton.disabled = true;
+            
+            try {
+                const response = await fetch('/verify-license', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ license_key: licenseInput.value.trim() })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    showLicenseMessage(
+                        '✓ License verified! Activating premium access...',
+                        'success'
+                    );
+                    
+                    // Redirect after 1 second
+                    setTimeout(() => {
+                        window.location.href = '/path/{{ slug }}/module/{{ step }}';
+                    }, 1000);
+                } else {
+                    showLicenseMessage(
+                        data.message || 'Invalid license key. Please check and try again.',
+                        'error'
+                    );
+                    submitButton.textContent = originalButtonText;
+                    submitButton.disabled = false;
+                }
+            } catch (error) {
+                console.error('License verification error:', error);
+                showLicenseMessage('Connection error. Please try again.', 'error');
+                submitButton.textContent = originalButtonText;
+                submitButton.disabled = false;
+            }
+        });
+        
+        function showLicenseMessage(message, type) {
+            const messageDiv = document.getElementById('licenseMessage');
+            messageDiv.textContent = message;
+            messageDiv.style.display = 'block';
+            
+            if (type === 'success') {
+                messageDiv.style.background = '#d4edda';
+                messageDiv.style.color = '#155724';
+                messageDiv.style.border = '1px solid #c3e6cb';
+            } else {
+                messageDiv.style.background = '#f8d7da';
+                messageDiv.style.color = '#721c24';
+                messageDiv.style.border = '1px solid #f5c6cb';
+            }
         }
     </script>
 </body>

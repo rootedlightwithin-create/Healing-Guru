@@ -4037,14 +4037,41 @@ ai = HealingGuruAI()
 
 # Helper function to check subscription status
 def has_premium_access(user_id):
-    """Check if user has active premium subscription"""
+    """Check if user has active premium subscription that hasn't expired"""
     conn = sqlite3.connect('healing_guru_chat.db')
     c = conn.cursor()
-    c.execute("""SELECT subscription_status FROM subscriptions 
-                 WHERE user_id = ? AND subscription_status = 'active'""", (user_id,))
+    c.execute("""SELECT subscription_status, expires_at FROM subscriptions 
+                 WHERE user_id = ?""", (user_id,))
     result = c.fetchone()
     conn.close()
-    return result is not None
+    
+    if not result:
+        return False
+    
+    status, expires_at = result
+    
+    # Check if status is active or cancelled (but not expired yet)
+    if status not in ['active', 'cancelled']:
+        return False
+    
+    # If there's an expiration date, check if it's still valid
+    if expires_at:
+        from datetime import datetime
+        try:
+            expiry_date = datetime.fromisoformat(expires_at.replace('Z', '+00:00'))
+            if datetime.now() > expiry_date:
+                # Subscription expired - update status
+                conn = sqlite3.connect('healing_guru_chat.db')
+                c = conn.cursor()
+                c.execute("""UPDATE subscriptions SET subscription_status = 'expired' 
+                           WHERE user_id = ?""", (user_id,))
+                conn.commit()
+                conn.close()
+                return False
+        except:
+            pass  # If date parsing fails, allow access (benefit of doubt)
+    
+    return True
 
 @app.route('/')
 def index():
@@ -4869,6 +4896,164 @@ def delete_account():
     
     # Redirect to goodbye page or home with message
     return redirect('/?deleted=true')
+
+# ===== GUMROAD WEBHOOK FOR SUBSCRIPTION MANAGEMENT =====
+
+@app.route('/webhook/gumroad', methods=['POST'])
+def gumroad_webhook():
+    """
+    Handle Gumroad subscription events (sale, cancellation, refund)
+    
+    Gumroad sends webhooks for these events:
+    - sale: New subscription created
+    - cancellation: User cancelled subscription
+    - refund: Subscription refunded
+    - subscription_updated: Subscription renewed
+    
+    Configure in Gumroad: Settings → Advanced → Webhooks
+    Webhook URL: https://your-domain.up.railway.app/webhook/gumroad
+    """
+    try:
+        # Get webhook data from Gumroad
+        data = request.form.to_dict()
+        
+        # Extract relevant fields
+        event_type = data.get('sale_id') and 'sale'  # Gumroad doesn't send explicit event type
+        email = data.get('email')
+        license_key = data.get('license_key')
+        recurrence = data.get('recurrence')  # 'monthly', 'cancelled', etc.
+        refunded = data.get('refunded') == 'true'
+        
+        # Determine subscription status
+        if refunded:
+            subscription_status = 'refunded'
+        elif recurrence == 'cancelled':
+            subscription_status = 'cancelled'
+        elif recurrence == 'monthly':
+            subscription_status = 'active'
+        else:
+            subscription_status = 'active'  # Default for new sales
+        
+        # Calculate expiration date (30 days from now for active subscriptions)
+        from datetime import datetime, timedelta
+        if subscription_status == 'active':
+            expires_at = (datetime.now() + timedelta(days=30)).isoformat()
+        elif subscription_status == 'cancelled':
+            # If cancelled, set expiration to end of current billing period (30 days from start)
+            # Allow continued access until period ends
+            expires_at = (datetime.now() + timedelta(days=30)).isoformat()
+        else:
+            expires_at = datetime.now().isoformat()  # Expired immediately for refunds
+        
+        conn = sqlite3.connect('healing_guru_chat.db')
+        c = conn.cursor()
+        
+        # Try to find existing subscription by license key or email
+        c.execute("""SELECT user_id FROM subscriptions WHERE gumroad_license_key = ?""", (license_key,))
+        existing = c.fetchone()
+        
+        if existing:
+            # Update existing subscription
+            user_id = existing[0]
+            c.execute("""UPDATE subscriptions 
+                       SET subscription_status = ?,
+                           expires_at = ?
+                       WHERE user_id = ?""",
+                     (subscription_status, expires_at, user_id))
+            
+            # Log the update
+            print(f"[WEBHOOK] Updated subscription for user {user_id}: {subscription_status}, expires: {expires_at}")
+        else:
+            # New subscription - create placeholder
+            # Note: User will need to verify license key on first login to link to their session
+            # We can't create a user_id here because we don't have their session
+            print(f"[WEBHOOK] New subscription received: {license_key}, status: {subscription_status}")
+            # Store in a separate table for pending verification
+            c.execute("""CREATE TABLE IF NOT EXISTS pending_subscriptions
+                       (id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        license_key TEXT UNIQUE,
+                        email TEXT,
+                        subscription_status TEXT,
+                        expires_at DATETIME,
+                        created_at DATETIME DEFAULT CURRENT_TIMESTAMP)""")
+            
+            c.execute("""INSERT OR REPLACE INTO pending_subscriptions 
+                       (license_key, email, subscription_status, expires_at)
+                       VALUES (?, ?, ?, ?)""",
+                     (license_key, email, subscription_status, expires_at))
+        
+        conn.commit()
+        conn.close()
+        
+        return jsonify({'success': True, 'message': 'Webhook processed'}), 200
+        
+    except Exception as e:
+        print(f"[WEBHOOK ERROR] {str(e)}")
+        return jsonify({'error': str(e)}), 400
+
+@app.route('/verify-license', methods=['POST'])
+def verify_license():
+    """
+    Allow user to verify their Gumroad license key and activate premium access
+    This links the Gumroad purchase to their session user_id
+    """
+    user_id = session.get('user_id')
+    if not user_id:
+        return jsonify({'error': 'No session'}), 400
+    
+    data = request.json
+    license_key = data.get('license_key', '').strip()
+    
+    if not license_key:
+        return jsonify({'error': 'License key required'}), 400
+    
+    conn = sqlite3.connect('healing_guru_chat.db')
+    c = conn.cursor()
+    
+    # Check if license key exists in pending subscriptions
+    c.execute("""SELECT email, subscription_status, expires_at 
+                 FROM pending_subscriptions 
+                 WHERE license_key = ?""", (license_key,))
+    pending = c.fetchone()
+    
+    if pending:
+        email, status, expires_at = pending
+        
+        # Move to active subscriptions table
+        c.execute("""INSERT OR REPLACE INTO subscriptions 
+                   (user_id, gumroad_license_key, subscription_status, expires_at, started_at)
+                   VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP)""",
+                 (user_id, license_key, status, expires_at))
+        
+        # Remove from pending
+        c.execute("""DELETE FROM pending_subscriptions WHERE license_key = ?""", (license_key,))
+        
+        conn.commit()
+        conn.close()
+        
+        return jsonify({
+            'success': True,
+            'message': 'Premium access activated!',
+            'status': status,
+            'expires': expires_at
+        })
+    else:
+        # Check if already verified
+        c.execute("""SELECT subscription_status FROM subscriptions 
+                   WHERE gumroad_license_key = ?""", (license_key,))
+        existing = c.fetchone()
+        conn.close()
+        
+        if existing:
+            return jsonify({
+                'success': True,
+                'message': 'License already verified',
+                'status': existing[0]
+            })
+        else:
+            return jsonify({
+                'error': 'Invalid license key or not found. Please check your Gumroad purchase confirmation email.'
+            }), 404
 
 if __name__ == '__main__':
     import os
