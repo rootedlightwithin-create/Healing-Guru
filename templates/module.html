@@ -101,17 +101,64 @@
         
         .tools-list {
             display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
+            flex-direction: column;
+            gap: 15px;
             margin-top: 15px;
         }
         
         .tool-tag {
             background: #edf2f7;
-            padding: 10px 18px;
+            padding: 15px 20px;
             border-radius: 8px;
             font-size: 1rem;
             color: #4a5568;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .tool-tag:hover {
+            background: #e2e8f0;
+            border-color: #667eea;
+            transform: translateX(4px);
+        }
+        
+        .tool-tag.active {
+            background: #edf2f7;
+            border-color: #667eea;
+        }
+        
+        .tool-instructions {
+            display: none;
+            margin-top: 10px;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #4a5568;
+        }
+        
+        .tool-tag.active .tool-instructions {
+            display: block;
+        }
+        
+        .tool-name {
+            font-weight: 600;
+            color: #2d3748;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .tool-name::after {
+            content: '▼';
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .tool-tag.active .tool-name::after {
+            transform: rotate(180deg);
         }
         
         .reflection-area {
@@ -283,7 +330,33 @@
                 <div class="section-label">Tools for this step</div>
                 <div class="tools-list">
                     {% for tool in module[5].split(',') %}
-                    <span class="tool-tag">{{ tool.strip() }}</span>
+                    <div class="tool-tag" onclick="this.classList.toggle('active')">
+                        <div class="tool-name">{{ tool.strip() }}</div>
+                        <div class="tool-instructions">
+                            {% set tool_name = tool.strip() %}
+                            {% if 'Body Scan' in tool_name %}
+                                Close your eyes. Slowly scan your body from head to toe. Notice any tension, numbness, or tightness. Don't fix it—just notice. Take 2-3 minutes.
+                            {% elif 'Grounding' in tool_name %}
+                                Name 5 things you can see, 4 things you can touch, 3 things you can hear, 2 things you can smell, 1 thing you can taste. Go slowly.
+                            {% elif 'Butterfly Hug' in tool_name %}
+                                Cross your arms over your chest. Alternate gently tapping each shoulder. Left, right, left, right. Do this for 30 seconds while breathing slowly.
+                            {% elif 'Box Breathing' in tool_name %}
+                                Breathe in for 4 counts, hold for 4, breathe out for 4, hold for 4. Repeat 4 times. Let your body soften with each exhale.
+                            {% elif 'Orienting' in tool_name %}
+                                Look around the room slowly. Name 3 things that feel safe, comforting, or neutral. Touch one if you can. Notice the feeling of safety, even if it's small.
+                            {% elif 'movement' in tool_name %}
+                                Stand up if you can. Stretch your arms overhead. Roll your shoulders. Sway gently side to side. Or just wiggle your fingers and toes. 30 seconds is enough.
+                            {% elif 'Inner Dialogue' in tool_name %}
+                                Ask yourself: "What does the part of me that's resisting need right now?" Listen without judgment. Write down what comes up, even if it doesn't make sense.
+                            {% elif 'Visualization' in tool_name %}
+                                Close your eyes. Imagine yourself responding differently to a situation. See it clearly. Feel what it would be like to choose something new. 2-3 minutes.
+                            {% elif 'Breath' in tool_name %}
+                                Place one hand on your chest, one on your belly. Breathe deeply so your belly rises. Exhale slowly. Do this 5 times.
+                            {% else %}
+                                Take a few moments to practice {{ tool_name }}. Go at your own pace. There's no rush.
+                            {% endif %}
+                        </div>
+                    </div>
                     {% endfor %}
                 </div>
             </div>

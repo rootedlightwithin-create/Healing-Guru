@@ -2313,6 +2313,86 @@ def activate_premium_test():
     
     return redirect('/')
 
+@app.route('/progress')
+def view_progress():
+    """View user's healing journey progress"""
+    user_id = session.get('user_id')
+    if not user_id:
+        session['user_id'] = secrets.token_hex(8)
+        user_id = session['user_id']
+    
+    conn = sqlite3.connect('healing_guru_chat.db')
+    c = conn.cursor()
+    
+    # Get overall stats
+    c.execute("""SELECT COUNT(*) FROM user_progress 
+                 WHERE user_id = ? AND completed_at IS NOT NULL""", (user_id,))
+    total_completed = c.fetchone()[0]
+    
+    c.execute("""SELECT COUNT(DISTINCT path_id) FROM user_progress 
+                 WHERE user_id = ?""", (user_id,))
+    paths_started = c.fetchone()[0]
+    
+    c.execute("""SELECT COUNT(*) FROM user_progress 
+                 WHERE user_id = ? AND reflection_response IS NOT NULL""", (user_id,))
+    total_reflections = c.fetchone()[0]
+    
+    stats = {
+        'total_completed': total_completed,
+        'paths_started': paths_started,
+        'total_reflections': total_reflections
+    }
+    
+    # Get journey details
+    c.execute("""SELECT DISTINCT p.id, p.title, p.icon FROM paths p
+                 JOIN user_progress up ON p.id = up.path_id
+                 WHERE up.user_id = ?""", (user_id,))
+    paths = c.fetchall()
+    
+    journeys = []
+    for path in paths:
+        path_id, path_title, path_icon = path
+        
+        # Get total modules
+        c.execute("SELECT COUNT(*) FROM modules WHERE path_id = ?", (path_id,))
+        total_modules = c.fetchone()[0]
+        
+        # Get completed modules
+        c.execute("""SELECT COUNT(*) FROM user_progress 
+                     WHERE user_id = ? AND path_id = ? AND completed_at IS NOT NULL""",
+                  (user_id, path_id))
+        completed = c.fetchone()[0]
+        
+        # Get recent reflections
+        c.execute("""SELECT m.step_number, m.title, up.reflection_response, 
+                            DATE(up.completed_at) as date
+                     FROM user_progress up
+                     JOIN modules m ON up.module_id = m.id
+                     WHERE up.user_id = ? AND up.path_id = ? 
+                     AND up.reflection_response IS NOT NULL
+                     ORDER BY up.completed_at DESC LIMIT 3""",
+                  (user_id, path_id))
+        reflections = []
+        for row in c.fetchall():
+            reflections.append({
+                'step': row[0],
+                'title': row[1],
+                'text': row[2],
+                'date': row[3]
+            })
+        
+        journeys.append({
+            'title': path_title,
+            'icon': path_icon,
+            'total': total_modules,
+            'completed': completed,
+            'reflections': reflections
+        })
+    
+    conn.close()
+    
+    return render_template('progress.html', stats=stats, journeys=journeys)
+
 @app.route('/debug-db')
 def debug_db():
     """Debug route to check database contents"""
