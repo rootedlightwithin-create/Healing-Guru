@@ -1,11 +1,11 @@
 {
-  "name": "Healing Guru - Your Personal Emotional Support",
+  "name": "Valiant Growth - Healing Guru",
   "short_name": "Healing Guru",
-  "description": "Compassionate AI support for emotional wellness, crisis intervention, and therapeutic tools",
+  "description": "Your personal guide for trauma healing, nervous system regulation, and emotional wellness. Structured healing paths with AI support.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#7c3aed",
-  "theme_color": "#7c3aed",
+  "background_color": "#f7f4ef",
+  "theme_color": "#805ad5",
   "orientation": "portrait",
   "icons": [
     {
@@ -27,6 +27,29 @@
       "src": "/static/screenshot.png",
       "sizes": "1080x1920",
       "type": "image/png"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Chat with Guru",
+      "short_name": "Chat",
+      "description": "Open chat for immediate support",
+      "url": "/chat",
+      "icons": [{ "src": "/static/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Journal",
+      "short_name": "Journal",
+      "description": "Write in your healing journal",
+      "url": "/journal",
+      "icons": [{ "src": "/static/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Community",
+      "short_name": "Community",
+      "description": "Connect with the healing circle",
+      "url": "/community",
+      "icons": [{ "src": "/static/icon-192.png", "sizes": "192x192" }]
     }
   ]
 }
