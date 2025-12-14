@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Data Dashboard - Valiant Growth</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #2c3e50;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            color: #6b46c1;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #718096;
+            margin-bottom: 30px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .card h2 {
+            color: #6b46c1;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .info-item {
+            background: #f7fafc;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #6b46c1;
+        }
+        
+        .info-label {
+            font-size: 0.85em;
+            color: #718096;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 5px;
+        }
+        
+        .info-value {
+            font-size: 1.1em;
+            color: #2d3748;
+            font-weight: 600;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            border: none;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+        
+        .btn-primary {
+            background: #6b46c1;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #553c9a;
+        }
+        
+        .btn-secondary {
+            background: #e2e8f0;
+            color: #2d3748;
+        }
+        
+        .btn-secondary:hover {
+            background: #cbd5e0;
+        }
+        
+        .btn-danger {
+            background: #e53e3e;
+            color: white;
+        }
+        
+        .btn-danger:hover {
+            background: #c53030;
+        }
+        
+        .consent-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px;
+            background: #f7fafc;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .consent-info {
+            flex: 1;
+        }
+        
+        .consent-label {
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 5px;
+        }
+        
+        .consent-description {
+            font-size: 0.9em;
+            color: #718096;
+        }
+        
+        .toggle-switch {
+            position: relative;
+            width: 60px;
+            height: 30px;
+        }
+        
+        .toggle-switch input {
+            display: none;
+        }
+        
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #cbd5e0;
+            transition: 0.3s;
+            border-radius: 30px;
+        }
+        
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 22px;
+            width: 22px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: 0.3s;
+            border-radius: 50%;
+        }
+        
+        input:checked + .toggle-slider {
+            background-color: #48bb78;
+        }
+        
+        input:checked + .toggle-slider:before {
+            transform: translateX(30px);
+        }
+        
+        .warning-box {
+            background: #fff5f5;
+            border-left: 4px solid #e53e3e;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        .warning-box h3 {
+            color: #e53e3e;
+            margin-bottom: 10px;
+        }
+        
+        .data-summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .data-stat {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .data-stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .data-stat-label {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+        
+        .back-link {
+            display: inline-block;
+            color: #6b46c1;
+            text-decoration: none;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        #deleteConfirm {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 500px;
+            margin: 20px;
+        }
+        
+        .modal h3 {
+            color: #e53e3e;
+            margin-bottom: 15px;
+        }
+        
+        .modal-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/" class="back-link">← Back to Home</a>
+        
+        <h1>Your Data Dashboard</h1>
+        <p class="subtitle">Manage your privacy settings and data under GDPR rights</p>
+        
+        <!-- Data Overview Card -->
+        <div class="card">
+            <h2>📊 Your Data at a Glance</h2>
+            <div class="data-summary">
+                <div class="data-stat">
+                    <div class="data-stat-number">{{ stats.messages }}</div>
+                    <div class="data-stat-label">Chat Messages</div>
+                </div>
+                <div class="data-stat">
+                    <div class="data-stat-number">{{ stats.journal_entries }}</div>
+                    <div class="data-stat-label">Journal Entries</div>
+                </div>
+                <div class="data-stat">
+                    <div class="data-stat-number">{{ stats.community_posts }}</div>
+                    <div class="data-stat-label">Community Posts</div>
+                </div>
+                <div class="data-stat">
+                    <div class="data-stat-number">{{ stats.modules_completed }}</div>
+                    <div class="data-stat-label">Modules Completed</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Account Info Card -->
+        <div class="card">
+            <h2>👤 Account Information</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="info-label">User ID</div>
+                    <div class="info-value">{{ user_id[:16] }}...</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Member Since</div>
+                    <div class="info-value">{{ member_since }}</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Subscription Status</div>
+                    <div class="info-value">{{ subscription_status }}</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Data Processing Consent</div>
+                    <div class="info-value">{{ consent_date }}</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Privacy Preferences Card -->
+        <div class="card">
+            <h2>🔒 Privacy Preferences</h2>
+            
+            <div class="consent-toggle">
+                <div class="consent-info">
+                    <div class="consent-label">Essential Cookies</div>
+                    <div class="consent-description">Required for the service to function (session management)</div>
+                </div>
+                <div class="toggle-switch">
+                    <input type="checkbox" id="essential" checked disabled>
+                    <label for="essential" class="toggle-slider"></label>
+                </div>
+            </div>
+            
+            <div class="consent-toggle">
+                <div class="consent-info">
+                    <div class="consent-label">Analytics Cookies</div>
+                    <div class="consent-description">Help us understand how you use the platform</div>
+                </div>
+                <div class="toggle-switch">
+                    <input type="checkbox" id="analytics" {{ 'checked' if consent.cookies_accepted else '' }} onchange="updateConsent('cookies', this.checked)">
+                    <label for="analytics" class="toggle-slider"></label>
+                </div>
+            </div>
+            
+            <div class="consent-toggle">
+                <div class="consent-info">
+                    <div class="consent-label">Data Processing</div>
+                    <div class="consent-description">Process health-related data for personalized insights</div>
+                </div>
+                <div class="toggle-switch">
+                    <input type="checkbox" id="processing" {{ 'checked' if consent.data_processing_accepted else '' }} onchange="updateConsent('processing', this.checked)">
+                    <label for="processing" class="toggle-slider"></label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- GDPR Rights Card -->
+        <div class="card">
+            <h2>⚖️ Your GDPR Rights</h2>
+            <p style="margin-bottom: 20px; color: #4a5568;">Under GDPR, you have full control over your personal data.</p>
+            
+            <div class="action-buttons">
+                <a href="/account/export" class="btn btn-primary">
+                    📥 Download All My Data (JSON)
+                </a>
+                <a href="/privacy" class="btn btn-secondary">
+                    📄 Privacy Policy
+                </a>
+                <a href="/terms" class="btn btn-secondary">
+                    📋 Terms of Service
+                </a>
+            </div>
+        </div>
+        
+        <!-- Danger Zone Card -->
+        <div class="card">
+            <h2>⚠️ Danger Zone</h2>
+            
+            <div class="warning-box">
+                <h3>Delete Account & All Data</h3>
+                <p style="margin-bottom: 15px;">This action is <strong>permanent and cannot be undone</strong>. All your data will be deleted within 30 days:</p>
+                <ul style="margin-left: 20px; color: #4a5568;">
+                    <li>Chat messages and AI conversations</li>
+                    <li>Journal entries and reflections</li>
+                    <li>Community posts and comments</li>
+                    <li>Module progress and insights</li>
+                    <li>Subscription information</li>
+                </ul>
+                <p style="margin-top: 15px; color: #4a5568;"><strong>Note:</strong> You should cancel your Gumroad subscription separately to stop billing.</p>
+                
+                <button onclick="confirmDelete()" class="btn btn-danger" style="margin-top: 15px;">
+                    🗑️ Delete My Account
+                </button>
+            </div>
+        </div>
+        
+        <!-- Legal Links -->
+        <div style="text-align: center; margin-top: 40px; color: #718096;">
+            <p>Questions about your data? Email: <strong>privacy@valiantgrowth.com</strong></p>
+            <p style="margin-top: 10px; font-size: 0.9em;">We respond to all GDPR requests within 30 days</p>
+        </div>
+    </div>
+    
+    <!-- Delete Confirmation Modal -->
+    <div id="deleteConfirm">
+        <div class="modal">
+            <h3>⚠️ Are You Absolutely Sure?</h3>
+            <p>This will <strong>permanently delete</strong>:</p>
+            <ul style="margin: 15px 0 15px 20px;">
+                <li>{{ stats.messages }} chat messages</li>
+                <li>{{ stats.journal_entries }} journal entries</li>
+                <li>{{ stats.community_posts }} community posts</li>
+                <li>All your module progress</li>
+            </ul>
+            <p style="margin-bottom: 20px;"><strong>This cannot be undone.</strong></p>
+            
+            <form method="POST" action="/account/delete">
+                <label style="display: block; margin-bottom: 15px;">
+                    Type <strong>DELETE</strong> to confirm:
+                    <input type="text" id="deleteInput" name="confirm" style="display: block; width: 100%; padding: 10px; margin-top: 5px; border: 2px solid #cbd5e0; border-radius: 5px;" required>
+                </label>
+                
+                <div class="modal-buttons">
+                    <button type="button" onclick="closeDeleteModal()" class="btn btn-secondary">Cancel</button>
+                    <button type="submit" class="btn btn-danger">Yes, Delete Everything</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+        function updateConsent(type, value) {
+            fetch('/account/consent', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    type: type,
+                    value: value
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    console.log('Consent updated');
+                }
+            });
+        }
+        
+        function confirmDelete() {
+            document.getElementById('deleteConfirm').style.display = 'flex';
+        }
+        
+        function closeDeleteModal() {
+            document.getElementById('deleteConfirm').style.display = 'none';
+            document.getElementById('deleteInput').value = '';
+        }
+        
+        // Close modal if clicking outside
+        document.getElementById('deleteConfirm').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeDeleteModal();
+            }
+        });
+    </script>
+</body>
+</html>

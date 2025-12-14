@@ -107,6 +107,16 @@ def init_db():
                   created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
                   FOREIGN KEY (post_id) REFERENCES community_posts(id))''')
     
+    # User consent table (GDPR compliance)
+    c.execute('''CREATE TABLE IF NOT EXISTS user_consent
+                 (id INTEGER PRIMARY KEY AUTOINCREMENT,
+                  user_id TEXT UNIQUE,
+                  cookies_accepted BOOLEAN DEFAULT 0,
+                  data_processing_accepted BOOLEAN DEFAULT 0,
+                  consent_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+                  ip_address TEXT,
+                  last_updated DATETIME DEFAULT CURRENT_TIMESTAMP)''')
+    
     conn.commit()
     conn.close()
 
@@ -203,18 +213,115 @@ Write what you're ready to release.
 
 ---
 
-**Understanding Your Freeze Pattern**
+**Understanding Your Energetic Blueprint**
 
-Freeze doesn't look the same for everyone. Here are three common patterns - see if you recognize yourself:
+Your freeze response isn't random - it's connected to your soul-state pattern. These patterns shape how you respond to stress and where you seek safety.
 
-**🌸 The Wounded-Nurturer:** You give and give until there's nothing left, then you freeze. You care deeply for others but struggle to care for yourself. Your freeze happens when you've poured everything out and your system shuts down to protect you from complete depletion.
+**The 6 Core Soul-States:**
 
-**🌑 The Rooted-Wounded:** You appear strong and capable on the outside - the one everyone depends on. But underneath, there's unhealed pain you haven't had space to express. Your freeze happens when you can no longer hold it all together alone.
+• **WOUNDED:** Carrying unhealed pain that colors your responses
+• **ROOTED:** Grounded and stable, connected to your physical safety  
+• **ELEVATED:** Spiritually aware, seeking higher meaning and understanding
+• **HEALED:** Integrated your experiences, at peace with your journey
+• **NURTURER:** Care deeply for others, deeply heart-centered
+• **AVOIDANT:** Protect your peace through distance or boundaries
 
-**🌊 The Avoidant-Elevated:** You're spiritually aware and deeply thoughtful, but when emotions feel too big, you retreat into your head or disconnect from your body. Your freeze is a form of emotional self-protection - it keeps you safe from overwhelm.
+These don't exist alone - they combine to create YOUR unique energetic signature.
 
-**Which pattern resonates most with you?**
-Write it down. In the premium modules, you'll receive personalized guidance designed specifically for YOUR nervous system and pattern - not generic advice, but tools that work with how you're wired.""",
+---
+
+**Self-Identification Questions:**
+
+**When you freeze, which feels most true?**
+□ I feel stuck in old pain that I can't seem to move past (Wounded)
+□ I feel disconnected from my body, floating or numb (Elevated)  
+□ I feel unsafe, unstable, or like the ground is shifting (Rooted)
+□ I retreat into my mind to escape feelings (Avoidant)
+□ I disappear into taking care of others (Nurturer)
+
+**How do you relate to others when stressed?**
+□ I over-give and lose myself in caregiving (Nurturer)
+□ I retreat and need space, possibly shutting down (Avoidant)
+□ I stay present physically but can't access my emotions (Rooted)
+□ I float away into spiritual or intellectual realms (Elevated)
+□ I feel my unhealed wounds get louder (Wounded)
+
+---
+
+**Common Freeze Patterns**
+
+Here are the most common combinations - see which resonates with your soul:
+
+**🌸 WOUNDED-NURTURER**
+*"You give until there's nothing left, then freeze"*
+
+**Energetic Pattern:** Strong heart chakra but depleted sacral and root. You give from an empty well.
+
+**Essence:** You care deeply for others, but your capacity to nurture comes from unhealed wounds. You learned that love equals sacrifice. Your freeze happens when you've poured everything out and your nervous system shuts down to prevent total collapse.
+
+**Recognize yourself?** You say yes automatically, feel guilty resting, and believe your worth is tied to being needed.
+
+---
+
+**🌑 ROOTED-WOUNDED**  
+*"Strong on the outside, shaken within"*
+
+**Energetic Pattern:** Strong root chakra with disruptions in heart and sacral. You hold it together through sheer will.
+
+**Essence:** You appear grounded, capable, dependable - the one everyone leans on. But underneath is unhealed pain you've never had space to express. Your freeze happens when you can no longer hold the weight alone and your body forces you to stop.
+
+**Recognize yourself?** You're the "strong one," you dismiss your own needs, and vulnerability feels dangerous.
+
+---
+
+**🌊 AVOIDANT-ELEVATED**
+*"Retreat into your head when emotions feel too big"*
+
+**Energetic Pattern:** Strong third eye and crown, but blocked heart and sacral. You escape up and out.
+
+**Essence:** You're spiritually aware, intuitive, deeply thoughtful. But when emotions get intense, you disconnect from your body and retreat into ideas, analysis, or spiritual concepts. Your freeze is leaving your body to avoid feeling.
+
+**Recognize yourself?** You intellectualize feelings, prefer solitude when stressed, and feel safer in your mind than your body.
+
+---
+
+**🌿 WOUNDED-ELEVATED**
+*"Spiritual awareness meets unhealed pain"*
+
+**Energetic Pattern:** Active crown and third eye, wounded heart chakra. Wisdom without embodiment.
+
+**Essence:** You have spiritual insight and seek higher meaning, but carry deep emotional wounds. You may use spiritual practices to bypass pain. Your freeze happens when your body's unhealed trauma conflicts with your elevated consciousness.
+
+**Recognize yourself?** You're drawn to healing work but struggle to heal yourself, you know what you "should" do but can't embody it.
+
+---
+
+**🪨 ROOTED-AVOIDANT**
+*"Grounded in survival, distant in emotion"*
+
+**Energetic Pattern:** Strong root, blocked heart. Practical but emotionally protected.
+
+**Essence:** You're stable, responsible, and handle practical matters well. But emotional intimacy feels threatening. Your freeze looks like withdrawal - you stay functional but emotionally unreachable.
+
+**Recognize yourself?** You're reliable and independent, but struggle to open up or ask for help.
+
+---
+
+**Which Pattern Resonates Most With You?**
+
+Write it down. Don't overthink it - your body knows.
+
+In the premium modules, you'll receive:
+
+✦ **Your specific chakra and energetic signature**
+✦ **The childhood origin of YOUR pattern** (not generic - YOUR story)
+✦ **Personalized tools designed for YOUR nervous system**
+✦ **Shadow work for YOUR specific blocks**
+✦ **A healing path that honors YOUR unique wiring**
+✦ **Light-side activation practices**
+✦ **Pattern interrupts that actually work for you**
+
+This isn't generic healing advice. This is your energetic blueprint - and in the premium path, you'll learn exactly how to work with it.""",
             'action': 'One small act of care today: warm drink, lying down for 5 minutes, stepping outside, or wrapping yourself in a blanket. Practice the release visualization whenever shame about freeze shows up.',
             'is_free': True,
             'minutes': 25
@@ -246,22 +353,133 @@ Let's reflect on what you truly need and desire.""",
 • What helps me feel even 5% safer right now?
 • How can I offer safety to myself first?
 
-**Personalized Guidance for Your Pattern:**
+---
 
-**🌸 For Wounded-Nurturers:** Safety might feel like: having permission to rest without proving your worth. Your freeze happens when you've given everything away. What would it feel like to receive care without having to earn it? Your new truth: "I am worthy of rest. My needs matter as much as anyone else's."
+**Deep Personalized Guidance for Your Soul-State Pattern**
 
-**🌑 For Rooted-Wounded:** Safety means: finally letting someone see what's underneath your strong exterior. Your freeze protects the pain you've been carrying alone. What would it be like to share the weight with someone safe? Your new truth: "I don't have to hold it all together alone. Vulnerability is strength."
+**🌸 WOUNDED-NURTURER**
 
-**🌊 For Avoidant-Elevated:** Safety means: emotional space without pressure to open up before you're ready. Your freeze protects you from emotional overwhelm. What would 'safe connection' look like - where you could stay grounded AND be seen? Your new truth: "I can stay present in my body even when emotions arise. I am safe to feel."
+**Energetic Pattern:** Strong heart chakra with leaking, imbalanced energy. Depleted sacral (pleasure, boundaries) and root (safety, worthiness). You give endlessly but without boundaries - your energy drains rapidly.
+
+**Childhood Origin:** You were the emotional anchor for caregivers or family - praised for being "mature," "responsible," "so helpful." Your emotional labor was invisible. You learned: *"If I am lovable, I must prove it by being useful."*
+
+**What Safety Looks Like for You:**
+• Permission to rest without proving your worth
+• Saying no without guilt spiraling afterward  
+• Receiving care without feeling like a burden
+• Being loved for who you are, not what you do
+
+**Your Micro-Anchor Safety Practice:**
+Place hand on heart. Say out loud: *"I am loved even when I am resting."*
+
+Notice: Do you believe it? What tightens in your body? Where does doubt live? Stay with the sensation for 30 seconds. You don't have to believe it yet - just practice saying it.
+
+**Shadow Work Question:** When you over-give, pause and ask: *"Am I loving them, or avoiding feeling unloved?"*
+
+**Your New Truth:** "I am worthy of rest. My needs matter as much as anyone else's. Love doesn't require my depletion."
+
+---
+
+**🌑 ROOTED-WOUNDED**
+
+**Energetic Pattern:** Strong root chakra (survival, stability) but with disruptions in heart and sacral. You suppress emotional expression, rely on structure over surrender, disconnect from vulnerability to stay functional.
+
+**Childhood Origin:** You had to grow up fast. Maybe you were the protector, the rock, the one who couldn't afford to fall apart. Emotional needs were unseen or deemed "weak." You learned: *"If I don't stay strong, everything falls apart."*
+
+**What Safety Looks Like for You:**
+• Letting someone see what's underneath your armor
+• Sharing the weight instead of carrying it alone
+• Being vulnerable without everything collapsing
+• Rest that doesn't feel like giving up
+
+**Your Micro-Anchor Safety Practice:**
+Place both hands on belly. Breathe slowly. Say: *"I am safe to soften. Strength includes tenderness."*
+
+Notice: Where does resistance live? Does your jaw clench? Shoulders tighten? That's the old armor. Breathe into it.
+
+**Shadow Work Question:** *"What am I afraid will happen if I let others see I'm not okay?"*
+
+**Your New Truth:** "I don't have to hold it all together alone. Vulnerability is not weakness - it's connection. I can be both strong AND soft."
+
+---
+
+**🌊 AVOIDANT-ELEVATED**
+
+**Energetic Pattern:** Strong third eye and crown (intuition, spiritual awareness) but blocked heart and sacral. You can feel overly logical, dissociated, or floating. Your energy escapes upward instead of staying grounded in your body.
+
+**Childhood Origin:** Emotional vulnerability wasn't safe or modeled. You may have felt misunderstood, overwhelmed, or criticized. You learned to detach from feelings and retreat into thoughts, knowledge, or spiritual concepts. You learned: *"It's safer to think or transcend than to feel or reveal."*
+
+**What Safety Looks Like for You:**
+• Emotional space without pressure to "open up" immediately
+• Connection that doesn't feel overwhelming or consuming  
+• Staying in your body when emotions arise
+• Being seen without being analyzed or fixed
+
+**Your Micro-Anchor Safety Practice:**
+Place both hands on your lower belly. Feet flat on ground. Say: *"I am safe in my body. My emotions won't overwhelm me if I stay present."*
+
+Notice: Do you feel the urge to float away? To analyze instead of feel? Gently bring awareness back to your belly, your feet, your breath.
+
+**Shadow Work Question:** *"What am I protecting myself from by staying in my head?"*
+
+**Your New Truth:** "I can stay present in my body even when emotions arise. Feelings are information, not threats. I am safe to feel."
+
+---
+
+**🌿 WOUNDED-ELEVATED**
+
+**Energetic Pattern:** Highly active third eye and crown (spiritual gifts, intuition) but weak root chakra. You're psychically open and spiritually aware, but ungrounded. Your body holds unhealed trauma while your consciousness seeks to transcend it.
+
+**Childhood Origin:** You were likely "too sensitive," "too dreamy," misunderstood. Your environment didn't nurture your gifts. You may have turned to spiritual practices to escape pain. You learned: *"It's safer to leave than to feel."*
+
+**What Safety Looks Like for You:**
+• Being in your body without overwhelming pain
+• Spiritual connection that's grounded in earth, not just ether
+• Healing emotional wounds instead of transcending them
+• Feeling "at home" here, not always longing for elsewhere
+
+**Your Micro-Anchor Safety Practice:**
+Sit or stand. Feel your sit bones or feet. Say: *"My body is sacred too. Being human is part of my divinity."*
+
+Notice: Does being in your body feel heavy? Painful? That's the unhealed wounding calling you back down. Breathe. You're safe to be here.
+
+**Shadow Work Question:** *"What pain am I spiritually bypassing by staying elevated?"*
+
+**Your New Truth:** "I can be spiritually connected AND fully embodied. My healing includes my body, not just my spirit. I belong here."
+
+---
+
+**🪨 ROOTED-AVOIDANT**
+
+**Energetic Pattern:** Strong root chakra (grounded, stable) but blocked heart and sacral. You're practical, functional, and self-sufficient - but emotionally distant. Your energy is solid but rigid.
+
+**Childhood Origin:** You grew up in unpredictable or emotionally unsafe environments. You learned to handle things alone. Emotional expression might have been seen as weakness. You learned: *"If I stay strong and silent, I stay safe."*
+
+**What Safety Looks Like for You:**
+• Emotional expression without losing control
+• Connection that doesn't threaten your stability  
+• Vulnerability in small, manageable doses
+• Being supported without losing independence
+
+**Your Micro-Anchor Safety Practice:**
+Place one hand on heart, one on belly. Breathe. Say: *"I can soften without falling apart. Connection is safe."*
+
+Notice: Does your body want to pull away? Shut down? That's the protective pattern. Stay present for 30 seconds.
+
+**Shadow Work Question:** *"What would become available to me if I let others in?"*
+
+**Your New Truth:** "Strength can include softness. I am safe to open my heart in small ways. Connection won't destroy my stability."
 
 ---
 
 **Loving Space Visualization:**
-Move into a loving, open space. Visualize love expanding through your whole body, ready to hold new energy. Write your new understanding about what you truly need.
 
-**New Affirmation:** Choose the affirmation above that resonates, or create your own based on your clarity.
+Close your eyes. Visualize a space where you feel completely safe - maybe in nature, a cozy room, or held by loving presence. See your pattern's NEW truth filling this space with light. Let it expand through your whole body.
 
-Write your new belief about safety and movement.""",
+Write: What does safety feel like in your body when you imagine your new truth?
+
+**Your Personal Affirmation:**
+Choose the affirmation from your pattern above, or create your own based on what your soul needs to hear."""  ,
             'action': 'Choose one micro-safety anchor for today: a cozy corner, a specific song, a grounding object you can touch. Use it whenever you notice freeze starting.',
             'is_free': False,
             'minutes': 25
@@ -291,21 +509,149 @@ Today is about the smallest possible movement - not because you should, but beca
 • How can I reinforce this new pattern when freeze shows up again?
 • What felt possible today that didn't yesterday?
 
-**Embodiment Practice for Your Pattern:**
+---
 
-**🌸 Wounded-Nurturers:** Your first action is radical: do something just for you, with no one else benefiting. Take 5 minutes to sit in stillness. Let yourself receive without giving. Notice the discomfort - that's the old pattern. Breathe through it. "I practice receiving."
+**Deep Embodiment Practice for Your Soul-State**
 
-**🌑 Rooted-Wounded:** Your action is vulnerability in micro-doses. Text one person: "I've been struggling with ___. Just wanted to share." You don't have to be strong right now. Notice how it feels to let the mask slip just a little. "I am safe to be seen."
+**🌸 WOUNDED-NURTURER**
 
-**🌊 Avoidant-Elevated:** Your action is embodiment. Place both hands on your belly. Say out loud: one emotion you've been avoiding ("I feel sad" or "I feel angry"). Stay present in your body for 30 seconds. Don't analyze it - just feel it. "My body is safe to feel emotions."
+**Light Side Activation:** Your capacity to love is profound. Now we channel it toward yourself.
+
+**Shadow Pattern:** You equate self-care with selfishness. Your nervous system believes: rest = abandonment of others.
+
+**Personalized Micro-Action:**
+• Do ONE thing today that feels indulgent, not productive (lie down for 10 minutes, light a candle just for you, drink tea slowly)
+• Notice the guilt that arises - don't push it away
+• Place hand on heart: *"I can rest and still be loving."*
+• Let the guilt exist WITHOUT acting on it - just breathe through it
+
+**Chakra Activation Work:**
+Ground your heart energy into your root:
+- Stand barefoot (or visualize roots from feet)
+- Place hands on heart, feel the warmth
+- Visualize green light (heart) flowing DOWN into red (root) at base of spine
+- Say: *"My love includes me too. I am rooted in self-worth."*
+
+**Integration:** Journal - *"What would it feel like to receive without earning it?"*
 
 ---
 
-**Embodiment Practice:**
-Write down your new belief. Take one small aligned action right now - use the guidance above or choose your own.
+**🌑 ROOTED-WOUNDED**
 
-**Habit Stacking:**
-Embed your new truth by repeating your affirmation daily. Link it to something you already do (breakfast, brushing teeth, making tea). The key is consistency, not pressure.""",
+**Light Side Activation:** You are incredibly strong. Now we integrate softness with that strength.
+
+**Shadow Pattern:** Vulnerability feels like weakness. Your nervous system believes: opening up = everything falls apart.
+
+**Personalized Micro-Action:**
+• Text or tell ONE safe person: *"I've been struggling with ___. I just wanted to share."*
+• You don't need them to fix it - just witness it
+• Notice the discomfort of being seen as "not okay"
+• Place hands on belly: *"I am safe to let my armor down."*
+• Stay present with the vulnerability for 60 seconds
+
+**Chakra Activation Work:**
+Open your heart while staying rooted:
+- Sit with feet flat on ground
+- Place one hand on root (low belly), one on heart
+- Breathe into heart space (expand on inhale)
+- Say: *"I can be strong AND tender. Both are true."*
+
+**Integration:** Journal - *"What becomes possible when I don't have to be strong all the time?"*
+
+---
+
+**🌊 AVOIDANT-ELEVATED**
+
+**Light Side Activation:** Your awareness is a gift. Now we anchor it in your body.
+
+**Shadow Pattern:** You escape into your head when emotions arise. Your nervous system believes: feeling = losing control.
+
+**Personalized Micro-Action:**
+• Place both hands on lower belly
+• Say out loud ONE emotion you've been avoiding: *"I feel angry"* or *"I feel sad"* or *"I feel scared"*
+• Don't analyze WHY - just name it and FEEL it
+• Stay present in your body for 30-60 seconds
+• Notice the urge to float away - gently come back to your belly, your feet
+• Say: *"My body is safe to hold emotions."*
+
+**Chakra Activation Work:**
+Bring crown energy down into root:
+- Sit with spine straight
+- Visualize white/violet light at crown
+- Breathe it down through your body into feet
+- Feel the light grounding into earth
+- Say: *"I am safe to be fully here, fully present, fully embodied."*
+
+**Integration:** Journal - *"What emotion have I been avoiding, and what might it be trying to tell me?"*
+
+---
+
+**🌿 WOUNDED-ELEVATED**
+
+**Light Side Activation:** You have spiritual wisdom. Now we integrate it with body healing.
+
+**Shadow Pattern:** You use spiritual practice to bypass emotional pain. Your nervous system believes: transcending = healing (but the body still hurts).
+
+**Personalized Micro-Action:**
+• Sit or lie down - feel your full weight supported
+• Place hands on the part of your body that holds the most pain or tension
+• Say: *"I'm here with you. You're safe to be felt."*
+• Breathe into that space for 2 minutes
+• Don't try to fix or transcend - just witness
+• Say: *"My body's pain is sacred. I don't have to rise above it to heal it."*
+
+**Chakra Activation Work:**
+Anchor elevated consciousness into root:
+- Stand barefoot outside (or visualize)
+- Feel spiritual connection above you
+- Now feel earth beneath you
+- Breathe: draw both energies into your heart
+- Say: *"I belong here. Earth is my home too."*
+
+**Integration:** Journal - *"What would change if I brought my spiritual awareness INTO my body's wounds instead of above them?"*
+
+---
+
+**🪨 ROOTED-AVOIDANT**
+
+**Light Side Activation:** You are stable and grounded. Now we soften the edges.
+
+**Shadow Pattern:** You protect through emotional distance. Your nervous system believes: opening = instability.
+
+**Personalized Micro-Action:**
+• Choose one safe person
+• Share one small vulnerable thing (could be: *"I'm tired"* or *"I've been lonely"*)
+• Don't minimize it or laugh it off
+• Let it land - let them see you
+• Notice the discomfort - breathe through it
+• Say internally: *"Connection doesn't threaten my foundation."*
+
+**Chakra Activation Work:**
+Open heart while maintaining root stability:
+- Stand with knees slightly bent (grounded)
+- Place one hand on heart
+- Breathe into heart space - let it expand
+- Say: *"I can stay grounded AND open. Both are possible."*
+
+**Integration:** Journal - *"What might I gain by letting one person see the real me?"*
+
+---
+
+**Embodiment Integration:**
+
+1. Write down your new belief from Module 3
+2. Complete your pattern's micro-action TODAY
+3. Notice what arises - resistance, fear, relief, surprise
+4. Journal about it
+
+**Habit Stacking for Your Pattern:**
+
+Link your affirmation to something you already do daily:
+• Brushing teeth: Say your affirmation in the mirror
+• Making coffee/tea: Say it while water boils
+• Getting into bed: Say it with hand on heart
+
+Consistency matters more than perfection. Even once a day rewires your nervous system over time."""  ,
             'action': 'One gentle, non-urgent movement: 30-second stretch, send one text, wash one dish, step outside for 60 seconds. Choose what feels possible today.',
             'is_free': False,
             'minutes': 20
@@ -339,28 +685,189 @@ Old patterns will still show up. That's normal. The power is that you now notice
 • Where did tension show up in my body when freeze appeared?
 • What felt hard today, and why might that make sense?
 
-**Your Pattern's Signature Triggers:**
+---
 
-**🌸 Wounded-Nurturers:** Your freeze likely showed up after: over-giving, saying yes when you meant no, or feeling unappreciated. The trigger is depletion. Your body shuts down when the well runs dry. Notice: when do you give past your capacity? That's your early warning system.
+**Deep Pattern Recognition: Your Soul-State's Signature Triggers**
 
-**🌑 Rooted-Wounded:** Your freeze likely showed up when: you felt pressure to keep being strong, someone asked "how are you really?", or you were alone with your thoughts. The trigger is the threat of being seen as anything but capable. Notice: when does your armor feel too heavy to hold up?
+**🌸 WOUNDED-NURTURER**
 
-**🌊 Avoidant-Elevated:** Your freeze likely showed up during: conflict, emotional intensity from others, or when someone wanted to "go deep." The trigger is emotional overwhelm or loss of control. Notice: when do you retreat into your head or feel the urge to escape?
+**Signature Freeze Triggers:**
+1. After over-giving (saying yes automatically, taking on others' emotions)
+2. When someone doesn't reciprocate your care
+3. Saying yes when you meant no
+4. Feeling unappreciated or taken for granted
+5. Exhaustion from constant emotional labor
+
+**Energetic Signature When Freeze Hits:**
+• Heart space feels hollow or aching
+• Sudden exhaustion or collapse
+• Resentment simmering underneath care
+• Throat closes (can't express needs)
+• Sacral depleted (no pleasure, no boundaries)
+
+**Your Early Warning System:**
+Notice BEFORE total depletion:
+- Do you check your own capacity before saying yes?
+- Do you feel resentment building while you're helping?
+- Are you giving from fullness or fear of rejection?
+
+**Your PAUSE Method (Pattern Interrupt):**
+- **P**ause: Before automatic yes, take 3 breaths
+- **A**sk: *"Is this from love or fear of being unloved?"*
+- **U**nder: Feel the discomfort in your body, don't act yet
+- **S**ay: *"Let me check my capacity and get back to you"*
+- **E**valuate: After 10 minutes, decide from groundedness
 
 ---
 
-**Pattern Tracker Exercise:**
-For each time freeze showed up, note:
-• **Situation:** What happened?
-• **Trigger:** What set it off? (Use your pattern signature above)
-• **My Reaction:** What did I do/think/feel?
-• **Outcome:** What happened as a result?
-• **New Choice:** What could I try instead next time?
+**🌑 ROOTED-WOUNDED**
 
-**Pattern Interrupt Tools:**
-When you catch freeze starting, pause and say: "I'm noticing the pattern." Take 3 grounding breaths. Place hand on heart: "I am safe. I am rooted. I choose differently."
+**Signature Freeze Triggers:**
+1. Pressure to "keep being strong" when you're breaking inside
+2. Someone asks "How are you, really?" (threatens the armor)
+3. Being alone with your thoughts after holding it together all day
+4. Witnessing others' vulnerability (reminds you of your hidden pain)
+5. Any situation requiring emotional expression
 
-Write your pattern observations and one gentle redirect tool you'll use.""",
+**Energetic Signature When Freeze Hits:**
+• Jaw clenches, shoulders lock
+• Emotional numbness or shutdown
+• Chest tightens (heart protected)
+• Mind goes blank or dissociates
+• Body feels rigid, frozen in place
+
+**Your Early Warning System:**
+Notice when:
+- Your body feels like stone
+- You minimize your struggles with "I'm fine"
+- Tears threaten but you swallow them back
+- You're exhausted from holding the mask in place
+
+**Your ARMOR-DOWN Method (Pattern Interrupt):**
+- **A**cknowledge: *"I'm shutting down to protect myself"*
+- **R**emember: *"I don't have to be strong right now"*
+- **M**ove: Gentle movement (shoulder rolls, neck stretches)
+- **O**pen: One hand on heart, breathe into the armor
+- **R**eveal: Say ONE true thing out loud, even if just to yourself
+
+---
+
+**🌊 AVOIDANT-ELEVATED**
+
+**Signature Freeze Triggers:**
+1. Conflict or confrontation
+2. Someone expressing big emotions near you
+3. Pressure to "go deep" emotionally
+4. Intimacy that requires staying present in your body
+5. Any situation where you can't intellectualize your way out
+
+**Energetic Signature When Freeze Hits:**
+• Floating sensation, feeling ungrounded
+• Disconnection from body (numb, can't feel)
+• Mind races or goes completely blank
+• Urge to escape, leave, or retreat
+• Crown/third eye active, but root nonexistent
+
+**Your Early Warning System:**
+Notice when:
+- You start analyzing instead of feeling
+- You feel the urge to be alone immediately
+- Your body feels far away or foreign
+- You're "in your head" narrating instead of experiencing
+
+**Your GROUND Method (Pattern Interrupt):**
+- **G**et physical: Touch something textured, feet on floor
+- **R**eturn to breath: 5-4-3-2-1 sensory grounding
+- **O**bserve: *"I'm leaving my body to avoid feeling"*
+- **U**nder: Place hands on lower belly, breathe there
+- **N**ame: Say the emotion out loud: *"I'm feeling ___"*
+- **D**ecide: *"I can stay present for 60 more seconds"*
+
+---
+
+**🌿 WOUNDED-ELEVATED**
+
+**Signature Freeze Triggers:**
+1. Body pain or physical discomfort you can't spiritualize away
+2. Being asked to stay grounded when you want to transcend
+3. Earthly responsibilities that feel too heavy
+4. Relationships requiring embodied presence
+5. Any reminder that healing requires being IN your body
+
+**Energetic Signature When Freeze Hits:**
+• Dissociation or out-of-body feeling
+• Spiritual bypassing ("everything is love and light")
+• Physical pain intensifies
+• Longing to "go home" (escape earth)
+• Crown hyperactive, root collapsed
+
+**Your Early Warning System:**
+Notice when:
+- You're using spiritual language to avoid real feelings
+- Your body hurts but you're ignoring it
+- You feel like you don't belong on earth
+- You're escaping into meditation instead of feeling
+
+**Your ANCHOR Method (Pattern Interrupt):**
+- **A**cknowledge: *"I'm trying to transcend instead of heal"*
+- **N**otice: Where in body is pain/tension right now?
+- **C**ome down: Visualize energy moving from crown to root
+- **H**old: Place hands on painful/tense area
+- **O**pen: *"My body is part of my healing, not the enemy"*
+- **R**oot: Feel feet, sit bones, earth beneath you
+
+---
+
+**🪨 ROOTED-AVOIDANT**
+
+**Signature Freeze Triggers:**
+1. Someone getting "too close" emotionally
+2. Being asked to express feelings
+3. Situations requiring emotional vulnerability
+4. When stability feels threatened by intimacy
+5. Any request to "open up" or "share more"
+
+**Energetic Signature When Freeze Hits:**
+• Emotional numbness or flatness
+• Walls up, defenses activated
+• Body present but heart unavailable
+• Practical mode (task focus to avoid feeling)
+• Urge to withdraw or isolate
+
+**Your Early Warning System:**
+Notice when:
+- You say "I'm fine" but feel nothing
+- You become busy to avoid conversation
+- Someone's vulnerability makes you uncomfortable
+- You feel the urge to leave or shut down
+
+**Your SOFTEN Method (Pattern Interrupt):**
+- **S**top: Pause the automatic withdrawal
+- **O**bserve: *"I'm protecting myself through distance"*
+- **F**eel: One hand on heart - what's there?
+- **T**ry: Stay present for 30 seconds longer than comfortable
+- **E**xpress: Say ONE feeling word (even "uncomfortable")
+- **N**otice: Connection didn't destroy your stability
+
+---
+
+**Pattern Tracker Exercise**
+
+For each freeze moment this week, track:
+
+| **Situation** | **Trigger** (use your signature above) | **Body Sensation** | **My Reaction** | **Outcome** | **New Choice Next Time** |
+|---------------|---------------------------------------|-------------------|-----------------|-------------|-------------------------|
+| Example: Friend asked for help | Automatic yes (Wounded-Nurturer) | Throat closed, chest tight | Said yes, felt resentful | Exhausted, resentful | Use PAUSE method |
+
+**Daily Pattern Interrupt Practice:**
+
+When you catch freeze starting:
+1. Name it: *"I'm noticing my [your pattern] freeze starting"*
+2. Use YOUR method (PAUSE, ARMOR-DOWN, GROUND, ANCHOR, or SOFTEN)
+3. Choose differently - even 1% different counts
+4. Journal: What happened? How did it feel?
+
+Write: What's your most common trigger this week? What new choice will you practice?"""  ,
             'action': '''Rewrite one harsh inner message with kindness. Example: "I'm so lazy" becomes "I'm protecting myself from something that feels overwhelming." Keep your pattern tracker this week.''',
             'is_free': False,
             'minutes': 30
@@ -393,22 +900,202 @@ This is where you consciously step into the new version of yourself - the one wh
 • What choice feels aligned right now - even if it's tiny?
 • If I trusted this version of me fully, what would I do differently?
 
-**Living as Your New Self - Pattern-Specific:**
+---
 
-**🌸 Wounded-Nurturers:** The new you says no without guilt. You check in with yourself BEFORE offering help: "Do I have capacity for this?" You take breaks without apologizing. You ask for support. When the old pattern whispers "you're being selfish," you respond: "I'm being sustainable."
+**Living as Your New Self: Deep Identity Work**
 
-**🌑 Rooted-Wounded:** The new you lets the armor down with safe people. You share one vulnerable thing per week. You say "I'm not okay" when you're not. When the old pattern says "be strong," you respond: "Strength includes softness. I can be both."
+**🌸 WOUNDED-NURTURER → HEALED-NURTURER**
 
-**🌊 Avoidant-Elevated:** The new you stays present during emotional moments. You notice the urge to disconnect and breathe through it instead. You say "I need a moment" rather than disappearing. When the old pattern says "retreat," you respond: "I can handle feeling this. I am safe in my body."
+**OLD IDENTITY (Freeze State):**
+✗ Love = constant availability and depletion
+✗ Worth = measured by usefulness to others
+✗ Rest = selfishness or laziness
+✗ No = rejection or abandonment
+✗ Receiving = being a burden
+
+**NEW IDENTITY (Aligned State):**
+✓ Love = presence from fullness, not obligation
+✓ Worth = inherent, not earned through service
+✓ Rest = sacred responsibility to myself
+✓ No = honoring my truth and capacity
+✓ Receiving = allowing love to flow both ways
+
+**How the New You Lives:**
+• Says no without guilt or over-explaining
+• Checks capacity BEFORE offering help: *"Do I actually have space for this?"*
+• Takes breaks without apologizing
+• Asks for support when needed
+• Receives care without immediately reciprocating
+
+**When Old Pattern Whispers:** *"You're being selfish"*
+**You Respond:** *"I'm being sustainable. I give from overflow now, not depletion."*
+
+**Embodiment Practice:**
+Stand with hand on heart. Say: *"I am the Healed-Nurturer. I give from overflow, not obligation. My presence is the gift, not my exhaustion."*
+
+Repeat daily looking in mirror. Let it sink into your nervous system.
 
 ---
 
-**Identity Anchoring:**
-Write 5 sentences as your new self: "As the new me, I..."
-Use the pattern-specific guidance above to inspire your statements.
+**🌑 ROOTED-WOUNDED → ROOTED-HEALED**
+
+**OLD IDENTITY (Freeze State):**
+✗ Strength = never showing weakness or need
+✗ Safety = holding everything together alone
+✗ Vulnerability = danger or collapse
+✗ Emotions = distractions from survival
+✗ Support = weakness or failure
+
+**NEW IDENTITY (Aligned State):**
+✓ Strength = includes softness and flexibility
+✓ Safety = being supported by others too
+✓ Vulnerability = connection and authenticity
+✓ Emotions = valuable information and wisdom
+✓ Support = wisdom in interdependence
+
+**How the New You Lives:**
+• Lets armor down with safe people
+• Shares one vulnerable thing per week ("I'm struggling" / "I need help")
+• Says "I'm not okay" when that's true
+• Allows others to see underneath the strong exterior
+• Rests without calling it "giving up"
+
+**When Old Pattern Whispers:** *"Be strong, hold it together"*
+**You Respond:** *"Strength includes softness. I can be both capable AND human. Both are true."*
+
+**Embodiment Practice:**
+Sit with one hand on heart, one on belly. Say: *"I am the Rooted-Healed. I am strong enough to be soft. I share the weight with safe others."*
+
+---
+
+**🌊 AVOIDANT-ELEVATED → GROUNDED-ELEVATED**
+
+**OLD IDENTITY (Freeze State):**
+✗ Safety = staying in my head, avoiding feelings
+✗ Emotions = overwhelming or dangerous
+✗ Body = something to escape from
+✗ Intimacy = losing myself or being consumed
+✗ Presence = vulnerability I can't handle
+
+**NEW IDENTITY (Aligned State):**
+✓ Safety = staying present in my body AND emotions
+✓ Emotions = information that flows through me
+✓ Body = sacred home for my consciousness
+✓ Intimacy = connection while staying grounded
+✓ Presence = strength and awareness
+
+**How the New You Lives:**
+• Stays present during emotional moments (yours and others')
+• Notices urge to disconnect, breathes through it
+• Says "I need a moment" instead of disappearing entirely
+• Names emotions out loud instead of analyzing them away
+• Chooses grounding before floating away
+
+**When Old Pattern Whispers:** *"Retreat, this is too much"*
+**You Respond:** *"I can handle feeling this. My body is safe to hold emotions. I stay present."*
+
+**Embodiment Practice:**
+Stand barefoot. Hands on lower belly. Say: *"I am Grounded-Elevated. My awareness lives IN my body. I am safe to feel everything."*
+
+---
+
+**🌿 WOUNDED-ELEVATED → HEALED-ELEVATED**
+
+**OLD IDENTITY (Freeze State):**
+✗ Healing = transcending the body and pain
+✗ Earth = temporary, not my true home
+✗ Emotions = to be spiritualized or bypassed
+✗ Body = burden or obstacle to enlightenment
+✗ Presence = heavy and painful
+
+**NEW IDENTITY (Aligned State):**
+✓ Healing = integrating body, heart, AND spirit
+✓ Earth = sacred home, part of my divinity
+✓ Emotions = gateways to deeper healing
+✓ Body = temple that holds my consciousness
+✓ Presence = gift of embodied awareness
+
+**How the New You Lives:**
+• Brings spiritual awareness INTO body wounds, not above them
+• Stays grounded while maintaining spiritual connection
+• Honors physical pain as sacred information
+• Practices embodiment as spiritual practice
+• Belongs here on earth, not always longing elsewhere
+
+**When Old Pattern Whispers:** *"Rise above it, transcend the pain"*
+**You Respond:** *"I heal BY being here, not by leaving. My body is part of my divinity."*
+
+**Embodiment Practice:**
+Sit in meditation. Feel crown and root simultaneously. Say: *"I am Healed-Elevated. Heaven and earth meet in my body. I belong here."*
+
+---
+
+**🪨 ROOTED-AVOIDANT → ROOTED-OPEN**
+
+**OLD IDENTITY (Freeze State):**
+✗ Safety = emotional distance and walls
+✗ Connection = threat to stability
+✗ Vulnerability = loss of control
+✗ Opening up = instability or danger
+✗ Independence = only way to stay secure
+
+**NEW IDENTITY (Aligned State):**
+✓ Safety = grounded stability WITH open heart
+✓ Connection = enhances life without threatening foundation
+✓ Vulnerability = strength in small doses
+✓ Opening up = deepening roots while expanding branches
+✓ Interdependence = security through authentic connection
+
+**How the New You Lives:**
+• Opens heart in small, safe ways
+• Shares feelings without losing grounding
+• Lets one person in at a time
+• Stays present in conversation instead of shutting down
+• Asks for support without feeling weak
+
+**When Old Pattern Whispers:** *"Close off, protect yourself"*
+**You Respond:** *"I can stay grounded AND open. Connection doesn't threaten my stability."*
+
+**Embodiment Practice:**
+Stand rooted. Hand on heart. Say: *"I am Rooted-Open. I have deep roots AND an open heart. Both are possible."*
+
+---
+
+**Identity Anchoring Exercise:**
+
+Write 5-7 statements as your NEW self:
+"As the [new identity], I..."
+
+Examples:
+- "As the Healed-Nurturer, I give from fullness, not fear."
+- "As Rooted-Healed, I share my struggles with safe people."
+- "As Grounded-Elevated, I stay present in my body when emotions arise."
+
+Make them specific to YOUR pattern and YOUR life.
+
+---
 
 **Future-Self Visualization:**
-Close your eyes. See yourself living one day as this new version - the one who works with freeze compassionately instead of fighting it. Notice how you walk, speak, breathe. Anchor with one word (e.g., "gentle," "steady," "aware"). Use that word as your cue this week.""",
+
+Close your eyes. See yourself living ONE full day as this new identity:
+
+• How do you wake up? (with what energy?)
+• How do you move through your day? (with what presence?)
+• How do you respond when freeze starts? (with what tools?)
+• How do you interact with others? (with what boundaries?)
+• How do you end your day? (with what peace?)
+
+Notice:
+- How you walk
+- How you speak  
+- How you breathe
+- The expression on your face
+- The lightness or groundedness in your body
+
+**Choose ONE anchor word** that captures this version of you:
+(Examples: Gentle. Grounded. Open. Present. Whole. Free. Rooted.)
+
+Write it down. Use it as your cue this week: when you notice freeze, say your word and embody that energy for 30 seconds."""  ,
             'action': 'One conscious yes or no today. Say yes to something nourishing. Say no to something draining. Notice how it feels to exercise choice, even in small ways.',
             'is_free': False,
             'minutes': 25
@@ -443,13 +1130,160 @@ Freeze may still show up sometimes. But now you have a way to work with it. Now 
 • How has my relationship with freeze transformed?
 • What is my next edge to rise into?
 
-**Your Transformation - Pattern-Specific Celebration:**
+**Your Soul-State Transformation - Deep Celebration:**
 
-**🌸 Wounded-Nurturers:** You're learning that your worth isn't measured by what you give. You're beginning to receive. You're setting boundaries. You're discovering that rest isn't selfish - it's sacred. Your next edge: continue building the muscle of self-prioritization. You are enough, exactly as you are.
+**🌸 WOUNDED-NURTURER → HEALED-NURTURER**
 
-**🌑 Rooted-Wounded:** You're allowing yourself to be seen - not just as strong, but as human. You're sharing the weight. You're discovering that vulnerability doesn't break you - it connects you. Your next edge: deepen trust in safe relationships. You don't have to carry everything alone.
+**Where You Started (Freeze State):**
+- Froze when depleted from over-giving
+- Said yes automatically, felt resentful later
+- Believed worth = usefulness to others
+- Couldn't receive without guilt
+- Rest felt like selfishness
 
-**🌊 Avoidant-Elevated:** You're staying present in your body more often. You're noticing emotions without immediately escaping into your head. You're discovering that feelings won't overwhelm you if you let them flow. Your next edge: lean into intimacy in small doses. Connection is safe when you stay grounded.
+**What You've Healed:**
+- Recognized your pattern without shame
+- Said no and survived the discomfort
+- Received care without immediately reciprocating
+- Rested without earning it first
+- Gave from choice, not fear
+
+**Your New Energetic Signature (Healed-Nurturer):**
+✦ Heart chakra: Open but boundaried, giving from overflow
+✦ Root chakra: Secure in worthiness independent of service
+✦ Throat chakra: Speaks needs and limits with love
+✦ Sacral chakra: Pleasure and self-care prioritized
+
+**Light Side Fully Activated:**
+You nurture others beautifully - AND you nurture yourself. Your love is sustainable now. You give from fullness.
+
+**Integration Mantra:** *"I am the Healed-Nurturer. My worth is inherent. I give from overflow, receive with grace, and rest as sacred practice."*
+
+**Your Next Edge:** Deepen self-prioritization. Practice joy for yourself, not just others. Keep checking: Am I giving from fullness or fear?
+
+---
+
+**🌑 ROOTED-WOUNDED → ROOTED-HEALED**
+
+**Where You Started (Freeze State):**
+- Froze when armor got too heavy to hold
+- Appeared strong, hid pain underneath
+- Dismissed vulnerability as weakness
+- Carried everything alone
+- Emotions stayed locked away
+
+**What You've Healed:**
+- Let safe people see underneath the strength
+- Shared struggles without everything falling apart
+- Said "I'm not okay" and were still loved
+- Discovered softness doesn't equal collapse
+- Let others carry some of the weight
+
+**Your New Energetic Signature (Rooted-Healed):**
+✦ Root chakra: Deeply stable, grounded in self
+✦ Heart chakra: Open, able to give and receive
+✦ Sacral chakra: Emotions flow, not suppressed
+✦ Throat chakra: Speaks truth, including pain
+
+**Light Side Fully Activated:**
+You are strong AND tender. Capable AND human. Your stability includes flexibility now.
+
+**Integration Mantra:** *"I am Rooted-Healed. I am strong enough to be soft. My vulnerability is my connection. I share the weight."*
+
+**Your Next Edge:** Deepen emotional intimacy with safe people. Practice being held, not just holding. Trust that softness strengthens you.
+
+---
+
+**🌊 AVOIDANT-ELEVATED → GROUNDED-ELEVATED**
+
+**Where You Started (Freeze State):**
+- Froze by leaving your body, floating away
+- Retreated into head when emotions arose
+- Analyzed feelings instead of feeling them
+- Spiritually aware but physically disconnected
+- Intimacy felt threatening
+
+**What You've Healed:**
+- Stayed present in body when emotions showed up
+- Named feelings out loud without analyzing
+- Noticed urge to escape, chose to stay
+- Grounded spiritual awareness into physical form
+- Connected with others while staying embodied
+
+**Your New Energetic Signature (Grounded-Elevated):**
+✦ Root chakra: Grounded, present, anchored in body
+✦ Crown/Third Eye: Spiritually aware, intuitive
+✦ Heart chakra: Open without feeling overwhelmed
+✦ Whole system: Heaven and earth integrated
+
+**Light Side Fully Activated:**
+You're spiritually aware AND fully embodied. Your wisdom lives in your body now. You feel everything without losing yourself.
+
+**Integration Mantra:** *"I am Grounded-Elevated. My consciousness lives in my body. I feel deeply and stay present. I am safe here."*
+
+**Your Next Edge:** Deepen emotional intimacy in small doses. Practice staying present longer in vulnerable moments. Trust your body to hold it all.
+
+---
+
+**🌿 WOUNDED-ELEVATED → HEALED-ELEVATED**
+
+**Where You Started (Freeze State):**
+- Froze by spiritually bypassing body pain
+- Used transcendence to escape healing
+- Felt like earth wasn't your true home
+- Body held wounds you wouldn't touch
+- Spiritual but not embodied
+
+**What You've Healed:**
+- Brought spiritual awareness INTO body wounds
+- Honored physical pain as sacred information
+- Grounded elevated consciousness in earthly form
+- Practiced embodiment as spiritual work
+- Chose to belong here, on earth
+
+**Your New Energetic Signature (Healed-Elevated):**
+✦ Root chakra: Grounded in earth, belonging here
+✦ Crown chakra: Spiritually connected, wise
+✦ Heart chakra: Integrated spirit and matter
+✦ Whole system: Divine embodiment, heaven on earth
+
+**Light Side Fully Activated:**
+You bridge heaven and earth in your body. Your spiritual wisdom includes your humanity. You are holy AND whole.
+
+**Integration Mantra:** *"I am Healed-Elevated. My body is my temple. Heaven and earth meet in me. I belong here."*
+
+**Your Next Edge:** Continue deepening embodiment practices. Let earth be home. Trust that healing happens HERE, not elsewhere.
+
+---
+
+**🪨 ROOTED-AVOIDANT → ROOTED-OPEN**
+
+**Where You Started (Freeze State):**
+- Froze by shutting down emotionally
+- Protected through distance and walls
+- Stable but emotionally unavailable
+- Independence felt safer than connection
+- Vulnerability threatened your foundation
+
+**What You've Healed:**
+- Opened heart in small, safe ways
+- Shared feelings without losing stability
+- Let one person see the real you
+- Stayed present in emotional conversations
+- Discovered connection enhances security
+
+**Your New Energetic Signature (Rooted-Open):**
+✦ Root chakra: Deeply stable, unshakeable foundation
+✦ Heart chakra: Open, warm, connected
+✦ Throat chakra: Expresses emotions honestly
+✦ Whole system: Grounded stability with open heart
+
+**Light Side Fully Activated:**
+You are stable AND open. Grounded AND connected. Your strength includes tenderness now.
+
+**Integration Mantra:** *"I am Rooted-Open. I have deep roots and an open heart. Connection strengthens my foundation."*
+
+**Your Next Edge:** Continue opening in safe relationships. Practice receiving support. Trust that intimacy doesn't threaten your stability.
 
 ---
 
@@ -3793,6 +4627,248 @@ def get_history():
     
     conn.close()
     return jsonify({'messages': messages})
+
+# ===== GDPR COMPLIANCE ROUTES =====
+
+@app.route('/privacy')
+def privacy_policy():
+    """Privacy Policy page (GDPR Article 13 compliance)"""
+    return render_template('privacy.html')
+
+@app.route('/terms')
+def terms_of_service():
+    """Terms of Service page"""
+    return render_template('terms.html')
+
+@app.route('/account')
+def account_dashboard():
+    """User data dashboard with GDPR rights management"""
+    user_id = session.get('user_id')
+    if not user_id:
+        return redirect('/')
+    
+    conn = sqlite3.connect('healing_guru_chat.db')
+    c = conn.cursor()
+    
+    # Get user data statistics
+    c.execute('SELECT COUNT(*) FROM messages WHERE user_id = ?', (user_id,))
+    message_count = c.fetchone()[0]
+    
+    c.execute('SELECT COUNT(*) FROM journal WHERE user_id = ?', (user_id,))
+    journal_count = c.fetchone()[0]
+    
+    c.execute('SELECT COUNT(*) FROM community_posts WHERE user_id = ?', (user_id,))
+    post_count = c.fetchone()[0]
+    
+    c.execute('SELECT COUNT(*) FROM user_progress WHERE user_id = ? AND completed_at IS NOT NULL', (user_id,))
+    completed_modules = c.fetchone()[0]
+    
+    # Get account info
+    c.execute('SELECT MIN(timestamp) FROM messages WHERE user_id = ?', (user_id,))
+    first_activity = c.fetchone()[0]
+    member_since = first_activity[:10] if first_activity else 'Recent'
+    
+    # Get subscription status
+    c.execute('SELECT subscription_status FROM subscriptions WHERE user_id = ?', (user_id,))
+    sub_result = c.fetchone()
+    subscription_status = sub_result[0] if sub_result else 'Free Tier'
+    
+    # Get consent info
+    c.execute('SELECT cookies_accepted, data_processing_accepted, consent_date FROM user_consent WHERE user_id = ?', (user_id,))
+    consent_result = c.fetchone()
+    
+    if consent_result:
+        consent = {
+            'cookies_accepted': consent_result[0],
+            'data_processing_accepted': consent_result[1]
+        }
+        consent_date = consent_result[2][:10] if consent_result[2] else 'Not recorded'
+    else:
+        consent = {
+            'cookies_accepted': False,
+            'data_processing_accepted': False
+        }
+        consent_date = 'Not given'
+    
+    conn.close()
+    
+    stats = {
+        'messages': message_count,
+        'journal_entries': journal_count,
+        'community_posts': post_count,
+        'modules_completed': completed_modules
+    }
+    
+    return render_template('account.html',
+                         user_id=user_id,
+                         stats=stats,
+                         member_since=member_since,
+                         subscription_status=subscription_status,
+                         consent=consent,
+                         consent_date=consent_date)
+
+@app.route('/consent', methods=['POST'])
+def record_consent():
+    """Record user consent for GDPR compliance"""
+    user_id = session.get('user_id')
+    if not user_id:
+        return jsonify({'error': 'No session'}), 400
+    
+    data = request.json
+    cookies = data.get('cookies', False)
+    analytics = data.get('analytics', False)
+    processing = data.get('processing', False)
+    
+    conn = sqlite3.connect('healing_guru_chat.db')
+    c = conn.cursor()
+    
+    # Get IP address (for consent verification)
+    ip_address = request.headers.get('X-Forwarded-For', request.remote_addr)
+    
+    # Insert or update consent
+    c.execute('''INSERT INTO user_consent (user_id, cookies_accepted, data_processing_accepted, ip_address, last_updated)
+                 VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP)
+                 ON CONFLICT(user_id) DO UPDATE SET
+                 cookies_accepted = ?,
+                 data_processing_accepted = ?,
+                 last_updated = CURRENT_TIMESTAMP''',
+              (user_id, analytics, processing, ip_address, analytics, processing))
+    
+    conn.commit()
+    conn.close()
+    
+    return jsonify({'success': True})
+
+@app.route('/account/consent', methods=['POST'])
+def update_consent():
+    """Update specific consent preferences from account dashboard"""
+    user_id = session.get('user_id')
+    if not user_id:
+        return jsonify({'error': 'No session'}), 400
+    
+    data = request.json
+    consent_type = data.get('type')  # 'cookies' or 'processing'
+    value = data.get('value', False)
+    
+    conn = sqlite3.connect('healing_guru_chat.db')
+    c = conn.cursor()
+    
+    if consent_type == 'cookies':
+        c.execute('''UPDATE user_consent SET cookies_accepted = ?, last_updated = CURRENT_TIMESTAMP WHERE user_id = ?''',
+                  (value, user_id))
+    elif consent_type == 'processing':
+        c.execute('''UPDATE user_consent SET data_processing_accepted = ?, last_updated = CURRENT_TIMESTAMP WHERE user_id = ?''',
+                  (value, user_id))
+    
+    conn.commit()
+    conn.close()
+    
+    return jsonify({'success': True})
+
+@app.route('/account/export')
+def export_data():
+    """Export all user data as JSON (GDPR Article 20 - Right to Data Portability)"""
+    user_id = session.get('user_id')
+    if not user_id:
+        return redirect('/')
+    
+    conn = sqlite3.connect('healing_guru_chat.db')
+    c = conn.cursor()
+    
+    # Collect all user data
+    export_data = {
+        'export_date': datetime.now().isoformat(),
+        'user_id': user_id,
+        'data': {}
+    }
+    
+    # Messages
+    c.execute('SELECT role, content, timestamp FROM messages WHERE user_id = ? ORDER BY timestamp', (user_id,))
+    export_data['data']['messages'] = [{'role': r[0], 'content': r[1], 'timestamp': r[2]} for r in c.fetchall()]
+    
+    # Journal entries
+    c.execute('SELECT emotion, intensity, content, timestamp FROM journal WHERE user_id = ? ORDER BY timestamp', (user_id,))
+    export_data['data']['journal'] = [{'emotion': r[0], 'intensity': r[1], 'content': r[2], 'timestamp': r[3]} for r in c.fetchall()]
+    
+    # Insights
+    c.execute('SELECT pattern_type, description, detected_at FROM insights WHERE user_id = ? ORDER BY detected_at', (user_id,))
+    export_data['data']['insights'] = [{'pattern': r[0], 'description': r[1], 'detected_at': r[2]} for r in c.fetchall()]
+    
+    # Module progress
+    c.execute('''SELECT p.title, m.title, up.started_at, up.completed_at, up.reflection_response 
+                 FROM user_progress up 
+                 JOIN modules m ON up.module_id = m.id 
+                 JOIN paths p ON up.path_id = p.id 
+                 WHERE up.user_id = ? 
+                 ORDER BY up.started_at''', (user_id,))
+    export_data['data']['progress'] = [{'path': r[0], 'module': r[1], 'started': r[2], 'completed': r[3], 'reflection': r[4]} for r in c.fetchall()]
+    
+    # Community posts
+    c.execute('SELECT title, content, category, path_slug, created_at FROM community_posts WHERE user_id = ? ORDER BY created_at', (user_id,))
+    export_data['data']['community_posts'] = [{'title': r[0], 'content': r[1], 'category': r[2], 'path': r[3], 'created_at': r[4]} for r in c.fetchall()]
+    
+    # Community comments
+    c.execute('SELECT content, post_id, created_at FROM community_comments WHERE user_id = ? ORDER BY created_at', (user_id,))
+    export_data['data']['community_comments'] = [{'content': r[0], 'post_id': r[1], 'created_at': r[2]} for r in c.fetchall()]
+    
+    # Subscription info (excluding sensitive payment details)
+    c.execute('SELECT subscription_status, started_at FROM subscriptions WHERE user_id = ?', (user_id,))
+    sub = c.fetchone()
+    if sub:
+        export_data['data']['subscription'] = {'status': sub[0], 'started': sub[1]}
+    
+    # Consent records
+    c.execute('SELECT cookies_accepted, data_processing_accepted, consent_date FROM user_consent WHERE user_id = ?', (user_id,))
+    consent = c.fetchone()
+    if consent:
+        export_data['data']['consent'] = {'cookies': consent[0], 'processing': consent[1], 'date': consent[2]}
+    
+    conn.close()
+    
+    # Return as downloadable JSON file
+    from flask import Response
+    import json
+    
+    response = Response(
+        json.dumps(export_data, indent=2),
+        mimetype='application/json',
+        headers={'Content-Disposition': f'attachment;filename=valiant_growth_data_{user_id[:8]}.json'}
+    )
+    return response
+
+@app.route('/account/delete', methods=['POST'])
+def delete_account():
+    """Delete account and all user data (GDPR Article 17 - Right to Erasure)"""
+    user_id = session.get('user_id')
+    if not user_id:
+        return redirect('/')
+    
+    # Verify deletion confirmation
+    confirm = request.form.get('confirm', '')
+    if confirm != 'DELETE':
+        return redirect('/account')
+    
+    conn = sqlite3.connect('healing_guru_chat.db')
+    c = conn.cursor()
+    
+    # Delete all user data (CASCADE or manual deletion)
+    c.execute('DELETE FROM messages WHERE user_id = ?', (user_id,))
+    c.execute('DELETE FROM journal WHERE user_id = ?', (user_id,))
+    c.execute('DELETE FROM insights WHERE user_id = ?', (user_id,))
+    c.execute('DELETE FROM user_progress WHERE user_id = ?', (user_id,))
+    c.execute('DELETE FROM community_posts WHERE user_id = ?', (user_id,))
+    c.execute('DELETE FROM community_comments WHERE user_id = ?', (user_id,))
+    c.execute('DELETE FROM subscriptions WHERE user_id = ?', (user_id,))
+    c.execute('DELETE FROM user_consent WHERE user_id = ?', (user_id,))
+    
+    conn.commit()
+    conn.close()
+    
+    # Clear session
+    session.clear()
+    
+    # Redirect to goodbye page or home with message
+    return redirect('/?deleted=true')
 
 if __name__ == '__main__':
     import os

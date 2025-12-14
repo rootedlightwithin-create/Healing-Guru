@@ -306,11 +306,69 @@
             </a>
             {% endfor %}
         </div>
+        
+        <!-- Footer -->
+        <footer style="text-align: center; color: white; margin-top: 60px; padding: 30px 0; border-top: 1px solid rgba(255,255,255,0.2);">
+            <div style="margin-bottom: 15px;">
+                <a href="/privacy" style="color: white; text-decoration: none; margin: 0 15px; opacity: 0.9;">Privacy Policy</a>
+                <a href="/terms" style="color: white; text-decoration: none; margin: 0 15px; opacity: 0.9;">Terms of Service</a>
+                <a href="/account" style="color: white; text-decoration: none; margin: 0 15px; opacity: 0.9;">Your Data</a>
+            </div>
+            <p style="opacity: 0.8; font-size: 0.9em;">© 2025 Valiant Growth. Your healing journey, your data, your rights.</p>
+        </footer>
     </div>
     
     <!-- Floating Chat Button -->
     <a href="/chat" class="chat-button" title="Chat with Healing Guru">
         💬
     </a>
+    
+    <!-- Cookie Consent Banner -->
+    <div id="cookieConsent" style="display: none; position: fixed; bottom: 0; left: 0; right: 0; background: white; box-shadow: 0 -5px 20px rgba(0,0,0,0.2); padding: 25px; z-index: 10000;">
+        <div style="max-width: 1000px; margin: 0 auto; display: flex; gap: 20px; align-items: center; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 300px;">
+                <h3 style="margin-bottom: 10px; color: #2d3748;">🍪 We Value Your Privacy</h3>
+                <p style="color: #4a5568; font-size: 0.95em; line-height: 1.5;">
+                    We use essential cookies to make our service work, and optional analytics to understand how you use the platform. 
+                    Your healing journey data is private and secure. 
+                    <a href="/privacy" style="color: #6b46c1; text-decoration: underline;">Learn more</a>
+                </p>
+            </div>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                <button onclick="acceptCookies(true)" style="background: #6b46c1; color: white; border: none; padding: 12px 24px; border-radius: 8px; cursor: pointer; font-size: 1em;">
+                    Accept All
+                </button>
+                <button onclick="acceptCookies(false)" style="background: #e2e8f0; color: #2d3748; border: none; padding: 12px 24px; border-radius: 8px; cursor: pointer; font-size: 1em;">
+                    Essential Only
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Check if consent has been given
+        window.onload = function() {
+            if (!localStorage.getItem('cookieConsent')) {
+                document.getElementById('cookieConsent').style.display = 'block';
+            }
+        };
+        
+        function acceptCookies(analytics) {
+            fetch('/consent', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    cookies: true,
+                    analytics: analytics,
+                    processing: true
+                })
+            }).then(() => {
+                localStorage.setItem('cookieConsent', 'given');
+                document.getElementById('cookieConsent').style.display = 'none';
+            });
+        }
+    </script>
 </body>
 </html>
