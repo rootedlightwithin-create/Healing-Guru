@@ -466,8 +466,164 @@ Write your integration insights and your note to your future self.""",
     conn.commit()
     conn.close()
 
+def seed_inner_bully_path():
+    """Seed the 'Healing The Inner Bully' path using the 4 R Framework"""
+    conn = sqlite3.connect('healing_guru_chat.db')
+    c = conn.cursor()
+    
+    # Check if path already exists
+    c.execute("SELECT id FROM paths WHERE slug = 'inner-bully'")
+    if c.fetchone():
+        conn.close()
+        return  # Already seeded
+    
+    # Insert path
+    c.execute("""INSERT INTO paths (title, slug, description, summary, icon, duration, is_active)
+                 VALUES (?, ?, ?, ?, ?, ?, ?)""",
+              ('Healing The Inner Bully',
+               'inner-bully',
+               "Transform your inner critic from bully to compassionate guide. Learn to observe, understand, and gently reshape the harsh voice within using the 4 R Framework: Root, Release, Reflect, Rise.",
+               'Transform self-criticism into self-compassion',
+               '🌼',
+               '7 sessions',
+               1))
+    
+    path_id = c.lastrowid
+    
+    # Insert Module 1
+    modules = [
+        {
+            'step': 1,
+            'title': 'Meeting the Inner Bully',
+            'purpose': 'Gently observing your inner voice without judgment',
+            'guru_message': """**Check-In Questions:**
+• How has your week been?
+• What's been showing up for you?
+• What's one word that describes your energy today?
+
+**Grounding Exercise (2-3 minutes):**
+Close your eyes. Place one hand on your heart, one on your belly. Inhale for 4, hold for 2, exhale for 6. Repeat twice. Visualize roots growing down into the earth. Affirm: "I am safe. I am here. I am open to what I need today."
+
+---
+
+**🌼 WELCOME**
+
+Welcome to Module 1.
+
+This week, we begin by slowing down and gently meeting a part of ourselves that often goes unnoticed: our inner voice.
+
+Some call it the inner critic, others the ego, the overachiever, the perfectionist... But in this space, we'll meet it as the **Inner Bully** — not with shame, but with curiosity and compassion.
+
+Before we try to heal or shift anything, we first learn to observe. No fixing. No fighting. No judgment. Just noticing. Just listening.
+
+---
+
+**🌊 Why Do We Have an Inner Voice?**
+
+Your inner voice is that quiet (or sometimes loud) stream of thoughts running through your mind all day.
+
+It developed to:
+• Keep you safe
+• Make sense of the world
+• Help you navigate relationships, work, goals
+
+It was shaped by:
+• Childhood experiences
+• Parents, teachers, caregivers
+• Cultural messages and social norms
+• Emotional moments of fear, rejection, or pressure
+
+Sometimes this voice is helpful. But sometimes, it turns harsh — and that's when it becomes an inner bully.
+
+---
+
+**🌘 Why Does It Get So Loud or So Mean?**
+
+The inner bully isn't evil — it's scared.
+
+It shows up when we:
+• Feel vulnerable or exposed
+• Are about to grow, stretch, or shine
+• Get triggered by old memories or self-doubt
+• Are tired, overwhelmed, or disconnected from our truth
+
+Its job is to protect you — but the way it does that isn't loving. It learned to use fear, shame, control, and criticism... because that's what it saw or experienced.
+
+---
+
+**🔍 This Week's Practice: Observation Without Judgment**
+
+Your only job this week is to notice.""",
+            'tools': 'Body Scan,Inner Dialogue',
+            'reflection': """**✧ Step 1: Hear the Voice**
+
+Start listening for:
+• **Criticism:** "Why did you say that?" "You're not good enough."
+• **Fear:** "You'll mess it up." "Don't even try."
+• **Control:** "You should be better by now." "No one else thinks that way."
+
+💡 Every time you catch it, pause and say: "That's the inner bully. I'm just observing."
+
+---
+
+**✧ Step 2: Notice the Pattern**
+
+Ask yourself:
+• When does this voice show up?
+• What triggers it — stress, tiredness, rejection?
+• How does it make me feel in my body?
+
+---
+
+**✧ Step 3: Name the Voice**
+
+Give it a name, tone, or image.
+• Is it a worried teacher? A strict parent? A scared child?
+• Does it sound like someone you used to know?
+
+This helps you separate from it. **You are not the bully. You are the one who hears it.**
+
+---
+
+**🧘🏽‍♀️ Gentle Journal Prompts**
+
+You can write or speak these aloud each day:
+• What did my inner voice say today?
+• How did I feel when I heard it?
+• What was I doing or thinking when it showed up?
+• Does this voice remind me of someone or somewhere?
+• What would I say to this part of me if I knew it was just scared?
+
+---
+
+**🌱 Integration: A Loving Reminder**
+
+You are not broken. You are growing.
+
+The inner bully is not your truth — it's an old voice trying to protect you in a way that no longer serves.
+
+This week, you are learning to listen differently. Not to believe the bully, but to hear it, witness it, and gently reclaim your power.""",
+            'action': 'Track your inner bully this week. Each day, write down: one thing it said, when it showed up, and how you felt. Remember: observation without judgment. You\'re building awareness, not fixing anything yet.',
+            'is_free': True,
+            'minutes': 20
+        }
+    ]
+    
+    for module in modules:
+        c.execute("""INSERT INTO modules 
+                     (path_id, step_number, title, purpose, guru_message, tools, 
+                      reflection_prompt, action_invitation, is_free, estimated_minutes)
+                     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+                  (path_id, module['step'], module['title'], module['purpose'],
+                   module['guru_message'], module['tools'], module['reflection'],
+                   module['action'], module['is_free'], module['minutes']))
+    
+    conn.commit()
+    conn.close()
+
 init_db()
 seed_freeze_path()  # Seed the path on startup
+seed_inner_bully_path()  # Seed inner bully path
 
 init_db()
 
