@@ -90,7 +90,7 @@ def init_db():
     conn.close()
 
 def seed_freeze_path():
-    """Seed the 'From Freeze to Gentle Action' healing path"""
+    """Seed the 'From Freeze to Gentle Action' healing path using the 4 R Framework"""
     conn = sqlite3.connect('healing_guru_chat.db')
     c = conn.cursor()
     
@@ -105,92 +105,283 @@ def seed_freeze_path():
                  VALUES (?, ?, ?, ?, ?, ?, ?)""",
               ('From Freeze to Gentle Action',
                'freeze-to-action',
-               "There's nothing wrong with you. Freeze is a wise response when things once felt too much. This gentle 7-step journey helps you befriend your nervous system and rediscover the possibility of movement - without urgency, without pressure.",
-               'Move from shutdown and paralysis to gentle, grounded action',
+               "Move from shutdown and paralysis to gentle, grounded action using the 4 R Framework: Root, Release, Reflect, Rise. Each session includes check-in questions, grounding exercises, and embodied practices.",
+               'Transform freeze response into empowered action',
                '🌊',
-               '7 days',
+               '7 sessions',
                1))
     
     path_id = c.lastrowid
     
-    # Insert modules
+    # Insert modules following 4 R Framework phases
     modules = [
         {
             'step': 1,
-            'title': 'Naming the Freeze',
-            'purpose': 'Safety and recognition',
-            'guru_message': "There's nothing wrong with you. Freeze is a wise response when things once felt too much. Your body learned this to keep you safe.\n\nToday, we're not trying to fix anything. We're just going to notice.",
-            'tools': 'Body Scan,Gentle Grounding (feet, breath, weight)',
-            'reflection': 'When I freeze, I notice it shows up as...',
-            'action': 'Just notice freeze today. No fixing. No pressure. Just awareness.',
+            'title': 'Phase 1: Clearing - Root (Identifying the Block)',
+            'purpose': 'Ground in safety and identify what belief or energy block is surfacing',
+            'guru_message': """**Check-In Questions:**
+• How has your week been?
+• What's been showing up for you?
+• What's one word that describes your energy today?
+
+**Grounding Exercise (2-3 minutes):**
+Close your eyes. Place one hand on your heart, one on your belly. Inhale for 4, hold for 2, exhale for 6. Repeat twice. Visualize roots growing down into the earth. Affirm: "I am safe. I am here. I am open to what I need today."
+
+---
+
+**🌿 ROOT - Being grounded, safe, and developing self-trust**
+
+There's nothing wrong with you. Freeze is a wise response when things once felt too much. Your body learned this to keep you safe.
+
+Today, we're not trying to fix anything. We're just going to notice and identify what's coming up for you.""",
+            'tools': 'Body Scan,Grounding',
+            'reflection': """**Root Reflection Questions:**
+• What has been bothering me most at the moment?
+• What belief do I have that no longer serves me about my freeze response?
+• Where do I feel this belief in my body?
+• What part of me needs reassurance or grounding right now?
+
+**Affirmation:** "I am safe to feel what I'm feeling. I am safe to notice my freeze response without judgment."
+
+Write down what stands out most strongly. Do a gentle body scan to notice where this belief connects in your body.""",
+            'action': 'Just notice freeze today. No fixing. No pressure. Just awareness. Write down when you notice it and where you feel it in your body.',
             'is_free': True,
-            'minutes': 10
+            'minutes': 20
         },
         {
             'step': 2,
-            'title': 'Befriending the Nervous System',
-            'purpose': 'Reduce shame, build trust',
-            'guru_message': "Your body learned this to protect you. Freeze isn't failure - it's your nervous system doing what it thought it needed to do.\n\nToday, we practice gratitude for the part of you that kept you safe, even if it doesn't serve you the same way now.",
+            'title': 'Phase 1: Clearing - Release (Letting Go)',
+            'purpose': 'Release stuck patterns and shame around freeze response',
+            'guru_message': """**Check-In Questions:**
+• How has your week been?
+• What's been showing up for you since last session?
+• What's one word that describes your energy today?
+
+**Grounding Exercise (2-3 minutes):**
+Eyes closed, one hand heart, one hand belly. Inhale 4, hold 2, exhale 6 (repeat twice). Visualize roots growing down into the earth. Affirm: "I am safe. I am here. I am open to what I need today."
+
+---
+
+**🌊 RELEASE - Relief from stuck patterns and energy drains**
+
+Your body learned freeze to protect you. It isn't failure - it's your nervous system doing what it thought it needed to do.
+
+Today, we practice releasing the shame and old patterns that keep you stuck in freeze.""",
             'tools': 'Butterfly Hug,Box Breathing',
-            'reflection': 'What does my body need when it shuts down?',
-            'action': 'One small act of care today: warm drink, lying down for 5 minutes, stepping outside, or wrapping yourself in a blanket.',
+            'reflection': """**Release Reflection Questions:**
+• What feels heavy right now about my freeze response?
+• What am I still carrying that no longer belongs to me?
+• What emotion have I been avoiding or suppressing?
+• If my body could speak clearly, what would it say it's done with?
+• What am I afraid will happen if I release this freeze pattern?
+
+**Release Visualization:**
+Visualize cords attached to the body parts where you felt sensations earlier. These cords represent the limiting belief about freeze. Imagine cutting these cords and watching them fade away. Affirm: "I release all that does not serve me. I release the shame around my freeze response."
+
+Write what you're ready to release.""",
+            'action': 'One small act of care today: warm drink, lying down for 5 minutes, stepping outside, or wrapping yourself in a blanket. Practice the release visualization whenever shame about freeze shows up.',
             'is_free': True,
-            'minutes': 12
+            'minutes': 25
         },
         {
             'step': 3,
-            'title': 'Safety Before Action',
-            'purpose': 'Rewire urgency',
-            'guru_message': "Action only works when safety comes first. When your nervous system doesn't feel safe, pushing forward creates more freeze.\n\nLet's find what signals safety to your body.",
-            'tools': 'Orienting Exercise (naming safe objects),Grounding',
-            'reflection': 'What helps me feel even 5% safer right now?',
-            'action': 'Choose one micro-safety anchor for today: a cozy corner, a specific song, a grounding object you can touch.',
+            'title': 'Phase 1: Clearing - Reflect (Gaining Clarity)',
+            'purpose': 'Gain clarity about what you truly want underneath the freeze',
+            'guru_message': """**Check-In Questions:**
+• How has your week been?
+• What's been showing up for you?
+• What's one word that describes your energy today?
+
+**Grounding Exercise:**
+Close eyes. Hand on heart, hand on belly. Inhale 4, hold 2, exhale 6 (twice). Roots to earth. "I am safe. I am here. I am open."
+
+---
+
+**🔮 REFLECT - Clarity about what you truly want**
+
+Action only works when safety comes first. When your nervous system doesn't feel safe, pushing forward creates more freeze.
+
+Let's reflect on what you truly need and desire.""",
+            'tools': 'Orienting,Grounding',
+            'reflection': """**Reflect Questions:**
+• What do I truly want underneath this freeze response?
+• How does freeze distort or block my true desire for movement and agency?
+• What new perspective feels more aligned with my authentic self?
+• What helps me feel even 5% safer right now?
+• How can I offer safety to myself first?
+
+**Loving Space Visualization:**
+Move into a loving, open space. Visualize love expanding through your whole body, ready to hold new energy. Write your new understanding about what you truly need.
+
+**New Affirmation:** Create your own affirmation based on your new clarity. Example: "I am safe to move at my own pace. My body knows when it's ready."
+
+Write your new belief about safety and movement.""",
+            'action': 'Choose one micro-safety anchor for today: a cozy corner, a specific song, a grounding object you can touch. Use it whenever you notice freeze starting.',
             'is_free': False,
-            'minutes': 15
+            'minutes': 25
         },
         {
             'step': 4,
-            'title': 'Tiny Movement',
-            'purpose': 'Restore agency',
-            'guru_message': "We don't leap out of freeze. We thaw, slowly.\n\nToday is about the smallest possible movement - not because you should, but because you can.",
-            'tools': '30-second movement (stretch, shake, sway),Breath',
-            'reflection': "What felt possible today that didn't yesterday?",
-            'action': 'One gentle, non-urgent task: send one text, wash one dish, step outside for 60 seconds.',
+            'title': 'Phase 1-2: Clearing to Embodying - Rise (Taking Action)',
+            'purpose': 'Build confidence to take one small action from your new truth',
+            'guru_message': """**Check-In:**
+• How has your week been?
+• What's been showing up for you?
+• One word for your energy today?
+
+**Grounding:**
+Eyes closed. Hands on heart and belly. Inhale 4, hold 2, exhale 6 (twice). Roots down. "I am safe. I am here. I am open."
+
+---
+
+**🔥 RISE - Confidence to take action**
+
+We don't leap out of freeze. We thaw, slowly.
+
+Today is about the smallest possible movement - not because you should, but because you can. This is where we transition from clearing old energy to embodying your new truth.""",
+            'tools': 'Movement,Breath',
+            'reflection': """**Rise Questions:**
+• What is one small action I can take right now to embody this new truth about safety and movement?
+• How can I reinforce this new pattern when freeze shows up again?
+• What felt possible today that didn't yesterday?
+
+**Embodiment Practice:**
+Write down your new belief. Take one small aligned action right now - even just stretching your arms, taking three deep breaths while standing, or stepping outside for 30 seconds.
+
+**Habit Stacking:**
+Embed your new truth by repeating your affirmation daily. Link it to something you already do (breakfast, brushing teeth, making tea). The key is consistency, not pressure.""",
+            'action': 'One gentle, non-urgent movement: 30-second stretch, send one text, wash one dish, step outside for 60 seconds. Choose what feels possible today.',
             'is_free': False,
-            'minutes': 12
+            'minutes': 20
         },
         {
             'step': 5,
-            'title': 'Working with Resistance',
-            'purpose': 'Compassionate accountability',
-            'guru_message': "Resistance isn't failure - it's information.\n\nWhen you notice yourself pulling back or shutting down, pause. Ask: \"What does this part of me need right now?\"",
-            'tools': 'Inner Dialogue,Grounding before reflection',
-            'reflection': 'What felt hard today, and why might that make sense?',
-            'action': "Rewrite one harsh inner message with kindness. Example: \"I'm so lazy\" becomes \"I'm protecting myself from something that feels overwhelming.\"",
+            'title': 'Phase 2: Embodying - Tracking & Releasing Old Patterns',
+            'purpose': 'Identify when old freeze patterns surface and redirect with compassion',
+            'guru_message': """**Check-In:**
+• How has your week been?
+• What's been showing up for you since last time?
+• One word describing your energy today?
+
+**Grounding:**
+Hand on heart, hand on belly. Inhale 4, hold 2, exhale 6 (twice). Roots to earth core. "I am safe. I am here. I am open."
+
+---
+
+**Phase 2: EMBODYING - Living the New Energy**
+
+**🌊 RELEASE - Identifying and Tracking Old Patterns**
+
+Resistance isn't failure - it's information. When you notice yourself pulling back or shutting down, pause.
+
+Old patterns will still show up. That's normal. The power is that you now notice, interrupt, and return to your truth faster each time.""",
+            'tools': 'Inner Dialogue,Grounding',
+            'reflection': """**Pattern Recognition Questions:**
+• When did freeze show up this week? What triggered it?
+• What emotions signaled I was moving out of alignment? (guilt, overwhelm, numbness)
+• What old habits or distractions stole my energy?
+• Where did tension show up in my body when freeze appeared?
+• What felt hard today, and why might that make sense?
+
+**Pattern Tracker Exercise:**
+For each time freeze showed up, note:
+• **Situation:** What happened?
+• **Trigger:** What set it off?
+• **My Reaction:** What did I do/think/feel?
+• **Outcome:** What happened as a result?
+• **New Choice:** What could I try instead next time?
+
+**Pattern Interrupt Tools:**
+When you catch freeze starting, pause and say: "I'm noticing the pattern." Take 3 grounding breaths. Place hand on heart: "I am safe. I am rooted. I choose differently."
+
+Write your pattern observations and one gentle redirect tool you'll use.""",
+            'action': '''Rewrite one harsh inner message with kindness. Example: "I'm so lazy" becomes "I'm protecting myself from something that feels overwhelming." Keep your pattern tracker this week.''',
             'is_free': False,
-            'minutes': 15
+            'minutes': 30
         },
         {
             'step': 6,
-            'title': 'Reclaiming Choice',
-            'purpose': 'Empowerment',
-            'guru_message': "You get to choose differently, even in small ways.\n\nFreeze often comes from feeling like there's no choice. Today, we practice noticing where choice still lives.",
-            'tools': 'Visualization (responding differently next time),Grounding',
-            'reflection': "What choice feels aligned right now - even if it's tiny?",
-            'action': 'One conscious yes or no today. Say yes to something nourishing. Say no to something draining.',
+            'title': 'Phase 2-3: Embodying to Aligning - Rising Into Choice',
+            'purpose': 'Practice embodying new identity and aligning daily actions with it',
+            'guru_message': """**Check-In:**
+• How has your week been?
+• What's been showing up for you?
+• One word for your energy today?
+
+**Grounding:**
+Eyes closed. Heart and belly. Inhale 4, hold 2, exhale 6 (twice). Roots to earth. "I am safe. I am here. I am open."
+
+---
+
+**🔥 RISE - Living as the New Version**
+
+You get to choose differently, even in small ways. Freeze often comes from feeling like there's no choice. Today, we practice noticing where choice still lives.
+
+This is where you consciously step into the new version of yourself - the one who has agency, who moves at their own pace, who honors their nervous system while also taking aligned action.""",
+            'tools': 'Visualization,Grounding',
+            'reflection': """**Embodiment Questions:**
+• What is one choice I made this week that reflects my new energy?
+• What daily practice or ritual helps me root into this version of me?
+• Where do I still feel pulled back into freeze?
+• How do I redirect myself gently when that happens?
+• What choice feels aligned right now - even if it's tiny?
+• If I trusted this version of me fully, what would I do differently?
+
+**Identity Anchoring:**
+Write 5 sentences as your new self: "As the new me, I..."
+Example: "As the new me, I pause before reacting. I honor my pace. I choose gentle movement over pressure."
+
+**Future-Self Visualization:**
+Close your eyes. See yourself living one day as this new version - the one who works with freeze compassionately instead of fighting it. Notice how you walk, speak, breathe. Anchor with one word (e.g., "gentle," "steady," "aware"). Use that word as your cue this week.""",
+            'action': 'One conscious yes or no today. Say yes to something nourishing. Say no to something draining. Notice how it feels to exercise choice, even in small ways.',
             'is_free': False,
-            'minutes': 14
+            'minutes': 25
         },
         {
             'step': 7,
-            'title': 'Integration & Reflection',
-            'purpose': 'Meaning-making',
-            'guru_message': "You've walked through this with such care. Notice what's changed - even subtly.\n\nFreeze may still show up sometimes. But now you have a way to work with it.",
+            'title': 'Phase 4: Expanding - Integration & Living Your Bigger Vision',
+            'purpose': 'Integrate all learnings and expand into your fuller expression',
+            'guru_message': """**Check-In:**
+• How has your week been?
+• What's been showing up for you?
+• One word that describes your energy today?
+
+**Grounding:**
+Hand on heart, hand on belly. Inhale 4, hold 2, exhale 6 (twice). Roots deep into earth. "I am safe. I am here. I am open."
+
+---
+
+**Phase 4: EXPANDING - Living the Larger Vision**
+
+**🔮 REFLECT & 🔥 RISE - Integration**
+
+You've walked through this with such care. Notice what's changed - even subtly.
+
+Freeze may still show up sometimes. But now you have a way to work with it. Now you expand into the fuller version of yourself - the one who can hold both rest and action, both pause and movement.""",
             'tools': 'Gentle Review,Reflection',
-            'reflection': 'What feels more available in me now? What do I want to remember?',
-            'action': 'Write a note to your future self for the next time freeze shows up. What would you want to hear?',
+            'reflection': """**Integration Reflection:**
+• What feels more available in me now than when I started?
+• What do I want to remember about this journey?
+• What parts of my vision for myself feel most alive right now?
+• Where have I already surprised myself by embodying more than I thought possible?
+• How has my relationship with freeze transformed?
+• What is my next edge to rise into?
+
+**Wins List:**
+Write every shift, big or small, that happened through this journey.
+
+**Legacy Prompt:**
+If freeze shows up again, what will you want to remember? Write a compassionate note to your future self.
+
+**Expansion Questions:**
+• What practices keep me stable as I step into a bigger life beyond freeze?
+• What values do I refuse to compromise on as I expand?
+• If my expanded self were mentoring me, what advice would they give?
+
+Write your integration insights and your note to your future self.""",
+            'action': '''Write your compassionate note to future self for next time freeze shows up. Create one daily ritual that keeps you rooted in your new truth. Celebrate how far you've come - you've done beautiful work.''',
             'is_free': False,
-            'minutes': 18
+            'minutes': 30
         }
     ]
     
