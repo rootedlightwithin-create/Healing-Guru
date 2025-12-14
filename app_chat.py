@@ -86,6 +86,27 @@ def init_db():
                   started_at DATETIME DEFAULT CURRENT_TIMESTAMP,
                   expires_at DATETIME)''')
     
+    # Community posts table
+    c.execute('''CREATE TABLE IF NOT EXISTS community_posts
+                 (id INTEGER PRIMARY KEY AUTOINCREMENT,
+                  user_id TEXT,
+                  display_name TEXT,
+                  path_slug TEXT,
+                  category TEXT,
+                  title TEXT NOT NULL,
+                  content TEXT NOT NULL,
+                  created_at DATETIME DEFAULT CURRENT_TIMESTAMP)''')
+    
+    # Community comments table
+    c.execute('''CREATE TABLE IF NOT EXISTS community_comments
+                 (id INTEGER PRIMARY KEY AUTOINCREMENT,
+                  post_id INTEGER,
+                  user_id TEXT,
+                  display_name TEXT,
+                  content TEXT NOT NULL,
+                  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+                  FOREIGN KEY (post_id) REFERENCES community_posts(id))''')
+    
     conn.commit()
     conn.close()
 
@@ -606,6 +627,135 @@ This week, you are learning to listen differently. Not to believe the bully, but
             'action': 'Track your inner bully this week. Each day, write down: one thing it said, when it showed up, and how you felt. Remember: observation without judgment. You\'re building awareness, not fixing anything yet.',
             'is_free': True,
             'minutes': 20
+        },
+        {
+            'step': 2,
+            'title': 'The Roots of the Bully - Where Did This Voice Come From?',
+            'purpose': 'Understand the origin of the inner bully with compassion',
+            'guru_message': """**Check-In Questions:**
+• How has your week been?
+• What's been showing up for you since last session?
+• What's one word that describes your energy today?
+
+**Grounding Exercise (2-3 minutes):**
+Close your eyes. One hand on heart, one on belly. Inhale 4, hold 2, exhale 6 (repeat twice). Visualize roots growing down into the earth. Affirm: "I am safe. I am here. I am open to what I need today."
+
+---
+
+**🌿 WELCOME BACK**
+
+Before we can shift the inner bully, we need to understand it.
+
+Not with blame. Not with shame. But with curiosity. With softness. With compassion.
+
+**🫧 This is gentle work.**
+
+As you explore this module, please be kind to your nervous system:
+• Drink lots of water
+• Get fresh air if you can
+• Take breaks when you need to
+• Rest if something feels heavy
+• Let things come up in their own time
+
+You're not behind. You're right on time.
+
+---
+
+**🪞 This Week: Looking at Where the Inner Bully Began**
+
+The voice that says "you're not enough," or "you're too much" — it didn't start with you.
+
+It was shaped by:
+• What you were told
+• What you weren't told
+• What you felt but didn't have words for
+• The moments you didn't feel seen, loved, or safe
+
+It often comes from a time when your nervous system learned:
+*"If I just get it right... maybe I'll be safe. Maybe I'll belong."*
+
+---
+
+**✨ Ask Yourself: Whose Voice Does This Sound Like?**
+
+• A parent?
+• A teacher?
+• Someone who wanted the best for you... but didn't know how to say it kindly?
+• A sibling? A coach? A boss?
+• Society's voice telling you who you should be?
+
+The voice might sound familiar. But it is not you.
+
+It's a pattern. A memory. A form of protection that stayed too long.""",
+            'tools': 'Grounding,Visualization',
+            'reflection': """**🌀 The Voice Map Exercise**
+
+Take out your journal and reflect:
+• What's the first memory I have of self-criticism?
+• What moment taught me to shrink, to hide, or to hustle for love?
+• What did I learn about "success," "being good," or "being lovable"?
+• What beliefs did I carry forward that weren't mine to hold?
+
+You can write, draw, or even create a timeline. The goal is to see the thread — so you can choose what stays, and what ends here.
+
+---
+
+**💬 What We're Practicing This Week:**
+🌱 Compassionate understanding
+🕊️ Gentle truth-telling
+🖋️ Tracking the story so it no longer runs the show
+
+---
+
+**✍🏽 Deeper Journal Prompts:**
+• Whose voice is this really?
+• What was this voice trying to protect me from?
+• What did I believe about myself after hearing it?
+• Is that belief true now?
+• What would I say to the younger version of me who first believed it?
+
+---
+
+**🌟 This Week's Mantra:**
+*"This voice was trying to protect me. I choose to listen with compassion, not fear."*
+
+---
+
+**💌 Optional Bonus Practice:**
+
+Write a letter to your inner bully's origin. To the person or moment that shaped it.
+
+You don't have to send it. Just let it out — truthfully, safely, freely.
+
+And most importantly: This is a week for gentleness. Let softness be your strength. Let rest be your medicine. You are allowed to heal in ways that feel good.
+
+---
+
+**🌼 Identifying Your Inner Bully Archetype**
+
+Your inner bully may sound like:
+
+**💼 The Strict Teacher**
+"You should've done better." Harsh, perfectionistic, driven by pressure.
+
+**🧒🏽 The Scared Child**
+"What if something goes wrong?" Fearful, worried, trying to keep you small to stay safe.
+
+**🪞 The Perfectionist**
+"It's not ready yet." Chasing impossible standards, scared of being seen.
+
+**🛡️ The Protector**
+"You'll only get hurt." Defensive, cautious, keeping walls up.
+
+**😞 The Shamer**
+"You're not good enough." Cruel, mocking, rooted in old pain or rejection.
+
+You might hear one of these loud and clear. You might hear a mix — depending on the day, your energy, or where you're growing.
+
+Which archetype(s) resonate with you? Write it down. In the premium modules, you'll receive personalized tools for working with YOUR specific inner bully pattern.""",
+            'action': 'Complete "The Voice Map" exercise this week. Trace back one belief the inner bully holds about you to its origin. Write a short letter (that you won\'t send) to the person/moment where this voice began. Remember: gentleness first.',
+            'is_free': True,
+            'minutes': 25
         }
     ]
     
@@ -2834,6 +2984,159 @@ def google_verification():
     """Serve Google site verification file"""
     from flask import Response
     return Response('google-site-verification: googleccc479b763b17be8.html', mimetype='text/plain')
+
+@app.route('/community')
+def community():
+    """Community discussion board"""
+    user_id = session.get('user_id')
+    if not user_id:
+        session['user_id'] = secrets.token_hex(8)
+        user_id = session['user_id']
+    
+    # Get filter parameters
+    path_filter = request.args.get('path', 'all')
+    category_filter = request.args.get('category', 'all')
+    
+    conn = sqlite3.connect('healing_guru_chat.db')
+    c = conn.cursor()
+    
+    # Get all paths for filter dropdown
+    c.execute("SELECT slug, title, icon FROM paths WHERE is_active = 1")
+    paths = c.fetchall()
+    
+    # Build query based on filters
+    query = """SELECT cp.id, cp.display_name, cp.path_slug, cp.category, cp.title, 
+                      cp.content, cp.created_at,
+                      (SELECT COUNT(*) FROM community_comments WHERE post_id = cp.id) as comment_count,
+                      p.title as path_title, p.icon as path_icon
+               FROM community_posts cp
+               LEFT JOIN paths p ON cp.path_slug = p.slug
+               WHERE 1=1"""
+    params = []
+    
+    if path_filter != 'all':
+        query += " AND cp.path_slug = ?"
+        params.append(path_filter)
+    
+    if category_filter != 'all':
+        query += " AND cp.category = ?"
+        params.append(category_filter)
+    
+    query += " ORDER BY cp.created_at DESC LIMIT 50"
+    
+    c.execute(query, params)
+    posts = c.fetchall()
+    
+    conn.close()
+    
+    return render_template('community.html', 
+                          posts=posts, 
+                          paths=paths,
+                          current_path=path_filter,
+                          current_category=category_filter)
+
+@app.route('/community/post/<int:post_id>')
+def view_post(post_id):
+    """View a single post with comments"""
+    user_id = session.get('user_id')
+    if not user_id:
+        session['user_id'] = secrets.token_hex(8)
+        user_id = session['user_id']
+    
+    conn = sqlite3.connect('healing_guru_chat.db')
+    c = conn.cursor()
+    
+    # Get post
+    c.execute("""SELECT cp.id, cp.display_name, cp.path_slug, cp.category, cp.title, 
+                        cp.content, cp.created_at,
+                        p.title as path_title, p.icon as path_icon
+                 FROM community_posts cp
+                 LEFT JOIN paths p ON cp.path_slug = p.slug
+                 WHERE cp.id = ?""", (post_id,))
+    post = c.fetchone()
+    
+    if not post:
+        conn.close()
+        return "Post not found", 404
+    
+    # Get comments
+    c.execute("""SELECT id, display_name, content, created_at
+                 FROM community_comments 
+                 WHERE post_id = ? 
+                 ORDER BY created_at ASC""", (post_id,))
+    comments = c.fetchall()
+    
+    conn.close()
+    
+    return render_template('community_post.html', post=post, comments=comments)
+
+@app.route('/community/new', methods=['GET', 'POST'])
+def new_post():
+    """Create a new community post"""
+    user_id = session.get('user_id')
+    if not user_id:
+        session['user_id'] = secrets.token_hex(8)
+        user_id = session['user_id']
+    
+    if request.method == 'POST':
+        display_name = request.form.get('display_name', 'Anonymous')
+        path_slug = request.form.get('path_slug', 'general')
+        category = request.form.get('category')
+        title = request.form.get('title')
+        content = request.form.get('content')
+        
+        if not all([category, title, content]):
+            return "Missing required fields", 400
+        
+        conn = sqlite3.connect('healing_guru_chat.db')
+        c = conn.cursor()
+        
+        c.execute("""INSERT INTO community_posts 
+                     (user_id, display_name, path_slug, category, title, content)
+                     VALUES (?, ?, ?, ?, ?, ?)""",
+                  (user_id, display_name, path_slug, category, title, content))
+        
+        post_id = c.lastrowid
+        conn.commit()
+        conn.close()
+        
+        return redirect(f'/community/post/{post_id}')
+    
+    # GET: Show form
+    conn = sqlite3.connect('healing_guru_chat.db')
+    c = conn.cursor()
+    c.execute("SELECT slug, title, icon FROM paths WHERE is_active = 1")
+    paths = c.fetchall()
+    conn.close()
+    
+    return render_template('new_post.html', paths=paths)
+
+@app.route('/community/post/<int:post_id>/comment', methods=['POST'])
+def add_comment(post_id):
+    """Add a comment to a post"""
+    user_id = session.get('user_id')
+    if not user_id:
+        session['user_id'] = secrets.token_hex(8)
+        user_id = session['user_id']
+    
+    display_name = request.form.get('display_name', 'Anonymous')
+    content = request.form.get('content')
+    
+    if not content:
+        return "Comment content required", 400
+    
+    conn = sqlite3.connect('healing_guru_chat.db')
+    c = conn.cursor()
+    
+    c.execute("""INSERT INTO community_comments 
+                 (post_id, user_id, display_name, content)
+                 VALUES (?, ?, ?, ?)""",
+              (post_id, user_id, display_name, content))
+    
+    conn.commit()
+    conn.close()
+    
+    return redirect(f'/community/post/{post_id}')
 
 @app.route('/api/chat', methods=['POST'])
 def chat():

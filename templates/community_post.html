@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ post[4] }} - Community</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .back-btn {
+            display: inline-block;
+            color: white;
+            text-decoration: none;
+            margin-bottom: 20px;
+            font-weight: 600;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            transition: all 0.3s;
+        }
+        
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .post-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        
+        .post-meta {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .path-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: #f0f0f0;
+            padding: 6px 14px;
+            border-radius: 15px;
+            font-size: 14px;
+            color: #667eea;
+            font-weight: 600;
+        }
+        
+        .category-badge {
+            padding: 6px 14px;
+            border-radius: 15px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+        
+        .category-badge.win { background: #48bb78; color: white; }
+        .category-badge.support { background: #ed8936; color: white; }
+        .category-badge.question { background: #667eea; color: white; }
+        .category-badge.reflection { background: #9f7aea; color: white; }
+        
+        .post-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+        
+        .post-author {
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .post-date {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        
+        .post-content {
+            color: #444;
+            line-height: 1.8;
+            font-size: 16px;
+            white-space: pre-wrap;
+        }
+        
+        .comments-section {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .comments-header {
+            font-size: 22px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 25px;
+        }
+        
+        .comment {
+            padding: 20px;
+            background: #f7f7f7;
+            border-radius: 12px;
+            margin-bottom: 15px;
+        }
+        
+        .comment-author {
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+        
+        .comment-date {
+            font-size: 13px;
+            color: #888;
+            margin-bottom: 10px;
+        }
+        
+        .comment-content {
+            color: #555;
+            line-height: 1.6;
+            white-space: pre-wrap;
+        }
+        
+        .comment-form {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 2px solid #f0f0f0;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 15px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+        
+        input[type="text"]:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .hint {
+            font-size: 13px;
+            color: #888;
+            margin-top: 5px;
+        }
+        
+        .submit-btn {
+            background: #667eea;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+        }
+        
+        .no-comments {
+            text-align: center;
+            color: #888;
+            padding: 40px;
+            font-style: italic;
+        }
+        
+        @media (max-width: 768px) {
+            .post-card, .comments-section {
+                padding: 25px;
+            }
+            
+            .post-title {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/community" class="back-btn">← Back to Community</a>
+        
+        <div class="post-card">
+            <div class="post-meta">
+                {% if post[8] %}
+                <span class="path-badge">{{ post[8] }} {{ post[7] }}</span>
+                {% endif %}
+                <span class="category-badge {{ post[3] }}">
+                    {% if post[3] == 'win' %}🎉 Win
+                    {% elif post[3] == 'support' %}🤝 Support
+                    {% elif post[3] == 'question' %}❓ Question
+                    {% elif post[3] == 'reflection' %}✨ Reflection
+                    {% endif %}
+                </span>
+            </div>
+            
+            <h1 class="post-title">{{ post[4] }}</h1>
+            
+            <div class="post-author">{{ post[1] }}</div>
+            <div class="post-date">{{ post[6][:16] }}</div>
+            
+            <p class="post-content">{{ post[5] }}</p>
+        </div>
+        
+        <div class="comments-section">
+            <h2 class="comments-header">💬 Comments ({{ comments|length }})</h2>
+            
+            {% if comments %}
+                {% for comment in comments %}
+                <div class="comment">
+                    <div class="comment-author">{{ comment[1] }}</div>
+                    <div class="comment-date">{{ comment[3][:16] }}</div>
+                    <div class="comment-content">{{ comment[2] }}</div>
+                </div>
+                {% endfor %}
+            {% else %}
+                <p class="no-comments">No comments yet. Be the first to respond!</p>
+            {% endif %}
+            
+            <form method="POST" action="/community/post/{{ post[0] }}/comment" class="comment-form">
+                <h3 style="margin-bottom: 20px; color: #333;">Leave a Response</h3>
+                
+                <div class="form-group">
+                    <label for="display_name">Your Name (optional)</label>
+                    <input type="text" id="display_name" name="display_name" placeholder="Leave blank to comment as 'Anonymous'">
+                    <p class="hint">Choose any name you feel comfortable with</p>
+                </div>
+                
+                <div class="form-group">
+                    <label for="content">Your Comment *</label>
+                    <textarea id="content" name="content" placeholder="Share your thoughts, support, or insights..." required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">Post Comment</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
