@@ -131,16 +131,53 @@
         .tool-instructions {
             display: none;
             margin-top: 10px;
-            padding: 15px;
+            padding: 20px;
             background: white;
             border-radius: 8px;
-            font-size: 0.95rem;
-            line-height: 1.6;
+            font-size: 1rem;
+            line-height: 1.8;
             color: #4a5568;
         }
         
         .tool-tag.active .tool-instructions {
             display: block;
+        }
+        
+        .tool-step {
+            padding: 15px;
+            margin: 10px 0;
+            background: #f7fafc;
+            border-radius: 8px;
+            border-left: 3px solid #667eea;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.5s ease;
+        }
+        
+        .tool-step.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .start-practice-btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.3s ease;
+        }
+        
+        .start-practice-btn:hover {
+            background: #5568d3;
+        }
+        
+        .start-practice-btn.hidden {
+            display: none;
         }
         
         .tool-name {
@@ -334,81 +371,94 @@
                         <div class="tool-name">{{ tool.strip() }}</div>
                         <div class="tool-instructions">
                             {% set tool_name = tool.strip() %}
-                            {% if 'Body Scan' in tool_name %}
-                                <strong>Let's do this together:</strong><br><br>
-                                1. Find a comfortable position. Close your eyes if that feels safe.<br>
-                                2. Start at the top of your head. Notice any sensation there—tension, tingling, nothing at all. That's all okay.<br>
-                                3. Slowly move down: your face, jaw, neck, shoulders, chest, belly, hips, legs, feet.<br>
-                                4. Don't try to fix or change anything. Just notice. "Oh, my shoulders are tight." "My stomach feels clenched."<br>
-                                5. Take 2-3 minutes. Go as slow as you need.
-                            {% elif 'Grounding' in tool_name %}
-                                <strong>Let's ground together:</strong><br><br>
-                                <strong>Feet:</strong> Feel your feet on the floor. Press them down. Notice the support beneath you.<br>
-                                <strong>Breath:</strong> Take 3 slow breaths. In through your nose, out through your mouth.<br>
-                                <strong>Weight:</strong> Notice the weight of your body. Feel how gravity holds you down. You're supported. You don't have to hold yourself up right now.<br><br>
-                                Or try this: Name 5 things you see, 4 you can touch, 3 you hear, 2 you smell, 1 you taste.
-                            {% elif 'Butterfly Hug' in tool_name %}
-                                <strong>This is a bilateral stimulation technique. Let's try it:</strong><br><br>
-                                1. Cross your arms over your chest, hands resting on opposite shoulders.<br>
-                                2. Gently tap your left shoulder with your right hand. Then your right shoulder with your left hand.<br>
-                                3. Keep alternating: left, right, left, right. Like a slow heartbeat.<br>
-                                4. Breathe slowly as you tap. Do this for 30-60 seconds.<br>
-                                5. Notice if anything shifts in your body. You might feel calmer, heavier, or more present.
-                            {% elif 'Box Breathing' in tool_name %}
-                                <strong>This regulates your nervous system. I'll guide you:</strong><br><br>
-                                1. Breathe IN slowly: 1, 2, 3, 4<br>
-                                2. HOLD: 1, 2, 3, 4<br>
-                                3. Breathe OUT slowly: 1, 2, 3, 4<br>
-                                4. HOLD: 1, 2, 3, 4<br><br>
-                                Do this 4 times. With each exhale, let your shoulders drop, your jaw soften.<br>
-                                You're telling your body: "It's safe to slow down."
-                            {% elif 'Orienting' in tool_name %}
-                                <strong>This helps your nervous system find safety in the present moment:</strong><br><br>
-                                1. Look slowly around the room. Don't rush.<br>
-                                2. Find 3 things that feel safe, neutral, or comforting. Maybe a plant, a soft blanket, light coming through the window.<br>
-                                3. Say them out loud or in your head: "I see the lamp. I see my mug. I see the couch."<br>
-                                4. If you can, touch one of them. Feel its texture.<br>
-                                5. Notice: "Right now, in this moment, I am okay."
-                            {% elif 'movement' in tool_name %}
-                                <strong>Gentle movement helps thaw freeze. Let's do this slowly:</strong><br><br>
-                                1. Stand up if you're able. Or stay seated—that's fine too.<br>
-                                2. Stretch your arms overhead. Just a little. Notice how that feels.<br>
-                                3. Roll your shoulders back, then forward.<br>
-                                4. Sway side to side. Like a tree in a gentle breeze.<br>
-                                5. Or just wiggle your fingers and toes. Shake out your hands.<br><br>
-                                30 seconds is enough. Movement doesn't have to be big to matter.
-                            {% elif 'Inner Dialogue' in tool_name %}
-                                <strong>This is about listening to the part of you that's protecting you:</strong><br><br>
-                                1. Notice where you're feeling resistance. Maybe you don't want to do something, or you're pulling back.<br>
-                                2. Instead of pushing through, pause. Ask gently: "What does this part of me need right now?"<br>
-                                3. Listen. Don't judge the answer. Maybe it says: "I need rest." "I need safety." "I'm scared."<br>
-                                4. Write down what comes up, even if it doesn't make sense yet.<br>
-                                5. Thank that part for protecting you.
-                            {% elif 'Visualization' in tool_name %}
-                                <strong>Let's practice choosing differently in your mind first:</strong><br><br>
-                                1. Close your eyes. Think of a situation where you usually freeze, shut down, or people-please.<br>
-                                2. Now imagine responding differently. What would it look like to say no? To walk away? To ask for help?<br>
-                                3. See it as clearly as you can. Where are you? What do you say? How does your body feel?<br>
-                                4. Feel what it would be like to make that choice. Notice any sensations—even if there's fear, that's okay.<br>
-                                5. Spend 2-3 minutes here. You're building new pathways.
-                            {% elif 'Breath' in tool_name %}
-                                <strong>This is simple but powerful:</strong><br><br>
-                                1. Place one hand on your chest, one on your belly.<br>
-                                2. Breathe in slowly through your nose. Feel your belly rise (not your chest).<br>
-                                3. Exhale slowly through your mouth. Feel your belly fall.<br>
-                                4. Do this 5 times.<br>
-                                5. You're activating your vagus nerve—your body's natural calming system.
-                            {% elif 'Review' in tool_name %}
-                                <strong>This isn't about judging yourself. It's about seeing:</strong><br><br>
-                                1. Look back over the steps you've taken. What showed up for you?<br>
-                                2. What felt hard? What surprised you?<br>
-                                3. What feels more available now than when you started?<br>
-                                4. Write down 2-3 things you want to remember.<br>
-                                5. Be gentle with yourself. Growth isn't linear.
-                            {% else %}
-                                <strong>Here's how to practice {{ tool_name }}:</strong><br><br>
-                                Take a few slow breaths. Find a comfortable position. Go at your own pace—there's no rush, no right way to do this. Notice what comes up, without judgment.
-                            {% endif %}
+                            <button class="start-practice-btn" onclick="startPractice(this)">Begin Practice</button>
+                            <div class="practice-steps" style="display: none;">
+                                {% if 'Body Scan' in tool_name %}
+                                    <div class="tool-step">Find a comfortable position. Close your eyes if that feels safe to you.</div>
+                                    <div class="tool-step">Let's start at the top of your head. Just notice what's there. Any sensation, tension, or nothing at all.</div>
+                                    <div class="tool-step">Now slowly move your attention down to your face... your jaw... your neck.</div>
+                                    <div class="tool-step">Notice your shoulders. Are they holding tension? That's okay. Just notice.</div>
+                                    <div class="tool-step">Move down through your chest... your belly... your hips.</div>
+                                    <div class="tool-step">Down through your legs... all the way to your feet.</div>
+                                    <div class="tool-step">You don't need to fix or change anything. You're just noticing. This is enough.</div>
+                                {% elif 'Grounding' in tool_name %}
+                                    <div class="tool-step">Let's ground together. Start by feeling your feet on the floor.</div>
+                                    <div class="tool-step">Press your feet down gently. Notice the support beneath you.</div>
+                                    <div class="tool-step">Now take a slow breath in through your nose... and out through your mouth.</div>
+                                    <div class="tool-step">Two more breaths like that. In... and out.</div>
+                                    <div class="tool-step">Notice the weight of your body. Feel how gravity holds you. You're supported right now.</div>
+                                    <div class="tool-step">Look around and name 5 things you can see. Take your time.</div>
+                                    <div class="tool-step">You're here. You're present. You're okay.</div>
+                                {% elif 'Butterfly Hug' in tool_name %}
+                                    <div class="tool-step">Cross your arms over your chest, hands resting on opposite shoulders.</div>
+                                    <div class="tool-step">Now gently tap your left shoulder with your right hand.</div>
+                                    <div class="tool-step">Then tap your right shoulder with your left hand.</div>
+                                    <div class="tool-step">Keep alternating. Left... right... left... right. Like a slow heartbeat.</div>
+                                    <div class="tool-step">Breathe slowly as you tap. Notice what you feel.</div>
+                                    <div class="tool-step">Continue for another 20 seconds or so. You're regulating your nervous system.</div>
+                                    <div class="tool-step">Gently stop. Notice if anything shifted. You might feel calmer, heavier, or more present.</div>
+                                {% elif 'Box Breathing' in tool_name %}
+                                    <div class="tool-step">We're going to breathe together. Place one hand on your chest.</div>
+                                    <div class="tool-step">Breathe in slowly... 1, 2, 3, 4.</div>
+                                    <div class="tool-step">Hold your breath... 1, 2, 3, 4.</div>
+                                    <div class="tool-step">Breathe out slowly... 1, 2, 3, 4.</div>
+                                    <div class="tool-step">Hold again... 1, 2, 3, 4.</div>
+                                    <div class="tool-step">One more round. Breathe in... 1, 2, 3, 4.</div>
+                                    <div class="tool-step">Hold... 1, 2, 3, 4.</div>
+                                    <div class="tool-step">Breathe out... 1, 2, 3, 4. Let your shoulders drop, your jaw soften.</div>
+                                    <div class="tool-step">You're telling your body it's safe to slow down.</div>
+                                {% elif 'Orienting' in tool_name %}
+                                    <div class="tool-step">Look slowly around the room. Don't rush.</div>
+                                    <div class="tool-step">Find something that feels safe, neutral, or comforting. Maybe a plant, a blanket, light from a window.</div>
+                                    <div class="tool-step">Say it out loud or in your head: "I see the ___."</div>
+                                    <div class="tool-step">Find two more things. Name them too.</div>
+                                    <div class="tool-step">If you can, reach out and touch one of these things. Feel its texture.</div>
+                                    <div class="tool-step">Right now, in this moment, you are okay.</div>
+                                {% elif 'movement' in tool_name %}
+                                    <div class="tool-step">Stand up if you're able. Or stay seated—that's completely fine.</div>
+                                    <div class="tool-step">Stretch your arms overhead. Just a little. Notice how that feels.</div>
+                                    <div class="tool-step">Roll your shoulders back... then forward.</div>
+                                    <div class="tool-step">Sway gently side to side. Like a tree in a breeze.</div>
+                                    <div class="tool-step">Or just wiggle your fingers. Shake out your hands.</div>
+                                    <div class="tool-step">Movement doesn't have to be big to matter. This is enough.</div>
+                                {% elif 'Inner Dialogue' in tool_name %}
+                                    <div class="tool-step">Notice where you're feeling resistance right now. Where are you pulling back?</div>
+                                    <div class="tool-step">Instead of pushing through, pause here with me.</div>
+                                    <div class="tool-step">Ask gently: "What does this part of me need right now?"</div>
+                                    <div class="tool-step">Listen. Don't judge what comes up.</div>
+                                    <div class="tool-step">Maybe it says "I need rest" or "I'm scared" or "I need safety." Whatever it is, it's valid.</div>
+                                    <div class="tool-step">Write down what you heard, even if it doesn't make sense yet.</div>
+                                    <div class="tool-step">Thank that part of you for protecting you.</div>
+                                {% elif 'Visualization' in tool_name %}
+                                    <div class="tool-step">Close your eyes if that feels okay. Think of a situation where you usually freeze or shut down.</div>
+                                    <div class="tool-step">Now imagine responding differently. What would it look like?</div>
+                                    <div class="tool-step">See it clearly. Where are you? What do you say?</div>
+                                    <div class="tool-step">How does your body feel in this new version?</div>
+                                    <div class="tool-step">Stay with this image for another moment. You're building new pathways.</div>
+                                    <div class="tool-step">When you're ready, open your eyes. You just practiced something new.</div>
+                                {% elif 'Breath' in tool_name %}
+                                    <div class="tool-step">Place one hand on your chest, one on your belly.</div>
+                                    <div class="tool-step">Breathe in slowly through your nose. Feel your belly rise—not your chest.</div>
+                                    <div class="tool-step">Breathe out slowly through your mouth. Feel your belly fall.</div>
+                                    <div class="tool-step">Again. In... belly rises.</div>
+                                    <div class="tool-step">Out... belly falls.</div>
+                                    <div class="tool-step">Three more breaths like this at your own pace.</div>
+                                    <div class="tool-step">You're activating your body's natural calming system.</div>
+                                {% elif 'Review' in tool_name %}
+                                    <div class="tool-step">Take a moment to look back at the steps you've taken.</div>
+                                    <div class="tool-step">What showed up for you in this journey?</div>
+                                    <div class="tool-step">What felt hard? What surprised you?</div>
+                                    <div class="tool-step">What feels more available now than when you started?</div>
+                                    <div class="tool-step">Write down 2-3 things you want to remember.</div>
+                                    <div class="tool-step">Be gentle with yourself. Growth isn't linear. You showed up, and that matters.</div>
+                                {% else %}
+                                    <div class="tool-step">Take a few slow breaths with me.</div>
+                                    <div class="tool-step">Find a comfortable position.</div>
+                                    <div class="tool-step">There's no rush, no right way to do this.</div>
+                                    <div class="tool-step">Just notice what comes up, without judgment.</div>
+                                    <div class="tool-step">You're doing exactly what you need to be doing.</div>
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
                     {% endfor %}
@@ -470,6 +520,22 @@
                 });
             });
         });
+        
+        // Guided practice animation
+        function startPractice(button) {
+            button.classList.add('hidden');
+            const stepsContainer = button.nextElementSibling;
+            const steps = stepsContainer.querySelectorAll('.tool-step');
+            stepsContainer.style.display = 'block';
+            
+            let delay = 0;
+            steps.forEach((step, index) => {
+                setTimeout(() => {
+                    step.classList.add('show');
+                }, delay);
+                delay += 4000; // 4 seconds between each step
+            });
+        }
         
         async function completeModule() {
             const reflection = document.getElementById('reflectionInput').value;
