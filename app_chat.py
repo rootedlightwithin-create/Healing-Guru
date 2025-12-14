@@ -756,6 +756,543 @@ Which archetype(s) resonate with you? Write it down. In the premium modules, you
             'action': 'Complete "The Voice Map" exercise this week. Trace back one belief the inner bully holds about you to its origin. Write a short letter (that you won\'t send) to the person/moment where this voice began. Remember: gentleness first.',
             'is_free': True,
             'minutes': 25
+        },
+        {
+            'step': 3,
+            'title': 'Creating Safety - Regulating the Nervous System',
+            'purpose': 'Create safety in the body before changing the voice',
+            'guru_message': """**Check-In Questions:**
+• How has your week been?
+• What's been showing up for you?
+• What's one word that describes your energy today?
+
+**Grounding Exercise (2-3 minutes):**
+Close your eyes. Hand on heart, hand on belly. Inhale 4, hold 2, exhale 6 (repeat twice). Roots to earth. "I am safe. I am here. I am open."
+
+---
+
+**🌱 ROOT - Creating Safety First**
+
+Before we change the voice, we create safety in the body.
+
+The inner bully gets louder when the nervous system is overwhelmed. Healing doesn't work when you're in fight/flight/freeze. We must settle first.
+
+**You don't need to fix yourself — you need to feel safe.**
+
+---
+
+**Understanding Your Nervous System**
+
+Your body has three main states:
+
+**🟢 Ventral Vagal (Safe & Social)**
+You feel calm, connected, able to think clearly. This is where healing happens.
+
+**🟡 Sympathetic (Fight or Flight)**
+Heart racing, restless, anxious, overthinking. The inner bully gets LOUD here.
+
+**🔴 Dorsal Vagal (Freeze/Shutdown)**
+Numb, disconnected, exhausted, "can't even." The bully becomes a heavy fog.
+
+Self-criticism spikes during stress because your nervous system thinks you're in danger. The bully is trying to control an uncontrollable situation.
+
+**The truth:** Safety comes first. Then the voice softens.""",
+            'tools': 'Grounding,Box Breathing,Butterfly Hug',
+            'reflection': """**Identifying Your Personal Signs of Overwhelm**
+
+Ask yourself:
+• When does my inner bully get loudest?
+• What does overwhelm feel like in MY body? (racing heart, tight chest, foggy brain, etc.)
+• What signs tell me I'm moving out of my safe zone?
+
+**Creating Your "Safe Anchor" Practice**
+
+Choose 3 grounding tools that work for YOU:
+
+**Simple Grounding Tools:**
+• **Feet on floor:** Feel the ground beneath you. Press down.
+• **5-4-3-2-1:** Name 5 things you see, 4 you hear, 3 you touch, 2 you smell, 1 you taste.
+• **Cold water:** Splash face, hold ice, drink slowly.
+• **Butterfly Hug:** Cross arms, tap shoulders alternately.
+• **Box Breathing:** Inhale 4, hold 4, exhale 4, hold 4.
+• **Safe touch:** Hand on heart, hand on belly. Feel your own presence.
+
+Write down:
+• My top 3 grounding tools are...
+• I know I need to ground when I notice...
+• My safe anchor phrase is... (e.g., "I am here. I am safe. I can handle this.")
+
+**Practice This Week:**
+Use your grounding tools BEFORE responding to the inner bully. Notice what shifts when you settle your body first.""",
+            'action': 'Practice grounding 3 times this week when you notice the inner bully getting loud. Don\'t try to change the voice yet — just notice how it shifts when your nervous system feels safer. Journal: "When I grounded first, I noticed..."',
+            'is_free': False,
+            'minutes': 20
+        },
+        {
+            'step': 4,
+            'title': 'Reparenting the Inner World - Meeting the Voice with Compassion',
+            'purpose': 'Learn to respond to the inner bully differently',
+            'guru_message': """**Check-In Questions:**
+• How has your week been?
+• What's been showing up for you?
+• What's one word that describes your energy today?
+
+**Grounding Exercise:**
+Close eyes. Hand on heart, hand on belly. Inhale 4, hold 2, exhale 6 (twice). Roots to earth. "I am safe. I am here. I am open."
+
+---
+
+**🌸 RELEASE & REFLECT - Reparenting Your Inner World**
+
+This is where transformation really begins — not by silencing the voice, but by meeting it with care.
+
+**You become the safe adult your inner world always needed.**
+
+---
+
+**The Difference Between Reacting and Responding**
+
+**Reacting to the bully:**
+• Believing it ("You're right, I AM terrible")
+• Fighting it ("Shut up! You're wrong!")
+• Ignoring it (pushing it down, pretending it's not there)
+
+**Responding to the bully:**
+• Acknowledging it ("I hear you")
+• Questioning it gently ("Is that really true?")
+• Meeting it with compassion ("I know you're scared. We're okay.")
+
+The goal isn't to make the voice disappear. It's to change your relationship with it.
+
+---
+
+**How to Speak to Yourself as You Would a Child You Love**
+
+When the inner bully says:
+❌ "You're so stupid. Why can't you get this right?"
+
+Reparenting response:
+✅ "Hey, that's really harsh. You're learning. It's okay to make mistakes. I've got you."
+
+When the inner bully says:
+❌ "You're going to fail. Don't even try."
+
+Reparenting response:
+✅ "I know you're scared. That makes sense. But we're going to try anyway, and I'll be here no matter what happens."
+
+**Introducing Compassion Without Bypassing Truth**
+
+Compassion doesn't mean pretending everything is fine. It means holding both truth AND kindness.
+
+Example:
+"Yes, I made a mistake today. That's true. AND I'm still learning. AND I'm doing my best. AND one mistake doesn't define me."
+
+You can acknowledge reality while still being gentle.""",
+            'tools': 'Inner Dialogue,Grounding',
+            'reflection': """**Compassionate Inner Dialogue Practice**
+
+This week, practice catching the bully and responding differently:
+
+**Step 1:** Notice the harsh voice.
+**Step 2:** Pause. Take 3 grounding breaths.
+**Step 3:** Ask: "Would I say this to a child I love?"
+**Step 4:** Rephrase with compassion.
+
+**Reparenting Phrases to Practice:**
+
+When you're struggling:
+• "You're doing your best, and that's enough."
+• "It's okay to find this hard. It IS hard."
+• "I'm proud of you for trying."
+
+When you make a mistake:
+• "Mistakes are how we learn. You're safe with me."
+• "One moment doesn't define you."
+• "Let's try again, together."
+
+When you're scared:
+• "I know this feels scary. I'm here with you."
+• "We can take this one step at a time."
+• "You don't have to be brave alone."
+
+**Holding Boundaries with Kindness:**
+
+Sometimes the bully needs a gentle but firm boundary:
+
+"I hear you, but I'm not going to let you speak to me that way anymore. I'm learning to be kinder to myself."
+
+**Journal Prompts:**
+• What did the inner bully say this week?
+• How did I respond with compassion?
+• What felt hard about being kind to myself?
+• What would the younger version of me need to hear right now?""",
+            'action': 'Practice reparenting dialogue 5 times this week. Each time the inner bully speaks, pause, ground, and respond as you would to a scared child. Write down: "The bully said ___, I responded with ___."',
+            'is_free': False,
+            'minutes': 25
+        },
+        {
+            'step': 5,
+            'title': 'Rewriting the Story - Beliefs, Truth & Choice',
+            'purpose': 'Separate old beliefs from present truth',
+            'guru_message': """**Check-In Questions:**
+• How has your week been?
+• What's been showing up for you?
+• What's one word that describes your energy today?
+
+**Grounding Exercise:**
+Close eyes. Hand on heart, hand on belly. Inhale 4, hold 2, exhale 6 (twice). Roots to earth. "I am safe. I am here. I am open."
+
+---
+
+**🔥 RISE - Rewriting Your Story**
+
+The inner bully feeds on outdated beliefs. This module gently dismantles them and replaces them with lived truth.
+
+**You are allowed to update your story.**
+
+---
+
+**Identifying Core Limiting Beliefs**
+
+The inner bully often repeats the same core beliefs:
+
+Common ones include:
+• "I'm not good enough"
+• "I have to be perfect to be loved"
+• "I can't trust myself"
+• "If I rest, I'm lazy"
+• "My needs don't matter"
+• "I have to prove my worth"
+• "I'm too much / not enough"
+
+**Ask yourself:**
+What belief does MY inner bully repeat most?
+
+---
+
+**Questioning What is Inherited vs. Chosen**
+
+Many beliefs aren't yours — they were handed down.
+
+**Belief Inquiry:**
+
+1. What is the belief?
+   Example: "I have to be perfect to be loved."
+
+2. Where did this come from?
+   Example: "My parent only praised me when I succeeded."
+
+3. Is this belief actually TRUE?
+   Example: "No. I've been loved even when I wasn't perfect."
+
+4. What EVIDENCE contradicts this belief?
+   Example: "My friend loves me even when I mess up. My partner supports me on hard days."
+
+5. What would I rather believe?
+   Example: "I am lovable as I am, including my imperfections."
+
+6. What small action can I take to practice this new belief?
+   Example: "I'll share something vulnerable with someone safe and notice that I'm still loved."
+
+---
+
+**Learning to Update Beliefs Without Force**
+
+You can't force yourself to believe something new overnight. But you CAN:
+• Notice when the old belief shows up
+• Question it gently
+• Look for evidence of the new belief
+• Practice acting AS IF the new belief is true
+
+Over time, the new belief becomes lived experience.""",
+            'tools': 'Inner Dialogue,Reflection',
+            'reflection': """**Truth vs. Training Exercise**
+
+For each limiting belief, ask:
+
+**Is this TRUTH or TRAINING?**
+
+**Training:** Something I learned, was told, or absorbed from my environment.
+**Truth:** What is actually real, now, in this present moment.
+
+Example:
+• **Training:** "I'm not smart enough."
+• **Truth:** "I've learned new things throughout my life. I'm capable of growth."
+
+**Choose Your New Internal Language**
+
+Old language: "I'm so stupid."
+New language: "I'm learning. It's okay not to know everything."
+
+Old language: "I always mess up."
+New language: "I've made mistakes, and I've also succeeded. I'm human."
+
+Old language: "No one cares about me."
+New language: "Some people care. I'm learning to let that in."
+
+**Journal Prompts:**
+• What is one core limiting belief my inner bully holds?
+• Where did this belief come from? (person, moment, pattern)
+• What EVIDENCE do I have that this belief isn't fully true?
+• What would I rather believe instead?
+• What is one small action I can take this week to practice the new belief?
+
+**Choosing New Beliefs:**
+
+Write your new belief as an affirmation:
+• "I am enough, exactly as I am."
+• "My worth is not tied to my productivity."
+• "I am allowed to make mistakes and still be loved."
+
+Say it daily. Even if you don't fully believe it yet. You're teaching your nervous system a new truth.""",
+            'action': 'Complete the Belief Inquiry exercise for ONE limiting belief this week. Identify: the belief, its origin, evidence against it, and your new chosen belief. Practice the new belief through one small action. Notice what shifts.',
+            'is_free': False,
+            'minutes': 30
+        },
+        {
+            'step': 6,
+            'title': 'Integration - Living Without the Bully in Charge',
+            'purpose': 'Recognize progress and what life looks like when the bully isn\'t running the show',
+            'guru_message': """**Check-In Questions:**
+• How has your week been?
+• What's been showing up for you?
+• What's one word that describes your energy today?
+
+**Grounding Exercise:**
+Close eyes. Hand on heart, hand on belly. Inhale 4, hold 2, exhale 6 (twice). Roots to earth. "I am safe. I am here. I am open."
+
+---
+
+**🌊 REFLECT - Integration & Living Free**
+
+Healing isn't about perfection — it's about noticing when you've shifted.
+
+**You don't need to be healed to live freely.**
+
+---
+
+**Recognizing Progress Without Minimizing It**
+
+Progress doesn't always look like you expect:
+
+**Progress might look like:**
+• Catching the inner bully sooner than before
+• Responding with compassion once this week (even if you forgot the other 6 times)
+• Noticing when you're overwhelmed and choosing to ground
+• Taking a break without guilt (even if the guilt came later)
+• Asking for help
+• Saying no
+• Resting without justifying it
+• Making a mistake and NOT spiraling
+
+**You're not looking for perfection. You're looking for moments.**
+
+Even one moment of responding differently is evidence of change.
+
+---
+
+**What Setbacks Really Mean**
+
+The inner bully WILL come back. That doesn't mean you've failed.
+
+**Setbacks are information:**
+• "I was stressed and reverted to old patterns. That makes sense."
+• "I need more support right now."
+• "This belief is deeper than I thought. I need more time."
+
+**Setbacks are NOT proof that:**
+• Nothing is working
+• You're broken
+• You'll always be this way
+
+They're proof that you're HUMAN. And that healing is not linear.
+
+---
+
+**How the Bully May Try to Return in Subtle Ways**
+
+Even as the loud bully softens, watch for sneaky versions:
+
+• "I should be further along by now" (perfectionism)
+• "Other people heal faster" (comparison)
+• "I'm doing this wrong" (self-doubt)
+• "I'm being too self-focused" (guilt about self-care)
+
+These are all just... the inner bully wearing a different mask.
+
+Meet them the same way: with compassion.""",
+            'tools': 'Grounding,Reflection',
+            'reflection': """**Daily Check-Ins**
+
+For the next week, answer these each day:
+
+• On a scale of 1-10, how loud was the inner bully today?
+• When it showed up, how did I respond?
+• What helped me feel more grounded today?
+• What is one kind thing I did for myself?
+
+**Gentle Self-Trust Building**
+
+Trust isn't built overnight. But you can build it in small moments.
+
+**This week, practice trusting yourself by:**
+• Making one small decision without seeking external validation
+• Honoring a boundary you set
+• Listening to your body (rest when tired, eat when hungry, move when restless)
+• Believing yourself when you say something is hard
+
+**Celebrating Micro-Shifts**
+
+Write down EVERY small shift you notice:
+
+Examples:
+• "I caught myself mid-criticism and paused."
+• "I asked for help without apologizing."
+• "I rested without guilt (for 10 minutes at least)."
+• "I responded to the bully with compassion once today."
+• "I didn't spiral after a mistake."
+
+These aren't "small wins." They're EVIDENCE that you're changing.
+
+**Journal Prompts:**
+• What progress have I made since Module 1, even if it feels small?
+• What does life feel like when the inner bully isn't running the show?
+• How do I want to keep supporting myself moving forward?
+• What setbacks have I experienced, and what did they teach me?""",
+            'action': 'Complete daily check-ins all week. At the end, write a letter to yourself celebrating every micro-shift you noticed. Read it out loud. Let yourself FEEL the progress, even if it feels small.',
+            'is_free': False,
+            'minutes': 25
+        },
+        {
+            'step': 7,
+            'title': 'Embodiment & Continuity - Walking Forward with Trust',
+            'purpose': 'Carry this work into everyday life with ongoing support',
+            'guru_message': """**Check-In Questions:**
+• How has your week been?
+• What's been showing up for you?
+• What's one word that describes your energy today?
+
+**Grounding Exercise:**
+Close eyes. Hand on heart, hand on belly. Inhale 4, hold 2, exhale 6 (twice). Roots to earth. "I am safe. I am here. I am open."
+
+---
+
+**🌟 RISE - Walking Forward with Trust**
+
+This module ensures the course doesn't end — it integrates.
+
+**You are no longer at war with yourself.**
+
+---
+
+**Trusting Yourself Moving Forward**
+
+You've learned so much:
+• You can identify the inner bully
+• You understand where it came from
+• You know how to ground your nervous system
+• You can respond with compassion
+• You've questioned old beliefs and chosen new ones
+• You recognize progress, even when it's small
+
+Now the question is: **How do I keep this going?**
+
+The answer: **You don't have to do it perfectly. You just have to remember to come back.**
+
+---
+
+**Creating Personal Rituals for Ongoing Support**
+
+**Morning Ritual (5 minutes):**
+• Hand on heart. "Good morning. What do you need today?"
+• Set ONE intention: "Today, I will be kind to myself."
+• Ground before you start the day.
+
+**Midday Check-In (2 minutes):**
+• Pause. Notice: Is the inner bully loud right now?
+• If yes: Ground. Respond with compassion.
+• If no: Celebrate. "I'm doing okay."
+
+**Evening Reflection (5 minutes):**
+• What went well today?
+• When did the bully show up, and how did I respond?
+• What is one kind thing I can do for myself before bed?
+
+**Knowing When to Return to the Tools**
+
+You'll know it's time to come back when:
+• The inner bully gets loud again
+• You notice you're in old patterns
+• Life gets overwhelming
+• You forget to be kind to yourself
+
+**And that's okay.** This isn't about never struggling again. It's about having tools to come back to.""",
+            'tools': 'Grounding,Reflection,Visualization',
+            'reflection': """**Creating Your Personal Grounding Routine**
+
+Design a simple routine you can do ANYTIME the inner bully gets loud:
+
+Example:
+1. Pause. Notice the voice.
+2. Take 3 deep breaths.
+3. Hand on heart: "I hear you. You're scared. We're okay."
+4. Ground (feet, 5-4-3-2-1, cold water, etc.)
+5. Choose: What do I need right now?
+
+Write YOUR routine. Keep it simple. Keep it accessible.
+
+---
+
+**Designing a "Support Plan" for Hard Days**
+
+On hard days, you might forget everything you've learned. So write it down NOW:
+
+**When I'm struggling, I will:**
+• Ground first (my top 3 tools: ___)
+• Reach out to (person/support/community)
+• Remind myself: "This is temporary. I've gotten through hard days before."
+• Do ONE small kind thing for myself
+
+**I will NOT:**
+• Believe everything the inner bully says
+• Isolate completely
+• Push through without rest
+• Shame myself for struggling
+
+---
+
+**Closing Ritual / Reflection**
+
+Take a moment to reflect on this entire journey:
+
+• What has changed since Module 1?
+• What do I understand now that I didn't before?
+• How do I feel about the inner bully now?
+• What do I want to carry forward?
+
+**Write a letter to your future self:**
+
+"Dear Future Me,
+
+If the inner bully gets loud again, here's what I want you to remember:
+
+[Your wisdom here]
+
+You are not alone. You have tools. You are allowed to struggle AND you are capable of gentleness.
+
+With love,
+[Your name]"
+
+**Final Affirmation:**
+
+"I am no longer at war with myself. I am learning to be the safe, compassionate presence I always needed. I trust myself to keep showing up, one gentle moment at a time."
+
+You did it. You walked this path. And you can return to it anytime you need.
+
+**You are not broken. You were never broken. You are healing.**""",
+            'action': 'Complete your closing ritual. Write your letter to future self. Create your personal grounding routine and support plan. Save them somewhere you can find them on hard days. Celebrate how far you\'ve come. You did beautiful work.',
+            'is_free': False,
+            'minutes': 30
         }
     ]
     
