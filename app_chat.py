@@ -4075,6 +4075,7 @@ def has_premium_access(user_id):
 
 @app.route('/')
 def index():
+    """Home page with all active healing paths"""
     if 'user_id' not in session:
         session['user_id'] = secrets.token_hex(8)
     
@@ -4086,6 +4087,11 @@ def index():
     conn.close()
     
     return render_template('home.html', paths=paths)
+
+@app.route('/health')
+def health_check():
+    """Health check endpoint for Railway"""
+    return jsonify({'status': 'healthy', 'timestamp': datetime.now().isoformat()}), 200
 
 @app.route('/chat')
 def chat_page():
