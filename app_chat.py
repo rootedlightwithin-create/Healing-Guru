@@ -4635,7 +4635,7 @@ def chat():
         
         # Build response
         response_data = {
-            'message': ai_analysis['response'],
+            'message': ai_analysis['response'],  # Frontend expects 'message' not 'response'
             'pattern': ai_analysis.get('pattern'),
             'emotion': ai_analysis.get('emotion')
         }
