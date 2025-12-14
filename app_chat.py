@@ -2909,16 +2909,28 @@ class HealingGuruAI:
         """Detect if user is expressing genuine positive emotions (not just conversational agreements)"""
         
         # FIRST: Check for negations that invalidate positive words
-        # e.g., "I'm not doing too good", "not feeling great", "don't feel good"
+        # e.g., "I'm not doing too good", "not feeling great", "don't feel good", "not so good"
         negation_patterns = [
             'not doing', 'not feeling', 'not too', 'not very', 'not really',
             "don't feel", "dont feel", "doesn't feel", "doesnt feel",
-            'not good', 'not great', 'not well', 'not okay', 'not ok',
-            'hardly', 'barely', 'far from'
+            'not good', 'not so good', 'not that good', 'not great', 'not so great',
+            'not well', 'not okay', 'not ok', 'not fine',
+            'hardly', 'barely', 'far from', 'anything but',
+            'never feel', 'never felt', 'cant feel', "can't feel"
+        ]
+        
+        # Also check for negative context even without "not"
+        negative_contexts = [
+            'really tired', 'exhausted', 'drained', 'worn out',
+            'struggling', 'difficult', 'hard', 'tough',
+            'cant cope', "can't cope", 'overwhelmed', 'too much'
         ]
         
         if any(neg in message_lower for neg in negation_patterns):
             return None  # Negated positive words = not a positive state
+        
+        if any(neg in message_lower for neg in negative_contexts):
+            return None  # Negative context = not a positive state
         
         # Exclude short agreement responses that contain positive words but aren't emotional states
         # These are conversational fillers, not emotional expressions
