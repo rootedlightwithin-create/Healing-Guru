@@ -4231,36 +4231,6 @@ def complete_module(slug, step):
     
     return jsonify({'success': True, 'next_step': step + 1})
 
-@app.route('/verify-license', methods=['POST'])
-def verify_license():
-    """Verify Gumroad license key and activate subscription"""
-    data = request.json
-    license_key = data.get('license_key')
-    user_id = session.get('user_id')
-    
-    if not user_id or not license_key:
-        return jsonify({'success': False, 'error': 'Missing information'})
-    
-    # TODO: Add actual Gumroad API verification here
-    # For now, we'll accept any license key (temporary for testing)
-    # In production, call: https://api.gumroad.com/v2/licenses/verify
-    
-    conn = sqlite3.connect('healing_guru_chat.db')
-    c = conn.cursor()
-    
-    # Delete existing subscription if any
-    c.execute("DELETE FROM subscriptions WHERE user_id = ?", (user_id,))
-    # Save new subscription
-    c.execute("""INSERT INTO subscriptions 
-                 (user_id, gumroad_license_key, subscription_status, started_at)
-                 VALUES (?, ?, 'active', CURRENT_TIMESTAMP)""",
-              (user_id, license_key))
-    
-    conn.commit()
-    conn.close()
-    
-    return jsonify({'success': True})
-
 @app.route('/activate-premium-test')
 def activate_premium_test():
     """TEST ONLY: Activate premium for current user"""
