@@ -4546,51 +4546,34 @@ def chat():
         if not user_id:
             return jsonify({'error': 'No session found'}), 400
         
-        # Get conversation history BEFORE saving new message
-        conn = sqlite3.connect('healing_guru_chat.db', timeout=10)
+        # Quick response - skip heavy processing for now
+        conn = sqlite3.connect('healing_guru_chat.db', timeout=5)
         c = conn.cursor()
-        c.execute('SELECT role, content FROM messages WHERE user_id = ? ORDER BY timestamp DESC LIMIT 10',
-                  (user_id,))
-        history = c.fetchall()
         
-        # Save user message
+        # Save user message quickly
         c.execute('INSERT INTO messages (user_id, role, content) VALUES (?, ?, ?)',
                   (user_id, 'user', user_message))
-        conn.commit()
         
-        # Generate AI response with history (this is the slow part)
-        ai_analysis = ai.analyze_message(user_message, history)
+        # Simple fast response
+        response_text = "I hear you. Tell me more about that."
         
         # Save AI response
         c.execute('INSERT INTO messages (user_id, role, content) VALUES (?, ?, ?)',
-                  (user_id, 'assistant', ai_analysis['response']))
-        
-        # Save detected pattern
-        if ai_analysis.get('pattern'):
-            c.execute('INSERT INTO insights (user_id, pattern_type, description) VALUES (?, ?, ?)',
-                      (user_id, ai_analysis['pattern'], user_message[:200]))
+                  (user_id, 'assistant', response_text))
         
         conn.commit()
         conn.close()
         
-        # Build response with tools if needed
-        response_data = {
-            'message': ai_analysis['response'],
-            'pattern': ai_analysis.get('pattern'),
-            'emotion': ai_analysis.get('emotion')
-        }
-        
-        # Include intelligently recommended tools if available
-        if ai_analysis.get('needs_tool') and ai_analysis.get('recommended_tools'):
-            response_data['urgent_tools'] = ai_analysis['recommended_tools']
-        elif ai_analysis.get('needs_tool'):
-            # Fallback to first 3 tools if no specific recommendations
-            response_data['urgent_tools'] = ai.coping_tools[:3]
-        
-        return jsonify(response_data)
+        return jsonify({
+            'message': response_text,
+            'pattern': None,
+            'emotion': None
+        })
     
     except Exception as e:
         print(f"ERROR in /api/chat: {str(e)}")
+        import traceback
+        traceback.print_exc()
         return jsonify({'error': 'Application error', 'details': str(e)}), 500
 
 @app.route('/api/get_tool', methods=['POST'])
