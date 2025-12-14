@@ -3529,34 +3529,47 @@ class HealingGuruAI:
         needs_peace = any(word in message_lower for word in ['peace', 'peaceful', 'calm', 'quiet'])
         needs_grounding = any(phrase in message_lower for phrase in ['need grounding', 'want grounding', 'ground me', 'help me ground', 'grounding exercise'])
         needs_clarity = any(word in message_lower for word in ['clarity', 'clear', 'think straight', 'clear head'])
-        needs_rest = any(word in message_lower for word in ['rest', 'sleep', 'relax', 'unwind'])
-        needs_relief = any(word in message_lower for word in ['relief', 'break', 'escape', 'pause'])
+        needs_rest = any(word in message_lower for word in ['rest', 'sleep', 'relax', 'unwind', 'stop', 'pause', 'break'])
+        needs_relief = any(word in message_lower for word in ['relief', 'escape'])
         
         # Check if it's a short response (likely answering "what do you need?")
         word_count = len(message_lower.split())
-        is_short_need_statement = word_count <= 5
+        is_short_need_statement = word_count <= 6
         
         # Exception: "I'm here" is just affirming presence, not requesting grounding
         is_affirming_presence = message_lower.strip() in ["i'm here", "im here", "here", "i am here"]
         
         if is_short_need_statement and (needs_peace or needs_grounding or needs_clarity or needs_rest or needs_relief) and not is_affirming_presence:
-            # Ask permission before offering the tool
-            if needs_peace or needs_rest:
+            # Acknowledge what they need and offer specific tool
+            if needs_rest:
                 tool_offer = (
-                    "I can guide you through a **4-7-8 Breathing exercise** right now - it's proven for calm and takes about 90 seconds.\n\n"
+                    "Yes. Rest isn't a luxury - it's essential. Your body is asking for what it needs.\n\n"
+                    "Let's start with just 90 seconds. I can guide you through **4-7-8 Breathing** - "
+                    "it signals your nervous system to shift into rest mode.\n\n"
+                    "Would you like to try it with me right now?"
+                )
+            elif needs_peace or needs_relief:
+                tool_offer = (
+                    "I hear you. Let's create some of that peace right now.\n\n"
+                    "I can guide you through a **4-7-8 Breathing exercise** - it's proven to calm the nervous system "
+                    "and takes about 90 seconds.\n\n"
                     "Would you like to try it?"
                 )
             elif needs_grounding:
                 tool_offer = (
-                    "I can guide you through a **5-4-3-2-1 Grounding exercise** - it brings you back to the present moment in about 2 minutes.\n\n"
+                    "Perfect. Let's ground you right now.\n\n"
+                    "I can guide you through **5-4-3-2-1 Grounding** - it brings you back to the present moment "
+                    "in about 2 minutes.\n\n"
                     "Would you like to try it?"
                 )
             elif needs_clarity:
                 tool_offer = (
-                    "I can guide you through **Box Breathing** - it clears mental fog and takes about 90 seconds.\n\n"
+                    "I can help with that. Let's clear some space.\n\n"
+                    "I can guide you through **Box Breathing** - it clears mental fog and calms racing thoughts "
+                    "in about 90 seconds.\n\n"
                     "Would you like to try it?"
                 )
-            else:  # needs_relief
+            else:  # General needs
                 tool_offer = (
                     "I can guide you through a **Physiological Sigh** - it releases tension in about 30 seconds.\n\n"
                     "Would you like to try it?"
