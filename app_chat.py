@@ -2142,11 +2142,10 @@ You did it. You walked this path. And you can return to it anytime you need.
     conn.commit()
     conn.close()
 
+# Initialize database and seed paths on startup
 init_db()
-seed_freeze_path()  # Seed the path on startup
-seed_inner_bully_path()  # Seed inner bully path
-
-init_db()
+seed_freeze_path()
+seed_inner_bully_path()
 
 # AI Conversation Engine
 class HealingGuruAI:
