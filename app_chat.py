@@ -178,7 +178,22 @@ Today, we practice releasing the shame and old patterns that keep you stuck in f
 **Release Visualization:**
 Visualize cords attached to the body parts where you felt sensations earlier. These cords represent the limiting belief about freeze. Imagine cutting these cords and watching them fade away. Affirm: "I release all that does not serve me. I release the shame around my freeze response."
 
-Write what you're ready to release.""",
+Write what you're ready to release.
+
+---
+
+**Understanding Your Freeze Pattern**
+
+Freeze doesn't look the same for everyone. Here are three common patterns - see if you recognize yourself:
+
+**🌸 The Wounded-Nurturer:** You give and give until there's nothing left, then you freeze. You care deeply for others but struggle to care for yourself. Your freeze happens when you've poured everything out and your system shuts down to protect you from complete depletion.
+
+**🌑 The Rooted-Wounded:** You appear strong and capable on the outside - the one everyone depends on. But underneath, there's unhealed pain you haven't had space to express. Your freeze happens when you can no longer hold it all together alone.
+
+**🌊 The Avoidant-Elevated:** You're spiritually aware and deeply thoughtful, but when emotions feel too big, you retreat into your head or disconnect from your body. Your freeze is a form of emotional self-protection - it keeps you safe from overwhelm.
+
+**Which pattern resonates most with you?**
+Write it down. In the premium modules, you'll receive personalized guidance designed specifically for YOUR nervous system and pattern - not generic advice, but tools that work with how you're wired.""",
             'action': 'One small act of care today: warm drink, lying down for 5 minutes, stepping outside, or wrapping yourself in a blanket. Practice the release visualization whenever shame about freeze shows up.',
             'is_free': True,
             'minutes': 25
@@ -210,10 +225,20 @@ Let's reflect on what you truly need and desire.""",
 • What helps me feel even 5% safer right now?
 • How can I offer safety to myself first?
 
+**Personalized Guidance for Your Pattern:**
+
+**🌸 For Wounded-Nurturers:** Safety might feel like: having permission to rest without proving your worth. Your freeze happens when you've given everything away. What would it feel like to receive care without having to earn it? Your new truth: "I am worthy of rest. My needs matter as much as anyone else's."
+
+**🌑 For Rooted-Wounded:** Safety means: finally letting someone see what's underneath your strong exterior. Your freeze protects the pain you've been carrying alone. What would it be like to share the weight with someone safe? Your new truth: "I don't have to hold it all together alone. Vulnerability is strength."
+
+**🌊 For Avoidant-Elevated:** Safety means: emotional space without pressure to open up before you're ready. Your freeze protects you from emotional overwhelm. What would 'safe connection' look like - where you could stay grounded AND be seen? Your new truth: "I can stay present in my body even when emotions arise. I am safe to feel."
+
+---
+
 **Loving Space Visualization:**
 Move into a loving, open space. Visualize love expanding through your whole body, ready to hold new energy. Write your new understanding about what you truly need.
 
-**New Affirmation:** Create your own affirmation based on your new clarity. Example: "I am safe to move at my own pace. My body knows when it's ready."
+**New Affirmation:** Choose the affirmation above that resonates, or create your own based on your clarity.
 
 Write your new belief about safety and movement.""",
             'action': 'Choose one micro-safety anchor for today: a cozy corner, a specific song, a grounding object you can touch. Use it whenever you notice freeze starting.',
@@ -245,8 +270,18 @@ Today is about the smallest possible movement - not because you should, but beca
 • How can I reinforce this new pattern when freeze shows up again?
 • What felt possible today that didn't yesterday?
 
+**Embodiment Practice for Your Pattern:**
+
+**🌸 Wounded-Nurturers:** Your first action is radical: do something just for you, with no one else benefiting. Take 5 minutes to sit in stillness. Let yourself receive without giving. Notice the discomfort - that's the old pattern. Breathe through it. "I practice receiving."
+
+**🌑 Rooted-Wounded:** Your action is vulnerability in micro-doses. Text one person: "I've been struggling with ___. Just wanted to share." You don't have to be strong right now. Notice how it feels to let the mask slip just a little. "I am safe to be seen."
+
+**🌊 Avoidant-Elevated:** Your action is embodiment. Place both hands on your belly. Say out loud: one emotion you've been avoiding ("I feel sad" or "I feel angry"). Stay present in your body for 30 seconds. Don't analyze it - just feel it. "My body is safe to feel emotions."
+
+---
+
 **Embodiment Practice:**
-Write down your new belief. Take one small aligned action right now - even just stretching your arms, taking three deep breaths while standing, or stepping outside for 30 seconds.
+Write down your new belief. Take one small aligned action right now - use the guidance above or choose your own.
 
 **Habit Stacking:**
 Embed your new truth by repeating your affirmation daily. Link it to something you already do (breakfast, brushing teeth, making tea). The key is consistency, not pressure.""",
@@ -283,10 +318,20 @@ Old patterns will still show up. That's normal. The power is that you now notice
 • Where did tension show up in my body when freeze appeared?
 • What felt hard today, and why might that make sense?
 
+**Your Pattern's Signature Triggers:**
+
+**🌸 Wounded-Nurturers:** Your freeze likely showed up after: over-giving, saying yes when you meant no, or feeling unappreciated. The trigger is depletion. Your body shuts down when the well runs dry. Notice: when do you give past your capacity? That's your early warning system.
+
+**🌑 Rooted-Wounded:** Your freeze likely showed up when: you felt pressure to keep being strong, someone asked "how are you really?", or you were alone with your thoughts. The trigger is the threat of being seen as anything but capable. Notice: when does your armor feel too heavy to hold up?
+
+**🌊 Avoidant-Elevated:** Your freeze likely showed up during: conflict, emotional intensity from others, or when someone wanted to "go deep." The trigger is emotional overwhelm or loss of control. Notice: when do you retreat into your head or feel the urge to escape?
+
+---
+
 **Pattern Tracker Exercise:**
 For each time freeze showed up, note:
 • **Situation:** What happened?
-• **Trigger:** What set it off?
+• **Trigger:** What set it off? (Use your pattern signature above)
 • **My Reaction:** What did I do/think/feel?
 • **Outcome:** What happened as a result?
 • **New Choice:** What could I try instead next time?
@@ -327,9 +372,19 @@ This is where you consciously step into the new version of yourself - the one wh
 • What choice feels aligned right now - even if it's tiny?
 • If I trusted this version of me fully, what would I do differently?
 
+**Living as Your New Self - Pattern-Specific:**
+
+**🌸 Wounded-Nurturers:** The new you says no without guilt. You check in with yourself BEFORE offering help: "Do I have capacity for this?" You take breaks without apologizing. You ask for support. When the old pattern whispers "you're being selfish," you respond: "I'm being sustainable."
+
+**🌑 Rooted-Wounded:** The new you lets the armor down with safe people. You share one vulnerable thing per week. You say "I'm not okay" when you're not. When the old pattern says "be strong," you respond: "Strength includes softness. I can be both."
+
+**🌊 Avoidant-Elevated:** The new you stays present during emotional moments. You notice the urge to disconnect and breathe through it instead. You say "I need a moment" rather than disappearing. When the old pattern says "retreat," you respond: "I can handle feeling this. I am safe in my body."
+
+---
+
 **Identity Anchoring:**
 Write 5 sentences as your new self: "As the new me, I..."
-Example: "As the new me, I pause before reacting. I honor my pace. I choose gentle movement over pressure."
+Use the pattern-specific guidance above to inspire your statements.
 
 **Future-Self Visualization:**
 Close your eyes. See yourself living one day as this new version - the one who works with freeze compassionately instead of fighting it. Notice how you walk, speak, breathe. Anchor with one word (e.g., "gentle," "steady," "aware"). Use that word as your cue this week.""",
@@ -367,11 +422,25 @@ Freeze may still show up sometimes. But now you have a way to work with it. Now 
 • How has my relationship with freeze transformed?
 • What is my next edge to rise into?
 
+**Your Transformation - Pattern-Specific Celebration:**
+
+**🌸 Wounded-Nurturers:** You're learning that your worth isn't measured by what you give. You're beginning to receive. You're setting boundaries. You're discovering that rest isn't selfish - it's sacred. Your next edge: continue building the muscle of self-prioritization. You are enough, exactly as you are.
+
+**🌑 Rooted-Wounded:** You're allowing yourself to be seen - not just as strong, but as human. You're sharing the weight. You're discovering that vulnerability doesn't break you - it connects you. Your next edge: deepen trust in safe relationships. You don't have to carry everything alone.
+
+**🌊 Avoidant-Elevated:** You're staying present in your body more often. You're noticing emotions without immediately escaping into your head. You're discovering that feelings won't overwhelm you if you let them flow. Your next edge: lean into intimacy in small doses. Connection is safe when you stay grounded.
+
+---
+
 **Wins List:**
-Write every shift, big or small, that happened through this journey.
+Write every shift, big or small, that happened through this journey. Include moments when you caught your pattern early, made a different choice, or surprised yourself.
 
 **Legacy Prompt:**
-If freeze shows up again, what will you want to remember? Write a compassionate note to your future self.
+If freeze shows up again, what will you want to remember? Write a compassionate note to your future self. Include:
+• What you now know about your pattern
+• The tools that work for YOUR nervous system
+• Permission to be exactly where you are
+• Reminder that freeze is information, not failure
 
 **Expansion Questions:**
 • What practices keep me stable as I step into a bigger life beyond freeze?
