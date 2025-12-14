@@ -4551,35 +4551,69 @@ def chat():
         if not user_id:
             return jsonify({'error': 'No session found'}), 400
         
-        # Quick response - skip heavy processing for now
+        # Connect to database with timeout
         conn = sqlite3.connect('healing_guru_chat.db', timeout=5)
         c = conn.cursor()
         
-        # Save user message quickly
+        # Get conversation history
+        c.execute('SELECT role, content FROM messages WHERE user_id = ? ORDER BY timestamp DESC LIMIT 10',
+                  (user_id,))
+        history = c.fetchall()
+        
+        # Save user message
         c.execute('INSERT INTO messages (user_id, role, content) VALUES (?, ?, ?)',
                   (user_id, 'user', user_message))
+        conn.commit()
         
-        # Simple fast response
-        response_text = "I hear you. Tell me more about that."
+        # Generate AI response with history
+        try:
+            ai_analysis = ai.analyze_message(user_message, history)
+        except Exception as ai_error:
+            print(f"AI Error: {str(ai_error)}")
+            # Fallback response if AI fails
+            ai_analysis = {
+                'response': "I'm here with you. Tell me more about what you're experiencing.",
+                'pattern': None,
+                'emotion': None,
+                'needs_tool': False
+            }
         
         # Save AI response
         c.execute('INSERT INTO messages (user_id, role, content) VALUES (?, ?, ?)',
-                  (user_id, 'assistant', response_text))
+                  (user_id, 'assistant', ai_analysis['response']))
+        
+        # Save detected pattern if exists
+        if ai_analysis.get('pattern'):
+            c.execute('INSERT INTO insights (user_id, pattern_type, description) VALUES (?, ?, ?)',
+                      (user_id, ai_analysis['pattern'], user_message[:200]))
         
         conn.commit()
         conn.close()
         
+        # Build response
+        response_data = {
+            'message': ai_analysis['response'],
+            'pattern': ai_analysis.get('pattern'),
+            'emotion': ai_analysis.get('emotion')
+        }
+        
+        # Include tools if recommended
+        if ai_analysis.get('needs_tool') and ai_analysis.get('recommended_tools'):
+            response_data['urgent_tools'] = ai_analysis['recommended_tools']
+        elif ai_analysis.get('needs_tool'):
+            response_data['urgent_tools'] = ai.coping_tools[:3]
+        
+        return jsonify(response_data)
+    
+    except Exception as e:
+        print(f"CHAT ERROR: {str(e)}")
+        import traceback
+        traceback.print_exc()
         return jsonify({
-            'message': response_text,
+            'message': "I'm having trouble connecting right now. Please try again.",
             'pattern': None,
             'emotion': None
         })
-    
-    except Exception as e:
-        print(f"ERROR in /api/chat: {str(e)}")
-        import traceback
-        traceback.print_exc()
-        return jsonify({'error': 'Application error', 'details': str(e)}), 500
 
 @app.route('/api/get_tool', methods=['POST'])
 def get_tool():
@@ -5054,6 +5088,10 @@ def verify_license():
 
 if __name__ == '__main__':
     import os
+    print("Starting Healing Guru app...")
+    print(f"Python version: {os.sys.version}")
+    print(f"PORT: {os.environ.get('PORT', '5002')}")
+    
     # Get port from environment variable (Railway) or use 5002 for local
     port = int(os.environ.get('PORT', 5002))
     # Allow external connections
