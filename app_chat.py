@@ -3250,8 +3250,68 @@ class HealingGuruAI:
         # Get recent AI responses to avoid repetition
         try:
             recent_ai_messages = [msg[1] for msg in history if len(msg) >= 2 and msg[0] == 'assistant'][:3]
+            last_ai_message = recent_ai_messages[0] if recent_ai_messages else ""
         except (IndexError, TypeError, AttributeError):
             recent_ai_messages = []
+            last_ai_message = ""
+        
+        # Check if this is a short response (likely answering a previous question)
+        word_count = len(message_lower.split())
+        is_short_response = word_count <= 8
+        
+        # If short response, check what the previous AI question was about
+        if is_short_response and last_ai_message:
+            # Check if previous AI asked about rest
+            if any(word in last_ai_message.lower() for word in ['rest', 'sleep', 'recharge', 'break']):
+                # User is responding about rest/lack of rest
+                if any(word in message_lower for word in ['haven\'t', 'havent', 'not yet', 'no', 'cant', 'can\'t', 'don\'t', 'dont']):
+                    # They haven't rested
+                    rest_responses = [
+                        "That makes sense why you're feeling so drained. Your body is asking for something it needs. What would it take for you to pause for even 5 minutes right now?",
+                        "I hear you. Going without rest catches up with us. Can we try a quick grounding exercise? Just 90 seconds to help your nervous system settle?",
+                        "No wonder you're exhausted. Rest isn't optional - your body needs it. What's been stopping you from taking that break?",
+                        "Your exhaustion makes perfect sense. When we don't rest, everything feels harder. Would you be open to trying a short breathing exercise with me right now?"
+                    ]
+                    return {
+                        'response': random.choice(rest_responses),
+                        'pattern': 'exhaustion',
+                        'emotion': 'tired',
+                        'needs_tool': True,
+                        'recommended_tools': [t for t in self.coping_tools if 'Breathing' in t['name'] or 'Grounding' in t['name']][:2]
+                    }
+            
+            # Check if previous AI asked about feelings/emotions
+            if any(word in last_ai_message.lower() for word in ['feel', 'feeling', 'emotion']):
+                # User gave a short answer about how they feel
+                if any(word in message_lower for word in ['not', 'dont', 'don\'t', 'can\'t', 'cant', 'hard']):
+                    hard_to_feel_responses = [
+                        "That's okay. Sometimes it's hard to put words to what's inside. Can you describe what you're noticing in your body instead?",
+                        "I understand. Feelings can be fuzzy or overwhelming. Let's try something different - where in your body do you notice tension or heaviness?",
+                        "No pressure to name it. What if we just notice together - is there tightness anywhere? Heaviness? Restlessness?",
+                        "That makes sense. Sometimes feelings are just sensations. What's the first thing you notice when you check in with your body right now?"
+                    ]
+                    return {
+                        'response': random.choice(hard_to_feel_responses),
+                        'pattern': 'difficulty_identifying_emotion',
+                        'emotion': None,
+                        'needs_tool': False
+                    }
+            
+            # Check if previous AI asked "how long"
+            if any(phrase in last_ai_message.lower() for phrase in ['how long', 'when did', 'when was']):
+                # User gave a short time-related answer
+                contextual_followups = [
+                    "I hear you. That's significant. What's been making this particularly difficult to carry?",
+                    "That's a lot of time to hold onto this. What part of it weighs on you most?",
+                    "I'm listening. Through all of this, what's helped you keep going?",
+                    "That's been a journey. What would you need to feel more supported through this?"
+                ]
+                return {
+                    'response': random.choice(contextual_followups),
+                    'pattern': None,
+                    'emotion': self.detect_emotion(message_lower),
+                    'needs_tool': False
+                }
         
         # FIRST: Check for positive emotional states
         positive_state = self.detect_positive_state(message_lower)
