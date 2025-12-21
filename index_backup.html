@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rooted Light Within Companion - Your Personal Wellness Companion</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .tagline {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .card h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .emoji {
+            font-size: 1.5em;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        input[type="text"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: border-color 0.3s;
+        }
+        
+        input[type="text"]:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+        
+        .intensity-slider {
+            width: 100%;
+            margin: 10px 0;
+        }
+        
+        .intensity-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9em;
+            color: #666;
+        }
+        
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: transform 0.2s;
+            width: 100%;
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        button:active {
+            transform: translateY(0);
+        }
+        
+        .results {
+            display: none;
+        }
+        
+        .results.active {
+            display: block;
+        }
+        
+        .pattern-badge {
+            display: inline-block;
+            background: #fff3cd;
+            color: #856404;
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin: 5px;
+            font-size: 0.9em;
+        }
+        
+        .affirmation {
+            background: #d4edda;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            border-left: 4px solid #28a745;
+        }
+        
+        .tool-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            border-left: 4px solid #667eea;
+        }
+        
+        .tool-card h4 {
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+        
+        .tool-meta {
+            font-size: 0.85em;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            border: none;
+            background: transparent;
+            color: #666;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+        }
+        
+        .tab.active {
+            color: #667eea;
+            border-bottom-color: #667eea;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .progress-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+        
+        .effectiveness-rating {
+            display: flex;
+            gap: 5px;
+            margin: 10px 0;
+        }
+        
+        .star {
+            cursor: pointer;
+            font-size: 1.5em;
+            color: #ddd;
+        }
+        
+        .star.filled {
+            color: #ffc107;
+        }
+        
+        .alert {
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .alert-success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 20px;
+            color: #667eea;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌟 Rooted Light Within Companion</h1>
+            <p class="tagline">Your Personal Wellness Companion</p>
+        </header>
+
+        <div class="main-content">
+            <!-- Check-in Form -->
+            <div class="card">
+                <h2><span class="emoji">💭</span> Daily Check-In</h2>
+                <form id="checkinForm">
+                    <div class="form-group">
+                        <label for="name">Your Name (optional)</label>
+                        <input type="text" id="name" placeholder="Enter your name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="emotion">How are you feeling?</label>
+                        <select id="emotion" required>
+                            <option value="">Select an emotion...</option>
+                            <option value="anxiety">Anxious</option>
+                            <option value="sadness">Sad</option>
+                            <option value="anger">Angry</option>
+                            <option value="stress">Stressed</option>
+                            <option value="overwhelm">Overwhelmed</option>
+                            <option value="calm">Calm</option>
+                            <option value="happy">Happy</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="intensity">Intensity (1-10)</label>
+                        <input type="range" id="intensity" class="intensity-slider" min="1" max="10" value="5" required>
+                        <div class="intensity-labels">
+                            <span>Mild (1)</span>
+                            <span id="intensityValue">5</span>
+                            <span>Intense (10)</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="trigger">What triggered this feeling?</label>
+                        <textarea id="trigger" placeholder="Describe what happened or what you're thinking about..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bodySensations">Body sensations (optional)</label>
+                        <input type="text" id="bodySensations" placeholder="e.g., tight chest, clenched jaw, tired">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="thoughts">What thoughts are running through your mind?</label>
+                        <textarea id="thoughts" placeholder="Share your thoughts without judgment..."></textarea>
+                    </div>
+
+                    <button type="submit">Get Guidance</button>
+                </form>
+
+                <div id="results" class="results">
+                    <div id="resultsContent"></div>
+                </div>
+            </div>
+
+            <!-- Insights & Tools -->
+            <div class="card">
+                <h2><span class="emoji">📊</span> Your Insights</h2>
+                
+                <div class="tabs">
+                    <button class="tab active" onclick="switchTab('patterns')">Patterns</button>
+                    <button class="tab" onclick="switchTab('progress')">Progress</button>
+                    <button class="tab" onclick="switchTab('tools')">All Tools</button>
+                </div>
+
+                <div id="patterns-tab" class="tab-content active">
+                    <p>Your behavioral patterns will appear here after check-ins.</p>
+                    <div id="patternsContent"></div>
+                </div>
+
+                <div id="progress-tab" class="tab-content">
+                    <p>Track your progress with different coping tools.</p>
+                    <div id="progressContent"></div>
+                </div>
+
+                <div id="tools-tab" class="tab-content">
+                    <p>Explore all available coping tools and techniques.</p>
+                    <div id="toolsContent"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Update intensity value display
+        document.getElementById('intensity').addEventListener('input', function() {
+            document.getElementById('intensityValue').textContent = this.value;
+        });
+
+        // Tab switching
+        function switchTab(tabName) {
+            // Update tab buttons
+            document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Update tab content
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            document.getElementById(tabName + '-tab').classList.add('active');
+
+            // Load data for the tab
+            if (tabName === 'patterns') loadPatterns();
+            if (tabName === 'progress') loadProgress();
+            if (tabName === 'tools') loadAllTools();
+        }
+
+        // Handle check-in form submission
+        document.getElementById('checkinForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const data = {
+                name: document.getElementById('name').value,
+                emotion: document.getElementById('emotion').value,
+                intensity: parseInt(document.getElementById('intensity').value),
+                trigger: document.getElementById('trigger').value,
+                body_sensations: document.getElementById('bodySensations').value,
+                thoughts: document.getElementById('thoughts').value
+            };
+
+            try {
+                const response = await fetch('/api/checkin', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(data)
+                });
+
+                const result = await response.json();
+                displayResults(result);
+                loadPatterns(); // Refresh patterns
+            } catch (error) {
+                alert('Error submitting check-in. Please try again.');
+                console.error(error);
+            }
+        });
+
+        function displayResults(result) {
+            const resultsDiv = document.getElementById('results');
+            const content = document.getElementById('resultsContent');
+
+            let html = '<div class="alert alert-success">✅ ' + result.message + '</div>';
+
+            // Display detected patterns
+            if (result.patterns && result.patterns.length > 0) {
+                html += '<h3>🔍 Patterns Detected</h3>';
+                result.patterns.forEach(pattern => {
+                    html += `<span class="pattern-badge">${pattern.replace('_', ' ')}</span>`;
+                });
+            }
+
+            // Display affirmations
+            if (result.affirmations && result.affirmations.length > 0) {
+                html += '<h3 style="margin-top: 20px;">💚 Affirmations for You</h3>';
+                result.affirmations.slice(0, 3).forEach(affirmation => {
+                    html += `<div class="affirmation">${affirmation}</div>`;
+                });
+            }
+
+            // Display recommended tools
+            if (result.tools && result.tools.length > 0) {
+                html += '<h3 style="margin-top: 20px;">🛠️ Recommended Tools</h3>';
+                result.tools.forEach(tool => {
+                    html += `
+                        <div class="tool-card">
+                            <h4>${tool.name}</h4>
+                            <p>${tool.description}</p>
+                            <div class="tool-meta">
+                                Duration: ${tool.duration} | Use for: ${tool.when_to_use}
+                            </div>
+                            <button onclick="logTool('${tool.name}')" style="margin-top: 10px; padding: 8px 15px; font-size: 0.9em;">
+                                I tried this
+                            </button>
+                        </div>
+                    `;
+                });
+            }
+
+            content.innerHTML = html;
+            resultsDiv.classList.add('active');
+        }
+
+        async function loadPatterns() {
+            try {
+                const response = await fetch('/api/patterns');
+                const data = await response.json();
+                const content = document.getElementById('patternsContent');
+
+                if (data.patterns.length === 0) {
+                    content.innerHTML = '<p style="color: #999;">No patterns detected yet. Complete a check-in to start tracking.</p>';
+                    return;
+                }
+
+                let html = '';
+                data.patterns.forEach(pattern => {
+                    html += `
+                        <div class="progress-item">
+                            <h4>${pattern.type.replace('_', ' ')}</h4>
+                            <p>${pattern.description}</p>
+                            <div style="font-size: 0.85em; color: #666; margin-top: 8px;">
+                                Frequency: ${pattern.frequency} times<br>
+                                Last occurred: ${new Date(pattern.last_occurred).toLocaleDateString()}
+                            </div>
+                        </div>
+                    `;
+                });
+
+                content.innerHTML = html;
+            } catch (error) {
+                console.error('Error loading patterns:', error);
+            }
+        }
+
+        async function loadProgress() {
+            try {
+                const response = await fetch('/api/progress');
+                const data = await response.json();
+                const content = document.getElementById('progressContent');
+
+                if (data.progress.length === 0) {
+                    content.innerHTML = '<p style="color: #999;">No progress logged yet. Try a coping tool and track how it works for you.</p>';
+                    return;
+                }
+
+                let html = '';
+                data.progress.forEach(entry => {
+                    const stars = '⭐'.repeat(entry.effectiveness);
+                    html += `
+                        <div class="progress-item">
+                            <h4>${entry.tool}</h4>
+                            <div>Effectiveness: ${stars}</div>
+                            <p>${entry.notes || 'No notes'}</p>
+                            <div style="font-size: 0.85em; color: #666; margin-top: 8px;">
+                                ${new Date(entry.timestamp).toLocaleString()}
+                            </div>
+                        </div>
+                    `;
+                });
+
+                content.innerHTML = html;
+            } catch (error) {
+                console.error('Error loading progress:', error);
+            }
+        }
+
+        async function loadAllTools() {
+            try {
+                const response = await fetch('/api/tools');
+                const data = await response.json();
+                const content = document.getElementById('toolsContent');
+
+                let html = '';
+                for (const [key, tool] of Object.entries(data.tools)) {
+                    html += `
+                        <div class="tool-card">
+                            <h4>${tool.name}</h4>
+                            <p>${tool.description}</p>
+                            <div class="tool-meta">
+                                Duration: ${tool.duration} | Use for: ${tool.when_to_use}
+                            </div>
+                        </div>
+                    `;
+                }
+
+                content.innerHTML = html;
+            } catch (error) {
+                console.error('Error loading tools:', error);
+            }
+        }
+
+        function logTool(toolName) {
+            const rating = prompt(`How effective was "${toolName}" for you? (1-5 stars)`);
+            if (rating && rating >= 1 && rating <= 5) {
+                const notes = prompt('Any notes about your experience? (optional)');
+                
+                fetch('/api/log_tool', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        tool: toolName,
+                        effectiveness: parseInt(rating),
+                        notes: notes || ''
+                    })
+                }).then(() => {
+                    alert('✅ Progress logged!');
+                    loadProgress();
+                });
+            }
+        }
+
+        // Load initial data
+        loadPatterns();
+    </script>
+</body>
+</html>

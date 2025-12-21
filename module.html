@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step {{ module[1] }}: {{ module[2] }} - Rooted Light Within App</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #2d3748;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            margin-bottom: 30px;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+        
+        .back-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .module-container {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .module-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        
+        .step-number {
+            font-size: 1rem;
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .module-title {
+            font-size: 2.5rem;
+            color: #2d3748;
+            margin-bottom: 15px;
+        }
+        
+        .module-purpose {
+            font-size: 1.2rem;
+            color: #718096;
+            font-style: italic;
+        }
+        
+        .module-section {
+            margin: 40px 0;
+        }
+        
+        .section-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #667eea;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .guru-message {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #2d3748;
+            background: #f7fafc;
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
+            white-space: pre-line;
+        }
+        
+        .tools-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .tool-tag {
+            background: #edf2f7;
+            padding: 15px 20px;
+            border-radius: 8px;
+            font-size: 1rem;
+            color: #4a5568;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .tool-tag:hover {
+            background: #e2e8f0;
+            border-color: #667eea;
+            transform: translateX(4px);
+        }
+        
+        .tool-tag.active {
+            background: #edf2f7;
+            border-color: #667eea;
+        }
+        
+        .tool-instructions {
+            display: none;
+            margin-top: 10px;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #4a5568;
+        }
+        
+        .tool-tag.active .tool-instructions {
+            display: block;
+        }
+        
+        .tool-step {
+            padding: 15px;
+            margin: 10px 0;
+            background: #f7fafc;
+            border-radius: 8px;
+            border-left: 3px solid #667eea;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.5s ease;
+        }
+        
+        .tool-step.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .start-practice-btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.3s ease;
+        }
+        
+        .start-practice-btn:hover {
+            background: #5568d3;
+        }
+        
+        .start-practice-btn.hidden {
+            display: none;
+        }
+        
+        .tool-name {
+            font-weight: 600;
+            color: #2d3748;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .tool-name::after {
+            content: '▼';
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .tool-tag.active .tool-name::after {
+            transform: rotate(180deg);
+        }
+        
+        .reflection-area {
+            margin-top: 20px;
+        }
+        
+        .reflection-prompt {
+            font-size: 1.1rem;
+            color: #2d3748;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        
+        .reflection-input {
+            width: 100%;
+            min-height: 150px;
+            padding: 20px;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: inherit;
+            resize: vertical;
+            transition: border-color 0.3s ease;
+        }
+        
+        .reflection-input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .action-box {
+            background: #fef3c7;
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 4px solid #f59e0b;
+        }
+        
+        .action-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #92400e;
+            margin-bottom: 10px;
+        }
+        
+        .action-text {
+            font-size: 1.1rem;
+            color: #78350f;
+            line-height: 1.6;
+        }
+        
+        .complete-button {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 40px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .complete-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        .complete-button:disabled {
+            background: #cbd5e0;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .completion-message {
+            text-align: center;
+            padding: 30px;
+            background: #d1fae5;
+            border-radius: 12px;
+            margin-top: 30px;
+            display: none;
+        }
+        
+        .completion-message.show {
+            display: block;
+        }
+        
+        .completion-message h3 {
+            font-size: 1.5rem;
+            color: #065f46;
+            margin-bottom: 15px;
+        }
+        
+        .next-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 30px;
+            background: #10b981;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+        
+        .next-button:hover {
+            background: #059669;
+        }
+        
+        /* Floating Chat Button */
+        .chat-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            text-decoration: none;
+            z-index: 1000;
+        }
+        
+        .chat-button:hover {
+            transform: scale(1.1);
+        }
+        
+        @media (max-width: 768px) {
+            .module-container {
+                padding: 30px 20px;
+            }
+            
+            .module-title {
+                font-size: 2rem;
+            }
+            
+            .guru-message {
+                padding: 20px;
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/path/{{ slug }}" class="back-button">← Back to Path</a>
+        
+        <div class="module-container">
+            <div class="module-header">
+                <div class="step-number">Step {{ module[1] }}</div>
+                <h1 class="module-title">{{ module[2] }}</h1>
+                <p class="module-purpose">{{ module[3] }}</p>
+            </div>
+            
+            <div class="module-section">
+                <div class="section-label">Guidance from Rooted Light Within App</div>
+                <div class="guru-message">{{ module[4] }}</div>
+            </div>
+            
+            <div class="module-section">
+                <div class="section-label">Tools for this step</div>
+                <div class="tools-list">
+                    {% for tool in module[5].split(',') %}
+                    <div class="tool-tag">
+                        <div class="tool-name">{{ tool.strip() }}</div>
+                        <div class="tool-instructions">
+                            {% set tool_name = tool.strip() %}
+                            <button class="start-practice-btn" onclick="startPractice(this)">Begin Practice</button>
+                            <div class="practice-steps" style="display: none;">
+                                {% if 'Body Scan' in tool_name %}
+                                    <div class="tool-step">Find a comfortable position. Close your eyes if that feels safe to you.</div>
+                                    <div class="tool-step">Let's start at the top of your head. Just notice what's there. Any sensation, tension, or nothing at all.</div>
+                                    <div class="tool-step">Now slowly move your attention down to your face... your jaw... your neck.</div>
+                                    <div class="tool-step">Notice your shoulders. Are they holding tension? That's okay. Just notice.</div>
+                                    <div class="tool-step">Move down through your chest... your belly... your hips.</div>
+                                    <div class="tool-step">Down through your legs... all the way to your feet.</div>
+                                    <div class="tool-step">You don't need to fix or change anything. You're just noticing. This is enough.</div>
+                                {% elif 'Grounding' in tool_name %}
+                                    <div class="tool-step">Let's ground together. Start by feeling your feet on the floor.</div>
+                                    <div class="tool-step">Press your feet down gently. Notice the support beneath you.</div>
+                                    <div class="tool-step">Now take a slow breath in through your nose... and out through your mouth.</div>
+                                    <div class="tool-step">Two more breaths like that. In... and out.</div>
+                                    <div class="tool-step">Notice the weight of your body. Feel how gravity holds you. You're supported right now.</div>
+                                    <div class="tool-step">Look around and name 5 things you can see. Take your time.</div>
+                                    <div class="tool-step">You're here. You're present. You're okay.</div>
+                                {% elif 'Butterfly Hug' in tool_name %}
+                                    <div class="tool-step">Cross your arms over your chest, hands resting on opposite shoulders.</div>
+                                    <div class="tool-step">Now gently tap your left shoulder with your right hand.</div>
+                                    <div class="tool-step">Then tap your right shoulder with your left hand.</div>
+                                    <div class="tool-step">Keep alternating. Left... right... left... right. Like a slow heartbeat.</div>
+                                    <div class="tool-step">Breathe slowly as you tap. Notice what you feel.</div>
+                                    <div class="tool-step">Continue for another 20 seconds or so. You're regulating your nervous system.</div>
+                                    <div class="tool-step">Gently stop. Notice if anything shifted. You might feel calmer, heavier, or more present.</div>
+                                {% elif 'Box Breathing' in tool_name %}
+                                    <div class="tool-step">We're going to breathe together. Place one hand on your chest.</div>
+                                    <div class="tool-step">Breathe in slowly... 1, 2, 3, 4.</div>
+                                    <div class="tool-step">Hold your breath... 1, 2, 3, 4.</div>
+                                    <div class="tool-step">Breathe out slowly... 1, 2, 3, 4.</div>
+                                    <div class="tool-step">Hold again... 1, 2, 3, 4.</div>
+                                    <div class="tool-step">One more round. Breathe in... 1, 2, 3, 4.</div>
+                                    <div class="tool-step">Hold... 1, 2, 3, 4.</div>
+                                    <div class="tool-step">Breathe out... 1, 2, 3, 4. Let your shoulders drop, your jaw soften.</div>
+                                    <div class="tool-step">You're telling your body it's safe to slow down.</div>
+                                {% elif 'Orienting' in tool_name %}
+                                    <div class="tool-step">Look slowly around the room. Don't rush.</div>
+                                    <div class="tool-step">Find something that feels safe, neutral, or comforting. Maybe a plant, a blanket, light from a window.</div>
+                                    <div class="tool-step">Say it out loud or in your head: "I see the ___."</div>
+                                    <div class="tool-step">Find two more things. Name them too.</div>
+                                    <div class="tool-step">If you can, reach out and touch one of these things. Feel its texture.</div>
+                                    <div class="tool-step">Right now, in this moment, you are okay.</div>
+                                {% elif 'movement' in tool_name %}
+                                    <div class="tool-step">Stand up if you're able. Or stay seated—that's completely fine.</div>
+                                    <div class="tool-step">Stretch your arms overhead. Just a little. Notice how that feels.</div>
+                                    <div class="tool-step">Roll your shoulders back... then forward.</div>
+                                    <div class="tool-step">Sway gently side to side. Like a tree in a breeze.</div>
+                                    <div class="tool-step">Or just wiggle your fingers. Shake out your hands.</div>
+                                    <div class="tool-step">Movement doesn't have to be big to matter. This is enough.</div>
+                                {% elif 'Inner Dialogue' in tool_name %}
+                                    <div class="tool-step">Notice where you're feeling resistance right now. Where are you pulling back?</div>
+                                    <div class="tool-step">Instead of pushing through, pause here with me.</div>
+                                    <div class="tool-step">Ask gently: "What does this part of me need right now?"</div>
+                                    <div class="tool-step">Listen. Don't judge what comes up.</div>
+                                    <div class="tool-step">Maybe it says "I need rest" or "I'm scared" or "I need safety." Whatever it is, it's valid.</div>
+                                    <div class="tool-step">Write down what you heard, even if it doesn't make sense yet.</div>
+                                    <div class="tool-step">Thank that part of you for protecting you.</div>
+                                {% elif 'Visualization' in tool_name %}
+                                    <div class="tool-step">Close your eyes if that feels okay. Think of a situation where you usually freeze or shut down.</div>
+                                    <div class="tool-step">Now imagine responding differently. What would it look like?</div>
+                                    <div class="tool-step">See it clearly. Where are you? What do you say?</div>
+                                    <div class="tool-step">How does your body feel in this new version?</div>
+                                    <div class="tool-step">Stay with this image for another moment. You're building new pathways.</div>
+                                    <div class="tool-step">When you're ready, open your eyes. You just practiced something new.</div>
+                                {% elif 'Breath' in tool_name %}
+                                    <div class="tool-step">Place one hand on your chest, one on your belly.</div>
+                                    <div class="tool-step">Breathe in slowly through your nose. Feel your belly rise—not your chest.</div>
+                                    <div class="tool-step">Breathe out slowly through your mouth. Feel your belly fall.</div>
+                                    <div class="tool-step">Again. In... belly rises.</div>
+                                    <div class="tool-step">Out... belly falls.</div>
+                                    <div class="tool-step">Three more breaths like this at your own pace.</div>
+                                    <div class="tool-step">You're activating your body's natural calming system.</div>
+                                {% elif 'Review' in tool_name %}
+                                    <div class="tool-step">Take a moment to look back at the steps you've taken.</div>
+                                    <div class="tool-step">What showed up for you in this journey?</div>
+                                    <div class="tool-step">What felt hard? What surprised you?</div>
+                                    <div class="tool-step">What feels more available now than when you started?</div>
+                                    <div class="tool-step">Write down 2-3 things you want to remember.</div>
+                                    <div class="tool-step">Be gentle with yourself. Growth isn't linear. You showed up, and that matters.</div>
+                                {% else %}
+                                    <div class="tool-step">Take a few slow breaths with me.</div>
+                                    <div class="tool-step">Find a comfortable position.</div>
+                                    <div class="tool-step">There's no rush, no right way to do this.</div>
+                                    <div class="tool-step">Just notice what comes up, without judgment.</div>
+                                    <div class="tool-step">You're doing exactly what you need to be doing.</div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            
+            <div class="module-section">
+                <div class="section-label">Reflection</div>
+                <div class="reflection-area">
+                    <p class="reflection-prompt">{{ module[6] }}</p>
+                    <textarea 
+                        id="reflectionInput" 
+                        class="reflection-input" 
+                        placeholder="Take your time... there's no rush, no right answer."
+                        {% if progress and progress[0] %}disabled{% endif %}
+                    >{% if progress and progress[0] %}{{ progress[0] }}{% endif %}</textarea>
+                </div>
+            </div>
+            
+            <div class="module-section">
+                <div class="action-box">
+                    <div class="action-title">Today's Invitation</div>
+                    <div class="action-text">{{ module[7] }}</div>
+                </div>
+            </div>
+            
+            {% if not progress or not progress[1] %}
+            <button class="complete-button" onclick="completeModule()">
+                Mark as Complete
+            </button>
+            {% else %}
+            <div class="completion-message show">
+                <h3>✓ You completed this step</h3>
+                <p style="color: #065f46; font-size: 1.1rem;">Beautiful work. Take your time before moving to the next one.</p>
+                <a href="/path/{{ slug }}" class="next-button">Back to Path</a>
+            </div>
+            {% endif %}
+            
+            <div id="completionMessage" class="completion-message">
+                <h3>✓ Step Complete</h3>
+                <p style="color: #065f46; font-size: 1.1rem;">Beautiful. You showed up for yourself today.</p>
+                <a href="/path/{{ slug }}" class="next-button">Continue to Next Step →</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Floating Chat Button -->
+    <a href="/chat" class="chat-button" title="Chat with Rooted Light Within App">
+        💬
+    </a>
+    
+    <script>
+        // Toggle tool expansion
+        document.addEventListener('DOMContentLoaded', function() {
+            const toolTags = document.querySelectorAll('.tool-tag');
+            toolTags.forEach(tool => {
+                tool.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                });
+            });
+        });
+        
+        // Guided practice animation
+        function startPractice(button) {
+            button.classList.add('hidden');
+            const stepsContainer = button.nextElementSibling;
+            const steps = stepsContainer.querySelectorAll('.tool-step');
+            stepsContainer.style.display = 'block';
+            
+            let delay = 0;
+            steps.forEach((step, index) => {
+                setTimeout(() => {
+                    step.classList.add('show');
+                }, delay);
+                delay += 4000; // 4 seconds between each step
+            });
+        }
+        
+        async function completeModule() {
+            const reflection = document.getElementById('reflectionInput').value;
+            const button = document.querySelector('.complete-button');
+            
+            button.disabled = true;
+            button.textContent = 'Saving...';
+            
+            try {
+                const response = await fetch('/path/{{ slug }}/module/{{ module[1] }}/complete', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ reflection })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    document.getElementById('completionMessage').classList.add('show');
+                    button.style.display = 'none';
+                    document.getElementById('reflectionInput').disabled = true;
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                button.disabled = false;
+                button.textContent = 'Mark as Complete';
+                alert('Something went wrong. Please try again.');
+            }
+        }
+    </script>
+</body>
+</html>

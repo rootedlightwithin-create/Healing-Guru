@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community - Rooted Light Within App</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header h1 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 32px;
+        }
+        
+        .header p {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        
+        .guidelines {
+            background: #f7f7f7;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            font-size: 14px;
+            color: #555;
+        }
+        
+        .guidelines strong {
+            color: #667eea;
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        .guidelines ul {
+            margin-left: 20px;
+            line-height: 1.6;
+        }
+        
+        .filters-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .filters {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-select {
+            padding: 10px 15px;
+            border: 2px solid white;
+            border-radius: 25px;
+            background: white;
+            color: #667eea;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .new-post-btn {
+            background: white;
+            color: #667eea;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+        }
+        
+        .new-post-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+        }
+        
+        .posts {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .post-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s;
+        }
+        
+        .post-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .post-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+        
+        .post-meta {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            color: #888;
+        }
+        
+        .path-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: #f0f0f0;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 13px;
+            color: #667eea;
+            font-weight: 600;
+        }
+        
+        .category-badge {
+            background: #667eea;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .category-badge.win {
+            background: #48bb78;
+        }
+        
+        .category-badge.support {
+            background: #ed8936;
+        }
+        
+        .category-badge.question {
+            background: #667eea;
+        }
+        
+        .category-badge.reflection {
+            background: #9f7aea;
+        }
+        
+        .post-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .post-content {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        .post-footer {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 14px;
+            color: #888;
+        }
+        
+        .author {
+            font-weight: 600;
+            color: #667eea;
+        }
+        
+        .comment-count {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .home-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: white;
+            color: #667eea;
+            padding: 12px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            transition: all 0.2s;
+        }
+        
+        .home-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        .empty-state {
+            background: white;
+            border-radius: 15px;
+            padding: 60px 40px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .empty-state h2 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .empty-state p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .filters-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .filters {
+                justify-content: center;
+            }
+            
+            .new-post-btn {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="/" class="home-btn">🏠 Home</a>
+    
+    <div class="container">
+        <div class="header">
+            <h1>💬 Community Circle</h1>
+            <p>A safe space to share your journey, ask questions, celebrate wins, and support one another.</p>
+            
+            <div class="guidelines">
+                <strong>Community Guidelines:</strong>
+                <ul>
+                    <li>Be kind and compassionate - everyone is on their own healing journey</li>
+                    <li>Respect anonymity and privacy</li>
+                    <li>Share from your experience, not advice-giving</li>
+                    <li>Trigger warnings welcome for sensitive content</li>
+                    <li>What's shared here stays here</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="filters-actions">
+            <div class="filters">
+                <select class="filter-select" onchange="filterPosts(this, 'path')">
+                    <option value="all" {% if current_path == 'all' %}selected{% endif %}>All Paths</option>
+                    {% for path in paths %}
+                    <option value="{{ path[0] }}" {% if current_path == path[0] %}selected{% endif %}>
+                        {{ path[2] }} {{ path[1] }}
+                    </option>
+                    {% endfor %}
+                </select>
+                
+                <select class="filter-select" onchange="filterPosts(this, 'category')">
+                    <option value="all" {% if current_category == 'all' %}selected{% endif %}>All Categories</option>
+                    <option value="win" {% if current_category == 'win' %}selected{% endif %}>🎉 Wins</option>
+                    <option value="support" {% if current_category == 'support' %}selected{% endif %}>🤝 Need Support</option>
+                    <option value="question" {% if current_category == 'question' %}selected{% endif %}>❓ Questions</option>
+                    <option value="reflection" {% if current_category == 'reflection' %}selected{% endif %}>✨ Reflections</option>
+                </select>
+            </div>
+            
+            <a href="/community/new" class="new-post-btn">✍️ Share Your Journey</a>
+        </div>
+        
+        <div class="posts">
+            {% if posts %}
+                {% for post in posts %}
+                <a href="/community/post/{{ post[0] }}" class="post-card">
+                    <div class="post-header">
+                        <div class="post-meta">
+                            {% if post[9] %}
+                            <span class="path-badge">{{ post[9] }} {{ post[8] }}</span>
+                            {% endif %}
+                            <span class="category-badge {{ post[3] }}">
+                                {% if post[3] == 'win' %}🎉 Win
+                                {% elif post[3] == 'support' %}🤝 Support
+                                {% elif post[3] == 'question' %}❓ Question
+                                {% elif post[3] == 'reflection' %}✨ Reflection
+                                {% endif %}
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <h2 class="post-title">{{ post[4] }}</h2>
+                    <p class="post-content">{{ post[5] }}</p>
+                    
+                    <div class="post-footer">
+                        <span class="author">{{ post[1] }}</span>
+                        <span>•</span>
+                        <span>{{ post[6][:10] }}</span>
+                        <span>•</span>
+                        <span class="comment-count">
+                            💬 {{ post[7] }} {% if post[7] == 1 %}comment{% else %}comments{% endif %}
+                        </span>
+                    </div>
+                </a>
+                {% endfor %}
+            {% else %}
+                <div class="empty-state">
+                    <h2>No posts yet in this category</h2>
+                    <p>Be the first to share your journey!</p>
+                    <a href="/community/new" class="new-post-btn">✍️ Create First Post</a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+    
+    <script>
+        function filterPosts(select, type) {
+            const params = new URLSearchParams(window.location.search);
+            params.set(type, select.value);
+            window.location.search = params.toString();
+        }
+    </script>
+</body>
+</html>

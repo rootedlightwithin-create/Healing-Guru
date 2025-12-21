@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ path[1] }} - Rooted Light Within App</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #2d3748;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            margin-bottom: 30px;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+        
+        .back-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .path-hero {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            margin-bottom: 40px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        
+        .path-icon-large {
+            font-size: 5rem;
+            margin-bottom: 20px;
+        }
+        
+        .path-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+            color: #2d3748;
+        }
+        
+        .path-hero p {
+            font-size: 1.2rem;
+            color: #4a5568;
+            line-height: 1.8;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .path-meta {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+            font-size: 1rem;
+            color: #718096;
+        }
+        
+        .modules-section {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .modules-section h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #2d3748;
+        }
+        
+        .module-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .module-card {
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            position: relative;
+        }
+        
+        .module-card:hover {
+            border-color: #667eea;
+            background: #f7fafc;
+            transform: translateX(5px);
+        }
+        
+        .module-card.locked {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        
+        .module-card.locked:hover {
+            transform: none;
+            border-color: #e2e8f0;
+            background: white;
+        }
+        
+        .module-card.completed {
+            background: #f0fdf4;
+            border-color: #10b981;
+        }
+        
+        .module-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+        
+        .module-step {
+            font-size: 0.9rem;
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .module-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 10px;
+        }
+        
+        .module-purpose {
+            font-size: 1rem;
+            color: #718096;
+            margin-bottom: 15px;
+        }
+        
+        .module-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+        }
+        
+        .module-duration {
+            font-size: 0.9rem;
+            color: #718096;
+        }
+        
+        .module-badge {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        .badge-free {
+            background: #e6fffa;
+            color: #047857;
+        }
+        
+        .badge-premium {
+            background: #fef3c7;
+            color: #92400e;
+        }
+        
+        .badge-completed {
+            background: #d1fae5;
+            color: #065f46;
+        }
+        
+        .badge-locked {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+        
+        .lock-icon {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            font-size: 1.5rem;
+            color: #cbd5e0;
+        }
+        
+        /* Floating Chat Button */
+        .chat-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            text-decoration: none;
+            z-index: 1000;
+        }
+        
+        .chat-button:hover {
+            transform: scale(1.1);
+        }
+        
+        @media (max-width: 768px) {
+            .path-hero {
+                padding: 30px 20px;
+            }
+            
+            .path-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .modules-section {
+                padding: 25px;
+            }
+            
+            .module-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/" class="back-button">← Back to Paths</a>
+        
+        <div class="path-hero">
+            <div class="path-icon-large">{{ path[3] }}</div>
+            <h1>{{ path[1] }}</h1>
+            <p>{{ path[2] }}</p>
+            <div class="path-meta">
+                <span>⏱️ {{ path[4] }}</span>
+                <span>📍 {{ modules|length }} steps</span>
+            </div>
+        </div>
+        
+        <div class="modules-section">
+            <h2>Your Journey</h2>
+            <div class="module-list">
+                {% for module in modules %}
+                {% set module_id = module[0] %}
+                {% set step = module[1] %}
+                {% set title = module[2] %}
+                {% set purpose = module[3] %}
+                {% set is_free = module[4] %}
+                {% set minutes = module[5] %}
+                {% set is_completed = module_id in progress and progress[module_id] %}
+                {% set is_locked = not is_free and not has_premium %}
+                
+                <a href="{% if is_locked %}/path/{{ slug }}/module/{{ step }}{% else %}/path/{{ slug }}/module/{{ step }}{% endif %}" 
+                   class="module-card {% if is_locked %}locked{% endif %} {% if is_completed %}completed{% endif %}">
+                    
+                    {% if is_locked %}
+                    <span class="lock-icon">🔒</span>
+                    {% endif %}
+                    
+                    <div class="module-header">
+                        <div>
+                            <div class="module-step">Step {{ step }}</div>
+                            <h3 class="module-title">{{ title }}</h3>
+                            <p class="module-purpose">{{ purpose }}</p>
+                        </div>
+                    </div>
+                    
+                    <div class="module-footer">
+                        <span class="module-duration">⏱️ ~{{ minutes }} minutes</span>
+                        <div>
+                            {% if is_completed %}
+                                <span class="module-badge badge-completed">✓ Completed</span>
+                            {% elif is_locked %}
+                                <span class="module-badge badge-locked">Premium</span>
+                            {% elif is_free %}
+                                <span class="module-badge badge-free">Free</span>
+                            {% else %}
+                                <span class="module-badge badge-premium">Premium</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    
+    <!-- Floating Chat Button -->
+    <a href="/chat" class="chat-button" title="Chat with Rooted Light Within App">
+        💬
+    </a>
+</body>
+</html>
